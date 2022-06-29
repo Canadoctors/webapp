@@ -1,118 +1,195 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import canadoctorsLogo from '../../assets/images/logo.png'
-import Steps from '../../components/patients/Steps'
+import Link from "next/link";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+import canadoctorsLogo from "../../assets/images/logo.png";
+import imagePatient from "../../assets/images/patientDoctor.jpg";
+
+type Inputs = {
+  name: string;
+  lastName: string;
+  date: number;
+  phone: number;
+  email: string;
+  password: string;
+  passwordConfirm: string;
+};
 
 const Patient: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   return (
-    <div className="min-h-screen flex flex-row">
-      <div className=" w-1/2 text-center pt-10">
-      <Image src={canadoctorsLogo} height={60} width={280} />
-      <Steps />
-
-
-      <div className="text-center px-24 pt-10">
-
-
-
-
-
-<form action="/send-data-here" method="post" className="flex flex-col">
-  
-  <select  id="first" name="first" placeholder="Ingre su Nombre" className="form-select rounded-full" > 
-  <option value="value1">Renovacion </option>
-  <option value="value2" selected>Nuevo</option>
-  <option value="value3">Duplicado</option>
- </select>
-
-<div className="mt-3 flex flex-col text-left">
-<label className="py-3 ml-3" > Mayor de edad</label>
- <select  id="first" name="first"  className="form-select rounded-full" > 
-  
-  <option value="value2" selected>Si</option>
-  <option value="value3">No</option>
- </select>
-</div>
-
-
-
-
-
-<div className="mt-3 flex flex-col text-left">
-<label className="py-3 ml-3" >Nombre completo</label>
-<input type="text" className="form-input rounded-full" />
-
-</div>
-
-
-<div className="mt-3 flex flex-col text-left">
-<label className="py-3 ml-3">Genero</label>
- <select  id="first" name="first"  className="form-select rounded-full" > 
-
-  <option value="value2" selected>Masculino</option>
-  <option value="value3">Femenino</option>
- </select>
-</div>
-
-
-<div className="mt-3 flex flex-col text-left">
-<label className="py-3 ml-3" >Fecha de Nacimiento</label>
-<input type="date" id="start" className="form-date " name="trip-start"
-       value="2018-07-22"
-       min="2018-01-01" max="2018-12-31" />
-
-</div>
-
-
-
-<div className="mt-3 flex flex-col text-left">
-<label className="py-3 ml-3" >Peso</label>
-<input type="text" className="form-input rounded-full" />
-
-</div>
-
-
-
-<div className="mt-3 flex flex-col text-left">
-<label className="py-3 ml-3" >Altura</label>
-<input type="text" className="form-input rounded-full" />
-
-</div>
-
-
-  <input type="text" id="last" name="last" placeholder="Correo electronico" className="mt-10 form-input rounded-full" />
-
-  <input type="text" id="last" name="last" placeholder="Ciudad" className="mt-10 form-input rounded-full" />
-
-  <input type="text" id="last" name="last" placeholder="Paciente de Cannabis" className="mt-10 form-input rounded-full" />
-  <button className="bg-[#00A099] hover:bg-[#00A099] text-white font-bold py-2 px-4 rounded-full mt-10">
-  Enviar solicitud
-</button>
-</form>
-
-
-      </div>
-      </div>
-
-
-      <div className="bg-gradient-to-b from-[#00A099] w-1/2 flex flex-col ">
-        <div className="basis-1/2 flex">
-
-            <div className="m-auto text-center">
-                 <h1 className="text-2xl text-white"> Ingresa tus datos y un medico de canadoctors se pondra en contacto </h1>
+    <div className="flex justify-center h-screen">
+      <div className="flex items-center w-full max-w-xl px-6 mx-auto my-auto lg:w-2/6">
+        <div className="flex-1">
+          <div className="text-center">
+            <div className="cursor-pointer">
+              <Link href="/">
+                <a>
+                  <Image src={canadoctorsLogo} height={60} width={280} alt="" />
+                </a>
+              </Link>
             </div>
-         
-         
+          </div>
+          <div className="mt-8">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="name"
+                >
+                  Nombre
+                </label>
+                <input
+                  autoComplete="none"
+                  type="text"
+                  id="name"
+                  placeholder="Nombre"
+                  required={true}
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("name")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="lastName"
+                >
+                  Apellido
+                </label>
+                <input
+                  autoComplete="none"
+                  type="text"
+                  id="lastName"
+                  placeholder="Apellido"
+                  required={true}
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("lastName")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="date"
+                >
+                  Fecha de Nacimiento
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  required={true}
+                  className="block w-full text-gray-600 px-4 py-2 mt-2 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("date")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="phone"
+                >
+                  Teléfono
+                </label>
+                <input
+                  autoComplete="none"
+                  type="number"
+                  id="phone"
+                  placeholder="Teléfono"
+                  required={true}
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("phone")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="email"
+                >
+                  Correo Electrónico
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Correo Electrónico"
+                  required={true}
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("email")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="password"
+                >
+                  Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Contraseña"
+                  required={true}
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("password")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <label
+                  className="block mb-2 text-sm text-gray-600"
+                  htmlFor="passwordConfirm"
+                >
+                  Confirmar Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="passwordConfirm"
+                  placeholder="Confirmar Contraseña"
+                  required={true}
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
+                  {...register("passwordConfirm")}
+                />
+              </div>
+
+              <div className="mt-6">
+                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#00A099] rounded-xl hover:opacity-80 focus:outline-none focus:bg-[#00A099]focus:ring focus:ring-[#00A099] focus:ring-opacity-50">
+                  Registrarse
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div className="basis-1/2 relative">
-         
-          <Image
-            src="/images/patientsregister.png"
-            
-            layout="fill" // required
-            objectFit="cover" // change to suit your needs
-       
-          />
+      </div>
+
+      <div className="hidden bg-cover lg:block lg:w-1/2">
+        <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full ">
+          <div className="basis-1/2 flex">
+            <div className="m-auto text-center">
+              <h2 className="text-lg text-white sm:text-4xl md:text-3xl lg:text-4xl pt-2 pb-2">
+                <span className="block">
+                  Ingresa tus datos para registrar tu usuario
+                </span>
+                <span className="block p-4">en canadoctors</span>
+              </h2>
+            </div>
+          </div>
+          <div className="basis-1/2 relative">
+            <Image
+              src={imagePatient}
+              layout="fill"
+              objectFit="cover"
+              alt="Patient"
+            />
+          </div>
         </div>
       </div>
     </div>
