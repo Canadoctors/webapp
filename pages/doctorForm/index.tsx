@@ -342,7 +342,7 @@ const DoctorForm = () => {
       </div>
 
       <div className="hidden bg-cover lg:block lg:w-1/2">
-        <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full ">
+        <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full">
           <div className="basis-1/2 flex">
             <div className="m-auto text-center">
               <h2 className="text-lg text-white sm:text-4xl md:text-3xl lg:text-3xl pt-2 pb-2">

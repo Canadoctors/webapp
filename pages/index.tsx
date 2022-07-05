@@ -1,22 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import Background from "../assets/images/backgroundDoctors.jpg";
+import background from "../assets/images/backgroundDoctors.jpg";
 import Logo from "../assets/images/LOGO.svg";
 
 function Home() {
   return (
-    <div className="w-full h-[100vh] overflow-hidden relative">
+    <div className="w-full h-[100vh] overflow-hidden relative flex">
       <Image
         className="absolute h-screen inset-0 object-cover"
-        src={Background}
+        src={background}
         alt=""
       />
+
       <div className="absolute inset-0 bg-gray-900 bg-opacity-70">
         <div className="flex h-full w-full items-center justify-center container mx-auto px-8">
           <div className="max-w-4xl text-center">
             <Image width={"400px"} src={Logo} alt="" />
-            <h2 className="text-lg font-bold text-white sm:text-4xl md:text-3xl lg:text-4xl pt-2 pb-2">
+            <h2 className="text-lg font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl pt-2 pb-2">
               <span className="block">
                 Canadoctors es la primer plataforma que conecta
               </span>
