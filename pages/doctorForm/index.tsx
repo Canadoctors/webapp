@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { saveNewDoctor } from "../../application/api";
 
 import canadoctorsLogo from "../../assets/images/logo.png";
 import imagePatient from "../../assets/images/doctor1.jpg";
+import { async } from "@firebase/util";
 
 interface Inputs {
   name: string;
@@ -27,13 +29,17 @@ const DoctorForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
     reset,
+    formState: { errors },
   } = useForm<Inputs>();
 
   const license = watch("license");
 
-  const onSubmitHandler: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
+    saveNewDoctor(data);
+    setTimeout("location.href='/landingSent'", 1000);
+    reset();
+  };
 
   return (
     <div className="flex justify-center h-screen">
