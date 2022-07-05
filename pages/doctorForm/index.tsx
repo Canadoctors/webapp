@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { saveNewDoctor } from "../../application/api";
 
 import canadoctorsLogo from "../../assets/images/logo.png";
 import imagePatient from "../../assets/images/doctor1.jpg";
+import { SubmitHandler, useForm } from "react-hook-form";
+import Router from "next/router";
 
 interface Inputs {
   name: string;
@@ -36,9 +37,9 @@ const DoctorForm = () => {
 
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
     saveNewDoctor(data);
-    //window.location.href = "/landingSent";
-    //setTimeout("location.href='/landingSent'", 1000);
-    reset();
+    Router.push({
+      pathname: "/landingSent",
+    });
   };
 
   return (
