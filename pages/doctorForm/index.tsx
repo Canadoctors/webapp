@@ -5,7 +5,6 @@ import { saveNewDoctor } from "../../application/api";
 
 import canadoctorsLogo from "../../assets/images/logo.png";
 import imagePatient from "../../assets/images/doctor1.jpg";
-import { async } from "@firebase/util";
 
 interface Inputs {
   name: string;
@@ -37,13 +36,14 @@ const DoctorForm = () => {
 
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
     saveNewDoctor(data);
-    setTimeout("location.href='/landingSent'", 1000);
+    //window.location.href = "/landingSent";
+    //setTimeout("location.href='/landingSent'", 1000);
     reset();
   };
 
   return (
     <div className="flex justify-center h-screen">
-      <div className="flex items-center w-full max-w-2xl px-6 pt-4 pb-4 mx-auto my-auto lg:w-2/6">
+      <div className="flex items-center w-full max-w-2xl px-4 pt-4 pb-4 mx-auto my-auto lg:w-2/6">
         <div className="flex-1">
           <div className="text-center">
             <div className="cursor-pointer">
@@ -341,7 +341,7 @@ const DoctorForm = () => {
         </div>
       </div>
 
-      <div className="hidden bg-cover lg:block lg:w-1/2">
+      <div className="hidden bg-cover lg:block lg:w-1/2 h-screen">
         <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full">
           <div className="basis-1/2 flex">
             <div className="m-auto text-center">
