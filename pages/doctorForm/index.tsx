@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
@@ -6,7 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import canadoctorsLogo from "../../assets/images/logo.png";
 import imagePatient from "../../assets/images/doctor1.jpg";
 
-type Inputs = {
+interface Inputs {
   name: string;
   lastName: string;
   phone: number;
@@ -15,22 +14,30 @@ type Inputs = {
   description: string;
   license: boolean;
   licenseNumber: string;
-};
+}
 
-const DoctorForm: NextPage = () => {
+const NANE_DOCTOR = /^\S[a-zA-ZÀ-ÿ\s]+$/;
+const EMAIL_DOCTOR = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
+const PHONE_DOCTOR = /^[0-9]+$/;
+
+const DoctorForm = () => {
+  const styles = `block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40`;
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
   const license = watch("license");
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmitHandler: SubmitHandler<Inputs> = (data) => console.log(data);
+
   return (
     <div className="flex justify-center h-screen">
-      <div className="flex items-center w-full max-w-xl px-6 mx-auto my-auto lg:w-2/6">
+      <div className="flex items-center w-full max-w-2xl px-6 pt-4 pb-4 mx-auto my-auto lg:w-2/6">
         <div className="flex-1">
           <div className="text-center">
             <div className="cursor-pointer">
@@ -42,76 +49,158 @@ const DoctorForm: NextPage = () => {
             </div>
           </div>
           <div className="mt-8">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div>
-                <label
-                  className="block mb-2 text-sm text-gray-600"
-                  htmlFor="name"
-                >
-                  Nombre
-                </label>
-                <input
-                  autoComplete="none"
-                  type="text"
-                  id="name"
-                  placeholder="Nombre"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("name")}
-                />
+            <form onSubmit={handleSubmit(onSubmitHandler)}>
+              <div className="md:flex justify-between gap-2">
+                <div className="sm:w-full">
+                  <label
+                    className="block mb-2 text-sm text-gray-600"
+                    htmlFor="name"
+                  >
+                    Nombre
+                  </label>
+                  <input
+                    autoComplete="none"
+                    type="text"
+                    id="name"
+                    placeholder="Nombre"
+                    maxLength={25}
+                    className={`${styles}
+                  ${
+                    errors.name &&
+                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                  }`}
+                    {...register("name", {
+                      required: {
+                        value: true,
+                        message: "El campo Nombre es requerido.",
+                      },
+                      maxLength: 25,
+                      pattern: {
+                        value: NANE_DOCTOR,
+                        message: "El Nombre no es válido.",
+                      },
+                    })}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-2">
+                      {errors.name.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="sm:w-full md:mt-0 sm:mt-6 mt-6">
+                  <label
+                    className="block mb-2 text-sm text-gray-600"
+                    htmlFor="lastName"
+                  >
+                    Apellido
+                  </label>
+                  <input
+                    autoComplete="none"
+                    type="text"
+                    id="lastName"
+                    placeholder="Apellido"
+                    maxLength={20}
+                    className={`${styles}                  
+                  ${
+                    errors.lastName &&
+                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                  }`}
+                    {...register("lastName", {
+                      required: {
+                        value: true,
+                        message: "El campo Apellido es requerido.",
+                      },
+                      maxLength: 20,
+                      pattern: {
+                        value: NANE_DOCTOR,
+                        message: "El Apellido no es válido.",
+                      },
+                    })}
+                  />
+                  {errors.lastName && (
+                    <p className="text-red-500 text-sm mt-2">
+                      {errors.lastName.message}
+                    </p>
+                  )}
+                </div>
               </div>
 
-              <div className="mt-6">
-                <label
-                  className="block mb-2 text-sm text-gray-600"
-                  htmlFor="lastName"
-                >
-                  Apellido
-                </label>
-                <input
-                  autoComplete="none"
-                  type="text"
-                  id="lastName"
-                  placeholder="Apellido"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("lastName")}
-                />
-              </div>
+              <div className="md:flex justify-between gap-2">
+                <div className="mt-6 sm:w-full">
+                  <label
+                    className="block mb-2 text-sm text-gray-600"
+                    htmlFor="email"
+                  >
+                    Correo Electrónico
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Correo Electrónico"
+                    maxLength={40}
+                    className={`${styles}                 
+                   ${
+                     errors.email
+                       ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                       : "border-gray-200"
+                   }`}
+                    {...register("email", {
+                      required: {
+                        value: true,
+                        message: "El campo Email es requerido.",
+                      },
+                      maxLength: 40,
+                      pattern: {
+                        value: EMAIL_DOCTOR,
+                        message: "El Email no es válido.",
+                      },
+                    })}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-2">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
 
-              <div className="mt-6">
-                <label
-                  className="block mb-2 text-sm text-gray-600"
-                  htmlFor="email"
-                >
-                  Correo Electrónico
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="Correo Electrónico"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("email")}
-                />
-              </div>
-
-              <div className="mt-6">
-                <label
-                  className="block mb-2 text-sm text-gray-600"
-                  htmlFor="phone"
-                >
-                  Teléfono
-                </label>
-                <input
-                  autoComplete="none"
-                  type="number"
-                  id="phone"
-                  placeholder="Teléfono"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("phone")}
-                />
+                <div className="mt-6 sm:w-full">
+                  <label
+                    className="block mb-2 text-sm text-gray-600"
+                    htmlFor="phone"
+                  >
+                    Teléfono
+                  </label>
+                  <input
+                    autoComplete="none"
+                    type="number"
+                    id="phone"
+                    placeholder="Teléfono"
+                    maxLength={15}
+                    className={`${styles}                  
+                  ${
+                    errors.phone
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
+                    {...register("phone", {
+                      required: {
+                        value: true,
+                        message: "El campo Teléfono es requerido.",
+                      },
+                      maxLength: 15,
+                      pattern: {
+                        value: PHONE_DOCTOR,
+                        message: "El Teléfono no es válido.",
+                      },
+                    })}
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-2">
+                      {errors.phone.message}
+                    </p>
+                  )}
+                </div>
               </div>
 
               <div className="mt-6">
@@ -126,10 +215,30 @@ const DoctorForm: NextPage = () => {
                   type="string"
                   id="speciality"
                   placeholder="Especialidad"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("speciality")}
+                  maxLength={25}
+                  className={`${styles}                  
+                  ${
+                    errors.speciality
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
+                  {...register("speciality", {
+                    required: {
+                      value: true,
+                      message: "El campo Especialidad es requerido.",
+                    },
+                    maxLength: 25,
+                    pattern: {
+                      value: NANE_DOCTOR,
+                      message: "La Especialidad no es válida.",
+                    },
+                  })}
                 />
+                {errors.speciality && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.speciality.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -140,12 +249,29 @@ const DoctorForm: NextPage = () => {
                   Descripción
                 </label>
                 <textarea
-                  className="resize-none rounded-xl block w-full border text-gray-700 border-gray-200 placeholder-gray-400 focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
                   id="description"
                   placeholder="¿Cómo utiliza el cannabis medicinal con sus pacientes?"
-                  required={true}
-                  {...register("description")}
-                ></textarea>
+                  maxLength={200}
+                  rows={4}
+                  className={`${styles}                  
+                  ${
+                    errors.description
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
+                  {...register("description", {
+                    required: {
+                      value: true,
+                      message: "El campo Descripción es requerido.",
+                    },
+                    maxLength: 200,
+                  })}
+                />
+                {errors.description && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.description.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -153,7 +279,7 @@ const DoctorForm: NextPage = () => {
                   className="mb-2 text-sm text-gray-600"
                   htmlFor="specialty"
                 >
-                  ¿Cuenta con licencia de Cannabis?
+                  ¿Cuenta con Licencia de Cannabis?
                 </label>
                 <input
                   type="checkbox"
@@ -164,25 +290,39 @@ const DoctorForm: NextPage = () => {
               </div>
 
               {license && (
-                <>
-                  <div className="mt-6">
-                    <label
-                      className="block mb-2 text-sm text-gray-600"
-                      htmlFor="specialty"
-                    >
-                      Número de licencia
-                    </label>
-                    <input
-                      autoComplete="none"
-                      type="string"
-                      id="licenseNumber"
-                      placeholder="Número de licencia"
-                      required={true}
-                      className="uppercase block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 placeholder:capitalize bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                      {...register("licenseNumber")}
-                    />
-                  </div>
-                </>
+                <div className="mt-6">
+                  <label
+                    className="block mb-2 text-sm text-gray-600"
+                    htmlFor="specialty"
+                  >
+                    Número de licencia
+                  </label>
+                  <input
+                    autoComplete="none"
+                    type="string"
+                    id="licenseNumber"
+                    placeholder="Número de licencia"
+                    maxLength={30}
+                    className={`${styles}                   
+                     ${
+                       errors.licenseNumber
+                         ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                         : "border-gray-200"
+                     }`}
+                    {...register("licenseNumber", {
+                      required: {
+                        value: true,
+                        message: "El campo Número de Licencia es requerido.",
+                      },
+                      maxLength: 30,
+                    })}
+                  />
+                  {errors.licenseNumber && (
+                    <p className="text-red-500 text-sm mt-2">
+                      {errors.licenseNumber.message}
+                    </p>
+                  )}
+                </div>
               )}
 
               <div className="mt-6">

@@ -1,7 +1,8 @@
-import type { NextPage } from "next";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 import canadoctorsLogo from "../../assets/images/logo.png";
 import imagePatient from "../../assets/images/patientDoctor.jpg";
@@ -16,14 +17,29 @@ type Inputs = {
   passwordConfirm: string;
 };
 
-const Patient: NextPage = () => {
+const NANE_PATIENT = /^\S[a-zA-ZÀ-ÿ\s]+$/;
+const EMAIL_PATIENT = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
+const PHONE_PATIENT = /^[0-9]+$/;
+const PASSWORD_PATIENT = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d@$!%*?&]+$/;
+
+const Patient = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleBtn = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const styles = `block  w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40`;
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm<Inputs>();
+
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
   return (
     <div className="flex justify-center h-screen">
       <div className="flex items-center w-full max-w-xl px-6 mx-auto my-auto lg:w-2/6">
@@ -51,10 +67,29 @@ const Patient: NextPage = () => {
                   type="text"
                   id="name"
                   placeholder="Nombre"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("name")}
+                  maxLength={25}
+                  className={`${styles}
+                  ${
+                    errors.name &&
+                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                  }`}
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "El campo Nombre es requerido.",
+                    },
+                    maxLength: 25,
+                    pattern: {
+                      value: NANE_PATIENT,
+                      message: "El Nombre no es válido.",
+                    },
+                  })}
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.name.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -69,10 +104,29 @@ const Patient: NextPage = () => {
                   type="text"
                   id="lastName"
                   placeholder="Apellido"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("lastName")}
+                  maxLength={20}
+                  className={`${styles}                  
+                ${
+                  errors.lastName &&
+                  "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                }`}
+                  {...register("lastName", {
+                    required: {
+                      value: true,
+                      message: "El campo Apellido es requerido.",
+                    },
+                    maxLength: 20,
+                    pattern: {
+                      value: NANE_PATIENT,
+                      message: "El Apellido no es válido.",
+                    },
+                  })}
                 />
+                {errors.lastName && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.lastName.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -85,10 +139,25 @@ const Patient: NextPage = () => {
                 <input
                   type="date"
                   id="date"
-                  required={true}
-                  className="block w-full text-gray-600 px-4 py-2 mt-2 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("date")}
+                  maxLength={10}
+                  className={`${styles}                  
+                ${
+                  errors.date &&
+                  "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                }`}
+                  {...register("date", {
+                    required: {
+                      value: true,
+                      message: "El campo Fecha es requerido.",
+                    },
+                    maxLength: 10,
+                  })}
                 />
+                {errors.date && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.date.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -103,10 +172,30 @@ const Patient: NextPage = () => {
                   type="number"
                   id="phone"
                   placeholder="Teléfono"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("phone")}
+                  maxLength={15}
+                  className={`${styles}                  
+                  ${
+                    errors.phone
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
+                  {...register("phone", {
+                    required: {
+                      value: true,
+                      message: "El campo Teléfono es requerido.",
+                    },
+                    maxLength: 15,
+                    pattern: {
+                      value: PHONE_PATIENT,
+                      message: "El Teléfono no es válido.",
+                    },
+                  })}
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.phone.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -120,10 +209,30 @@ const Patient: NextPage = () => {
                   type="email"
                   id="email"
                   placeholder="Correo Electrónico"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("email")}
+                  maxLength={40}
+                  className={`${styles}                 
+                 ${
+                   errors.email
+                     ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                     : "border-gray-200"
+                 }`}
+                  {...register("email", {
+                    required: {
+                      value: true,
+                      message: "El campo Email es requerido.",
+                    },
+                    maxLength: 40,
+                    pattern: {
+                      value: EMAIL_PATIENT,
+                      message: "El Email no es válido.",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -134,13 +243,39 @@ const Patient: NextPage = () => {
                   Contraseña
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   placeholder="Contraseña"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("password")}
+                  maxLength={10}
+                  className={`${styles}                 
+                 ${
+                   errors.password
+                     ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                     : "border-gray-200"
+                 }`}
+                  {...register("password", {
+                    required: {
+                      value: true,
+                      message: "El campo Contraseña es requerido.",
+                    },
+                    maxLength: 10,
+                    pattern: {
+                      value: PASSWORD_PATIENT,
+                      message: "La Contraseña no es válido.",
+                    },
+                  })}
                 />
+                <button
+                  className="relative left-[500px] bottom-8"
+                  onClick={toggleBtn}
+                >
+                  {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
+                </button>
+                {errors.password && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
@@ -154,10 +289,30 @@ const Patient: NextPage = () => {
                   type="password"
                   id="passwordConfirm"
                   placeholder="Confirmar Contraseña"
-                  required={true}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40"
-                  {...register("passwordConfirm")}
+                  maxLength={10}
+                  className={`${styles}                 
+                 ${
+                   errors.passwordConfirm
+                     ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                     : "border-gray-200"
+                 }`}
+                  {...register("passwordConfirm", {
+                    required: {
+                      value: true,
+                      message: "El campo Contraseña es requerido.",
+                    },
+                    maxLength: 10,
+                    pattern: {
+                      value: PASSWORD_PATIENT,
+                      message: "La Contraseña no es válido.",
+                    },
+                  })}
                 />
+                {errors.passwordConfirm && (
+                  <p className="text-red-500 text-sm mt-2">
+                    {errors.passwordConfirm.message}
+                  </p>
+                )}
               </div>
 
               <div className="mt-6">
