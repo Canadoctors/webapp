@@ -39,6 +39,7 @@ const DoctorForm = () => {
     saveNewDoctor(data);
     Router.push({
       pathname: "/landingSent",
+      query: { name: data.name },
     });
   };
 

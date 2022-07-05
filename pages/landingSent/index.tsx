@@ -1,10 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import canadoctorsLogo from "../../assets/images/logo.png";
 import iconEmail from "../../assets/images/email.png";
 
-function index() {
+function LandingSent() {
+  const { query } = useRouter();
+
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-6 sm:py-12 bg-gradient-to-b from-[#00A099] h-full">
       <div className="max-w-xl px-5 text-center">
@@ -15,11 +18,12 @@ function index() {
           <Image src={iconEmail} height={200} width={200} alt="" />
         </div>
         <h2 className="mt-8 text-[30px] font-semibold text-[#5A5A5A]">
-          Gracias, nos pondremos en contacto contigo a la brevedad.
+          Gracias <span className="capitalize">{query.name}</span>, nos
+          pondremos en contacto contigo a la brevedad.
         </h2>
       </div>
     </div>
   );
 }
 
-export default index;
+export default LandingSent;
