@@ -2,10 +2,10 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBLYABSjc1aWlAFJjuL8dYLiDP4nkpFbtc",
-  authDomain: "canadoctordb.firebaseapp.com",
-  projectId: "canadoctordb",
-  storageBucket: "canadoctordb.appspot.com",
+  apiKey: "AIzaSyDoDPfzFvh4GpEMEEC5p6A7qq3V7OL8SqQ",
+  authDomain: "canadoctordb-b98e0.firebaseapp.com",
+  projectId: "canadoctordb-b98e0",
+  storageBucket: "canadoctordb-b98e0.appspot.com",
 };
 
 const app = initializeApp(firebaseConfig);
