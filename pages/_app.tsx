@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   function pageView(url: string , title: string) {
 
     window && window.dataLayer && window.dataLayer.push({
-      'event': 'virtualPageview',
+      'event': 'VirtualPageview',
       'virtualPageURL': url,
       'virtualPageTitle': title,
   });
