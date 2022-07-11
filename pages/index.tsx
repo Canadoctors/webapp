@@ -19,9 +19,9 @@ function Home() {
             <Image width={"400px"} src={Logo} alt="" />
             <h2 className="text-lg font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl pt-2 pb-2">
               <span className="block">
-                Canadoctors es la primer plataforma que conecta   medicos y pacientes de cannabis medicinal.
+                Canadoctors es la primer plataforma que conecta medicos y
+                pacientes de cannabis medicinal.
               </span>
-             
             </h2>
             <div className="mt-10 flex flex-col sm:-mx-2 sm:flex-row sm:justify-center">
               <Link href="/doctorForm">
