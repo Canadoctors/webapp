@@ -1,17 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import background from "../assets/images/backgroundDoctors.jpg";
-import Logo from "../assets/images/LOGO.svg";
 
-function Home() {
+import background from "../assets/images/backgroundDoctors.jpg";
+import Logo from "../assets/images/logopositivo.svg";
+
+function Terms() {
   return (
+
+    <>
     <div className="w-full h-[100vh] overflow-hidden relative flex">
-      <Image
-        className="absolute h-screen inset-0 object-cover"
-        src={background}
-        alt=""
-      />
+      
 
       <div className="absolute inset-0 bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40">
         <div className="flex h-full w-full items-center justify-center container mx-auto px-8">
@@ -26,7 +25,13 @@ function Home() {
             <div className="mt-10 flex flex-col sm:-mx-2 sm:flex-row sm:justify-center">
               <Link href="/doctorForm">
                 <button className="bg-white text-[#00A099] focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mr-4 mb-4 hover:opacity-90">
-                  Participar
+                  Registrate
+                </button>
+              </Link>
+
+              <Link href="/doctorForm">
+                <button className="bg-white text-[#00A099] focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mr-4 mb-4 hover:opacity-90">
+                  Iniciar Sesion
                 </button>
               </Link>
             </div>
@@ -34,6 +39,11 @@ function Home() {
         </div>
       </div>
     </div>
+
+   
+    
+</>
+    
   );
 }
-export default Home;
+export default Terms;
