@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Link from "next/link";
+import Image from "next/image"
 import imgOne from "../assets/images/tech1.png";
 import imgTwo from "../assets/images/tech2.png";
 import imgThree from "../assets/images/tech3.png";
@@ -51,7 +52,8 @@ export const Tech = () => {
             Canadoctor te conecta con medicos especialistas en endocannabinologia licenciados y matricuclados
             </p>
           </div>
-          <div className="flex mt-3"> <button className="bg-[#00A19A] py-3 px-5 text-white rounded-lg">Registrarme</button></div>
+          <div className="flex mt-3">
+            <Link href="https://app.canadoctors.com/signup"> <button className="bg-[#00A19A] py-3 px-5 text-white rounded-lg">Registrarme</button> </Link> </div>
 
             </div>
          

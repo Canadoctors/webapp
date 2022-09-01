@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"
 import footerLogo from "../assets/images/logocanadoctorwhite.svg";
 import ig from "../assets/images/ig.png"
 import twt from "../assets/images/twt.png"
@@ -17,14 +18,14 @@ export const Footer = () => {
               <ul>
                 <li> Home </li>
                 <li> Contacto </li>
-                <li> Registrate </li>
+                <Link href="https://app.canadoctors.com/signup"><li> Registrate </li></Link>
               </ul>
             </div>
 
             <div className="flex px-5">
               <ul>
-                <li> Ingresar</li>
-                <li> Terminos y condiciones </li>
+               <Link href="https://app.canadoctors.com/signin"> <li> Ingresar</li></Link>
+               <Link href="/term"> <li> Terminos y condiciones </li> </Link> 
               </ul>
             </div>
           </div>
