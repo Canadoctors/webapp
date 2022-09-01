@@ -15,7 +15,7 @@ return (
 <Image  src={icon} width={150} height={150 } />
 <div className="font-bold text-xl ml-6"> <h1> Profesinales</h1></div>
     <div className="ml-6">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicinorum molestias?</p>
+    <p>Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal</p>
     </div>
     
 
@@ -24,9 +24,9 @@ return (
 
 <div className=" text-black  ">
 <Image  src={iconBlocks} width={150} height={150 } />
-<div className="font-bold text-xl ml-6"> <h1> Profesinales</h1></div>
+<div className="font-bold text-xl ml-6"> <h1>Blockchain</h1></div>
     <div className="ml-6">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicinorum molestias?</p>
+    <p>Cannadoctors genera un huella digital en la red de bloques permitiendo validar la trazabilidad de los pacientes</p>
     </div>
     
 
@@ -35,9 +35,9 @@ return (
 
 <div className=" text-black  ">
 <Image  src={iconLaw} width={150} height={150 } />
-<div className="font-bold text-xl ml-6"> <h1> Profesinales</h1></div>
+<div className="font-bold text-xl ml-6"> <h1> Cumplimiento</h1></div>
     <div className="ml-6">
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicinorum molestias?</p>
+    <p>Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internaccioonal.</p>
     </div>
     
 

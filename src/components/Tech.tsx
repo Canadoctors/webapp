@@ -42,18 +42,16 @@ export const Tech = () => {
         <div className="flex-col w-2/4 tx-5 px-10">
 
             <div className="container">
-            <div className="flex text-2xl text-green-800 text-left">
+            <div className="flex text-2xl text-[#00A19A] text-left font-bold">
             {" "}
-            Tecnologia apllicada a la industria<br></br> del cannabis medicinal
+            Tecnologia aplicada a la industria<br></br> del cannabis medicinal
           </div>
           <div className="flex text-left">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi,
-              illo expedita veniam minima sed minus pariatur molestias
-              temporibus, dolorem praesentium optio ipsa. Id laboriosam
-              praesentium itaque odio officia quaerat corrupti!
+            Canadoctor te conecta con medicos especialistas en endocannabinologia licenciados y matricuclados
             </p>
           </div>
+          <div className="flex mt-3"> <button className="bg-[#00A19A] py-3 px-5 text-white rounded-lg">Registrarme</button></div>
 
             </div>
          

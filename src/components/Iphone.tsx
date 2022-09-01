@@ -1,7 +1,7 @@
 import Image from "next/image";
 import iphonePic from "../assets/images/iphone.png";
 import pr from "../assets/images/pr.png";
-import eeuu from "../assets/images/col.png";
+import eeuu from "../assets/images/eeuu.png";
 import arg from "../assets/images/arg.png";
 import mex from "../assets/images/mex.png";
 import uy from "../assets/images/uy.png";
@@ -19,7 +19,7 @@ export const Iphone = () => {
             <div className="flex-col  px-10 ">
                 <div className="font-bold font-2xl"> <h1>Paises Disponibles</h1> </div>
             
-            <p>Lorem ipsum dolor sit emque laboriosam fugit incidunt neque vitae voluptas quam ut consequatur a eaque pariatur?</p>
+            <p>Actualmente nuestra plataforma esta operativa en Estados Unidos, Puerto Rico y Argentina</p>
 
             </div>
 
@@ -39,7 +39,7 @@ export const Iphone = () => {
 
             <div className="flex-col  px-10 ">
                 <div className="font-bold font-2xl"> <h1>Proximamente</h1> </div>
-            <div className="font-md"> <p>Lore</p></div>
+            <div className="font-md"> <p>Nuestros planes de expansión en latinoamerica contemplan Colombia, Uruguay, Panama y Mexico</p></div>
             
 
             </div>
