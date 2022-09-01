@@ -1,10 +1,9 @@
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { usePasswordToggle } from "../../hooks/usePasswordToggle";
 
-import canadoctorsLogo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/canadoctorLogoHite.svg";
 import imagePatient from "../../assets/images/patientDoctor.jpg";
 
 type Inputs = {
@@ -23,13 +22,9 @@ const PHONE_PATIENT = /^[0-9]+$/;
 const PASSWORD_PATIENT = /^(?=.*[a-z])(?=.*[A-Z])[A-Za-z\d@$!%*?&]+$/;
 
 const Patient = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [passwordInputType, toggleIcon] = usePasswordToggle();
 
-  const toggleBtn = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const styles = `block  w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40`;
+  const styles = `block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40`;
 
   const {
     register,
@@ -48,7 +43,7 @@ const Patient = () => {
             <div className="cursor-pointer">
               <Link href="/">
                 <a>
-                  <Image src={canadoctorsLogo} height={60} width={280} alt="" />
+                  <Image src={Logo} height={60} width={280} alt="" />
                 </a>
               </Link>
             </div>
@@ -235,7 +230,7 @@ const Patient = () => {
                 )}
               </div>
 
-              <div className="mt-6">
+              <div className="relative mt-6">
                 <label
                   className="block mb-2 text-sm text-gray-600"
                   htmlFor="password"
@@ -243,7 +238,7 @@ const Patient = () => {
                   Contraseña
                 </label>
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={passwordInputType as any}
                   id="password"
                   placeholder="Contraseña"
                   maxLength={10}
@@ -265,12 +260,7 @@ const Patient = () => {
                     },
                   })}
                 />
-                <button
-                  className="relative left-[500px] bottom-8"
-                  onClick={toggleBtn}
-                >
-                  {showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-                </button>
+                {toggleIcon}
                 {errors.password && (
                   <p className="text-red-500 text-sm mt-2">
                     {errors.password.message}
@@ -278,7 +268,7 @@ const Patient = () => {
                 )}
               </div>
 
-              <div className="mt-6">
+              <div className="mt-6 relative">
                 <label
                   className="block mb-2 text-sm text-gray-600"
                   htmlFor="passwordConfirm"
@@ -286,7 +276,7 @@ const Patient = () => {
                   Confirmar Contraseña
                 </label>
                 <input
-                  type="password"
+                  type={passwordInputType as any}
                   id="passwordConfirm"
                   placeholder="Confirmar Contraseña"
                   maxLength={10}
@@ -308,6 +298,7 @@ const Patient = () => {
                     },
                   })}
                 />
+                {toggleIcon}
                 {errors.passwordConfirm && (
                   <p className="text-red-500 text-sm mt-2">
                     {errors.passwordConfirm.message}

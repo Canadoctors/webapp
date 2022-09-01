@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import Background from "../assets/images/background2.jpg";
-import Logo from "../assets/images/LOGO.svg";
+import Logo from "../assets/images/canadoctorLogoHite.svg";
 
 const Home = () => {
   return (
@@ -17,13 +17,13 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-full h-[100vh] overflow-hidden relative">
+      <div className="w-full h-[100vh] overflow-hidden relative flex">
         <Image
           className="absolute h-screen inset-0 object-cover"
           src={Background}
           alt=""
         />
-        <div className="absolute inset-0 bg-gray-900 bg-opacity-70">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/70 bg-opacity-40">
           <div className="flex h-full w-full items-center justify-center container mx-auto px-8">
             <div className="max-w-4xl text-center">
               <Image width={"400px"} src={Logo} alt="" />
