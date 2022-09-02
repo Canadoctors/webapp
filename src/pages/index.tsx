@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Icons } from "../components/Icons";
+import Movie from "../components/Movie";
 import { Tech } from "../components/Tech";
 import { Iphone } from "../components/Iphone";
 import { Footer } from "../components/Footer";
@@ -48,6 +49,7 @@ function Home() {
 
       <Icons />
       <Tech />
+      <Movie />
       <Iphone />
       <Footer />
     </>

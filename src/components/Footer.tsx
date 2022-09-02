@@ -81,7 +81,7 @@ export const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/terms">
                       <a className="text-gray-600 hover:text-opacity-75 font-semibold block pb-2 text-sm">
                         Terminos y condiciones
                       </a>

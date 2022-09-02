@@ -26,7 +26,7 @@ export const Tech = () => {
           </div>
 
           <div className="overflow-hidden rounded-xl col-span-3 max-h-[24rem]">
-            <Image src={ImageTwo} className="object-center" />
+            <Image src={ImageOne} className="object-center" />
           </div>
         </div>
       </div>
@@ -42,16 +42,6 @@ export const Tech = () => {
           Canadoctor te conecta con medicos especialistas en endocannabinologia
           licenciados y matricuclados
         </p>
-        <div className="lg:mt-0 lg:flex-shrink-0">
-          <div className="mt-12 inline-flex rounded-md shadow">
-            <button
-              type="button"
-              className="py-4 px-10 bg-[#00A19A] hover:opacity-75 text-white w-full transition ease-in duration-200 text-center text-xl font-semibold shadow-md rounded-lg "
-            >
-              Ver más
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
