@@ -1,64 +1,56 @@
 import Link from "next/link";
-import Image from "next/image"
-import imgOne from "../assets/images/tech1.png";
-import imgTwo from "../assets/images/tech2.png";
-import imgThree from "../assets/images/tech3.png";
+import Image from "next/image";
+import ImageOne from "../assets/images/tech1.png";
+import ImageTwo from "../assets/images/tech2.png";
+import ImageThree from "../assets/images/tech3.png";
 
 export const Tech = () => {
   return (
-    <div className="w-full  h-[100vh] bg-gray-100 flex pt-5 items-center justify-center ">
-      <div className="items-center text-center flex">
-        <div className="flex w-2/4">
-          <div className="grid grid-cols-2 gap-2">
-            <div className="bg-white row-span-2 p-10 rounded relative h-[60vh] w-[35vh] m-5 mt-28">
-              <Image
-                src={imgOne}
-                layout="fill"
-                objectFit="cover"
-                className="object-center"
-              />
-            </div>
+    <div className="bg-[#F3F4F6] relative lg:flex lg:items-center h-[100vh]">
+      <div className="flex items-center gap-8 p-8">
+        <div className="grid grid-cols-6 col-span-2 gap-2 items-center">
+          <div className="overflow-hidden rounded-xl col-span-3 max-h-[30rem]">
+            <Image
+              className="h-full w-full object-cover "
+              src={ImageOne}
+              alt=""
+            />
+          </div>
 
-            <div className=" bg-white p-10 relative w-[35vh] h-[40vh] m-5">
-              {" "}
-              <Image
-                src={imgTwo}
-                layout="fill"
-                objectFit="cover"
-                className="object-center"
-              />{" "}
-            </div>
+          <div className="overflow-hidden rounded-xl col-span-3 max-h-[25rem]">
+            <Image src={ImageTwo} className="object-center" />
+          </div>
 
-            <div className="row-span-3 bg-white p-10 rounded relative h-[20vh] m-5 w-[35vh]">
-              <Image
-                src={imgThree}
-                layout="fill"
-                objectFit="cover"
-                className="object-center"
-              />
-            </div>
+          <div className="overflow-hidden rounded-xl col-span-3 max-h-[20rem]">
+            <Image src={ImageTwo} className="object-center" />
+          </div>
+
+          <div className="overflow-hidden rounded-xl col-span-3 max-h-[24rem]">
+            <Image src={ImageTwo} className="object-center" />
           </div>
         </div>
+      </div>
 
-        <div className="flex-col w-2/4 tx-5 px-10">
-
-            <div className="container">
-            <div className="flex text-2xl text-[#00A19A] text-left font-bold">
+      <div className="py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
+          <span className="block">
             {" "}
-            Tecnologia aplicada a la industria<br></br> del cannabis medicinal
+            Tecnologia aplicada a la industria del cannabis medicinal
+          </span>
+        </h2>
+        <p className="text-lg mt-4 text-gray-400">
+          Canadoctor te conecta con medicos especialistas en endocannabinologia
+          licenciados y matricuclados
+        </p>
+        <div className="lg:mt-0 lg:flex-shrink-0">
+          <div className="mt-12 inline-flex rounded-md shadow">
+            <button
+              type="button"
+              className="py-4 px-10 bg-[#00A19A] hover:opacity-75 text-white w-full transition ease-in duration-200 text-center text-xl font-semibold shadow-md rounded-lg "
+            >
+              Ver más
+            </button>
           </div>
-          <div className="flex text-left">
-            <p>
-            Canadoctor te conecta con medicos especialistas en endocannabinologia licenciados y matricuclados
-            </p>
-          </div>
-          <div className="flex mt-3">
-            <Link href="https://app.canadoctors.com/signup"> <button className="bg-[#00A19A] py-3 px-5 text-white rounded-lg">Registrarme</button> </Link> </div>
-
-            </div>
-         
-
-         
         </div>
       </div>
     </div>
