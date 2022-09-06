@@ -6,42 +6,51 @@ import ImageThree from "../assets/images/tech3.png";
 
 export const Tech = () => {
   return (
-    <div className="bg-[#F3F4F6] relative lg:flex lg:items-center h-[100vh]">
-      <div className="flex items-center gap-8 p-8">
-        <div className="grid grid-cols-6 col-span-2 gap-2 items-center">
-          <div className="overflow-hidden rounded-xl col-span-3 max-h-[30rem]">
-            <Image
-              className="h-full w-full object-cover "
-              src={ImageOne}
-              alt=""
-            />
+    <div className="bg-[#F3F4F6]">
+      <div className="container pt-4 m-auto px-6 space-y-8 text-gray-500 md:px-12 lg:px-20">
+        <div className="justify-center text-center gap-6 md:text-left md:flex lg:items-center lg:gap-16">
+          <div className="order-last mb-6 space-y-6 md:mb-0 md:w-6/12 lg:w-6/12">
+            <h1 className="text-4xl text-gray-700 font-bold md:text-4xl">
+              Tecnologia aplicada a la industria del cannabis medicinal
+            </h1>
+            <p className="text-lg">
+              Canadoctor te conecta con medicos especialistas en
+              endocannabinologia licenciados y matricuclados.
+            </p>
           </div>
-
-          <div className="overflow-hidden rounded-xl col-span-3 max-h-[25rem]">
-            <Image src={ImageTwo} className="object-center" />
-          </div>
-
-          <div className="overflow-hidden rounded-xl col-span-3 max-h-[20rem]">
-            <Image src={ImageTwo} className="object-center" />
-          </div>
-
-          <div className="overflow-hidden rounded-xl col-span-3 max-h-[24rem]">
-            <Image src={ImageOne} className="object-center" />
+          <div className="grid grid-cols-5 grid-rows-4 gap-4 md:w-5/12 lg:w-6/12">
+            <div className="col-span-2 row-span-4">
+              <Image
+                src={ImageOne}
+                className="rounded-xl object-cover object-top"
+                width="640"
+                height="1334"
+                alt="shoes"
+                loading="lazy"
+              />
+            </div>
+            <div className="col-span-2 row-span-2">
+              <Image
+                src={ImageTwo}
+                className="w-full h-full object-cover object-top rounded-xl"
+                width="640"
+                height="640"
+                alt="shoe"
+                loading="lazy"
+              />
+            </div>
+            <div className="col-span-3 row-span-3">
+              <Image
+                src={ImageThree}
+                className="w-full h-full object-cover object-top rounded-xl"
+                width="640"
+                height="427"
+                alt="shoes"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
-          <span className="block">
-            {" "}
-            Tecnologia aplicada a la industria del cannabis medicinal
-          </span>
-        </h2>
-        <p className="text-lg mt-4 text-gray-400">
-          Canadoctor te conecta con medicos especialistas en endocannabinologia
-          licenciados y matricuclados
-        </p>
       </div>
     </div>
   );

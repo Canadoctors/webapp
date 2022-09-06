@@ -59,7 +59,7 @@ export const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="https://app.canadoctors.com/signup">
                       <a className="text-gray-600 hover:text-opacity-75 font-semibold block pb-2 text-sm">
                         Registrate
                       </a>
@@ -74,7 +74,7 @@ export const Footer = () => {
                 </span>
                 <ul className="list-unstyled">
                   <li>
-                    <Link href="/">
+                    <Link href="https://app.canadoctors.com/">
                       <a className="text-gray-600 hover:text-opacity-75 font-semibold block pb-2 text-sm">
                         Ingresar
                       </a>
@@ -97,14 +97,7 @@ export const Footer = () => {
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="text-sm text-white font-semibold py-1">
               Copyright © <span id="get-current-year">2022</span>
-              <a
-                href="https://www.creative-tim.com/product/notus-js"
-                className="text-white"
-                target="_blank"
-              >
-                {" "}
-                Canadoctor
-              </a>
+              <span> Canadoctor</span>
             </div>
           </div>
         </div>
