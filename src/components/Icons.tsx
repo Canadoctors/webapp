@@ -31,7 +31,7 @@ export const Icons = () => {
           </div>
           <div className="ml-6">
             <p>
-              Cannadoctors genera un huella digital en la red de bloques
+              Cannadoctors genera una huella digital en la red de bloques
               permitiendo validar la trazabilidad de los pacientes
             </p>
           </div>
@@ -48,7 +48,7 @@ export const Icons = () => {
           <div className="ml-6">
             <p>
               Nuestra plataforma cuenta con un proceso en cumplimiento con los
-              estandares de seguridad internaccional.
+              estandares de seguridad internacional
             </p>
           </div>
         </div>
