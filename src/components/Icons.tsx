@@ -5,7 +5,7 @@ import iconBlocks from "../assets/images/iconblockchain.png";
 
 export const Icons = () => {
   return (
-    <div className="sm:flex flex-wrap justify-evenly items-center text-center gap-8">
+    <div className="sm:flex flex-wrap justify-evenly items-center text-center gap-8 h-[30vh] ">
       <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-4">
         <div className="text-black  ">
           <Image src={icon} width={150} height={150} />
@@ -48,7 +48,7 @@ export const Icons = () => {
           <div className="ml-6">
             <p>
               Nuestra plataforma cuenta con un proceso en cumplimiento con los
-              estandares de seguridad internaccioonal.
+              estandares de seguridad internaccional.
             </p>
           </div>
         </div>

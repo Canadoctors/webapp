@@ -97,7 +97,7 @@ export const Footer = () => {
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="text-sm text-white font-semibold py-1">
               Copyright © <span id="get-current-year">2022</span>
-              <span> Canadoctor</span>
+              <span> Canadoctors</span>
             </div>
           </div>
         </div>

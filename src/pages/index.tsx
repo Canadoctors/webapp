@@ -6,6 +6,8 @@ import { Iphone } from "../components/Iphone";
 import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 
+import { ContactUs } from "../components/ContactUs";
+
 function LandingPage() {
   return (
     <>

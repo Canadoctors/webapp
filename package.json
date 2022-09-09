@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "@hookform/resolvers": "^2.9.3",
     "firebase": "^9.8.4",
     "next": "^12.1.6",

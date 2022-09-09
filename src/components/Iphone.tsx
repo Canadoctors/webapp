@@ -20,7 +20,7 @@ export const Iphone = () => {
           Puerto Rico y Argentina.
         </p>
         <div className="flex py-3 pt-6 justify-start">
-          <div className="flex">
+          <div className="flex mx-3">
             <Image src={pr} width={40} height={40} />
           </div>
           <div className=" flex mx-3">
@@ -32,7 +32,7 @@ export const Iphone = () => {
         </div>
       </div>
 
-      <div className="w-full py- px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+      <div className="w-full px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <h2 className="text-3xl font-extrabold text-blacksm:text-4xl">
           <span className="block">Proximamente</span>
         </h2>
@@ -41,16 +41,16 @@ export const Iphone = () => {
           Uruguay, Panama y Mexico.
         </p>
         <div className=" flex py-3 pt-6 justify-start">
-          <div className=" flex">
+          <div className="flex mx-3">
             <Image src={uy} width={40} height={40} />
           </div>
-          <div className=" flex mx-3">
+          <div className="flex mx-3">
             <Image src={pan} width={40} height={40} />
           </div>
-          <div className=" flex mx-3">
+          <div className="flex mx-3">
             <Image src={mex} width={40} height={40} />
           </div>
-          <div className=" flex mx-3">
+          <div className="flex mx-3">
             <Image src={col} width={40} height={40} />
           </div>
         </div>

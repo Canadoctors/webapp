@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import FormField from "./FormFiel";
+import emailjs from "@emailjs/browser";
 
 type ContactSubmitForm = {
   fullName: string;
@@ -16,7 +17,23 @@ export const Contact = () => {
   } = useForm<ContactSubmitForm>();
 
   const onSubmit: SubmitHandler<ContactSubmitForm> = (data) => {
-    console.log(data);
+    //console.log(data);
+
+    emailjs
+      .sendForm(
+        "service_gmra3ni",
+        "template_vd1ynwm",
+        `${JSON.stringify(data)}`,
+        "iq276pN87_MF_6u7h"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
