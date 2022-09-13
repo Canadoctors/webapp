@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Canadoctor</title>
+        <title>Canadoctors</title>
       </Head>
       <Component {...pageProps} />
     </>
