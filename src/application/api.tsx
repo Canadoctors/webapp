@@ -10,8 +10,14 @@ import {
   updateDoc,
 } from "firebase/firestore";
 
-export const saveNewDoctor = (data: any) => {
-  addDoc(collection(db, "doctor"), {
+export const saveNewDoctorAr = (data: any) => {
+  addDoc(collection(db, "doctorAr"), {
+    ...data,
+  });
+};
+
+export const saveNewDoctorPr = (data: any) => {
+  addDoc(collection(db, "doctorPr"), {
     ...data,
   });
 };

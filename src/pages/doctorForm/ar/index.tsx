@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { saveNewDoctor } from "../../application/api";
+import { saveNewDoctorAr } from "../../../application/api";
 
-import canadoctorsLogo from "../../assets/images/logo.png";
-import imagePatient from "../../assets/images/doctor1.jpg";
+import canadoctorsLogo from "../../../assets/images/logo.png";
+import imagePatient from "../../../assets/images/doctor1.jpg";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Router from "next/router";
 
@@ -22,21 +22,18 @@ const NANE_DOCTOR = /^\S[a-zA-ZÀ-ÿ\s]+$/;
 const EMAIL_DOCTOR = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 const PHONE_DOCTOR = /^[0-9]+$/;
 
-const DoctorForm = () => {
+const DoctorFormAr = () => {
   const styles = `block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40`;
 
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const license = watch("license");
-
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
-    saveNewDoctor(data);
+    saveNewDoctorAr(data);
     Router.push({
       pathname: "/landingSent",
       query: { name: data.name },
@@ -283,57 +280,6 @@ const DoctorForm = () => {
               </div>
 
               <div className="mt-6">
-                <label
-                  className="mb-2 text-sm text-gray-600"
-                  htmlFor="specialty"
-                >
-                  ¿Cuenta con Licencia de Cannabis?
-                </label>
-                <input
-                  type="checkbox"
-                  id="licence"
-                  className="ml-2 focus:ring-0"
-                  {...register("license")}
-                />
-              </div>
-
-              {license && (
-                <div className="mt-6">
-                  <label
-                    className="block mb-2 text-sm text-gray-600"
-                    htmlFor="specialty"
-                  >
-                    Número de licencia
-                  </label>
-                  <input
-                    autoComplete="none"
-                    type="string"
-                    id="licenseNumber"
-                    placeholder="Número de licencia"
-                    maxLength={30}
-                    className={`${styles}                   
-                     ${
-                       errors.licenseNumber
-                         ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                         : "border-gray-200"
-                     }`}
-                    {...register("licenseNumber", {
-                      required: {
-                        value: true,
-                        message: "El campo Número de Licencia es requerido.",
-                      },
-                      maxLength: 30,
-                    })}
-                  />
-                  {errors.licenseNumber && (
-                    <p className="text-red-500 text-sm mt-2">
-                      {errors.licenseNumber.message}
-                    </p>
-                  )}
-                </div>
-              )}
-
-              <div className="mt-6">
                 <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#00A099] rounded-xl hover:opacity-80 focus:outline-none focus:bg-[#00A099]focus:ring focus:ring-[#00A099] focus:ring-opacity-50">
                   Conocer más
                 </button>
@@ -368,4 +314,4 @@ const DoctorForm = () => {
     </div>
   );
 };
-export default DoctorForm;
+export default DoctorFormAr;

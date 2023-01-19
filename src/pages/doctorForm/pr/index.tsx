@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { saveNewDoctor } from "../../../application/api";
+import { saveNewDoctorPr } from "../../../application/api";
 
 import canadoctorsLogo from "../../../assets/images/logo.png";
 import imagePatient from "../../../assets/images/doctor1.jpg";
@@ -36,7 +36,7 @@ const DoctorForm = () => {
   const license = watch("license");
 
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
-    saveNewDoctor(data);
+    saveNewDoctorPr(data);
     Router.push({
       pathname: "/landingSent",
       query: { name: data.name },

@@ -11,7 +11,7 @@ export const Icons = () => {
           <Image src={icon} width={150} height={150} />
           <div className="font-bold text-xl ml-6">
             {" "}
-            <h1> Profesinales</h1>
+            <h1> Profesionales</h1>
           </div>
           <div className="ml-6">
             <p>
