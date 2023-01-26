@@ -8,10 +8,20 @@ import { Footer } from "../components/Footer";
 
 import { ContactUs } from "../components/ContactUs";
 
+import background from "../assets/images/backgroundDoctors.jpg";
 function LandingPage() {
   return (
     <>
-      <Home />
+      <Home
+        imgSrc={background}
+        textIntro={
+          "Canadoctors es la primer plataforma que conecta médicos y pacientes de cannabis medicinal."
+        }
+        button1Url={"https://app.canadoctors.com/signup"}
+        button2Url={"https://app.canadoctors.com/"}
+        button1Title={"Registrate"}
+        button2Title={"Inicial Sesión"}
+      />
       <Icons />
       <Tech />
       <Movie />
