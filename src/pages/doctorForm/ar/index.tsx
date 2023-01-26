@@ -18,6 +18,7 @@ interface Inputs {
   licenseNumber: string;
 }
 
+
 const NANE_DOCTOR = /^\S[a-zA-ZÀ-ÿ\s]+$/;
 const EMAIL_DOCTOR = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 const PHONE_DOCTOR = /^[0-9]+$/;
