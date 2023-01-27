@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         virtualPageTitle: title,
       });
 
-    return console.log(title), console.log(url);
+    //return console.log(title), console.log(url);
   }
 
   useEffect(() => {
