@@ -54,7 +54,7 @@ export const Home = ({
                   </>
                 ) : (
                   <Link href={button1Url}>
-                    <button className="bg-white text-[#00A099] focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mb-4 hover:opacity-90">
+                    <button className="animate-bounce bg-white text-[#00A099] focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mb-4 hover:opacity-90">
                       {button1Title}
                     </button>
                   </Link>

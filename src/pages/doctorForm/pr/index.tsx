@@ -7,8 +7,11 @@ import imagePatient from "../../../assets/images/doctor1.jpg";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Router from "next/router";
 import { Home } from "../../../components/Home";
+import { Icons } from "../../../components/Icons";
 
 import background from "../../../assets/images/background2.jpg";
+import icon1 from "../../../assets/images/icon.svg";
+import iconLaw from "../../../assets/images/iconlaw.svg";
 
 interface Inputs {
   name: string;
@@ -45,6 +48,27 @@ const DoctorForm = () => {
       query: { name: data.name },
     });
   };
+
+  const IconsContent = [
+    {
+      id: 1,
+      iconUrl: icon1,
+      title1: "Profesionales",
+      shortDesc:
+        "Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
+      w: 100,
+      h: 100,
+    },
+    {
+      id: 3,
+      iconUrl: iconLaw,
+      title1: "Cumplimiento",
+      shortDesc:
+        "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional",
+      w: 100,
+      h: 100,
+    },
+  ];
 
   return (
     <>
@@ -93,10 +117,9 @@ const DoctorForm = () => {
                       placeholder="Nombre"
                       maxLength={25}
                       className={`${styles}
-                  ${
-                    errors.name &&
-                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                  }`}
+                  ${errors.name &&
+                        "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                        }`}
                       {...register("name", {
                         required: {
                           value: true,
@@ -130,10 +153,9 @@ const DoctorForm = () => {
                       placeholder="Apellido"
                       maxLength={20}
                       className={`${styles}                  
-                  ${
-                    errors.lastName &&
-                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                  }`}
+                  ${errors.lastName &&
+                        "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                        }`}
                       {...register("lastName", {
                         required: {
                           value: true,
@@ -168,11 +190,10 @@ const DoctorForm = () => {
                       placeholder="Correo Electrónico"
                       maxLength={40}
                       className={`${styles}                 
-                   ${
-                     errors.email
-                       ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                       : "border-gray-200"
-                   }`}
+                   ${errors.email
+                          ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                          : "border-gray-200"
+                        }`}
                       {...register("email", {
                         required: {
                           value: true,
@@ -206,11 +227,10 @@ const DoctorForm = () => {
                       placeholder="Teléfono"
                       maxLength={15}
                       className={`${styles}                  
-                  ${
-                    errors.phone
-                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                      : "border-gray-200"
-                  }`}
+                  ${errors.phone
+                          ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                          : "border-gray-200"
+                        }`}
                       {...register("phone", {
                         required: {
                           value: true,
@@ -245,11 +265,10 @@ const DoctorForm = () => {
                     placeholder="Especialidad"
                     maxLength={25}
                     className={`${styles}                  
-                  ${
-                    errors.speciality
-                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                      : "border-gray-200"
-                  }`}
+                  ${errors.speciality
+                        ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                        : "border-gray-200"
+                      }`}
                     {...register("speciality", {
                       required: {
                         value: true,
@@ -282,11 +301,10 @@ const DoctorForm = () => {
                     maxLength={200}
                     rows={4}
                     className={`${styles}                  
-                  ${
-                    errors.description
-                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                      : "border-gray-200"
-                  }`}
+                  ${errors.description
+                        ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                        : "border-gray-200"
+                      }`}
                     {...register("description", {
                       required: {
                         value: true,
@@ -312,9 +330,23 @@ const DoctorForm = () => {
                   <input
                     type="checkbox"
                     id="licence"
-                    className="ml-2 focus:ring-0"
-                    {...register("license")}
+                    className={`${styles}                   
+                    ${errors.license
+                        ? "ml-2 focus:border-red-500"
+                        : "ml-2 focus:ring-0"
+                      }`}
+                    {...register("license", {
+                      required: {
+                        value: true,
+                        message: "Es oblgatorio tener Licencia de Cannabis"
+                      }
+                    })}
                   />
+                  {errors.license && (
+                    <p className="text-red-500 text-sm mt-2">
+                      {errors.license.message}
+                    </p>
+                  )}
                 </div>
 
                 {license && (
@@ -332,11 +364,10 @@ const DoctorForm = () => {
                       placeholder="Número de licencia"
                       maxLength={30}
                       className={`${styles}                   
-                     ${
-                       errors.licenseNumber
-                         ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                         : "border-gray-200"
-                     }`}
+                     ${errors.licenseNumber
+                          ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                          : "border-gray-200"
+                        }`}
                       {...register("licenseNumber", {
                         required: {
                           value: true,
@@ -365,14 +396,26 @@ const DoctorForm = () => {
 
         <div className="hidden bg-cover lg:block lg:w-1/2 h-screen">
           <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full">
-            <div className="basis-1/2 flex">
+            <div className="basis-1/2 flex flex-col">
               <div className="m-auto text-center">
-                <h2 className="text-lg text-white sm:text-4xl md:text-3xl lg:text-3xl pt-2 pb-2">
+                <h2 className="text-lg text-white sm:text-4xl md:text-3xl lg:text-2xl pt-2 pb-2">
                   <span className="block">
                     Si queres conocer mas sobre la propuesta de canadoctors
                     dejanos tus datos y nos pondremos en contacto contigo
                   </span>
                 </h2>
+              </div>
+              <div className="flex flex-row text-white text-sm text-center">
+                {IconsContent.map((icon) => (
+                  <Icons
+                    key={icon.id}
+                    iconUrl={icon.iconUrl}
+                    title1={icon.title1}
+                    shortDesc={icon.shortDesc}
+                    wImg={icon.w}
+                    hImg={icon.h}
+                  />
+                ))}
               </div>
             </div>
             <div className="basis-1/2 relative">
@@ -382,6 +425,13 @@ const DoctorForm = () => {
                 objectFit="cover"
                 alt="Patient"
               />
+              <div className="relative top-3/4 ml-[220px]">
+                <Link href="https://www.canadoctors.com">
+                  <button className="bg-white text-[#00A099] focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mb-4 hover:opacity-90">
+                    + info
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

@@ -11,14 +11,17 @@ export const Footer = () => {
           <div className="w-full lg:w-6/12 px-4">
             <Image width={400} height={80} src={footerLogo} />
             <div className="mt-6 lg:mb-0 mb-6">
-              <button
-                className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <div className="w-full flex justify-center items-center">
-                  <FaInstagram className="text-2xl text-[#00A099]" />
-                </div>
-              </button>
+              <Link href="https://www.instagram.com/canadoctors/">
+                <button
+                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <div className="w-full flex justify-center items-center">
+                    <FaInstagram className="text-2xl text-[#00A099]" />
+                  </div>
+                </button>
+              </Link>
+
               <button
                 className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                 type="button"
@@ -52,7 +55,7 @@ export const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/contactUS">
                       <a className="text-gray-600 hover:text-opacity-75 font-semibold block pb-2 text-sm">
                         Contacto
                       </a>
