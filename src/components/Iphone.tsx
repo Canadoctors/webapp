@@ -1,12 +1,12 @@
 import Image from "next/image";
-import iphonePic from "../assets/images/iphone.png";
-import pr from "../assets/images/pr.png";
-import eeuu from "../assets/images/eeuu.png";
-import arg from "../assets/images/arg.png";
-import mex from "../assets/images/mex.png";
-import uy from "../assets/images/uy.png";
-import pan from "../assets/images/pan.png";
-import col from "../assets/images/col.png";
+import iphonePic from "../assets/images/iconFlags/iphone.png";
+import pr from "../assets/images/iconFlags/pr.png";
+import eeuu from "../assets/images/iconFlags/eeuu.png";
+import arg from "../assets/images/iconFlags/arg.png";
+import mex from "../assets/images/iconFlags/mex.png";
+import uy from "../assets/images/iconFlags/uy.png";
+import pan from "../assets/images/iconFlags/pan.png";
+import col from "../assets/images/iconFlags/col.png";
 
 export const Iphone = () => {
   return (

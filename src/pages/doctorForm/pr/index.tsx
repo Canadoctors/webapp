@@ -2,16 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { saveNewDoctorPr } from "../../../application/api";
 
-import canadoctorsLogo from "../../../assets/images/logopositivo.svg";
-import imagePatient from "../../../assets/images/doctor1.jpg";
+import canadoctorsLogo from "../../../assets/images/logosCD/logopositivo.svg";
+import imagePatient from "../../../assets/images/bg/doctor1.jpg";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Router from "next/router";
 import { Home } from "../../../components/Home";
 import { Icons } from "../../../components/Icons";
 
-import background from "../../../assets/images/background2.jpg";
-import icon1 from "../../../assets/images/icon.svg";
-import iconLaw from "../../../assets/images/iconlaw.svg";
+import background from "../../../assets/images/bg/background2.jpg";
+import icon1 from "../../../assets/images/iconCards/icon.svg";
+import iconLaw from "../../../assets/images/iconCards/iconlaw.svg";
 
 interface Inputs {
   name: string;

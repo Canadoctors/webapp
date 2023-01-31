@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import ImageOne from "../assets/images/tech1.png";
-import ImageTwo from "../assets/images/tech2.png";
-import ImageThree from "../assets/images/tech3.png";
+import ImageOne from "../assets/images/tech/tech1.png";
+import ImageTwo from "../assets/images/tech/tech2.png";
+import ImageThree from "../assets/images/tech/tech3.png";
 
 export const Tech = () => {
   return (

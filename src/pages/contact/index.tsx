@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { saveNewDoctorAr } from "../../application/api";
 
-import canadoctorsLogo from "../../assets/images/logo.png";
-import imagePatient from "../../assets/images/doctor1.jpg";
+import canadoctorsLogo from "../../assets/images/logosCD/logo.png";
+import imagePatient from "../../assets/images/bg/doctor1.jpg";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Router from "next/router";
 

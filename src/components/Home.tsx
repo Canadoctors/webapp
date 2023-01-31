@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import background from "../assets/images/backgroundDoctors.jpg";
-import Logo from "../assets/images/logocanadoctorwhite.svg";
+import background from "../assets/images/bg/backgroundDoctors.jpg";
+import Logo from "../assets/images/logosCD/logocanadoctorwhite.svg";
 
 type HomeProps = {
   imgSrc: any;

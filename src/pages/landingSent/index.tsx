@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import canadoctorsLogo from "../../assets/images/logo.png";
-import iconEmail from "../../assets/images/email.png";
+import canadoctorsLogo from "../../assets/images/logosCD/logo.png";
+import iconEmail from "../../assets/images/iconCards/email.png";
 
 function LandingSent() {
   const { query } = useRouter();

@@ -8,10 +8,10 @@ import { Footer } from "../components/Footer";
 
 import { ContactUs } from "../components/ContactUs";
 
-import background from "../assets/images/backgroundDoctors.jpg";
-import icon1 from "../assets/images/icon.png";
-import iconLaw from "../assets/images/iconlaw.png";
-import iconBlocks from "../assets/images/iconblockchain.png";
+import background from "../assets/images/bg/backgroundDoctors.jpg";
+import icon1 from "../assets/images/iconCards/icon.png";
+import iconLaw from "../assets/images/iconCards/iconlaw.png";
+import iconBlocks from "../assets/images/iconCards/iconblockchain.png";
 
 const IconsContent = [
   {

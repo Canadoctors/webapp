@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import Logo from "../../assets/images/404.png";
+import Logo from "../../assets/images/icon404/404.png";
 
 function NotFound() {
   return (

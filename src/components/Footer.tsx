@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import footerLogo from "../assets/images/logocanadoctorwhite.svg";
+import footerLogo from "../assets/images/logosCD/logocanadoctorwhite.svg";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 export const Footer = () => {

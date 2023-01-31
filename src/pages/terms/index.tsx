@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../../assets/images/logopositivo.svg";
+import Logo from "../../assets/images/logosCD/logopositivo.svg";
 
 function Terms() {
   return (
