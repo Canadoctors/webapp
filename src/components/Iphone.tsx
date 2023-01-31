@@ -13,13 +13,13 @@ export const Iphone = () => {
     <div className="bg-[#F3F4F6] overflow-hidden relative lg:flex lg:items-center">
       <div className="w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
-          <span className="block">Paises Disponibles</span>
+          <span className="block text-center md:text-left">Paises Disponibles</span>
         </h2>
         <p className="text-md mt-4 text-gray-400">
           Actualmente nuestra plataforma esta operativa en Estados Unidos,
           Puerto Rico y Argentina.
         </p>
-        <div className="flex py-3 pt-6 justify-start">
+        <div className="flex py-3 pt-6 justify-center md:justify-start">
           <div className="flex mx-3">
             <Image src={pr} width={40} height={40} />
           </div>
@@ -34,13 +34,13 @@ export const Iphone = () => {
 
       <div className="w-full px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <h2 className="text-3xl font-extrabold text-blacksm:text-4xl">
-          <span className="block">Proximamente</span>
+          <span className="block text-center md:text-left">Proximamente</span>
         </h2>
         <p className="text-md mt-4 text-gray-400">
           Nuestros planes de expansión en latinoamerica contemplan Colombia,
           Uruguay, Panama y Mexico.
         </p>
-        <div className=" flex py-3 pt-6 justify-start">
+        <div className=" flex py-3 pt-6 justify-center md:justify-start">
           <div className="flex mx-3">
             <Image src={uy} width={40} height={40} />
           </div>

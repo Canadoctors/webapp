@@ -3,7 +3,7 @@ import { Icons } from "../components/Icons";
 import { Tech } from "../components/Tech";
 import { Movie } from "../components/Movie";
 import { Iphone } from "../components/Iphone";
-import { Contact } from "../components/Contact";
+import {Contact} from "../components/Contact";
 import { Footer } from "../components/Footer";
 
 import { ContactUs } from "../components/ContactUs";
@@ -73,6 +73,7 @@ function LandingPage() {
       <Tech />
       <Movie />
       <Iphone />
+      <Contact />
       <Footer />
     </>
   );

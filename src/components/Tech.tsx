@@ -6,14 +6,14 @@ import ImageThree from "../assets/images/tech/tech3.png";
 
 export const Tech = () => {
   return (
-    <div className="bg-[#F3F4F6] h-[70vh] flex">
-      <div className="container pt-4 m-auto px-6 space-y-8 text-gray-500 md:px-12 lg:px-20">
+    <div className="bg-[#f3f4f6] md:h-[70vh] flex">
+      <div className="container pt-4 m-auto px-6 space-y-8 md:px-12 lg:px-20">
         <div className="justify-center text-center gap-6 md:text-left md:flex lg:items-center lg:gap-16">
           <div className="order-last mb-6 space-y-6 md:mb-0 md:w-6/12 lg:w-6/12">
-            <h1 className="text-4xl text-gray-700 font-bold md:text-4xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl text-cdgrey font-bold">
               Tecnologia aplicada a la industria del cannabis medicinal
             </h1>
-            <p className="text-lg">
+            <p className="text-lg text-cdgrey">
               Canadoctors te conecta con medicos especialistas en
               endocannabinologia licenciados y matricuclados.
             </p>
