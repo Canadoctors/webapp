@@ -43,6 +43,7 @@ const ContactForm = () => {
     });
   };
 
+  
   return (
     <div className="flex justify-center h-screen">
       <div className="flex items-center w-full max-w-2xl px-4 pt-4 pb-4 mx-auto my-auto lg:w-2/6">
