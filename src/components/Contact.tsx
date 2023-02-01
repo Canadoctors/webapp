@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import FormField from "./FormFiel";
-import emailjs from "@emailjs/browser";
+import { contactForm } from "../application/api";
 
 type ContactSubmitForm = {
   fullName: string;
@@ -13,32 +13,27 @@ export const Contact = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm<ContactSubmitForm>();
 
   const onSubmit: SubmitHandler<ContactSubmitForm> = (data) => {
-    //console.log(data);
+    contactForm(data);
 
-    emailjs
-      .sendForm(
-        "service_gmra3ni",
-        "template_vd1ynwm",
-        `${JSON.stringify(data)}`,
-        "iq276pN87_MF_6u7h"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    try {
+      alert("Mensaje enviado");
+      reset();
+    } catch (error) {
+      alert("Error al enviar el mensaje");
+    }
   };
 
   return (
     <>
-      <div id="Contact" className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
+      <div
+        id="Contact"
+        className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4"
+      >
         <div className="flex flex-wrap justify-center">
           <div className="w-full lg:w-7/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-[#F3F4F6]">

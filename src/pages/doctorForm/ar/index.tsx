@@ -1,17 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { saveNewDoctorAr } from "../../../application/api";
-
-import canadoctorsLogo from "../../../assets/images/logosCD/logopositivo.svg";
-import imagePatient from "../../../assets/images/bg/doctor1.jpg";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Router from "next/router";
 import { Home } from "../../../components/Home";
 import { Icons } from "../../../components/Icons";
 
-import background from "../../../assets/images/bg/background.jpg";
-import icon1 from "../../../assets/images/iconCards/icon.svg";
-import iconLaw from "../../../assets/images/iconCards/iconlaw.svg";
+import canadoctorsLogo from "/public/images/logosCD/logopositivo.svg";
+import imagePatient from "/public/images/bg/doctor1.jpg";
+import icon1 from "/public/images/iconCards/icon.svg";
+import iconLaw from "/public/images/iconCards/iconlaw.svg";
 
 interface Inputs {
   name: string;
@@ -70,7 +68,7 @@ const DoctorFormAr = () => {
   return (
     <>
       <Home
-        imgSrc={background}
+        imgSrc="bg/background.jpg"
         textIntro={
           "Canadoctors es la primer plataforma que conecta médicos y pacientes de cannabis medicinal."
         }
@@ -114,9 +112,10 @@ const DoctorFormAr = () => {
                       placeholder="Nombre"
                       maxLength={25}
                       className={`${styles}
-                  ${errors.name &&
-                        "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                        }`}
+                  ${
+                    errors.name &&
+                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                  }`}
                       {...register("name", {
                         required: {
                           value: true,
@@ -150,9 +149,10 @@ const DoctorFormAr = () => {
                       placeholder="Apellido"
                       maxLength={20}
                       className={`${styles}                  
-                  ${errors.lastName &&
-                        "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                        }`}
+                  ${
+                    errors.lastName &&
+                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                  }`}
                       {...register("lastName", {
                         required: {
                           value: true,
@@ -187,10 +187,11 @@ const DoctorFormAr = () => {
                       placeholder="Correo Electrónico"
                       maxLength={40}
                       className={`${styles}                 
-                   ${errors.email
-                          ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                          : "border-gray-200"
-                        }`}
+                   ${
+                     errors.email
+                       ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                       : "border-gray-200"
+                   }`}
                       {...register("email", {
                         required: {
                           value: true,
@@ -224,10 +225,11 @@ const DoctorFormAr = () => {
                       placeholder="Teléfono"
                       maxLength={15}
                       className={`${styles}                  
-                  ${errors.phone
-                          ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                          : "border-gray-200"
-                        }`}
+                  ${
+                    errors.phone
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
                       {...register("phone", {
                         required: {
                           value: true,
@@ -262,10 +264,11 @@ const DoctorFormAr = () => {
                     placeholder="Especialidad"
                     maxLength={25}
                     className={`${styles}                  
-                  ${errors.speciality
-                        ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                        : "border-gray-200"
-                      }`}
+                  ${
+                    errors.speciality
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
                     {...register("speciality", {
                       required: {
                         value: true,
@@ -298,10 +301,11 @@ const DoctorFormAr = () => {
                     maxLength={200}
                     rows={4}
                     className={`${styles}                  
-                  ${errors.description
-                        ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                        : "border-gray-200"
-                      }`}
+                  ${
+                    errors.description
+                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
+                      : "border-gray-200"
+                  }`}
                     {...register("description", {
                       required: {
                         value: true,
@@ -366,7 +370,6 @@ const DoctorFormAr = () => {
                 </Link>
               </div>
             </div>
-
           </div>
         </div>
       </div>

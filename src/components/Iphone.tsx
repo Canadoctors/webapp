@@ -1,19 +1,21 @@
 import Image from "next/image";
-import iphonePic from "../assets/images/iconFlags/iphone.png";
-import pr from "../assets/images/iconFlags/pr.png";
-import eeuu from "../assets/images/iconFlags/eeuu.png";
-import arg from "../assets/images/iconFlags/arg.png";
-import mex from "../assets/images/iconFlags/mex.png";
-import uy from "../assets/images/iconFlags/uy.png";
-import pan from "../assets/images/iconFlags/pan.png";
-import col from "../assets/images/iconFlags/col.png";
+import iphonePic from "../../public/images/iconFlags/iphone.png";
+import pr from "../../public/images/iconFlags/pr.png";
+import eeuu from "../../public/images/iconFlags/eeuu.png";
+import arg from "../../public/images/iconFlags/arg.png";
+import mex from "../../public/images/iconFlags/mex.png";
+import uy from "../../public/images/iconFlags/uy.png";
+import pan from "../../public/images/iconFlags/pan.png";
+import col from "../../public/images/iconFlags/col.png";
 
 export const Iphone = () => {
   return (
     <div className="bg-[#F3F4F6] overflow-hidden relative lg:flex lg:items-center">
       <div className="w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
         <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
-          <span className="block text-center md:text-left">Paises Disponibles</span>
+          <span className="block text-center md:text-left">
+            Paises Disponibles
+          </span>
         </h2>
         <p className="text-md mt-4 text-gray-400">
           Actualmente nuestra plataforma esta operativa en Estados Unidos,

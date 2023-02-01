@@ -21,3 +21,9 @@ export const saveNewDoctorPr = (data: any) => {
     ...data,
   });
 };
+
+export const contactForm = (data: any) => {
+  addDoc(collection(db, "ContactForm"), {
+    ...data,
+  });
+};

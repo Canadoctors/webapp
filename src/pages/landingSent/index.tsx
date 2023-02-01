@@ -2,8 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import canadoctorsLogo from "../../assets/images/logosCD/logo.png";
-import iconEmail from "../../assets/images/iconCards/email.png";
+import Logo from "../../../public/images/logosCD/logopositivo.svg";
+import iconEmail from "../../../public/images/iconCards/email.png";
 
 function LandingSent() {
   const { query } = useRouter();
@@ -12,7 +12,7 @@ function LandingSent() {
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-6 sm:py-12 h-full">
       <div className="max-w-xl px-5 text-center">
         <div className="mb-6">
-          <Image src={canadoctorsLogo} height={80} width={350} alt="" />
+          <Image src={Logo} height={80} width={350} alt="" />
         </div>
         <div>
           <Image src={iconEmail} height={159} width={150} alt="" />

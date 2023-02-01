@@ -3,15 +3,12 @@ import { Icons } from "../components/Icons";
 import { Tech } from "../components/Tech";
 import { Movie } from "../components/Movie";
 import { Iphone } from "../components/Iphone";
-import {Contact} from "../components/Contact";
+import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 
-import { ContactUs } from "../components/ContactUs";
-
-import background from "../assets/images/bg/backgroundDoctors.jpg";
-import icon1 from "../assets/images/iconCards/icon.png";
-import iconLaw from "../assets/images/iconCards/iconlaw.png";
-import iconBlocks from "../assets/images/iconCards/iconblockchain.png";
+import icon1 from "../../public/images/iconCards/icon.png";
+import iconLaw from "../../public/images/iconCards/iconlaw.png";
+import iconBlocks from "../../public/images/iconCards/iconblockchain.png";
 
 const IconsContent = [
   {
@@ -47,7 +44,7 @@ function LandingPage() {
   return (
     <>
       <Home
-        imgSrc={background}
+        imgSrc="bg/backgroundDoctors.jpg"
         textIntro={
           "Canadoctors es la primer plataforma que conecta médicos y pacientes de cannabis medicinal."
         }

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import background from "../assets/images/bg/backgroundDoctors.jpg";
-import Logo from "../assets/images/logosCD/logocanadoctorwhite.svg";
+import Logo from "../../public/images/logosCD/logocanadoctorwhite.svg";
 
 type HomeProps = {
   imgSrc: any;
@@ -23,12 +22,10 @@ export const Home = ({
   return (
     <>
       <div className="w-full h-[100vh] overflow-hidden relative flex">
-        <Image
-          className="absolute h-screen inset-0 object-cover"
-          src={imgSrc}
-          alt=""
-        />
-
+        <section
+          className={`flex flex-col w-full bg-cover md:bg-fixed bg-center justify-center items-center`}
+          style={{ backgroundImage: `url(/images/${imgSrc})` }}
+        ></section>
         <div className="absolute inset-0 bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40">
           <div className="flex h-full w-full items-center justify-center container mx-auto px-8">
             <div className="max-w-4xl text-center">

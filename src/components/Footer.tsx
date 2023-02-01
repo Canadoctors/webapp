@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import footerLogo from "../assets/images/logosCD/logocanadoctorwhite.svg";
+import footerLogo from "../../public/images/logosCD/logocanadoctorwhite.svg";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 export const Footer = () => {
@@ -12,7 +12,9 @@ export const Footer = () => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="object-center">
               <Link href="/">
-                <a><Image width={400} height={80} src={footerLogo} /></a>
+                <a>
+                  <Image width={400} height={80} src={footerLogo} />
+                </a>
               </Link>
             </div>
             <div className="mt-6 lg:mb-0 mb-6">
