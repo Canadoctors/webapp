@@ -5,13 +5,17 @@ type IconsProps = {
   iconUrl: any;
   title1: string;
   shortDesc: string;
-  wImg:number;
-  hImg:number;
+  wImg: number;
+  hImg: number;
 };
 
-
-export const Icons = ({ iconUrl, title1, shortDesc, wImg, hImg }: IconsProps) => {
-  
+export const Icons = ({
+  iconUrl,
+  title1,
+  shortDesc,
+  wImg,
+  hImg,
+}: IconsProps) => {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
@@ -26,20 +30,11 @@ export const Icons = ({ iconUrl, title1, shortDesc, wImg, hImg }: IconsProps) =>
 
   return (
     <div className="w-full p-8">
-      <div>
-        <Image src={iconUrl} width={wImgs} height={hImgs} className="stroke-white" />
-        <div className="font-bold ml-6">
-          <h1>{title1}</h1>
-        </div>
-        <div className="ml-6">
-          <p>{shortDesc}</p>
-        </div>
+      <Image src={iconUrl} width={wImgs} height={hImgs} />
+      <div className="font-bold">
+        <h1>{title1}</h1>
       </div>
+      <p>{shortDesc}</p>
     </div>
   );
 };
-
-
-
-
-

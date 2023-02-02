@@ -10,25 +10,39 @@ import canadoctorsLogo from "/public/images/logosCD/logopositivo.svg";
 import imagePatient from "/public/images/bg/doctor1.jpg";
 import icon1 from "/public/images/iconCards/icon.svg";
 import iconLaw from "/public/images/iconCards/iconlaw.svg";
+import FormField from "../../../components/FormFiel";
 
 interface Inputs {
-  name: string;
+  firstName: string;
   lastName: string;
+  email: string;
   phone: number;
   speciality: string;
-  email: string;
   description: string;
-  license: boolean;
-  licenseNumber: string;
 }
 
-const NANE_DOCTOR = /^\S[a-zA-ZÀ-ÿ\s]+$/;
-const EMAIL_DOCTOR = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
-const PHONE_DOCTOR = /^[0-9]+$/;
+const IconsContent = [
+  {
+    id: 1,
+    iconUrl: icon1,
+    title1: "Profesionales",
+    shortDesc:
+      "Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
+    w: 100,
+    h: 100,
+  },
+  {
+    id: 3,
+    iconUrl: iconLaw,
+    title1: "Cumplimiento",
+    shortDesc:
+      "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional",
+    w: 100,
+    h: 100,
+  },
+];
 
 const DoctorFormAr = () => {
-  const styles = `block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-xl focus:border-[#00A099] focus:ring-[#00A099] focus:outline-none focus:ring focus:ring-opacity-40`;
-
   const {
     register,
     handleSubmit,
@@ -40,30 +54,9 @@ const DoctorFormAr = () => {
     saveNewDoctorAr(data);
     Router.push({
       pathname: "/landingSent",
-      query: { name: data.name },
+      query: { name: data.firstName },
     });
   };
-
-  const IconsContent = [
-    {
-      id: 1,
-      iconUrl: icon1,
-      title1: "Profesionales",
-      shortDesc:
-        "Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
-      w: 100,
-      h: 100,
-    },
-    {
-      id: 3,
-      iconUrl: iconLaw,
-      title1: "Cumplimiento",
-      shortDesc:
-        "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional",
-      w: 100,
-      h: 100,
-    },
-  ];
 
   return (
     <>
@@ -89,7 +82,7 @@ const DoctorFormAr = () => {
                       src={canadoctorsLogo}
                       height={60}
                       width={280}
-                      alt=""
+                      alt="logo canadoctors"
                     />
                   </a>
                 </Link>
@@ -97,228 +90,90 @@ const DoctorFormAr = () => {
             </div>
             <div className="mt-8">
               <form onSubmit={handleSubmit(onSubmitHandler)}>
-                <div className="md:flex justify-between gap-2">
-                  <div className="sm:w-full">
-                    <label
-                      className="block mb-2 text-sm text-gray-600"
-                      htmlFor="name"
-                    >
-                      Nombre
-                    </label>
-                    <input
-                      autoComplete="none"
-                      type="text"
-                      id="name"
-                      placeholder="Nombre"
-                      maxLength={25}
-                      className={`${styles}
-                  ${
-                    errors.name &&
-                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                  }`}
-                      {...register("name", {
-                        required: {
-                          value: true,
-                          message: "El campo Nombre es requerido.",
-                        },
-                        maxLength: 25,
-                        pattern: {
-                          value: NANE_DOCTOR,
-                          message: "El Nombre no es válido.",
-                        },
-                      })}
-                    />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm mt-2">
-                        {errors.name.message}
-                      </p>
-                    )}
+                <div className="space-y-2">
+                  <div className="gap-4 sm:flex-col md:flex-row lg:flex-row xl:flex">
+                    <div className="xl:w-1/2 ">
+                      <FormField
+                        id="firstName"
+                        name="nombre"
+                        required={true}
+                        type="text"
+                        maxLength={12}
+                        placeholder="Nombre"
+                        errors={errors}
+                        register={register}
+                        //validation={NAME}
+                      />
+                    </div>
+
+                    <div className="xl:w-1/2">
+                      <FormField
+                        id="lastName"
+                        name="apellido"
+                        required={true}
+                        type="text"
+                        maxLength={20}
+                        placeholder="Apellido"
+                        errors={errors}
+                        register={register}
+                        //validation={NAME}
+                      />
+                    </div>
                   </div>
 
-                  <div className="sm:w-full md:mt-0 sm:mt-6 mt-6">
-                    <label
-                      className="block mb-2 text-sm text-gray-600"
-                      htmlFor="lastName"
-                    >
-                      Apellido
-                    </label>
-                    <input
-                      autoComplete="none"
-                      type="text"
-                      id="lastName"
-                      placeholder="Apellido"
-                      maxLength={20}
-                      className={`${styles}                  
-                  ${
-                    errors.lastName &&
-                    "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                  }`}
-                      {...register("lastName", {
-                        required: {
-                          value: true,
-                          message: "El campo Apellido es requerido.",
-                        },
-                        maxLength: 20,
-                        pattern: {
-                          value: NANE_DOCTOR,
-                          message: "El Apellido no es válido.",
-                        },
-                      })}
-                    />
-                    {errors.lastName && (
-                      <p className="text-red-500 text-sm mt-2">
-                        {errors.lastName.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                  <div className="gap-4 sm:flex-col md:flex-row lg:flex-row xl:flex">
+                    <div className="xl:w-1/2 ">
+                      <FormField
+                        id="email"
+                        name="email"
+                        required={true}
+                        type="email"
+                        maxLength={35}
+                        placeholder="Correo Electrónico"
+                        errors={errors}
+                        register={register}
+                        //validation={EMAIL}
+                      />
+                    </div>
 
-                <div className="md:flex justify-between gap-2">
-                  <div className="mt-6 sm:w-full">
-                    <label
-                      className="block mb-2 text-sm text-gray-600"
-                      htmlFor="email"
-                    >
-                      Correo Electrónico
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Correo Electrónico"
-                      maxLength={40}
-                      className={`${styles}                 
-                   ${
-                     errors.email
-                       ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                       : "border-gray-200"
-                   }`}
-                      {...register("email", {
-                        required: {
-                          value: true,
-                          message: "El campo Email es requerido.",
-                        },
-                        maxLength: 40,
-                        pattern: {
-                          value: EMAIL_DOCTOR,
-                          message: "El Email no es válido.",
-                        },
-                      })}
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-2">
-                        {errors.email.message}
-                      </p>
-                    )}
+                    <div className="xl:w-1/2">
+                      <FormField
+                        id="phone"
+                        name="telefono"
+                        required={true}
+                        type="number"
+                        maxLength={18}
+                        placeholder="Teléfono"
+                        errors={errors}
+                        register={register}
+                        //validation={PHONE}
+                      />
+                    </div>
                   </div>
 
-                  <div className="mt-6 sm:w-full">
-                    <label
-                      className="block mb-2 text-sm text-gray-600"
-                      htmlFor="phone"
-                    >
-                      Teléfono
-                    </label>
-                    <input
-                      autoComplete="none"
-                      type="number"
-                      id="phone"
-                      placeholder="Teléfono"
-                      maxLength={15}
-                      className={`${styles}                  
-                  ${
-                    errors.phone
-                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                      : "border-gray-200"
-                  }`}
-                      {...register("phone", {
-                        required: {
-                          value: true,
-                          message: "El campo Teléfono es requerido.",
-                        },
-                        maxLength: 15,
-                        pattern: {
-                          value: PHONE_DOCTOR,
-                          message: "El Teléfono no es válido.",
-                        },
-                      })}
-                    />
-                    {errors.phone && (
-                      <p className="text-red-500 text-sm mt-2">
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <label
-                    className="block mb-2 text-sm text-gray-600"
-                    htmlFor="specialty"
-                  >
-                    Especialidad
-                  </label>
-                  <input
-                    autoComplete="none"
-                    type="string"
+                  <FormField
                     id="speciality"
+                    name="especialidad"
+                    required={true}
+                    type="text"
                     placeholder="Especialidad"
-                    maxLength={25}
-                    className={`${styles}                  
-                  ${
-                    errors.speciality
-                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                      : "border-gray-200"
-                  }`}
-                    {...register("speciality", {
-                      required: {
-                        value: true,
-                        message: "El campo Especialidad es requerido.",
-                      },
-                      maxLength: 25,
-                      pattern: {
-                        value: NANE_DOCTOR,
-                        message: "La Especialidad no es válida.",
-                      },
-                    })}
+                    errors={errors}
+                    register={register}
+                    //validation={PHONE}
                   />
-                  {errors.speciality && (
-                    <p className="text-red-500 text-sm mt-2">
-                      {errors.speciality.message}
-                    </p>
-                  )}
-                </div>
 
-                <div className="mt-6">
-                  <label
-                    className="block mb-2 text-sm text-gray-600"
-                    htmlFor="specialty"
-                  >
-                    Descripción
-                  </label>
-                  <textarea
-                    id="description"
-                    placeholder="¿Cómo utiliza el cannabis medicinal con sus pacientes?"
-                    maxLength={200}
-                    rows={4}
-                    className={`${styles}                  
-                  ${
-                    errors.description
-                      ? "focus:border-red-500 focus:ring-red-500 border-red-500 ring-red-500 ring ring-opacity-40"
-                      : "border-gray-200"
-                  }`}
-                    {...register("description", {
-                      required: {
-                        value: true,
-                        message: "El campo Descripción es requerido.",
-                      },
-                      maxLength: 200,
-                    })}
-                  />
-                  {errors.description && (
-                    <p className="text-red-500 text-sm mt-2">
-                      {errors.description.message}
-                    </p>
-                  )}
+                  <div className="relative w-full">
+                    <FormField
+                      id="description"
+                      name="descripcion"
+                      required={true}
+                      type="textarea"
+                      rows={6}
+                      placeholder="¿Cómo utiliza el cannabis medicinal con sus pacientes?"
+                      errors={errors}
+                      register={register}
+                    />
+                  </div>
                 </div>
 
                 <div className="mt-6">
@@ -362,13 +217,6 @@ const DoctorFormAr = () => {
                 objectFit="cover"
                 alt="Patient"
               />
-              <div className="relative top-3/4 ml-[220px]">
-                <Link href="https://www.canadoctors.com">
-                  <button className="bg-white text-[#00A099] focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mb-4 hover:opacity-90">
-                    + info
-                  </button>
-                </Link>
-              </div>
             </div>
           </div>
         </div>

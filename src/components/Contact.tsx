@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import FormField from "./FormFiel";
 import { contactForm } from "../application/api";
+import { NAME } from "../validations/validations";
 
 type ContactSubmitForm = {
   fullName: string;
@@ -30,13 +31,10 @@ export const Contact = () => {
 
   return (
     <>
-      <div
-        id="Contact"
-        className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4"
-      >
-        <div className="flex flex-wrap justify-center">
+      <div className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
+        <div className="flex flex-wrap justify-center pt-8">
           <div className="w-full lg:w-7/12 px-4">
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-[#F3F4F6]">
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-white">
               <div className="flex-auto p-5 lg:p-10">
                 <h4 className="text-2xl font-semibold">
                   Ponte en contacto con nosotros
@@ -46,55 +44,45 @@ export const Contact = () => {
                   lo antes posible.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <div className="relative w-full mb-3 mt-8">
+                  <div className="relative w-full">
                     <FormField
                       id="firstName"
                       name="nombre"
+                      required={true}
                       type="text"
                       maxLength={12}
-                      placeholder="Nombre completo"
+                      placeholder="Nombre"
                       errors={errors}
                       register={register}
-                      //validation={NAME}
+                      validation={NAME}
                     />
                   </div>
-                  <div className="relative w-full mb-3 mt-8">
+                  <div className="relative w-full">
                     <FormField
                       id="email"
                       name="email"
+                      required={true}
                       type="email"
                       maxLength={35}
                       placeholder="Correo Electrónico"
                       errors={errors}
                       register={register}
-                      //validation={EMAIL}
                     />
                   </div>
 
-                  <div className="relative w-full mb-3 mt-8">
-                    <textarea
-                      id="countryCode"
+                  <div className="relative w-full">
+                    <FormField
+                      id="message"
+                      name="mensaje"
+                      required={true}
+                      type="textarea"
+                      rows={5}
                       placeholder="Mensaje"
-                      rows={4}
-                      className={`block w-full px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]
-                ${
-                  errors.message ? "border-red-500 border-2" : "border-gray-300"
-                } `}
-                      {...register("message", {
-                        required: {
-                          value: true,
-                          message: "El campo codigo pais es requerido",
-                        },
-                        validate: (value) =>
-                          value !== "" || "Seleccione un pais",
-                      })}
-                    ></textarea>
-                    {errors.message && (
-                      <p className="text-red-500 text-sm mt-2">
-                        {errors.message.message}
-                      </p>
-                    )}
+                      errors={errors}
+                      register={register}
+                    />
                   </div>
+
                   <div className="text-center mt-6">
                     <button
                       className="bg-[#32ADA2] text-white focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mb-4 hover:opacity-90"
