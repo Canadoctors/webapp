@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-b from-[#8CBB93]/90 to-[#00A099]/90 bg-opacity-40 pt-8 pb-6">
       <div className="container mx-auto px-4">
-        <hr className="my-6" />
+        <hr className="my-4" />
         <div className="flex flex-wrap text-center lg:text-left">
           <div className="w-full lg:w-6/12 px-4">
             <div className="object-center">
