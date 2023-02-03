@@ -1,36 +1,15 @@
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
 
 type IconsProps = {
   iconUrl: any;
   title1: string;
   shortDesc: string;
-  wImg: number;
-  hImg: number;
 };
 
-export const Icons = ({
-  iconUrl,
-  title1,
-  shortDesc,
-  wImg,
-  hImg,
-}: IconsProps) => {
-  const [windowWidth, setWindowWidth] = useState(0);
-
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, []);
-
-  const wImgs = windowWidth < 640 ? windowWidth / 4 : wImg;
-  const hImgs = windowWidth < 640 ? windowWidth / 4 : hImg;
-
+export const Icons = ({ iconUrl, title1, shortDesc }: IconsProps) => {
   return (
     <div className="w-full p-8">
-      <Image src={iconUrl} width={wImgs} height={hImgs} />
+      <Image src={iconUrl} width={150} height={150} />
       <div className="font-bold">
         <h1>{title1}</h1>
       </div>

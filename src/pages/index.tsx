@@ -14,8 +14,6 @@ const IconsContent = [
   {
     id: 1,
     iconUrl: icon1,
-    w: 150,
-    h: 150,
     title1: "Profesionales",
     shortDesc:
       "Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
@@ -23,8 +21,7 @@ const IconsContent = [
   {
     id: 2,
     iconUrl: iconBlocks,
-    w: 150,
-    h: 150,
+
     title1: "Blockchain",
     shortDesc:
       "Cannadoctors genera una huella digital en la red de bloques permitiendo validar la trazabilidad de los pacientes",
@@ -32,8 +29,6 @@ const IconsContent = [
   {
     id: 3,
     iconUrl: iconLaw,
-    w: 150,
-    h: 150,
     title1: "Cumplimiento",
     shortDesc:
       "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional",
@@ -61,8 +56,6 @@ function LandingPage() {
             iconUrl={icon.iconUrl}
             title1={icon.title1}
             shortDesc={icon.shortDesc}
-            wImg={icon.w}
-            hImg={icon.w}
           />
         ))}
       </div>
