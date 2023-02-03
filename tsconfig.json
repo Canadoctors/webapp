@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js", "src/components/Features.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js", "src/components/Features.js", "src/pages/faq/[id].js"],
   "exclude": ["node_modules"]
 }
