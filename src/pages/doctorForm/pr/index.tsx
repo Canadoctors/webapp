@@ -1,16 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { saveNewDoctorPr } from "../../../application/api";
+import { Home } from "../../../components/Home";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Router from "next/router";
-import { Home } from "../../../components/Home";
-import { Icons } from "../../../components/Icons";
-
+import { saveNewDoctorPr } from "../../../application/api";
+import FormField from "../../../components/FormFiel";
 import canadoctorsLogo from "/public/images/logosCD/logopositivo.svg";
 import imagePatient from "/public/images/bg/doctor1.jpg";
-import icon1 from "/public/images/iconCards/icon.svg";
-import iconLaw from "/public/images/iconCards/iconlaw.svg";
-import FormField from "../../../components/FormFiel";
+import { FaChild, FaSistrix } from "react-icons/fa";
 
 interface Inputs {
   firstName: string;
@@ -23,28 +20,7 @@ interface Inputs {
   licenseNumber: string;
 }
 
-const IconsContent = [
-  {
-    id: 1,
-    iconUrl: icon1,
-    title1: "Profesionales",
-    shortDesc:
-      "Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
-    w: 100,
-    h: 100,
-  },
-  {
-    id: 3,
-    iconUrl: iconLaw,
-    title1: "Cumplimiento",
-    shortDesc:
-      "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional",
-    w: 100,
-    h: 100,
-  },
-];
-
-const DoctorForm = () => {
+const DoctorFormPr = () => {
   const {
     register,
     handleSubmit,
@@ -217,26 +193,48 @@ const DoctorForm = () => {
 
         <div className="hidden bg-cover lg:block lg:w-1/2 h-screen">
           <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full">
-            <div className="basis-1/2 flex flex-col">
-              <div className="m-auto text-center">
-                <h2 className="text-lg text-white sm:text-4xl md:text-3xl lg:text-2xl pt-2 pb-2">
-                  <span className="block">
-                    Si queres conocer mas sobre la propuesta de canadoctors
-                    dejanos tus datos y nos pondremos en contacto contigo
-                  </span>
-                </h2>
-              </div>
-              <div className="flex flex-row text-white text-sm text-center">
-                {IconsContent.map((icon) => (
-                  <Icons
-                    key={icon.id}
-                    iconUrl={icon.iconUrl}
-                    title1={icon.title1}
-                    shortDesc={icon.shortDesc}
-                    wImg={icon.w}
-                    hImg={icon.h}
-                  />
-                ))}
+            <div className="basis-1/2 flex flex-col justify-center">
+              <div className="container px-5  mx-auto">
+                <div className="text-center mb-20">
+                  <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 mt-2">
+                    Se parte de la comunidad
+                  </h1>
+                  <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
+                    Forma parte de una amplia red de profesionales que buscan
+                    mejorar la calidad de vida de sus pacientes.
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-evenly sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+                  <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
+                    <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+                      <FaChild className="w-10 h-10 text-[#00A099]" />
+                    </div>
+                    <div className="flex-grow">
+                      <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
+                        Accesibilidad
+                      </h2>
+                      <p className="leading-relaxed text-base">
+                        Ofrecé un servicio más accesible y eficiente a tus
+                        pacientes y lográ un mejor seguimiento sobre cada uno.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
+                    <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
+                      <FaSistrix className="w-10 h-10 text-[#00A099]" />
+                    </div>
+                    <div className="flex-grow">
+                      <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
+                        Trazabilidad
+                      </h2>
+                      <p className="leading-relaxed text-base">
+                        Obten un seguimiento personalizado de cada paciente y
+                        accede de forma rápida y sencilla a su historial médico.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="basis-1/2 relative">
@@ -253,4 +251,4 @@ const DoctorForm = () => {
     </>
   );
 };
-export default DoctorForm;
+export default DoctorFormPr;
