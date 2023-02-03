@@ -27,7 +27,7 @@ function countryFaq() {
               <div key={faq.id} className="py-5">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span>{faq.question}</span>
+                    <span className="text-left">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
                       <FaAngleUp className="text-xl" />
                     </span>
@@ -47,7 +47,7 @@ function countryFaq() {
               <div key={faq.id} className="py-5">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span>{faq.question}</span>
+                    <span className="text-left">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
                       <FaAngleUp className="text-xl" />
                     </span>
