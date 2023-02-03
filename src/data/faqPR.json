@@ -1,0 +1,115 @@
+[
+    {
+        "id":1,
+        "question":"¿Que es cannadoctors?",
+        "answer":"Canadoctors es una plataforma que conecta medicos y pacientes de cannabis medicinal."
+    },
+    {
+        "id":2,
+        "question":"¿Tengo un problema tecnico a quien contacto? ¿Cómo me contacto con soporte?",
+        "answer":"Podes contactarte mediante mail a la siguiente direccion (por ejemplo) o dejanos tus datos y consulta en el siguiente formulario que alguien de nuestro equipo se pondrá en contacto con vos a la brevedad."
+    },
+    {
+        "id":3,
+        "question":"¿Es legal solicitar el licencia para uso del canabis medicinal? ",
+        "answer":"Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional, por lo cual se alinea con todas las leyes vigentes que autorizan el uso del canabis medicinal."
+    },
+    {
+        "id":4,
+        "question":"¿Cual es el proceso para solicitar la licencia para uso del canabis medicinal?",
+        "answer":"Un profesional de la salud, evaluará tu caso y de acuerdo a tu necesidad te preinscribira la utilizacion de cannabis medicinal."
+    },
+    {
+        "id":5,
+        "question":"¿Que es una licencia para uso del canabis medicinal?",
+        "answer":[
+            "Luego de una evaluación médica, si el médico autorizado determina que usted sufre de una condición cubierta por la Ley 42-2017 y que se beneficiaría de tratamiento con Cannabis, él o ella le harán una recomendación por escrito para el uso de Cannabis Medicinal.\n",
+
+            "Esta recomendación NO es una receta ni le permite comprar Cannabis Medicinal en un dispensario.\n",
+            
+            "Con esa recomendación y otros documentos, usted puede ir al Departamento de Salud de Puerto Rico para solicitar su licencia de Cannabis Medicinal. Para lista completa de documentos necesarios favor visitar: Documentos Requeridos por el Deparatamento de Salud"
+        ]
+    },
+    {
+        "id":6,
+        "question":"¿Para que condiciones medicas está permitido emitir la licencia?",
+        "answer": ["Esta permitido emitir la licencia para las siguientes condiciones médicas: \n",
+        "\t\u2022 Desórdenes de Ansiedad.",
+        "\t\u2022 Insomnia.",
+        "\t\u2022 PTSD.",
+        "\t\u2022 Depresión.",
+        "\t\u2022 Trastorno Bipolar.",
+        "\t\u2022 Dolor Crónico.",
+        "\t\u2022 Artritis.",
+        "\t\u2022 Glaucoma.",
+        "\t\u2022 Migraña.",
+        "\t\u2022 Náuseas Severas.",
+        "\t\u2022 Fibromialgia.",
+        "\t\u2022 Enfermedad Inflamatoria Intestinal.",
+        "\t\u2022 Anorexia.",
+        "\t\u2022 Epilepsia.",
+        "\t\u2022 Autismo.",
+        "\t\u2022 Alzheimer.",
+        "\t\u2022 Parkinson.",
+        "\t\u2022 Espasmos Musculares Persistentes.",
+        "\t\u2022 Hepatitis C.",
+        "\t\u2022 Cáncer.",
+        "\t\u2022 HIV.",
+        "\t\u2022 SIDA.",
+        "\t\u2022 Lesión en el Cordón Espinal.",
+        "\t\u2022 Esclerosis Múltiple.",
+        "\t\u2022 Esclerosis Lateral Amiotrófica.",
+        "\t\u2022 Neuropatías Periferales.",
+        "\t\u2022 Caquexia.",
+        "\t\u2022 Enfermedades incurables y avanzadas que requieran cuidado paliativo.",
+        "\t\u2022 Cualquier otra condición que su doctor considere debilitante."
+    ]
+    },
+    {
+        "id":7,
+        "question":"¿Qué medicos estan habilitados para emitirlos?",
+        "answer":"Médicos registrados con matrícula especial para emitir dichos certificados"
+    },
+    {
+        "id":8,
+        "question":"¿Cuales medios de pago son aceptados?",
+        "answer":"Se aceptan como medios de pago tarjetas de débito, crédito y transferencia"
+    },
+    {
+        "id":9,
+        "question":"¿Hay política de reembolso?",
+        "answer":"Ver legales (link)"
+    },
+    {
+        "id":10,
+        "question":"¿Cuánto es el tiempo de vigencia de la autorización?",
+        "answer":"La licencia para uso de Cannabis Medicinal es válida por hasta (1) año a discreción del doctor que le evalua."
+    },
+    {
+        "id":11,
+        "question":"¿La licencia es válida a nivel internacional?",
+        "answer":"Solo valido en PR"
+    },
+    {
+        "id":12,
+        "question":"¿Cuales son los alcances o habilitaciones de la licencia?",
+        "answer":"completar"
+    },
+    {
+        "id":13,
+        "question":"¿Qué cantidad puedo tener de canabis medicinal?",
+        "answer":"completar"
+    },
+    {
+        "id":14,
+        "question":"¿Qué pruebas medicas se hacen al paciente para validar su condicion para el uso de canabis medicinal?",
+        "answer":["La evidencia necesaria es a discreción del doctor o doctora que le evalúe. Durante la consulta, el doctor puede administrarle ciertas pruebas que lo ayudan a determinar si usted cualifica. Por ejemplo, el doctor puede administrarle la prueba GAD-7 para determinar si sus niveles de ansiedad lo cualifican para uso de Cannabis Medicinal.\n\n",
+
+        "Adicionalmente, usted puede sustentar su condición con algunos de los siguientes documentos:\n",
+        
+        "\n\u2022 Una certificación de su condición por su médico primario o especialista.\n",
+        "\n\u2022 Lectura reciente de alguna placa (Rayos X, CT-Scan o MRI).\n",
+        "\n\u2022 Medicamentos prescritos que no tengan más de 3 meses.\n"
+        ]
+    }
+]
