@@ -26,7 +26,7 @@ function countryFaq() {
             {faqAr.map((faq) => (
               <div key={faq.id} className="py-5">
                 <details className="group">
-                  <summary className="flex justify-between bg-red-100 font-medium cursor-pointer list-none">
+                  <summary className="flex justify-between font-medium cursor-pointer list-none">
                     <span className="text-left w-full">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
                       <FaAngleUp className="text-xl" />
