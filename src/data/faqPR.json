@@ -113,11 +113,5 @@
         "\t\n\u2022 Lectura reciente de alguna placa (Rayos X, CT-Scan o MRI).\n",
         "\t\n\u2022 Medicamentos prescritos que no tengan más de 3 meses.\n"
         ]
-    },
-    {
-        "comentarios": ["id:12",
-        "question:¿Cuales son los alcances o habilitaciones de la licencia?",
-        "answer:completar"]
-        
     }
 ]
