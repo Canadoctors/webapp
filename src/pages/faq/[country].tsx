@@ -7,7 +7,6 @@ import faqPr from "../../data/faqPR.json";
 
 function countryFaq() {
   const { query } = useRouter();
-  console.log(query);
 
   return (
     <div className="max-w-screen-xl mx-auto px-5 bg-white min-h-sceen">
@@ -24,8 +23,8 @@ function countryFaq() {
         {query.country === "ar" && (
           <>
             {faqAr.map((faq) => (
-              <div className="py-5">
-                <details key={faq.id} className="group">
+              <div key={faq.id} className="py-5">
+                <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                     <span className="w-full">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
@@ -44,8 +43,8 @@ function countryFaq() {
         {query.country === "pr" && (
           <>
             {faqPr.map((faq) => (
-              <div className="py-5">
-                <details key={faq.id} className="group">
+              <div key={faq.id} className="py-5">
+                <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                     <span className="w-full">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
