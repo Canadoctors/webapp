@@ -34,35 +34,35 @@
         "id":6,
         "question":"¿Para que condiciones medicas está permitido emitir la licencia?",
         "answer": ["Esta permitido emitir la licencia para las siguientes condiciones médicas: \n",
-        "\t\u2022 Desórdenes de Ansiedad.",
-        "\t\u2022 Insomnia.",
-        "\t\u2022 PTSD.",
-        "\t\u2022 Depresión.",
-        "\t\u2022 Trastorno Bipolar.",
-        "\t\u2022 Dolor Crónico.",
-        "\t\u2022 Artritis.",
-        "\t\u2022 Glaucoma.",
-        "\t\u2022 Migraña.",
-        "\t\u2022 Náuseas Severas.",
-        "\t\u2022 Fibromialgia.",
-        "\t\u2022 Enfermedad Inflamatoria Intestinal.",
-        "\t\u2022 Anorexia.",
-        "\t\u2022 Epilepsia.",
-        "\t\u2022 Autismo.",
-        "\t\u2022 Alzheimer.",
-        "\t\u2022 Parkinson.",
-        "\t\u2022 Espasmos Musculares Persistentes.",
-        "\t\u2022 Hepatitis C.",
-        "\t\u2022 Cáncer.",
-        "\t\u2022 HIV.",
-        "\t\u2022 SIDA.",
-        "\t\u2022 Lesión en el Cordón Espinal.",
-        "\t\u2022 Esclerosis Múltiple.",
-        "\t\u2022 Esclerosis Lateral Amiotrófica.",
-        "\t\u2022 Neuropatías Periferales.",
-        "\t\u2022 Caquexia.",
-        "\t\u2022 Enfermedades incurables y avanzadas que requieran cuidado paliativo.",
-        "\t\u2022 Cualquier otra condición que su doctor considere debilitante."
+        "\t\u2022 Desórdenes de Ansiedad.\n",
+        "\t\u2022 Insomnia.\n",
+        "\t\u2022 PTSD.\n",
+        "\t\u2022 Depresión.\n",
+        "\t\u2022 Trastorno Bipolar.\n",
+        "\t\u2022 Dolor Crónico.\n",
+        "\t\u2022 Artritis.\n",
+        "\t\u2022 Glaucoma.\n",
+        "\t\u2022 Migraña.\n",
+        "\t\u2022 Náuseas Severas.\n",
+        "\t\u2022 Fibromialgia.\n",
+        "\t\u2022 Enfermedad Inflamatoria Intestinal.\n",
+        "\t\u2022 Anorexia.\n",
+        "\t\u2022 Epilepsia.\n",
+        "\t\u2022 Autismo.\n",
+        "\t\u2022 Alzheimer.\n",
+        "\t\u2022 Parkinson.\n",
+        "\t\u2022 Espasmos Musculares Persistentes.\n",
+        "\t\u2022 Hepatitis C.\n",
+        "\t\u2022 Cáncer.\n",
+        "\t\u2022 HIV.\n",
+        "\t\u2022 SIDA.\n",
+        "\t\u2022 Lesión en el Cordón Espinal.\n",
+        "\t\u2022 Esclerosis Múltiple.\n",
+        "\t\u2022 Esclerosis Lateral Amiotrófica.\n",
+        "\t\u2022 Neuropatías Periferales.\n",
+        "\t\u2022 Caquexia.\n",
+        "\t\u2022 Enfermedades incurables y avanzadas que requieran cuidado paliativo.\n",
+        "\t\u2022 Cualquier otra condición que su doctor considere debilitante.\n"
     ]
     },
     {
@@ -92,24 +92,32 @@
     },
     {
         "id":12,
-        "question":"¿Cuales son los alcances o habilitaciones de la licencia?",
-        "answer":"completar"
+        "question":"¿Qué cantidad puedo tener de canabis medicinal?",
+        "answer":["Segun el articulo 8 del Reglamento 9038 de Cannabis, el suministro adecuado que se puede recomendar a un paciente es: \n",
+        
+        "\t\u2022 El limite de suministro máximo diario es de 1 onza, equivalente a 28 gramos, de la flor de Cannabis Medicinal o su equivalente. La proporción de flor a concentrado y a comestible es la siguiente:\n",
+        "\t\t\u2022 28 gramos de flor equivale a 8 gramos de THC en concentrado.\n",
+        "\t\t\u2022 28 gramos de flor equivale a 800 miligramos de THC en comestible.\n",
+        
+        "\t\u2022 Los pacientes o acompañantes autorizados con su registro válido y vigente pueden adquirir y poseer hasta un máximo de suministro de hasta 30 días de CM en los dispensarios registrados y con licencia.\n",
+        "\t\u2022 Luego de los 30 días, el paciente o su acompañante autorizado podrá acudir al dispensario para el reabastecimiento del CM o sus productos derivados según indique la recomendación médica."]
     },
     {
         "id":13,
-        "question":"¿Qué cantidad puedo tener de canabis medicinal?",
-        "answer":"completar"
-    },
-    {
-        "id":14,
         "question":"¿Qué pruebas medicas se hacen al paciente para validar su condicion para el uso de canabis medicinal?",
         "answer":["La evidencia necesaria es a discreción del doctor o doctora que le evalúe. Durante la consulta, el doctor puede administrarle ciertas pruebas que lo ayudan a determinar si usted cualifica. Por ejemplo, el doctor puede administrarle la prueba GAD-7 para determinar si sus niveles de ansiedad lo cualifican para uso de Cannabis Medicinal.\n\n",
 
         "Adicionalmente, usted puede sustentar su condición con algunos de los siguientes documentos:\n",
         
-        "\n\u2022 Una certificación de su condición por su médico primario o especialista.\n",
-        "\n\u2022 Lectura reciente de alguna placa (Rayos X, CT-Scan o MRI).\n",
-        "\n\u2022 Medicamentos prescritos que no tengan más de 3 meses.\n"
+        "\t\n\u2022 Una certificación de su condición por su médico primario o especialista.\n",
+        "\t\n\u2022 Lectura reciente de alguna placa (Rayos X, CT-Scan o MRI).\n",
+        "\t\n\u2022 Medicamentos prescritos que no tengan más de 3 meses.\n"
         ]
+    },
+    {
+        "comentarios": ["id:12",
+        "question:¿Cuales son los alcances o habilitaciones de la licencia?",
+        "answer:completar"]
+        
     }
 ]

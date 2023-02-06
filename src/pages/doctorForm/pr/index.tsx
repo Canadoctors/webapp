@@ -196,10 +196,10 @@ const DoctorFormPr = () => {
             <div className="basis-1/2 flex flex-col justify-center">
               <div className="container px-5  mx-auto">
                 <div className="text-center mb-20">
-                  <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4 mt-2">
+                  <h1 className="sm:text-3xl text-2xl font-medium title-font text-white mb-4 mt-2">
                     Se parte de la comunidad
                   </h1>
-                  <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">
+                  <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white">
                     Forma parte de una amplia red de profesionales que buscan
                     mejorar la calidad de vida de sus pacientes.
                   </p>
@@ -210,10 +210,10 @@ const DoctorFormPr = () => {
                       <FaChild className="w-10 h-10 text-[#00A099]" />
                     </div>
                     <div className="flex-grow">
-                      <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
+                      <h2 className="text-white text-lg title-font font-medium mb-3">
                         Accesibilidad
                       </h2>
-                      <p className="leading-relaxed text-base">
+                      <p className="leading-relaxed text-white text-base">
                         Ofrecé un servicio más accesible y eficiente a tus
                         pacientes y lográ un mejor seguimiento sobre cada uno.
                       </p>
@@ -225,10 +225,10 @@ const DoctorFormPr = () => {
                       <FaSistrix className="w-10 h-10 text-[#00A099]" />
                     </div>
                     <div className="flex-grow">
-                      <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
+                      <h2 className="text-white text-lg title-font font-medium mb-3">
                         Trazabilidad
                       </h2>
-                      <p className="leading-relaxed text-base">
+                      <p className="leading-relaxed text-white text-base">
                         Obten un seguimiento personalizado de cada paciente y
                         accede de forma rápida y sencilla a su historial médico.
                       </p>

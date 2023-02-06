@@ -31,7 +31,7 @@ function countryFaq() {
                       <FaAngleUp className="text-xl" />
                     </span>
                   </summary>
-                  <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
+                  <p className="whitespace-pre-wrap text-neutral-600 mt-3 group-open:animate-fadeIn">
                     {faq.answer}
                   </p>
                 </details>
@@ -51,8 +51,8 @@ function countryFaq() {
                       <FaAngleUp className="text-xl" />
                     </span>
                   </summary>
-                  <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                    {faq.answer}
+                  <p className="whitespace-pre-wrap text-neutral-600 mt-3 group-open:animate-fadeIn">
+                    {faq.answer}                   
                   </p>
                 </details>
               </div>
