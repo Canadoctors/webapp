@@ -24,10 +24,10 @@ function countryFaq() {
         {query.country === "ar" && (
           <>
             {faqAr.map((faq) => (
-              <div key={faq.id} className="py-5">
-                <details className="group">
-                  <summary className="flex justify-between font-medium cursor-pointer list-none">
-                    <span className="text-left w-full">{faq.question}</span>
+              <div className="py-5">
+                <details key={faq.id} className="group">
+                  <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <span className="w-full">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
                       <FaAngleUp className="text-xl" />
                     </span>
@@ -44,10 +44,10 @@ function countryFaq() {
         {query.country === "pr" && (
           <>
             {faqPr.map((faq) => (
-              <div key={faq.id} className="py-5">
-                <details className="group">
-                  <summary className="flex justify-between font-medium cursor-pointer list-none">
-                    <span className="text-left w-full">{faq.question}</span>
+              <div className="py-5">
+                <details key={faq.id} className="group">
+                  <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+                    <span className="w-full">{faq.question}</span>
                     <span className="transition group-open:rotate-180">
                       <FaAngleUp className="text-xl" />
                     </span>
