@@ -200,7 +200,7 @@ const DoctorFormPr = () => {
                     Se parte de la comunidad
                   </h1>
                   <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white">
-                    Forma parte de una amplia red de profesionales que buscan
+                    Únete a una amplia red de profesionales que buscan
                     mejorar la calidad de vida de sus pacientes.
                   </p>
                 </div>
@@ -214,8 +214,8 @@ const DoctorFormPr = () => {
                         Accesibilidad
                       </h2>
                       <p className="leading-relaxed text-white text-base">
-                        Ofrecé un servicio más accesible y eficiente a tus
-                        pacientes y lográ un mejor seguimiento sobre cada uno.
+                        Ofrece un servicio más accesible y eficiente a tus
+                        pacientes y logra un mejor seguimiento sobre cada uno.
                       </p>
                     </div>
                   </div>

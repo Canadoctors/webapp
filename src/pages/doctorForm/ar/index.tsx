@@ -168,10 +168,10 @@ const DoctorFormAr = () => {
               <div className="container px-5  mx-auto">
                 <div className="text-center mb-20">
                   <h1 className="sm:text-3xl text-2xl font-medium title-font text-white mb-4 mt-2">
-                    Se parte de la comunidad
+                    Sé parte de la comunidad
                   </h1>
                   <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white">
-                    Forma parte de una amplia red de profesionales que buscan
+                    Formá parte de una amplia red de profesionales que buscan
                     mejorar la calidad de vida de sus pacientes.
                   </p>
                 </div>
@@ -201,7 +201,7 @@ const DoctorFormAr = () => {
                       </h2>
                       <p className="leading-relaxed text-white text-base">
                         Lográ un seguimiento personalizado de cada paciente y
-                        accede de forma rápida y sencilla a su historial médico.
+                        accedé de forma rápida y sencilla a su historial médico.
                       </p>
                     </div>
                   </div>
