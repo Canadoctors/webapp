@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import footerLogo from "../../public/images/logosCD/logocanadoctorwhite.svg";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { GrYoutube } from "react-icons/gr";
+import { AiOutlineYoutube } from "react-icons/ai";
 
 export const Footer = () => {
   return (
@@ -29,22 +31,16 @@ export const Footer = () => {
                 </button>
               </Link>
 
-              <button
-                className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <div className="w-full flex justify-center items-center">
-                  <FaFacebookF className="text-2xl text-[#00A099]" />
-                </div>
-              </button>
-              <button
-                className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <div className="w-full flex justify-center items-center">
-                  <FaTwitter className="text-2xl text-[#00A099]" />
-                </div>
-              </button>
+              <Link href="https://www.youtube.com/@canadoctors">
+                <button
+                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                  type="button"
+                >
+                  <div className="w-full flex justify-center items-center">
+                    <AiOutlineYoutube className="text-2xl text-[#00A099]" />
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
