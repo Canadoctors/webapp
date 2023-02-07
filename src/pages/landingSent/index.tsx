@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import Logo from "../../../public/images/logosCD/logocanadoctorWhite.svg";
+import Logo from "../../../public/images/logosCD/logocanadoctorwhite.svg";
 import iconEmail from "../../../public/images/iconCards/email.png";
 
 function LandingSent() {
