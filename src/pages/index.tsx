@@ -24,7 +24,7 @@ const IconsContent = [
 
     title1: "Blockchain",
     shortDesc:
-      "Cannadoctors genera una huella digital en la red de bloques permitiendo validar la trazabilidad de los pacientes",
+      "Canadoctors genera una huella digital en la red de bloques permitiendo validar la trazabilidad de los pacientes",
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ function LandingPage() {
         button1Url={"https://app.canadoctors.com/signup"}
         button2Url={"https://app.canadoctors.com/"}
         button1Title={"Registrate"}
-        button2Title={"Inicial Sesión"}
+        button2Title={"Iniciar Sesión"}
       />
 
       <div className="flex flex-col md:flex-row text-center text-cdgrey">
