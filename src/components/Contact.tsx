@@ -31,7 +31,7 @@ export const Contact = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
+      <div id="Contact" className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
         <div className="flex flex-wrap justify-center pt-8">
           <div className="w-full lg:w-7/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-white">

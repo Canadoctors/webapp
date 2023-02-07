@@ -1,41 +1,41 @@
 [
     {
         "id":1,
-        "question":"¿Que es cannadoctors?",
-        "answer":"Canadoctors es una plataforma que conecta medicos y pacientes de cannabis medicinal."
+        "question":"¿Qué es canadoctors?",
+        "answer":"Canadoctors es una plataforma que conecta médicos y pacientes de cannabis medicinal."
     },
     {
         "id":2,
-        "question":"¿Tengo un problema tecnico a quien contacto? ¿Cómo me contacto con soporte?",
-        "answer":"Podes contactarte mediante mail a la siguiente direccion (por ejemplo) o dejanos tus datos y consulta en el siguiente formulario que alguien de nuestro equipo se pondrá en contacto con vos a la brevedad."
+        "question":"¿Tengo un problema técnico a quién contacto? ó ¿Cómo me contacto con soporte?",
+        "answer":"Podés contactarte mediante mail a la siguiente direccion info@canadoctors.com o dejanos tus datos y consulta en el siguiente formulario que alguien de nuestro equipo se pondrá en contacto con vos a la brevedad."
     },
     {
         "id":3,
-        "question":"¿Es legal solicitar el certificado reprocann para uso del canabis medicinal? ",
-        "answer":"Nuestra plataforma se alinea con todas las leyes vigentes que autorizan el uso del canabis medicinal. Ley 27350"
+        "question":"¿Es legal solicitar el certificado REPROCANN para uso del cannabis medicinal? ",
+        "answer":"Nuestra plataforma se alinea con todas las leyes vigentes que autorizan el uso del cannabis medicinal. Ley 27350"
     },
     {
         "id":4,
-        "question":"¿Cual es el proceso para solicitar el certificado para uso del canabis medicinal?",
-        "answer":"Un profesional de la salud (médico u odontólogo), evaluará tu caso y de acuerdo a tu necesidad te preinscribira la utilizacion de cannabis medicinal."
+        "question":"¿Cuál es el proceso para solicitar el certificado para uso del cannabis medicinal?",
+        "answer":"Un profesional de la salud (médico u odontólogo), evaluará tu caso y de acuerdo a tu necesidad te recetará la utilización de cannabis medicinal."
     },
     {
         "id":5,
-        "question":"¿Que profesionales estan habilitados para autorizar el certificado?",
-        "answer":"Medicos y odontologos segun la ley de Reprocann y no necesitan una licencia especial"
+        "question":"¿Qué profesionales están habilitados para autorizar el certificado?",
+        "answer":"Medicos y odontologos segun la ley de REPROCANN y no necesitan una licencia especial"
     },
     {
         "id":6,
-        "question":"¿Cuales son los alcances o habilitaciones del certificado?",
+        "question":"¿Cuáles son los alcances o habilitaciones del certificado?",
         "answer": ["Las habilitaciones son las siguientes: \n",
-        "Paciente: persona en tratamiento que puede autocultivar o vincularse un cultivador/a solidario/a.\n",
-        "Responsable a cargo: persona representante legal de la persona en tratamiento, que puede cultivar para su representado/a o vincularse un cultivador/a solidario/a.\n",
-        "Cultivador/a solidario/a: es aquella persona que cultiva para la persona en tratamiento, Profesional de la salud (médico/a - odontólogo/a), y ONGs vinculadas con la salud.\n"]
+        "\n\t\u2022 Paciente: persona en tratamiento que puede autocultivar o vincularse un cultivador/a solidario/a.\n",
+        "\t\u2022 Responsable a cargo: persona representante legal de la persona en tratamiento, que puede cultivar para su representado/a o vincularse un cultivador/a solidario/a.\n",
+        "\t\u2022 Cultivador/a solidario/a: es aquella persona que cultiva para la persona en tratamiento, Profesional de la salud (médico/a - odontólogo/a), y ONGs vinculadas con la salud.\n"]
     },
     {
         "id":7,
-        "question":"¿Cuales medios de pago son aceptados?",
-        "answer":"Se aceptan como medios de pago tarjetas de débito, crédito y transferencia"
+        "question":"¿Cuáles medios de pago son aceptados?",
+        "answer":"Se aceptan como medios de pago tarjetas de débito, crédito y transferencia bancaria"
     },
     {
         "id":8,
@@ -44,17 +44,17 @@
     },
     {
         "id":9,
-        "question":"¿Cuánto es el tiempo de vigencia de la autorización?",
-        "answer":"1 año, luego deberá ser renovada."
+        "question":"¿Cuánto es el tiempo de vigencia del certificado REPROCANN?",
+        "answer":"1 año, luego deberá ser renovado."
     },
     {
         "id":10,
-        "question":"¿Cómo realizo la renovación de la autorización?",
-        "answer":"Una vez vencida la autorización debe realizar nuevamente el trámite. No hay renovación automática."
+        "question":"¿Cómo realizo la renovación del certificado REPROCANN?",
+        "answer":"Una vez vencido el certificado debe realizar nuevamente el trámite. No hay renovación automática."
     },
     {
         "id":11,
-        "question":"¿Si no soy argentino o soy turista puedo solicitar el certificado reprocann?",
+        "question":"¿Si no soy argentino o soy turista puedo solicitar el certificado REPROCANN?",
         "answer":"No, la ley solo contempla ciudadanos argentinos"
     },
     {
@@ -69,24 +69,24 @@
         "question":"¿Quiénes pueden registrar un cultivo?",
         "answer":["Podrá inscribirse en el REPROCANN toda persona que cuente:\n",
 
-        "\t\u2022 Con indicación médica.\n",
+        "\n\t\u2022 Con indicación médica.\n",
         "\t\u2022 Que haya firmado el consentimiento informado correspondiente, en las condiciones establecidas por el Programa.\n",
         "\t\u2022 Que haya cumplido con los requisitos y los trámites solicitados por el Programa en tiempo y forma.\n",
 
-        "El sistema validará los datos a través de ","https://www.argentina.gob.ar/miargentina"," por lo que es necesario contar con una cuenta en el sitio o en la app Mi Argentina a tales efectos.\n",
+        "\nEl sistema validará los datos a través de ","https://www.argentina.gob.ar/miargentina"," por lo que es necesario contar con una cuenta en el sitio o en la app Mi Argentina a tales efectos.\n",
         
         "Se admiten registro a trámite personal, o a través de un o una familiar, o una tercera persona u organización civil autorizada por la Autoridad de Aplicación."]
     },
     {
         "id":14,
-        "question":"¿Cuales son los pasos para registrarme en Reprocann?",
+        "question":"¿Cuáles son los pasos para registrarme en REPROCANN?",
         "answer":[
             "Podrá inscribirse en el REPROCANN quien cuente:\n",
 
-            "\t\u2022 Con indicación médica.\n",
+            "\n\t\u2022 Con indicación médica.\n",
             "\t\u2022 Y que haya suscrito el consentimiento informado y declaración jurada correspondiente, y aquellas condiciones establecidas por el Programa.\n",
             
-            "El sistema validará los datos a través de ","https://www.argentina.gob.ar/miargentina"," por lo que es necesario crear una cuenta en el sitio o en la app a tales efectos.\n",
+            "\nEl sistema validará los datos a través de ","https://www.argentina.gob.ar/miargentina"," por lo que es necesario crear una cuenta en el sitio o en la app a tales efectos.\n",
             
             "El/La paciente inicia el trámite en el aplicativo web y el profesional de salud prescriptor debe adjuntar Declaración Jurada y Consentimiento Informado (ambos documentos en formato PDF), y vincular al paciente, tercero u ONG con el cultivo.\n",
             
@@ -97,7 +97,7 @@
         "id":15,
         "question":"¿Cuáles son los roles en el REPROCANN?",
         "answer": ["Las formas en las cuales se puede inscribir son las siguientes:\n",
-        "\t\u2022 Paciente: persona en tratamiento que puede autocultivar o vincularse un cultivador/a solidario/a.\n",
+        "\n\t\u2022 Paciente: persona en tratamiento que puede autocultivar o vincularse un cultivador/a solidario/a.\n",
         "\t\u2022 Responsable a cargo: persona representante legal de la persona en tratamiento, que puede cultivar para su representado/a o vincularse un cultivador/a solidario/a.\n",
         "\t\u2022 Cultivador/a solidario/a: es aquella persona que cultiva para la persona en tratamiento, Profesional de la salud (médico/a - odontólogo/a), y ONGs vinculadas con la salud.\n"]
     },
@@ -128,18 +128,13 @@
     },
     {
         "id":21,
-        "question":"¿El REPROCANN tiene algún costo?",
-        "answer": "El trámite de inscripción no posee costo alguno por parte del Ministerio de Salud de la Nación."
-    },
-    {
-        "id":22,
         "question":"¿Cuántas plantas están autorizadas por paciente?",
         "answer": [
             "Están autorizadas hasta 9 plantas en floración por paciente.\n\n",
 
             "Se establece como rangos permitidos de plantas florecidas y extensión de superficie cultivada, a los efectos de obtener la autorización a la que se refiere el Artículo 4°, los siguientes:\n",
             
-            "\t\u2022 Cantidad de plantas florecidas: entre 1 y 9 por paciente.\n",
+            "\n\t\u2022 Cantidad de plantas florecidas: entre 1 y 9 por paciente.\n",
             
             "\t\u2022 Cantidad de metros cuadrados cultivados: hasta 6 m2 para cultivo interior, y hasta 15 m2 para el cultivo exterior.\n",
             
@@ -149,7 +144,7 @@
         ]
     },
     {
-        "id":23,
+        "id":22,
         "question":"¿Se puede transportar cannabis?",
         "answer": "Sí, la autorización implica poder transportar hasta 40 gramos de flores secas o 6 unidades de goteros de 30ml."
     }
