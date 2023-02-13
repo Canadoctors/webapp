@@ -13,14 +13,12 @@ export const Contact = () => {
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm<ContactSubmitForm>();
 
   const onSubmit: SubmitHandler<ContactSubmitForm> = (data) => {
     contactForm(data);
-
     try {
       alert("Mensaje enviado");
       reset();
@@ -31,7 +29,10 @@ export const Contact = () => {
 
   return (
     <>
-      <div id="Contact" className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
+      <div
+        id="Contact"
+        className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4"
+      >
         <div className="flex flex-wrap justify-center pt-8">
           <div className="w-full lg:w-7/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-white">
@@ -68,6 +69,47 @@ export const Contact = () => {
                       errors={errors}
                       register={register}
                     />
+                  </div>
+
+                  <div className="sm:flex-col md:flex-row lg:flex-row xl:flex gap-4">
+                    <div className="flex-grow xl:w-1/4 xl:pr-2">
+                      <FormField
+                        id="country"
+                        name="pais"
+                        required={true}
+                        type="text"
+                        maxLength={25}
+                        placeholder="País"
+                        errors={errors}
+                        register={register}
+                      />
+                    </div>
+
+                    <div className="flex-grow">
+                      <FormField
+                        id="countryCode"
+                        name="código de área"
+                        required={true}
+                        type="number"
+                        maxLength={8}
+                        placeholder="Código de área"
+                        errors={errors}
+                        register={register}
+                      />
+                    </div>
+
+                    <div className="flex-grow">
+                      <FormField
+                        id="phone"
+                        name="telefono"
+                        required={true}
+                        type="number"
+                        maxLength={18}
+                        placeholder="Teléfono"
+                        errors={errors}
+                        register={register}
+                      />
+                    </div>
                   </div>
 
                   <div className="relative w-full">
