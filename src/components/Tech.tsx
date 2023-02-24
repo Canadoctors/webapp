@@ -11,11 +11,11 @@ export const Tech = () => {
         <div className="justify-center text-center gap-6 md:text-left md:flex lg:items-center lg:gap-16">
           <div className="order-last mb-6 space-y-6 md:mb-0 md:w-6/12 lg:w-6/12">
             <h1 className="text-2xl sm:text-3xl md:text-4xl text-cdgrey font-bold">
-              Tecnologia aplicada a la industria del cannabis medicinal
+              Tecnología aplicada a la industria del cannabis medicinal
             </h1>
             <p className="text-lg text-cdgrey">
-              Canadoctors te conecta con medicos especialistas en
-              endocannabinologia licenciados y matricuclados.
+              Canadoctors te conecta con médicos especialistas en
+              endocannabinología licenciados y matriculados.
             </p>
           </div>
           <div className="grid grid-cols-5 grid-rows-4 gap-4 md:w-5/12 lg:w-6/12">

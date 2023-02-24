@@ -11,8 +11,8 @@ function Terms() {
               <Image width={"400px"} src={Logo} alt="" />
               <h2 className="text-lg font-bold  sm:text-2xl md:text-3xl lg:text-xl pt-2 pb-2">
                 <span className="block">
-                  TERMINOS Y CONDICIONES Y CONSENTIMIENTO DE USO DE LA
-                  PLATAFORMA WEB Y APLICACION
+                  TÉRMINOS Y CONDICIONES Y CONSENTIMIENTO DE USO DE LA
+                  PLATAFORMA WEB Y APLICACIÓN
                 </span>
               </h2>
 

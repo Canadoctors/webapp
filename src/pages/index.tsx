@@ -16,7 +16,7 @@ const IconsContent = [
     iconUrl: icon1,
     title1: "Profesionales",
     shortDesc:
-      "Conecte con medicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
+      "Conecte con médicos especialistas en tratamientos de diversas patologías mediante cannabis medicinal",
   },
   {
     id: 2,
@@ -24,14 +24,14 @@ const IconsContent = [
 
     title1: "Blockchain",
     shortDesc:
-      "Canadoctors genera una huella digital en la red de bloques permitiendo validar la trazabilidad de los pacientes",
+      "Canadoctors genera una huella digital en la red de bloques permitiendo válidar la trazabilidad de los pacientes",
   },
   {
     id: 3,
     iconUrl: iconLaw,
     title1: "Cumplimiento",
     shortDesc:
-      "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional",
+      "Nuestra plataforma cuenta con un proceso en cumplimiento con los estándares de seguridad internacional",
   },
 ];
 
@@ -45,7 +45,7 @@ function LandingPage() {
         }
         button1Url={"https://app.canadoctors.com/signup"}
         button2Url={"https://app.canadoctors.com/"}
-        button1Title={"Registrate"}
+        button1Title={"Regístrate"}
         button2Title={"Iniciar Sesión"}
       />
 

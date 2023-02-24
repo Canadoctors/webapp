@@ -14,7 +14,7 @@ export const Iphone = () => {
           </span>
         </h2>
         <p className="text-md mt-4 text-gray-400">
-          Actualmente nuestra plataforma esta operativa en Estados Unidos,
+          Actualmente nuestra plataforma está operativa en Estados Unidos,
           Puerto Rico y Argentina.
         </p>
         <div className="flex py-3 pt-6 justify-center md:justify-start">

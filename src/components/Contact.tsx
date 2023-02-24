@@ -38,10 +38,10 @@ export const Contact = () => {
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-white">
               <div className="flex-auto p-5 lg:p-10">
                 <h4 className="text-2xl font-semibold">
-                  Ponte en contacto con nosotros
+                  Contactese con nosotros
                 </h4>
                 <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                  Complete este formulario y nos pondremos en contacto con usted
+                  Complete éste formulario y nos pondremos en contacto con usted
                   lo antes posible.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>

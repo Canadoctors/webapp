@@ -67,7 +67,7 @@ export const Footer = () => {
                   <li>
                     <Link href="https://app.canadoctors.com/signup">
                       <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Registrate
+                        Regístrate
                       </a>
                     </Link>
                   </li>
@@ -89,7 +89,7 @@ export const Footer = () => {
                   <li>
                     <Link href="/terms">
                       <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Terminos y condiciones
+                        Términos y condiciones
                       </a>
                     </Link>
                   </li>
@@ -102,7 +102,7 @@ export const Footer = () => {
         <div className="flex flex-wrap items-center md:justify-between justify-center">
           <div className="w-full md:w-4/12 px-4 mx-auto text-center">
             <div className="text-sm text-white font-semibold py-1">
-              Copyright © <span id="get-current-year">2022</span>
+              Copyright © <span id="get-current-year">2023</span>
               <span> Canadoctors</span>
             </div>
           </div>
