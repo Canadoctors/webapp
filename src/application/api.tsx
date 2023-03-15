@@ -27,3 +27,9 @@ export const contactForm = (data: any) => {
     ...data,
   });
 };
+
+export const saveDispensaryPr = (datos: any) => {
+  addDoc(collection(db, "dispensaryPr"), {
+    ...datos,
+  });
+};
