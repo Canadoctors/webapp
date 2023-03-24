@@ -4,16 +4,81 @@ import FormField from "../../../components/FormFiel";
 import Image from "next/image";
 import Router from "next/router";
 import { saveDispensaryPr } from "../../../application/api";
+import { CIUDAD, EMAIL, NAME, PHONE } from "../../../validations/validations";
 
 type UserSubmitForm = {
   dispensaryName: string;
   contactPerson: string;
-  phone: number;
+  phone: string;
   countryCode: string;
   email: string;
   location: string;
   registrationDate: string;
 };
+
+const countries = [
+  { value: '+54', label: '🇦🇷 Argentina +54' },
+  { value: '+1242', label: '🇧🇸 Bahamas +1242' },
+  { value: '+591', label: '🇧🇴 Bolivia +591' },
+  { value: '+55', label: '🇧🇷 Brasil +55' },
+  { value: '+1', label: '🇨🇦 Canadá +1' },
+  { value: '+56', label: '🇨🇱 Chile +56' },
+  { value: '+57', label: '🇨🇴 Colombia +57' },
+  { value: '+506', label: '🇨🇷 Costa Rica +506' },
+  { value: '+53', label: '🇨🇺 Cuba +53' },
+  { value: '+1', label: '🇩🇴 República Dominicana +1' },
+  { value: '+593', label: '🇪🇨 Ecuador +593' },
+  { value: '+503', label: '🇸🇻 El Salvador +503' },
+  { value: '+500', label: '🇫🇰 Islas Malvinas (Falkland) +500' },
+  { value: '+298', label: '🇫🇴 Islas Feroe +298' },
+  { value: '+299', label: '🇬🇱 Groenlandia +299' },
+  { value: '+502', label: '🇬🇹 Guatemala +502' },
+  { value: '+509', label: '🇭🇹 Haití +509' },
+  { value: '+504', label: '🇭🇳 Honduras +504' },
+  { value: '+1', label: '🇯🇲 Jamaica +1' },
+  { value: '+52', label: '🇲🇽 México +52' },
+  { value: '+505', label: '🇳🇮 Nicaragua +505' },
+  { value: '+1', label: '🇵🇦 Panamá +1' },
+  { value: '+595', label: '🇵🇾 Paraguay +595' },
+  { value: '+51', label: '🇵🇪 Perú +51' },
+  { value: '+1', label: '🇵🇷 Puerto Rico +1' },
+  { value: '+1', label: '🇺🇸 Estados Unidos +1' },
+  { value: '+598', label: '🇺🇾 Uruguay +598' },
+  { value: '+58', label: '🇻🇪 Venezuela +58' },
+  { value: '+43', label: '🇦🇹 Austria +43' },
+  { value: '+32', label: '🇧🇪 Bélgica +32' },
+  { value: '+359', label: '🇧🇬 Bulgaria +359' },
+  { value: '+385', label: '🇭🇷 Croacia +385' },
+  { value: '+357', label: '🇨🇾 Chipre +357' },
+  { value: '+420', label: '🇨🇿 República Checa +420' },
+  { value: '+45', label: '🇩🇰 Dinamarca +45'},
+  { value: '+372', label: '🇪🇪 Estonia +372' },
+  { value: '+358', label: '🇫🇮 Finlandia +358' },
+  { value: '+33', label: '🇫🇷 Francia +33' },
+  { value: '+49', label: '🇩🇪 Alemania +49' },
+  { value: '+30', label: '🇬🇷 Grecia +30' },
+  { value: '+36', label: '🇭🇺 Hungría +36' },
+  { value: '+354', label: '🇮🇸 Islandia +354' },
+  { value: '+353', label: '🇮🇪 Irlanda +353' },
+  { value: '+39', label: '🇮🇹 Italia +39' },
+  { value: '+371', label: '🇱🇻 Letonia +371' },
+  { value: '+423', label: '🇱🇮 Liechtenstein +423' },
+  { value: '+370', label: '🇱🇹 Lituania +370' },
+  { value: '+352', label: '🇱🇺 Luxemburgo +352' },
+  { value: '+356', label: '🇲🇹 Malta +356' },
+  { value: '+31', label: '🇳🇱 Países Bajos +31' },
+  { value: '+47', label: '🇳🇴 Noruega +47' },
+  { value: '+48', label: '🇵🇱 Polonia +48' },
+  { value: '+351', label: '🇵🇹 Portugal +351' },
+  { value: '+40', label: '🇷🇴 Rumania +40' },
+  { value: '+421', label: '🇸🇰 Eslovaquia +421' },
+  { value: '+386', label: '🇸🇮 Eslovenia +386' },
+  { value: '+34', label: '🇪🇸 España +34' },
+  { value: '+46', label: '🇸🇪 Suecia +46' },
+  { value: '+41', label: '🇨🇭 Suiza +41' },
+  { value: '+380', label: '🇺🇦 Ucrania +380' },
+  { value: '+44', label: '🇬🇧 Reino Unido +44' }
+  ]
 
 function index() {
   const {
@@ -56,7 +121,7 @@ function index() {
               placeholder="Nombre del dispensario"
               errors={errors}
               register={register}
-              //validation={PHONE}
+              validation={NAME}
             />
 
             <FormField
@@ -68,20 +133,98 @@ function index() {
               placeholder="Persona de contacto"
               errors={errors}
               register={register}
-              //validation={PHONE}
+              validation={NAME}
             />
 
-            <FormField
-              id="phone"
-              name="Teléfono"
-              required={true}
-              type="number"
-              maxLength={15}
-              placeholder="Número de teléfono"
-              errors={errors}
-              register={register}
-              //validation={PHONE}
-            />
+            <div className="sm:flex-col md:flex-row lg:flex-row xl:flex">
+              <div className="flex-grow xl:w-1/4 xl:pr-2">
+                <FormField
+                  id="countryCode"
+                  name="codigo país"
+                  required={true}
+                  type="select"
+                  errors={errors}
+                  register={register}
+                  options={[
+                  { value: '+54', label: '🇦🇷 Argentina +54' },
+                  { value: '+1242', label: '🇧🇸 Bahamas +1242' },
+                  { value: '+591', label: '🇧🇴 Bolivia +591' },
+                  { value: '+55', label: '🇧🇷 Brasil +55' },
+                  { value: '+1', label: '🇨🇦 Canadá +1' },
+                  { value: '+56', label: '🇨🇱 Chile +56' },
+                  { value: '+57', label: '🇨🇴 Colombia +57' },
+                  { value: '+506', label: '🇨🇷 Costa Rica +506' },
+                  { value: '+53', label: '🇨🇺 Cuba +53' },
+                  { value: '+1', label: '🇩🇴 República Dominicana +1' },
+                  { value: '+593', label: '🇪🇨 Ecuador +593' },
+                  { value: '+503', label: '🇸🇻 El Salvador +503' },
+                  { value: '+500', label: '🇫🇰 Islas Malvinas (Falkland) +500' },
+                  { value: '+298', label: '🇫🇴 Islas Feroe +298' },
+                  { value: '+299', label: '🇬🇱 Groenlandia +299' },
+                  { value: '+502', label: '🇬🇹 Guatemala +502' },
+                  { value: '+509', label: '🇭🇹 Haití +509' },
+                  { value: '+504', label: '🇭🇳 Honduras +504' },
+                  { value: '+1', label: '🇯🇲 Jamaica +1' },
+                  { value: '+52', label: '🇲🇽 México +52' },
+                  { value: '+505', label: '🇳🇮 Nicaragua +505' },
+                  { value: '+1', label: '🇵🇦 Panamá +1' },
+                  { value: '+595', label: '🇵🇾 Paraguay +595' },
+                  { value: '+51', label: '🇵🇪 Perú +51' },
+                  { value: '+1', label: '🇵🇷 Puerto Rico +1' },
+                  { value: '+1', label: '🇺🇸 Estados Unidos +1' },
+                  { value: '+598', label: '🇺🇾 Uruguay +598' },
+                  { value: '+58', label: '🇻🇪 Venezuela +58' },
+                  { value: '+43', label: '🇦🇹 Austria +43' },
+                  { value: '+32', label: '🇧🇪 Bélgica +32' },
+                  { value: '+359', label: '🇧🇬 Bulgaria +359' },
+                  { value: '+385', label: '🇭🇷 Croacia +385' },
+                  { value: '+357', label: '🇨🇾 Chipre +357' },
+                  { value: '+420', label: '🇨🇿 República Checa +420' },
+                  { value: '+45', label: '🇩🇰 Dinamarca +45'},
+                  { value: '+372', label: '🇪🇪 Estonia +372' },
+                  { value: '+358', label: '🇫🇮 Finlandia +358' },
+                  { value: '+33', label: '🇫🇷 Francia +33' },
+                  { value: '+49', label: '🇩🇪 Alemania +49' },
+                  { value: '+30', label: '🇬🇷 Grecia +30' },
+                  { value: '+36', label: '🇭🇺 Hungría +36' },
+                  { value: '+354', label: '🇮🇸 Islandia +354' },
+                  { value: '+353', label: '🇮🇪 Irlanda +353' },
+                  { value: '+39', label: '🇮🇹 Italia +39' },
+                  { value: '+371', label: '🇱🇻 Letonia +371' },
+                  { value: '+423', label: '🇱🇮 Liechtenstein +423' },
+                  { value: '+370', label: '🇱🇹 Lituania +370' },
+                  { value: '+352', label: '🇱🇺 Luxemburgo +352' },
+                  { value: '+356', label: '🇲🇹 Malta +356' },
+                  { value: '+31', label: '🇳🇱 Países Bajos +31' },
+                  { value: '+47', label: '🇳🇴 Noruega +47' },
+                  { value: '+48', label: '🇵🇱 Polonia +48' },
+                  { value: '+351', label: '🇵🇹 Portugal +351' },
+                  { value: '+40', label: '🇷🇴 Rumania +40' },
+                  { value: '+421', label: '🇸🇰 Eslovaquia +421' },
+                  { value: '+386', label: '🇸🇮 Eslovenia +386' },
+                  { value: '+34', label: '🇪🇸 España +34' },
+                  { value: '+46', label: '🇸🇪 Suecia +46' },
+                  { value: '+41', label: '🇨🇭 Suiza +41' },
+                  { value: '+380', label: '🇺🇦 Ucrania +380' },
+                  { value: '+44', label: '🇬🇧 Reino Unido +44' }
+                ]}
+                />
+              </div>
+              <div className="flex-grow">
+                <FormField
+                  id="phone"
+                  name="telefono"
+                  required={true}
+                  type="number"
+                  maxLength={10}
+                  minLength={8}
+                  placeholder="Teléfono"
+                  errors={errors}
+                  register={register}
+                  validation={PHONE}
+                />
+              </div>
+            </div>
 
             <FormField
               id="email"
@@ -92,7 +235,7 @@ function index() {
               placeholder="Correo electrónico"
               errors={errors}
               register={register}
-              //validation={PHONE}
+              validation={EMAIL}
             />
 
             <FormField
@@ -104,7 +247,8 @@ function index() {
               placeholder="Localidad"
               errors={errors}
               register={register}
-              //validation={PHONE}
+              validation={CIUDAD}
+              
             />
 
             <div className="pt-4 flex justify-center">
