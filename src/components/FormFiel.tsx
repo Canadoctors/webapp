@@ -38,6 +38,7 @@ interface FormFieldProps {
   valueAsNumber?: boolean;
   errorCheckbox?: string;
   rows?: number;
+  autocomplete?: string;
 }
 
 const FormField: FunctionComponent<FormFieldProps> = ({
@@ -58,6 +59,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   valueAsNumber,
   errorCheckbox,
   rows,
+  autocomplete,
 }) => {
   const renderField = () => {
     switch (type) {
@@ -81,6 +83,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               name={name}
               type={type}
               value={value}
+              autocomplete={autocomplete}
               minLength={minLength}
               maxLength={maxLength}
               placeholder={placeholder}

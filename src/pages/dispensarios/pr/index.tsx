@@ -13,6 +13,7 @@ type Inputs = {
   email: string;
   location: string;
   registrationDate: string;
+  promotionCode: string;
 };
 
 function index() {
@@ -21,6 +22,8 @@ function index() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
+
+  const codigo = "CD2023GOLF";
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     let datos = {
@@ -186,6 +189,24 @@ function index() {
               placeholder="Localidad"
               errors={errors}
               register={register}
+              //validation={PHONE}
+            />
+
+            <FormField
+              id="promotionCode"
+              type="text"
+              maxLength={25}
+              autocomplete="off"
+              placeholder="Codigo de promoción"
+              errors={errors}
+              register={register}
+              {...register("promotionCode", {
+                validate: (value) =>
+                  value === codigo ||
+                  value === "" ||
+                  "El código de promoción es incorrecto",
+              })}
+              name="Codigo de promoción"
               //validation={PHONE}
             />
 
