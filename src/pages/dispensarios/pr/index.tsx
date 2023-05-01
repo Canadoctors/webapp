@@ -254,7 +254,7 @@ function index() {
                     label="Hora"
                     id="time"
                     required={true}
-                    name="seleccione una hora"
+                    name="Hora"
                     type="select"
                     errors={errors}
                     register={register}
@@ -279,7 +279,7 @@ function index() {
                     label="am-pm"
                     id="lapse"
                     required={true}
-                    name="am o pm?"
+                    name=""
                     type="select"
                     errors={errors}
                     register={register}
