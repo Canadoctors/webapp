@@ -14,14 +14,31 @@ type Inputs = {
   location: string;
   registrationDate: string;
   promotionCode: string;
+  schedule: any;
+  meetDate: any;
+  time: number;
+  lapse: string;
+
 };
 
+type PropsForm = {
+  register: any;
+  errors: any;
+  watch?: any;
+};
+
+
+
 function index() {
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<Inputs>();
+
+  const schedule = watch ("schedule");
 
   const codigo = "CD2023GOLF";
 
@@ -50,29 +67,35 @@ function index() {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-2">
-            <FormField
-              id="dispensaryName"
-              name="Nombre del dispensario"
-              required={true}
-              type="text"
-              maxLength={25}
-              placeholder="Nombre del dispensario"
-              errors={errors}
-              register={register}
-              //validation={PHONE}
-            />
-
-            <FormField
-              id="contactPerson"
-              name="Persona de contacto"
-              required={true}
-              type="text"
-              maxLength={25}
-              placeholder="Persona de contacto"
-              errors={errors}
-              register={register}
-              //validation={PHONE}
-            />
+            <div className="sm:flex-col md:flex-row lg:flex-row xl:flex">
+              <div className="flex-grow xl:w-1/4 xl:pr-2">
+                <FormField
+                  id="dispensaryName"
+                  name="Nombre del dispensario"
+                  required={true}
+                  type="text"
+                  maxLength={25}
+                  placeholder="Nombre del dispensario"
+                  errors={errors}
+                  register={register}
+                  //validation={PHONE}
+                />
+              </div>
+              <div className="flex-grow">
+                <FormField
+                  id="contactPerson"
+                  name="Persona de contacto"
+                  required={true}
+                  type="text"
+                  maxLength={25}
+                  placeholder="Persona de contacto"
+                  errors={errors}
+                  register={register}
+                  //validation={PHONE}
+                />
+              </div>
+            </div>
+            
 
             <div className="sm:flex-col md:flex-row lg:flex-row xl:flex">
               <div className="flex-grow xl:w-1/4 xl:pr-2">
@@ -177,7 +200,6 @@ function index() {
               placeholder="Correo electrónico"
               errors={errors}
               register={register}
-              //validation={PHONE}
             />
 
             <FormField
@@ -189,26 +211,88 @@ function index() {
               placeholder="Localidad"
               errors={errors}
               register={register}
-              //validation={PHONE}
             />
 
             <FormField
-              id="promotionCode"
-              type="text"
-              maxLength={25}
-              autocomplete="off"
-              placeholder="Codigo de promoción"
+              id="schedule"
+              label="Quiero agendar un horario para reunion"
+              name="schedule"
+              type="checkbox"
+              required={false}
               errors={errors}
               register={register}
-              {...register("promotionCode", {
-                validate: (value) =>
-                  value === codigo ||
-                  value === "" ||
-                  "El código de promoción es incorrecto",
-              })}
-              name="Codigo de promoción"
-              //validation={PHONE}
             />
+
+            {schedule && (
+              <>
+              <div>
+                <span>
+                  <ul className="list-disc mx-5">
+                    <li>
+                    El dia de reunion elegido debe ser posterior al dia de hoy.
+                    </li>
+                    <li>
+                    Horario de atención (hora PR): Lun a Vie de 9am-12pm y de 2pm-5pm.
+                    </li>
+                  </ul>
+                </span>
+              </div>
+              <div className="sm:flex-col md:flex-row lg:flex-row xl:flex gap-2">
+                <div className="flex-grow">
+                  <FormField
+                    label="Fecha de Reunion"
+                    id="meetDate"
+                    required={true}
+                    name="fecha de reunion"
+                    type="date"
+                    errors={errors}
+                    register={register}
+                      />
+                </div>
+                <div className="flex-grow">
+                  <FormField
+                    label="Hora"
+                    id="time"
+                    required={true}
+                    name="seleccione una hora"
+                    type="select"
+                    errors={errors}
+                    register={register}
+                    options={[
+                      {value: "",label: "selecciona una hora"},
+                      {value: "2",label: "2"},
+                      {value: "3",label: "3"},
+                      {value: "4",label: "4"},
+                      {value: "5",label: "5"},
+                      {value: "6",label: "6"},
+                      {value: "7",label: "7"},
+                      {value: "8",label: "8"},
+                      {value: "9",label: "9"},
+                      {value: "10",label: "10" },
+                      {value: "11",label: "11" },
+                      {value: "12",label: "12" }
+                    ]}
+                    />
+                </div>
+                <div className="flex-grow">
+                  <FormField
+                    label="am-pm"
+                    id="lapse"
+                    required={true}
+                    name="am o pm?"
+                    type="select"
+                    errors={errors}
+                    register={register}
+                    options={[
+                      {value: "",label: "selecciona"},
+                      {value: "am",label: "am"},
+                      {value: "pm",label: "pm"}
+                    ]}
+                    />
+                </div>
+              </div>
+              </> 
+            )}
 
             <div className="pt-4 flex justify-center">
               <button
@@ -226,3 +310,22 @@ function index() {
 }
 
 export default index;
+
+/*
+<FormField
+              id="promotionCode"
+              type="text"
+              maxLength={25}
+              autocomplete="off"
+              placeholder="Codigo de promoción"
+              errors={errors}
+              register={register}
+              {...register("promotionCode", {
+                validate: (value: string) =>
+                  value === codigo ||
+                  value === "" ||
+                  "El código de promoción es incorrecto",
+              })}
+              name="Codigo de promoción"
+            />
+            */
