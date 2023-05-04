@@ -289,8 +289,8 @@ function index() {
                                   register={register}
                                   options={[
                                     {value: "",label: "selecciona Hora"},
-                                    {value: "10:00 pm",label: "10:00 pm"},
-                                    {value: "11:00 pm",label: "11:00 pm"},
+                                    {value: "10:00 am",label: "10:00 am"},
+                                    {value: "11:00 am",label: "11:00 am"},
                                     {value: "12:00 pm",label: "12:00 pm"},
                                   ]}
                                   />
