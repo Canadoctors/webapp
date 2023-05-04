@@ -4,6 +4,7 @@ import FormField from "../../../components/FormFiel";
 import Image from "next/image";
 import Router from "next/router";
 import { saveDispensaryPr } from "../../../application/api";
+import { FieldValue } from "firebase/firestore";
 
 type Inputs = {
   dispensaryName: string;
@@ -16,7 +17,9 @@ type Inputs = {
   promotionCode: string;
   schedule: any;
   meetDate: any;
-  time: number;
+  turn: any;
+  morning: any;
+  afternoon: any;
   lapse: string;
 
 };
@@ -39,6 +42,9 @@ function index() {
   } = useForm<Inputs>();
 
   const schedule = watch ("schedule");
+  const turn = watch ("turn");
+  const morning = watch ("morning");
+  const afternoon = watch ("afternoon");
 
   const codigo = "CD2023GOLF";
 
@@ -237,8 +243,7 @@ function index() {
                   </ul>
                 </span>
               </div>
-              <div className="sm:flex-col md:flex-row lg:flex-row xl:flex gap-2">
-                <div className="flex-grow">
+              <div className="flex-grow">
                   <FormField
                     label="Fecha de Reunion"
                     id="meetDate"
@@ -248,49 +253,90 @@ function index() {
                     errors={errors}
                     register={register}
                       />
-                </div>
-                <div className="flex-grow">
-                  <FormField
-                    label="Hora"
-                    id="time"
-                    required={true}
-                    name="Hora"
-                    type="select"
-                    errors={errors}
-                    register={register}
-                    options={[
-                      {value: "",label: "selecciona una hora"},
-                      {value: "2",label: "2"},
-                      {value: "3",label: "3"},
-                      {value: "4",label: "4"},
-                      {value: "5",label: "5"},
-                      {value: "6",label: "6"},
-                      {value: "7",label: "7"},
-                      {value: "8",label: "8"},
-                      {value: "9",label: "9"},
-                      {value: "10",label: "10" },
-                      {value: "11",label: "11" },
-                      {value: "12",label: "12" }
-                    ]}
-                    />
-                </div>
-                <div className="flex-grow">
-                  <FormField
-                    label="am-pm"
-                    id="lapse"
-                    required={true}
-                    name=""
-                    type="select"
-                    errors={errors}
-                    register={register}
-                    options={[
-                      {value: "",label: "selecciona"},
-                      {value: "am",label: "am"},
-                      {value: "pm",label: "pm"}
-                    ]}
-                    />
-                </div>
               </div>
+              <div className="flex-col gap-2">
+                <FormField
+                  label="Seleccione un turno"
+                  id="turn"
+                  required={true}
+                  name="Seleccionar turno"
+                  type="checkbox"
+                  errors={errors}
+                  register={register}
+                />
+                {turn && (
+                  <>
+                    <div>
+                      <div className="flex-grow">
+                          <FormField
+                            label="Mañana"
+                            id="morning"
+                            required={false}
+                            name="Franja Horaria"
+                            type="checkbox"
+                            errors={errors}
+                            register={register}
+                            />
+                            {morning && (
+                              <>
+                              <div className="flex-grow">
+                                <FormField
+                                  id="lapse"
+                                  required={true}
+                                  name="Hora"
+                                  type="select"
+                                  errors={errors}
+                                  register={register}
+                                  options={[
+                                    {value: "",label: "selecciona Hora"},
+                                    {value: "10:00 pm",label: "10:00 pm"},
+                                    {value: "11:00 pm",label: "11:00 pm"},
+                                    {value: "12:00 pm",label: "12:00 pm"},
+                                  ]}
+                                  />
+                              </div>
+                              </>
+                            )}
+                      </div>
+                      <div className="flex-grow">
+                          <FormField
+                            label="Tarde"
+                            id="afternoon"
+                            required={false}
+                            name="Franja Horaria"
+                            type="checkbox"
+                            errors={errors}
+                            register={register}
+                            
+                            />
+                            {afternoon && (
+                              <>
+                              <div className="flex-grow">
+                                <FormField
+                                  id="lapse"
+                                  required={true}
+                                  name="Hora"
+                                  type="select"
+                                  errors={errors}
+                                  register={register}
+                                  options={[
+                                    {value: "",label: "selecciona Hora"},
+                                    {value: "2:00 pm",label: "2:00 pm"},
+                                    {value: "3:00 pm",label: "3:00 pm"},
+                                    {value: "4:00 pm",label: "4:00 pm"},
+                                    {value: "5:00 pm",label: "5:00 pm"}
+                                  ]}
+                                  />
+                              </div>
+                              </>
+                            )}
+                      </div>
+                    </div>
+                  </>
+                )}
+                
+              </div>
+              
               </> 
             )}
 
