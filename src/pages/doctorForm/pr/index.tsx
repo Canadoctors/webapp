@@ -18,6 +18,10 @@ interface Inputs {
   description: string;
   license: boolean;
   licenseNumber: string;
+  schedule: boolean;
+  turn: boolean;
+  morning: boolean;
+  afternoon: boolean;
 }
 
 const DoctorFormPr = () => {
@@ -30,6 +34,10 @@ const DoctorFormPr = () => {
   } = useForm<Inputs>();
 
   const license = watch("license");
+  const schedule= watch("schedule");
+  const turn= watch("turn");
+  const morning= watch("morning");
+  const afternoon= watch("afternoon");
 
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
     saveNewDoctorPr(data);
@@ -163,7 +171,7 @@ const DoctorFormPr = () => {
                     type="checkbox"
                     required={true}
                     errors={errors}
-                    errorCheckbox="Debes aceptar los terminos y condiciones"
+                    errorCheckbox="Contar con licencia de cannabis es necesario"
                     register={register}
                   />
 
@@ -174,11 +182,136 @@ const DoctorFormPr = () => {
                       required={true}
                       type="text"
                       maxLength={30}
-                      placeholder="Número de licencia"
+                      placeholder="Número de licencia o indicar con SI, si cuenta con ella"
                       errors={errors}
                       register={register}
                     />
                   )}
+
+                  <div>
+                    <FormField
+                    id="schedule"
+                    label="Quiero agendar un horario para reunion"
+                    name="schedule"
+                    type="checkbox"
+                    required={true}
+                    errors={errors}
+                    errorCheckbox="Debe agendar un horario para continuar"
+                    register={register}
+                  />
+
+                    {schedule && (
+                      <>
+                      <div>
+                        <span>
+                          <ul className="list-disc mx-5">
+                            <li>
+                            El día de reunion elegido debe ser posterior al dia de hoy.
+                            </li>
+                            <li>
+                            Horario de atención (hora PR): Lun a Vie de 9am-12pm y de 2pm-5pm.
+                            </li>
+                          </ul>
+                        </span>
+                      </div>
+                      <div className="flex-grow">
+                          <FormField
+                            label="Fecha de Reunion"
+                            id="meetDate"
+                            required={true}
+                            name="fecha de reunion"
+                            type="date"
+                            errors={errors}
+                            register={register}
+                              />
+                      </div>
+                      <div className="flex-col gap-2">
+                        <FormField
+                          label="Seleccione un turno"
+                          id="turn"
+                          required={true}
+                          name="Seleccionar turno"
+                          type="checkbox"
+                          errors={errors}
+                          register={register}
+                        />
+                        {turn && (
+                          <>
+                            <div>
+                              <div className="flex-grow">
+                                  <FormField
+                                    label="Mañana"
+                                    id="morning"
+                                    required={false}
+                                    name="Franja Horaria"
+                                    type="checkbox"
+                                    errors={errors}
+                                    register={register}
+                                    />
+                                    {morning && (
+                                      <>
+                                      <div className="flex-grow">
+                                        <FormField
+                                          id="lapse"
+                                          required={true}
+                                          name="Hora"
+                                          type="select"
+                                          errors={errors}
+                                          register={register}
+                                          options={[
+                                            {value: "",label: "selecciona Hora"},
+                                            {value: "10:00 am",label: "10:00 am"},
+                                            {value: "11:00 am",label: "11:00 am"},
+                                            {value: "12:00 pm",label: "12:00 pm"},
+                                          ]}
+                                          />
+                                      </div>
+                                      </>
+                                    )}
+                              </div>
+                              <div className="flex-grow">
+                                  <FormField
+                                    label="Tarde"
+                                    id="afternoon"
+                                    required={false}
+                                    name="Franja Horaria"
+                                    type="checkbox"
+                                    errors={errors}
+                                    register={register}
+                                    
+                                    />
+                                    {afternoon && (
+                                      <>
+                                      <div className="flex-grow">
+                                        <FormField
+                                          id="lapse"
+                                          required={true}
+                                          name="Hora"
+                                          type="select"
+                                          errors={errors}
+                                          register={register}
+                                          options={[
+                                            {value: "",label: "selecciona Hora"},
+                                            {value: "2:00 pm",label: "2:00 pm"},
+                                            {value: "3:00 pm",label: "3:00 pm"},
+                                            {value: "4:00 pm",label: "4:00 pm"},
+                                            {value: "5:00 pm",label: "5:00 pm"}
+                                          ]}
+                                          />
+                                      </div>
+                                      </>
+                                    )}
+                              </div>
+                            </div>
+                          </>
+                        )}
+                        
+                      </div>
+                      
+                      </> 
+                    )}
+                  </div>
+
                 </div>
 
                 <div className="mt-6">
