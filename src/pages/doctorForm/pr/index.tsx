@@ -158,7 +158,7 @@ const DoctorFormPr = () => {
                       required={true}
                       type="textarea"
                       rows={6}
-                      placeholder="¿Cómo utiliza el cannabis medicinal con sus pacientes?"
+                      placeholder="¿Qué tratamiento con cannabis medicinal recomienda normalmente a sus pacientes?"
                       errors={errors}
                       register={register}
                     />
@@ -191,7 +191,7 @@ const DoctorFormPr = () => {
                   <div>
                     <FormField
                     id="schedule"
-                    label="Quiero agendar un horario para reunion"
+                    label="Quiero agendar un horario para reunión"
                     name="schedule"
                     type="checkbox"
                     required={true}
@@ -206,7 +206,7 @@ const DoctorFormPr = () => {
                         <span>
                           <ul className="list-disc mx-5">
                             <li>
-                            El día de reunion elegido debe ser posterior al dia de hoy.
+                            El día de reunión elegido debe ser posterior al dia de hoy.
                             </li>
                             <li>
                             Horario de atención (hora PR): Lun a Vie de 9am-12pm y de 2pm-5pm.
@@ -216,7 +216,7 @@ const DoctorFormPr = () => {
                       </div>
                       <div className="flex-grow">
                           <FormField
-                            label="Fecha de Reunion"
+                            label="Fecha de Reunión"
                             id="meetDate"
                             required={true}
                             name="fecha de reunion"
@@ -259,7 +259,7 @@ const DoctorFormPr = () => {
                                           errors={errors}
                                           register={register}
                                           options={[
-                                            {value: "",label: "selecciona Hora"},
+                                            {value: "",label: "Seleccionar Hora"},
                                             {value: "10:00 am",label: "10:00 am"},
                                             {value: "11:00 am",label: "11:00 am"},
                                             {value: "12:00 pm",label: "12:00 pm"},
@@ -291,7 +291,7 @@ const DoctorFormPr = () => {
                                           errors={errors}
                                           register={register}
                                           options={[
-                                            {value: "",label: "selecciona Hora"},
+                                            {value: "",label: "Seleccionar Hora"},
                                             {value: "2:00 pm",label: "2:00 pm"},
                                             {value: "3:00 pm",label: "3:00 pm"},
                                             {value: "4:00 pm",label: "4:00 pm"},
@@ -330,7 +330,7 @@ const DoctorFormPr = () => {
               <div className="container px-5  mx-auto">
                 <div className="text-center mb-20">
                   <h1 className="sm:text-3xl text-2xl font-medium title-font text-white mb-4 mt-2">
-                    Se parte de la comunidad
+                    Sé parte de la comunidad
                   </h1>
                   <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white">
                     Únete a una amplia red de profesionales que buscan
@@ -371,12 +371,7 @@ const DoctorFormPr = () => {
               </div>
             </div>
             <div className="basis-1/2 relative">
-              <Image
-                src={imagePatient}
-                layout="fill"
-                objectFit="cover"
-                alt="Patient"
-              />
+              
             </div>
           </div>
         </div>
