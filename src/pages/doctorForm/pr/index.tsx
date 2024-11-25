@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { saveNewDoctorPr } from "../../../application/api";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Calendar } from "@/components/ui/calendar"
@@ -30,10 +31,7 @@ interface Inputs {
   fechaCompletado: Date;
 }
 
-const saveNewDoctorPr = async (data: Inputs) => {
-  console.log('Saving doctor data:', data);
-  // Aquí iría la lógica para guardar los datos en la base de datos
-};
+
 
 export default function DoctorFormPr() {
   const router = useRouter()
@@ -55,7 +53,7 @@ export default function DoctorFormPr() {
     };
     saveNewDoctorPr(formattedData);
     router.push({
-      pathname: "/registroEnviado",
+      pathname: "/landingSent",
       query: { nombre: data.firstName },
     });
   };
