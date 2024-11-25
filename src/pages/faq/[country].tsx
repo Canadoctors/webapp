@@ -5,17 +5,17 @@ import { useRouter } from "next/router";
 import faqAr from "../../data/faqAR.json";
 import faqPr from "../../data/faqPR.json";
 
-function countryFaq() {
+function CountryFaq() { // Cambiamos el nombre para que comience con mayúscula
   const { query } = useRouter();
 
   return (
-    <div className="max-w-screen-xl mx-auto px-5 bg-white min-h-sceen">
+    <div className="max-w-screen-xl mx-auto px-5 bg-white min-h-screen">
       <div className="flex flex-col items-center">
         <h2 className="font-bold text-5xl mt-5 tracking-tight">
           Preguntas frecuentes
         </h2>
         <p className="text-neutral-500 text-lg mt-6">
-          Las preguntas más comunes sobre cómo funciona canadoctors y qué puede
+          Las preguntas más comunes sobre cómo funciona Canadoctors y qué puede
           hacer por usted.
         </p>
       </div>
@@ -66,4 +66,4 @@ function countryFaq() {
   );
 }
 
-export default countryFaq;
+export default CountryFaq;
