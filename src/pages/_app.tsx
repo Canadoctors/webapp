@@ -14,15 +14,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   function pageView(url: string, title: string) {
-    window &&
-      window.dataLayer &&
+    if (window && window.dataLayer) {
       window.dataLayer.push({
         event: "VirtualPageview",
         virtualPageURL: url,
         virtualPageTitle: title,
       });
-
-    //return console.log(title), console.log(url);
+    }
   }
 
   useEffect(() => {
@@ -31,11 +29,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     const handleRouteChange = (url: string) => {
       pageView(url, document.title);
     };
+
     Router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
       Router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, []);
+  }, [router.pathname]); // Agregamos router.pathname al arreglo de dependencias
 
   return (
     <>

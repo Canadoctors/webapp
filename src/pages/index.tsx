@@ -302,7 +302,7 @@ export default function PuertoRicoLandingPage() {
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <p>"{testimonial.quote}"</p>
+                        <p>&quot;{testimonial.quote}&quot;</p>
                       </CardContent>
                     </Card>
                   </Parallax>

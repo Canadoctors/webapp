@@ -66,7 +66,7 @@ export default function DoctorFormPr() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="space-y-6 lg:sticky lg:top-8">
             <div className="mb-8">
-              <img
+              <Image
                 src="../images/logosCD/logopositivo.svg"
                 alt="CANADOCTORS Logo"
                 className="h-8 w-auto mb-12"
