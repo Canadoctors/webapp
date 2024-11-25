@@ -18,7 +18,7 @@ import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 
 interface Inputs {
-  colegiado: string;
+ 
   firstName: string;
   lastName: string;
   email: string;
@@ -119,18 +119,7 @@ export default function DoctorFormPr() {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="colegiado">Número de Colegiado</Label>
-                    <Input
-                      id="colegiado"
-                      placeholder="Ingrese su número de colegiado"
-                      className="bg-white"
-                      {...register('colegiado', { required: true })}
-                    />
-                    {errors.colegiado && (
-                      <span className="text-sm text-red-500">Este campo es requerido</span>
-                    )}
-                  </div>
+                 
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
