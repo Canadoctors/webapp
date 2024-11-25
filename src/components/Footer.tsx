@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import footerLogo from "../../public/images/logosCD/logocanadoctorwhite.svg";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
-import { GrYoutube } from "react-icons/gr";
 import { AiOutlineYoutube } from "react-icons/ai";
 
 export const Footer = () => {
@@ -14,9 +13,7 @@ export const Footer = () => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="object-center">
               <Link href="/">
-                <a>
-                  <Image width={400} height={80} src={footerLogo} />
-                </a>
+                <Image width={400} height={80} src={footerLogo} alt="Canadoctors Logo" />
               </Link>
             </div>
             <div className="mt-6 lg:mb-0 mb-6">
@@ -51,24 +48,18 @@ export const Footer = () => {
                 </span>
                 <ul className="list-unstyled">
                   <li>
-                    <Link href="/">
-                      <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Home
-                      </a>
+                    <Link href="/" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                      Home
                     </Link>
                   </li>
                   <li>
-                    <Link href="#Contact">
-                      <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Contacto
-                      </a>
+                    <Link href="#Contact" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                      Contacto
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://app.canadoctors.com/signup">
-                      <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Regístrate
-                      </a>
+                    <Link href="https://app.canadoctors.com/signup" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                      Regístrate
                     </Link>
                   </li>
                 </ul>
@@ -80,17 +71,13 @@ export const Footer = () => {
                 </span>
                 <ul className="list-unstyled">
                   <li>
-                    <Link href="https://app.canadoctors.com/">
-                      <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Ingresar
-                      </a>
+                    <Link href="https://app.canadoctors.com/" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                      Ingresar
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms">
-                      <a className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                        Términos y condiciones
-                      </a>
+                    <Link href="/terms" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                      Términos y condiciones
                     </Link>
                   </li>
                 </ul>

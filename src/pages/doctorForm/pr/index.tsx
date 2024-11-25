@@ -1,254 +1,321 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Home } from "../../../components/Home";
-import { SubmitHandler, useForm } from "react-hook-form";
-import Router from "next/router";
-import { saveNewDoctorPr } from "../../../application/api";
-import FormField from "../../../components/FormFiel";
-import canadoctorsLogo from "/public/images/logosCD/logopositivo.svg";
-import imagePatient from "/public/images/bg/doctor1.jpg";
-import { FaChild, FaSistrix } from "react-icons/fa";
+'use client'
+
+import { useState } from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Calendar } from "@/components/ui/calendar"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Textarea } from "@/components/ui/textarea"
+import { UserRound, Stethoscope, ArrowRight, CalendarIcon } from 'lucide-react'
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { format } from "date-fns"
+import { cn } from "@/lib/utils"
 
 interface Inputs {
+  colegiado: string;
   firstName: string;
   lastName: string;
   email: string;
-  phone: number;
-  speciality: string;
-  description: string;
-  license: boolean;
-  licenseNumber: string;
+  phone: string;
+  specialty: string;
+  cannabisUse: string;
+  fechaReunion?: Date;
+  tieneLicencia: boolean;
+  numeroLicencia?: string;
+  fechaCompletado: Date;
 }
 
-const DoctorFormPr = () => {
+const saveNewDoctorPr = async (data: Inputs) => {
+  console.log('Saving doctor data:', data);
+  // Aquí iría la lógica para guardar los datos en la base de datos
+};
+
+export default function DoctorFormPr() {
+  const router = useRouter()
   const {
     register,
     handleSubmit,
     watch,
-    reset,
-    formState: { errors },
+    setValue,
+    formState: { errors, isSubmitting }
   } = useForm<Inputs>();
 
-  const license = watch("license");
+  const tieneLicencia = watch("tieneLicencia");
+  const fechaReunion = watch("fechaReunion");
 
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
-    saveNewDoctorPr(data);
-    Router.push({
-      pathname: "/landingSent",
-      query: { name: data.firstName },
+    const formattedData = {
+      ...data,
+      fechaCompletado: new Date()
+    };
+    saveNewDoctorPr(formattedData);
+    router.push({
+      pathname: "/registroEnviado",
+      query: { nombre: data.firstName },
     });
   };
 
   return (
-    <>
-      <Home
-        imgSrc="bg/background2.jpg"
-        textIntro={
-          "Canadoctors es la primer plataforma que conecta médicos y pacientes de cannabis medicinal."
-        }
-        button1Url={"#formPr"}
-        button2Url={""}
-        button1Title={"Participar"}
-        button2Title={""}
-      />
-
-      <div id="formPr" className="flex justify-center h-screen">
-        <div className="flex items-center w-full max-w-2xl px-4 pt-4 pb-4 mx-auto my-auto lg:w-2/6">
-          <div className="flex-1">
-            <div className="text-center">
-              <div className="cursor-pointer">
-                <Link href="/">
-                  <a>
-                    <Image
-                      src={canadoctorsLogo}
-                      height={60}
-                      width={280}
-                      alt=""
-                    />
-                  </a>
-                </Link>
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-50 via-white to-white">
+      <div className="container mx-auto px-4 py-8 lg:py-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
+          <div className="space-y-6 lg:sticky lg:top-8">
+            <div className="mb-8">
+              <img
+                src="../images/logosCD/logopositivo.svg"
+                alt="CANADOCTORS Logo"
+                className="h-8 w-auto mb-12"
+              />
+              <div className="relative rounded-2xl overflow-hidden mb-8">
+                <div className="absolute inset-0 bg-teal-900/10" />
+                <Image
+                  src="/images/patientsregister.png"
+                  alt="Doctor con paciente"
+                  width={600}
+                  height={400}
+                  className="w-full h-[300px] object-cover"
+                />
               </div>
+              <h1 className="text-4xl font-bold tracking-tight text-teal-800 mb-4">
+                Únete a Nuestro Programa de Cannabis Medicinal
+              </h1>
+              <p className="text-lg text-muted-foreground mb-8">
+                Conéctate con una red de profesionales de la salud dedicados a mejorar la calidad de vida de los pacientes a través del tratamiento con cannabis medicinal.
+              </p>
             </div>
-            <div className="mt-8">
-              <form onSubmit={handleSubmit(onSubmitHandler)}>
-                <div className="space-y-2">
-                  <div className="gap-4 sm:flex-col md:flex-row lg:flex-row xl:flex">
-                    <div className="xl:w-1/2 ">
-                      <FormField
-                        id="firstName"
-                        name="nombre"
-                        required={true}
-                        type="text"
-                        maxLength={12}
-                        placeholder="Nombre"
-                        errors={errors}
-                        register={register}
-                        //validation={NAME}
-                      />
-                    </div>
-
-                    <div className="xl:w-1/2">
-                      <FormField
-                        id="lastName"
-                        name="apellido"
-                        required={true}
-                        type="text"
-                        maxLength={20}
-                        placeholder="Apellido"
-                        errors={errors}
-                        register={register}
-                        //validation={NAME}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="gap-4 sm:flex-col md:flex-row lg:flex-row xl:flex">
-                    <div className="xl:w-1/2 ">
-                      <FormField
-                        id="email"
-                        name="email"
-                        required={true}
-                        type="email"
-                        maxLength={35}
-                        placeholder="Correo Electrónico"
-                        errors={errors}
-                        register={register}
-                        //validation={EMAIL}
-                      />
-                    </div>
-
-                    <div className="xl:w-1/2">
-                      <FormField
-                        id="phone"
-                        name="telefono"
-                        required={true}
-                        type="number"
-                        maxLength={18}
-                        placeholder="Teléfono"
-                        errors={errors}
-                        register={register}
-                        //validation={PHONE}
-                      />
-                    </div>
-                  </div>
-
-                  <FormField
-                    id="speciality"
-                    name="especialidad"
-                    required={true}
-                    type="text"
-                    placeholder="Especialidad"
-                    errors={errors}
-                    register={register}
-                    //validation={PHONE}
-                  />
-
-                  <div className="relative w-full">
-                    <FormField
-                      id="description"
-                      name="descripcion"
-                      required={true}
-                      type="textarea"
-                      rows={6}
-                      placeholder="¿Cómo utiliza el cannabis medicinal con sus pacientes?"
-                      errors={errors}
-                      register={register}
-                    />
-                  </div>
-
-                  <FormField
-                    id="license"
-                    label="¿Cuenta con Licencia de Cannabis?"
-                    name="licencia"
-                    type="checkbox"
-                    required={true}
-                    errors={errors}
-                    errorCheckbox="Debes aceptar los terminos y condiciones"
-                    register={register}
-                  />
-
-                  {license && (
-                    <FormField
-                      id="licenseNumber"
-                      name="numeroLicencia"
-                      required={true}
-                      type="text"
-                      maxLength={30}
-                      placeholder="Número de licencia"
-                      errors={errors}
-                      register={register}
-                    />
-                  )}
+            
+            <div className="grid gap-6">
+              <div className="flex items-start gap-4 p-4 rounded-lg bg-teal-50/50 border border-teal-100">
+                <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center shrink-0">
+                  <UserRound className="w-6 h-6 text-teal-700" />
                 </div>
-
-                <div className="mt-6">
-                  <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#00A099] rounded-xl hover:opacity-80 focus:outline-none focus:bg-[#00A099]focus:ring focus:ring-[#00A099] focus:ring-opacity-50">
-                    Conocer más
-                  </button>
+                <div>
+                  <h3 className="font-semibold text-teal-900">Red Profesional</h3>
+                  <p className="text-sm text-muted-foreground">Únete a una comunidad de médicos certificados</p>
                 </div>
-              </form>
+              </div>
+              <div className="flex items-start gap-4 p-4 rounded-lg bg-teal-50/50 border border-teal-100">
+                <div className="w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center shrink-0">
+                  <Stethoscope className="w-6 h-6 text-teal-700" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-teal-900">Atención al Paciente</h3>
+                  <p className="text-sm text-muted-foreground">Mejora tu práctica con tratamientos de cannabis basados en evidencia</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="hidden bg-cover lg:block lg:w-1/2 h-screen">
-          <div className="bg-gradient-to-b from-[#00A099] flex flex-col h-full">
-            <div className="basis-1/2 flex flex-col justify-center">
-              <div className="container px-5  mx-auto">
-                <div className="text-center mb-20">
-                  <h1 className="sm:text-3xl text-2xl font-medium title-font text-white mb-4 mt-2">
-                    Se parte de la comunidad
-                  </h1>
-                  <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white">
-                    Únete a una amplia red de profesionales que buscan
-                    mejorar la calidad de vida de sus pacientes.
-                  </p>
-                </div>
-                <div className="flex flex-wrap justify-evenly sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-                  <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-                    <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-                      <FaChild className="w-10 h-10 text-[#00A099]" />
+          <div className="lg:pl-8">
+            <Card className="backdrop-blur-sm bg-white/80">
+              <CardHeader className="space-y-1">
+                <CardTitle className="text-2xl font-bold text-teal-900">Registro Profesional</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  Complete el formulario a continuación para unirse a nuestra red
+                </p>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="colegiado">Número de Colegiado</Label>
+                    <Input
+                      id="colegiado"
+                      placeholder="Ingrese su número de colegiado"
+                      className="bg-white"
+                      {...register('colegiado', { required: true })}
+                    />
+                    {errors.colegiado && (
+                      <span className="text-sm text-red-500">Este campo es requerido</span>
+                    )}
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">Nombre</Label>
+                      <Input
+                        id="firstName"
+                        placeholder="Ingrese su nombre"
+                        className="bg-white"
+                        {...register('firstName', { required: true })}
+                      />
+                      {errors.firstName && (
+                        <span className="text-sm text-red-500">Este campo es requerido</span>
+                      )}
                     </div>
-                    <div className="flex-grow">
-                      <h2 className="text-white text-lg title-font font-medium mb-3">
-                        Accesibilidad
-                      </h2>
-                      <p className="leading-relaxed text-white text-base">
-                        Ofrece un servicio más accesible y eficiente a tus
-                        pacientes y logra un mejor seguimiento sobre cada uno.
-                      </p>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName">Apellido</Label>
+                      <Input
+                        id="lastName"
+                        placeholder="Ingrese su apellido"
+                        className="bg-white"
+                        {...register('lastName', { required: true })}
+                      />
+                      {errors.lastName && (
+                        <span className="text-sm text-red-500">Este campo es requerido</span>
+                      )}
                     </div>
                   </div>
 
-                  <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-                    <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 mb-5 flex-shrink-0">
-                      <FaSistrix className="w-10 h-10 text-[#00A099]" />
-                    </div>
-                    <div className="flex-grow">
-                      <h2 className="text-white text-lg title-font font-medium mb-3">
-                        Trazabilidad
-                      </h2>
-                      <p className="leading-relaxed text-white text-base">
-                        Obten un seguimiento personalizado de cada paciente y
-                        accede de forma rápida y sencilla a su historial médico.
-                      </p>
-                    </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Correo Electrónico</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Ingrese su correo electrónico"
+                      className="bg-white"
+                      {...register('email', { 
+                        required: true, 
+                        pattern: /^\S+@\S+$/i 
+                      })}
+                    />
+                    {errors.email && (
+                      <span className="text-sm text-red-500">Por favor ingrese un correo electrónico válido</span>
+                    )}
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="basis-1/2 relative">
-              <Image
-                src={imagePatient}
-                layout="fill"
-                objectFit="cover"
-                alt="Patient"
-              />
-            </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Número de Teléfono</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="Ingrese su número de teléfono"
+                      className="bg-white"
+                      {...register('phone', { required: true })}
+                    />
+                    {errors.phone && (
+                      <span className="text-sm text-red-500">Este campo es requerido</span>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="specialty">Especialidad</Label>
+                    <Input
+                      id="specialty"
+                      placeholder="Ingrese su especialidad médica"
+                      className="bg-white"
+                      {...register('specialty', { required: true })}
+                    />
+                    {errors.specialty && (
+                      <span className="text-sm text-red-500">Este campo es requerido</span>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="fechaReunion">Fecha y Hora de Reunión</Label>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={"outline"}
+                          className={cn(
+                            "w-full justify-start text-left font-normal",
+                            !fechaReunion && "text-muted-foreground"
+                          )}
+                        >
+                          <CalendarIcon className="mr-2 h-4 w-4" />
+                          {fechaReunion ? format(fechaReunion, "PPP HH:mm") : <span>Seleccione fecha y hora</span>}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={fechaReunion}
+                          onSelect={(date) => {
+                            if (date) {
+                              const now = new Date();
+                              date.setHours(now.getHours(), now.getMinutes());
+                              setValue('fechaReunion', date);
+                            }
+                          }}
+                          initialFocus
+                        />
+                        <div className="p-3 border-t">
+                          <Label htmlFor="time">Hora</Label>
+                          <Input
+                            id="time"
+                            type="time"
+                            value={fechaReunion ? format(fechaReunion, "HH:mm") : ""}
+                            onChange={(e) => {
+                              const [hours, minutes] = e.target.value.split(':');
+                              const newDate = new Date(fechaReunion || new Date());
+                              newDate.setHours(parseInt(hours), parseInt(minutes));
+                              setValue('fechaReunion', newDate);
+                            }}
+                          />
+                        </div>
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="cannabisUse">
+                      ¿Cómo utiliza el cannabis medicinal con sus pacientes?
+                    </Label>
+                    <Textarea
+                      id="cannabisUse"
+                      placeholder="Por favor describa su experiencia..."
+                      className="min-h-[100px] bg-white"
+                      {...register('cannabisUse', { required: true })}
+                    />
+                    {errors.cannabisUse && (
+                      <span className="text-sm text-red-500">Este campo es requerido</span>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox
+                        id="tieneLicencia"
+                        {...register('tieneLicencia')}
+                      />
+                      <Label htmlFor="tieneLicencia" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        Tengo una Licencia de Cannabis
+                      </Label>
+                    </div>
+                    {tieneLicencia && (
+                      <div className="mt-2">
+                        <Label htmlFor="numeroLicencia">Número de Licencia de Cannabis</Label>
+                        <Input
+                          id="numeroLicencia"
+                          placeholder="Ingrese su número de licencia"
+                          className="bg-white mt-1"
+                          {...register('numeroLicencia', { required: tieneLicencia })}
+                        />
+                        {errors.numeroLicencia && (
+                          <span className="text-sm text-red-500">Este campo es requerido si tiene licencia</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  <input
+                    type="hidden"
+                    {...register('fechaCompletado')}
+                    value={new Date().toISOString()}
+                  />
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold h-11"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      "Enviando..."
+                    ) : (
+                      <span className="flex items-center justify-center gap-2">
+                        Enviar Registro
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
-    </>
-  );
-};
-export default DoctorFormPr;
+    </div>
+  )
+}

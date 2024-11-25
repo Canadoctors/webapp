@@ -11,26 +11,26 @@ import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import { Phone, Mail, Video, Star, Heart, Menu, X } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Cannabis Medicinal en Puerto Rico | CanaDoctors',
-  description: 'Obtén tu tarjeta de Cannabis Medicinal en Puerto Rico con CanaDoctors. Orientación experta, aprobaciones rápidas y atención compasiva. Comienza tu camino hacia el bienestar hoy.',
+  title: 'Medical ID Cannabis in Illinois | CanaDoctors',
+  description: 'Get your Medical ID Cannabis in Illinois with CanaDoctors. Expert guidance, fast approvals, and compassionate care. Start your journey to wellness today.',
   openGraph: {
-    title: 'Cannabis Medicinal en Puerto Rico | CanaDoctors',
-    description: 'Obtén tu tarjeta de Cannabis Medicinal en Puerto Rico con CanaDoctors. Orientación experta, aprobaciones rápidas y atención compasiva.',
-    url: 'https://canadoctors.com/puerto-rico',
+    title: 'Medical ID Cannabis in Illinois | CanaDoctors',
+    description: 'Get your Medical ID Cannabis in Illinois with CanaDoctors. Expert guidance, fast approvals, and compassionate care.',
+    url: 'https://canadoctors.com/illinois',
     siteName: 'CanaDoctors',
     images: [
       {
-        url: 'https://canadoctors.com/og-image-puerto-rico.jpg',
+        url: 'https://canadoctors.com/og-image-illinois.jpg',
         width: 1200,
         height: 630,
       },
     ],
-    locale: 'es-PR',
+    locale: 'en-US',
     type: 'website',
   },
 }
 
-export default function PuertoRicoLandingPage() {
+export default function IllinoisLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -39,26 +39,27 @@ export default function PuertoRicoLandingPage() {
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 h-14">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="../images/logosCD/logopositivo.svg" alt="Logo de CanaDoctors" width={150} height={60} />
+              <Image src="../images/logosCD/logopositivo.svg" alt="CanaDoctors Logo" width={150} height={60} />
             </Link>
             <nav className="hidden md:flex gap-4">
-              <Link href="#beneficios" className="text-sm font-medium hover:underline underline-offset-4">Beneficios</Link>
-              <Link href="#proceso" className="text-sm font-medium hover:underline underline-offset-4">Proceso</Link>
-              <Link href="#servicios" className="text-sm font-medium hover:underline underline-offset-4">Servicios</Link>
-              <Link href="#faq" className="text-sm font-medium hover:underline underline-offset-4">Preguntas Frecuentes</Link>
+              <Link href="#benefits" className="text-sm font-medium hover:underline underline-offset-4">Benefits</Link>
+              <Link href="#process" className="text-sm font-medium hover:underline underline-offset-4">Process</Link>
+              <Link href="#services" className="text-sm font-medium hover:underline underline-offset-4">Services</Link>
+              <Link href="#faq" className="text-sm font-medium hover:underline underline-offset-4">FAQ</Link>
             </nav>
             <Button className="hidden md:inline-flex" asChild>
-              <Link href="https://app.canadoctors.com/cuidadeti">Reservar Consulta</Link>
+              <Link href="#book-consultation">Book Consultation</Link>
             </Button>
             <button
               className="md:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Alternar menú"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </div>
 
+          {/* Mobile menu with new design */}
           {isMenuOpen && (
             <div className="fixed inset-0 z-50 md:hidden">
               <div className="fixed inset-0 bg-gradient-to-r from-[rgb(0,160,153)] to-[rgb(140,187,147)]">
@@ -68,46 +69,46 @@ export default function PuertoRicoLandingPage() {
                     <button
                       onClick={() => setIsMenuOpen(false)}
                       className="rounded-full bg-white/20 p-2"
-                      aria-label="Cerrar menú"
+                      aria-label="Close menu"
                     >
                       <X className="h-6 w-6 text-white" />
                     </button>
                   </div>
                   <div className="flex-1 flex flex-col items-center justify-center gap-8">
                     <Link
-                      href="#beneficios"
+                      href="#benefits"
                       className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      BENEFICIOS
+                      BENEFITS
                     </Link>
                     <Link
-                      href="#proceso"
+                      href="#process"
                       className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      PROCESO
+                      PROCESS
                     </Link>
                     <Link
-                      href="#servicios"
+                      href="#services"
                       className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      SERVICIOS
+                      SERVICES
                     </Link>
                     <Link
                       href="#faq"
                       className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      PREGUNTAS FRECUENTES
+                      FAQ
                     </Link>
                     <Link
-                      href="#contacto"
+                      href="#contact"
                       className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      CONTACTO
+                      CONTACT
                     </Link>
                     <Button 
                       size="lg"
@@ -116,7 +117,7 @@ export default function PuertoRicoLandingPage() {
                       asChild
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      <Link href="#reservar-consulta">RESERVAR CONSULTA</Link>
+                      <Link href="#book-consultation">BOOK CONSULTATION</Link>
                     </Button>
                   </div>
                 </div>
@@ -131,22 +132,22 @@ export default function PuertoRicoLandingPage() {
               <div className="grid lg:grid-cols-2 gap-8 items-center h-full">
                 <Parallax translateY={[-20, 20]}>
                   <div className="flex flex-col items-start space-y-4 pb-32">
-                    <span className="text-emerald-800 font-semibold">Médicos Certificados en Cannabis Medicinal</span>
+                    <span className="text-emerald-800 font-semibold">Certified Medical Cannabis Doctors</span>
                     <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl/none text-white">
-                      Este Es Tu Año Para <span className="text-emerald-800">Sanar</span>
+                      This Is Your Year To <span className="text-emerald-800">Heal</span>
                     </h1>
                     <p className="text-lg text-gray-300 max-w-[600px]">
-                      Obtén tu Tarjeta de Cannabis Medicinal en Puerto Rico con orientación experta. Atención profesional, aprobaciones rápidas y apoyo compasivo durante todo tu proceso.
+                      Get your Illinois Medical Cannabis Card with expert guidance. Professional care, fast approvals, and compassionate support throughout your journey.
                     </p>
                     <div className="flex flex-wrap gap-4">
                       <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100" asChild>
-                        <Link href="https://app.canadoctors.com/cuidadeti">
-                          Iniciar Solicitud
+                        <Link href="#book-consultation">
+                          Start Application
                         </Link>
                       </Button>
                       <Button size="lg" variant="outline" className="text-white border-white bg-gray-800 hover:bg-gray-700" asChild>
-                        <Link href="#beneficios">
-                          Más Información
+                        <Link href="#more-info">
+                          More Information
                         </Link>
                       </Button>
                     </div>
@@ -170,7 +171,7 @@ export default function PuertoRicoLandingPage() {
                         <div className="bg-white rounded-full px-4 py-2 shadow-lg flex items-center gap-2">
                           <div className="w-8 h-8 rounded-full bg-gray-200" />
                           <div className="flex flex-col">
-                            <span className="text-sm font-medium">Dra. Sofia Jaramillo</span>
+                            <span className="text-sm font-medium">Dr. John Smith</span>
                             <div className="flex text-emerald-800">
                               <Star className="w-4 h-4 fill-current" />
                               <Star className="w-4 h-4 fill-current" />
@@ -184,12 +185,12 @@ export default function PuertoRicoLandingPage() {
                       <div className="absolute -bottom-4 right-12 z-10 -translate-y-20">
                         <div className="bg-white rounded-full px-4 py-2 shadow-lg flex items-center gap-2">
                           <Heart className="w-5 h-5 text-red-500 fill-current" />
-                          <span className="text-sm font-medium">Reseñas de Salud</span>
+                          <span className="text-sm font-medium">Health Reviews</span>
                         </div>
                       </div>
                       <Image
-                        src="/images/md/prdoctor.png"
-                        alt="Médico de Cannabis Medicinal"
+                        src="/images/md/ildoctorfull.png"
+                        alt="Medical Cannabis Doctor"
                         width={800}
                         height={1200}
                         className="rounded-2xl object-cover object-center h-[65vh] w-auto -mt-16"
@@ -201,17 +202,17 @@ export default function PuertoRicoLandingPage() {
             </div>
           </section>
 
-          <section id="beneficios" className="py-12 md:py-24 lg:py-32">
+          <section id="benefits" className="py-12 md:py-24 lg:py-32">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Beneficios del Cannabis Medicinal en Puerto Rico</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Benefits of Medical Cannabis in Illinois</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {[
-                  { title: "Manejo del Dolor", description: "Alivio efectivo para condiciones de dolor crónico." },
-                  { title: "Reducción de Ansiedad", description: "Ayuda a manejar los síntomas de ansiedad y estrés." },
-                  { title: "Mejora del Sueño", description: "Ayuda a lograr un sueño de mejor calidad." },
-                  { title: "Control de Náuseas", description: "Reduce las náuseas, especialmente en pacientes con cáncer." },
-                  { title: "Estimulación del Apetito", description: "Ayuda a aumentar el apetito en pacientes con ciertas condiciones." },
-                  { title: "Relajación Muscular", description: "Ayuda a reducir los espasmos musculares y la tensión." },
+                  { title: "Pain Management", description: "Effective relief for chronic pain conditions." },
+                  { title: "Anxiety Reduction", description: "Helps manage symptoms of anxiety and stress." },
+                  { title: "Sleep Improvement", description: "Aids in achieving better quality sleep." },
+                  { title: "Nausea Control", description: "Reduces nausea, especially for cancer patients." },
+                  { title: "Appetite Stimulation", description: "Helps increase appetite in patients with certain conditions." },
+                  { title: "Muscle Relaxation", description: "Assists in reducing muscle spasms and tension." },
                 ].map((benefit, index) => (
                   <Parallax key={index} translateY={[20, -20]}>
                     <Card className="transition-all duration-300 hover:shadow-lg">
@@ -228,20 +229,20 @@ export default function PuertoRicoLandingPage() {
             </div>
           </section>
 
-          <section id="proceso" className="py-12 md:py-24 lg:py-32 bg-gray-50">
+          <section id="process" className="py-12 md:py-24 lg:py-32 bg-gray-50">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Cómo Obtener Tu Tarjeta de Cannabis Medicinal en Puerto Rico</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">How to Get Your Medical Cannabis ID in Illinois</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { step: 1, title: "Reservar Consulta", description: "Programa tu cita con un médico certificado de CanaDoctors." },
-                  { step: 2, title: "Evaluación Médica", description: "Discute tu historial médico y condiciones con nuestro médico experto." },
-                  { step: 3, title: "Recibir Certificación", description: "Si se aprueba, recibe tu certificación médica para cannabis medicinal." },
-                  { step: 4, title: "Registro Estatal", description: "Completa tu registro en el Programa de Cannabis Medicinal de Puerto Rico con nuestra guía." },
+                  { step: 1, title: "Book Consultation", description: "Schedule your in-person appointment with a CanaDoctors physician." },
+                  { step: 2, title: "Medical Evaluation", description: "Discuss your medical history and conditions with our expert doctor." },
+                  { step: 3, title: "Receive Certification", description: "If approved, receive your physician certification for medical cannabis." },
+                  { step: 4, title: "State Registration", description: "Complete your Illinois state registration with our guidance." },
                 ].map((step, index) => (
                   <Parallax key={index} translateY={[10, -10]}>
                     <Card className="transition-all duration-300 hover:shadow-lg">
                       <CardHeader>
-                        <CardTitle>Paso {step.step}: {step.title}</CardTitle>
+                        <CardTitle>Step {step.step}: {step.title}</CardTitle>
                       </CardHeader>
                       <CardContent>
                         <p>{step.description}</p>
@@ -253,15 +254,15 @@ export default function PuertoRicoLandingPage() {
             </div>
           </section>
 
-          <section id="servicios" className="py-12 md:py-24 lg:py-32">
+          <section id="services" className="py-12 md:py-24 lg:py-32">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Nuestros Servicios en Puerto Rico</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Our Services in Illinois</h2>
               <div className="grid gap-6 md:grid-cols-2">
                 {[
-                  { title: "Consultas Presenciales", description: "Citas presenciales completas con médicos licenciados en Puerto Rico especializados en cannabis medicinal." },
-                  { title: "Asistencia con la Solicitud", description: "Orientación experta a través del proceso de solicitud del Programa de Cannabis Medicinal de Puerto Rico." },
-                  { title: "Seguimiento Médico", description: "Apoyo continuo y consultas de seguimiento para garantizar resultados óptimos del tratamiento." },
-                  { title: "Recursos Educativos", description: "Acceso a materiales educativos completos sobre el uso del cannabis medicinal y las regulaciones en Puerto Rico." },
+                  { title: "In-Person Consultations", description: "Comprehensive in-person appointments with licensed Illinois physicians specializing in medical cannabis." },
+                  { title: "Application Assistance", description: "Expert guidance through the Illinois Medical Cannabis Registry application process." },
+                  { title: "Follow-up Care", description: "Ongoing support and follow-up consultations to ensure optimal treatment outcomes." },
+                  { title: "Educational Resources", description: "Access to comprehensive educational materials about medical cannabis use and Illinois regulations." },
                 ].map((service, index) => (
                   <Parallax key={index} translateY={[15, -15]}>
                     <Card className="transition-all duration-300 hover:shadow-lg">
@@ -278,14 +279,14 @@ export default function PuertoRicoLandingPage() {
             </div>
           </section>
 
-          <section id="testimonios" className="py-12 md:py-24 lg:py-32 bg-gray-50">
+          <section id="testimonials" className="py-12 md:py-24 lg:py-32 bg-gray-50">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Historias de Éxito de Pacientes</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Patient Success Stories</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {[
-                  { name: "María G.", quote: "CanaDoctors hizo que obtener mi tarjeta de cannabis medicinal fuera muy fácil. Sus médicos son conocedores y compasivos.", image: "/images/reviews/sarha.png" },
-                  { name: "Roberto S.", quote: "Al principio estaba dudoso, pero el equipo de CanaDoctors me guió en cada paso. Ahora tengo el alivio que necesitaba.", image: "/images/reviews/michael.png" },
-                  { name: "Carmen L.", quote: "La consulta presencial fue minuciosa y profesional. ¡Altamente recomendado!", image: "/images/reviews/emily.png" },
+                  { name: "Sarah L.", quote: "CanaDoctors made getting my medical cannabis card so easy. Their doctors are knowledgeable and compassionate.", image: "/images/reviews/sarha.png" },
+                  { name: "Michael R.", quote: "I was hesitant at first, but the team at CanaDoctors guided me through every step. Now I have the relief I needed.", image: "/images/reviews/michael.png" },
+                  { name: "Emily T.", quote: "The in-person consultation was thorough and professional. Highly recommend!", image: "/images/reviews/emily.png" },
                 ].map((testimonial, index) => (
                   <Parallax key={index} translateY={[10, -10]}>
                     <Card className="transition-all duration-300 hover:shadow-lg">
@@ -313,17 +314,17 @@ export default function PuertoRicoLandingPage() {
 
           <section id="faq" className="py-12 md:py-24 lg:py-32">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Preguntas Frecuentes</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Frequently Asked Questions</h2>
               <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
                 {[
                   { 
-                    question: "¿Quién califica para el cannabis medicinal en Puerto Rico?", 
-                    answer: "Pacientes con condiciones cualificantes como: Alzheimer, Anorexia, Artritis, Cáncer, Desórdenes de Ansiedad, Esclerosis Múltiple, Epilepsia, Fibromialgia, Hepatitis C, Infección del VIH, Migraña, Parkinson, entre otras. La lista completa está disponible en el sitio web del Departamento de Salud de Puerto Rico."
+                    question: "Who qualifies for medical cannabis in Illinois?", 
+                    answer: "Patients with qualifying conditions such as: Autism, Alzheimer's Disease Agitation, HIV/AIDS, ALS, Anorexia Nervosa, Arnold-Chiari Malformation, Cancer, Chronic Pain, Crohn's Disease, CRPS Type II, Dystonia, Ehlers-Danlos Syndrome, Fibrous Dysplasia, Glaucoma, Hepatitis C, Hydrocephalus, Hydromyelia, Interstitial Cystitis, Irritable Bowel Syndrome, Lupus, Migraines, Multiple Sclerosis, Muscular Dystrophy, Myasthenia Gravis, Myoclonus, Nail-Patella Syndrome, Neuro-Behcet's Autoimmune Disease, Neurofibromatosis, Neuropathy, Osteoarthritis, Parkinson's Disease, Polycystic Kidney Disease (PKD), Post-Concussion Syndrome, PTSD, Reflex Sympathetic Dystrophy, Residual Limb Pain, Rheumatoid Arthritis, Seizures, Severe Fibromyalgia, Sjogren's Syndrome, Spinal Cord Disease, Spinal Cord Injury, Spinocerebellar Ataxia, Superior Canal Dehiscence Syndrome, Syringomyelia, Tarlov Cysts, Tourette Syndrome, Traumatic Brain Injury, and Ulcerative Colitis."
                   },
-                  { question: "¿Cuánto tiempo toma el proceso de solicitud?", answer: "El proceso generalmente toma de 2 a 3 semanas desde la consulta hasta recibir tu tarjeta de cannabis medicinal." },
-                  { question: "¿Se requieren consultas presenciales?", answer: "Sí, Puerto Rico requiere consultas presenciales para las certificaciones de cannabis medicinal." },
-                  { question: "¿Cuánto cuesta obtener una tarjeta de cannabis medicinal en Puerto Rico?", answer: "El costo incluye la tarifa de solicitud estatal y la tarifa de consulta médica. Contáctanos para obtener información actualizada sobre los precios." },
-                  { question: "¿Cuánto tiempo es válida la tarjeta de cannabis medicinal en Puerto Rico?", answer: "Las tarjetas de cannabis medicinal en Puerto Rico son típicamente válidas por un año, pero pueden variar según la recomendación del médico." },
+                  { question: "How long does the application process take?", answer: "The process typically takes 2-3 weeks from consultation to receiving your medical cannabis card." },
+                  { question: "Are in-person consultations required?", answer: "Yes, Illinois requires in-person consultations for medical cannabis certifications." },
+                  { question: "How much does it cost to get a medical cannabis card in Illinois?", answer: "The cost includes the state application fee and the physician consultation fee. Contact us for current pricing information." },
+                  { question: "How long is the medical cannabis card valid in Illinois?", answer: "Medical cannabis cards in Illinois are typically valid for one to three years, depending on the physician's recommendation." },
                 ].map((faq, index) => (
                   <AccordionItem key={index} value={`item-${index}`}>
                     <AccordionTrigger>{faq.question}</AccordionTrigger>
@@ -334,15 +335,15 @@ export default function PuertoRicoLandingPage() {
             </div>
           </section>
 
-          <section id="reservar-consulta" className="py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
+          <section id="book-consultation" className="py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
               <div className="flex flex-col items-center space-y-4 text-center">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">¿Listo para Comenzar Tu Camino?</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Ready to Start Your Journey?</h2>
                 <p className="mx-auto max-w-[600px] text-primary-foreground/90 md:text-xl">
-                  Reserva tu consulta hoy y da el primer paso hacia el alivio natural con cannabis medicinal.
+                  Book your consultation today and take the first step towards natural relief with medical cannabis.
                 </p>
                 <Button size="lg" variant="secondary" asChild>
-                  <Link href="https://app.canadoctors.com/cuidadeti">Reserva Tu Consulta Ahora</Link>
+                  <Link href="/book">Book Your Consultation Now</Link>
                 </Button>
               </div>
             </div>
@@ -353,9 +354,9 @@ export default function PuertoRicoLandingPage() {
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl py-8">
             <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between">
               <Link href="/" className="flex items-center space-x-2">
-                <Image src="../images/logosCD/logopositivo.svg" alt="Logo de CanaDoctors" width={150} height={60} />
+                <Image src="../images/logosCD/logopositivo.svg" alt="CanaDoctors Logo" width={150} height={60} />
               </Link>
-              <p className="text-sm">© 2024 CanaDoctors. Todos los derechos reservados.</p>
+              <p className="text-sm">© 2024 CanaDoctors. All rights reserved.</p>
             </div>
           </div>
         </footer>

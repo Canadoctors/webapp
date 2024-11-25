@@ -1,20 +1,31 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
+    "target": "esnext", // Soporte moderno para las características de JS/TS.
+    "lib": ["dom", "dom.iterable", "esnext"], // Incluye las bibliotecas necesarias.
+    "allowJs": true, // Permite usar archivos JS.
+    "skipLibCheck": true, // Omite chequeos de tipado en dependencias.
+    "strict": true, // Mantiene las comprobaciones estrictas.
+    "forceConsistentCasingInFileNames": true, // Asegura consistencia en el caso de nombres de archivos.
+    "noEmit": true, // Evita generar archivos JS.
+    "esModuleInterop": true, // Garantiza compatibilidad con módulos ES.
+    "module": "esnext", // Usa el formato de módulo ES más reciente.
+    "moduleResolution": "node", // Configuración estándar para resolver módulos.
+    "resolveJsonModule": true, // Permite importar JSON.
+    "isolatedModules": true, // Requerido para Next.js.
+    "jsx": "preserve", // Para compatibilidad con JSX en Next.js.
+    "incremental": true, // Mejora los tiempos de recompilación.
+    
+   "paths": {
+  "@/*": ["./src/*"]
+ 
+}
+
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js", "src/components/Features.js", "src/pages/faq/[id].js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/**/*"
+  ],
   "exclude": ["node_modules"]
 }

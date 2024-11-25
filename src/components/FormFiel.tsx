@@ -38,7 +38,7 @@ interface FormFieldProps {
   valueAsNumber?: boolean;
   errorCheckbox?: string;
   rows?: number;
-  autocomplete?: string;
+  autoComplete?: string; // Corregido aquí
 }
 
 const FormField: FunctionComponent<FormFieldProps> = ({
@@ -59,7 +59,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
   valueAsNumber,
   errorCheckbox,
   rows,
-  autocomplete,
+  autoComplete, // Corregido aquí
 }) => {
   const renderField = () => {
     switch (type) {
@@ -83,40 +83,30 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               name={name}
               type={type}
               value={value}
-              autocomplete={autocomplete}
+              autoComplete={autoComplete} // Corregido aquí
               minLength={minLength}
               maxLength={maxLength}
               placeholder={placeholder}
-              className={`${styleInput}
-                ${errors[id] ? "border-red-500 border-2" : "border-gray-300"} `}
+              className={`${styleInput} ${
+                errors[id] ? "border-red-500 border-2" : "border-gray-300"
+              }`}
               {...register(id, {
                 valueAsNumber: valueAsNumber,
                 required: {
                   value: required,
-                  message: (
-                    <>
-                      <span className="capitalize">{name}</span>
-                      <span> es requerido.</span>
-                    </>
-                  ),
+                  message: `${name} es requerido.`,
                 },
                 minLength: {
                   value: minLength,
-                  message: `Minimo ${minLength} caracteres`,
+                  message: `Mínimo ${minLength} caracteres`,
                 },
                 maxLength: {
                   value: maxLength,
-                  message: `Maximo ${maxLength} caracteres`,
+                  message: `Máximo ${maxLength} caracteres`,
                 },
-
                 pattern: {
                   value: validation,
-                  message: (
-                    <>
-                      <span className="capitalize">{name}</span>
-                      <span> no es valido.</span>
-                    </>
-                  ),
+                  message: `${name} no es válido.`,
                 },
               })}
             />
@@ -138,17 +128,13 @@ const FormField: FunctionComponent<FormFieldProps> = ({
             <select
               id={id}
               value={value}
-              className={`${styleSelect}
-              ${errors[id] ? "border-red-500 border-2" : "border-gray-300"} `}
+              className={`${styleSelect} ${
+                errors[id] ? "border-red-500 border-2" : "border-gray-300"
+              }`}
               {...register(id, {
                 required: {
                   value: required,
-                  message: (
-                    <>
-                      <span className="capitalize">{name}</span>
-                      <span> es requerido.</span>
-                    </>
-                  ),
+                  message: `${name} es requerido.`,
                 },
                 validate: (value: any) => value !== "",
               })}
@@ -164,34 +150,6 @@ const FormField: FunctionComponent<FormFieldProps> = ({
         );
 
       case "checkbox":
-        return (
-          <div className="flex gap-2 items-center">
-            <input
-              id={id}
-              type={type}
-              value={value}
-              label={label}
-              className={styleCheckbox}
-              {...register(id, {
-                required: {
-                  value: required,
-                  message: errorCheckbox,
-                },
-              })}
-            />
-            <label
-              className={`${label ? "visible" : "invisible"} ${
-                errors[id] ? "text-red-500 dark:text-red-500" : "text-black"
-              }`}
-              htmlFor={id}
-            >
-              <div className="underline hover:text-[#00A099] cursor-pointer">
-                {label}
-              </div>
-            </label>
-          </div>
-        );
-
       case "radio":
         return (
           <div className="flex gap-2 items-center">
@@ -199,17 +157,11 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               id={id}
               type={type}
               value={value}
-              label={label}
               className={styleCheckbox}
               {...register(id, {
                 required: {
                   value: required,
-                  message: (
-                    <>
-                      <span className="capitalize">{name}</span>
-                      <span> es requerido.</span>
-                    </>
-                  ),
+                  message: errorCheckbox || `${name} es requerido.`,
                 },
               })}
             />
@@ -229,20 +181,15 @@ const FormField: FunctionComponent<FormFieldProps> = ({
           <div className="relative w-full">
             <textarea
               id={id}
-              type={type}
               rows={rows}
               placeholder={placeholder}
-              className={`${styleTextarea}
-        ${errors.message ? "border-red-500 border-2" : "border-gray-300"} `}
+              className={`${styleTextarea} ${
+                errors[id] ? "border-red-500 border-2" : "border-gray-300"
+              }`}
               {...register(id, {
                 required: {
                   value: required,
-                  message: (
-                    <>
-                      <span className="capitalize">{name}</span>
-                      <span> es requerido.</span>
-                    </>
-                  ),
+                  message: `${name} es requerido.`,
                 },
               })}
             />
