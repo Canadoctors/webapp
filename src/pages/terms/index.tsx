@@ -8,7 +8,8 @@ function Terms() {
         <div className="absolute overflow-auto inset-0 bg-gradient-to-b">
           <div className="flex h-auto w-full items-center justify-center container mx-auto px-8">
             <div className="max-w-4xl text-center">
-              <Image width={"400px"} src={Logo} alt="" />
+            <Image width={400} height={400} src={Logo} alt="" />
+
               <h2 className="text-lg font-bold  sm:text-2xl md:text-3xl lg:text-xl pt-2 pb-2">
                 <span className="block">
                   TÉRMINOS Y CONDICIONES Y CONSENTIMIENTO DE USO DE LA
