@@ -1,35 +1,42 @@
 import firebase, { db } from "./firebase";
 import {
   collection,
-  getDocs,
-  getDoc,
-  query,
-  doc,
   addDoc,
-  deleteDoc,
-  updateDoc,
 } from "firebase/firestore";
 
-export const saveNewDoctorAr = (data: any) => {
-  addDoc(collection(db, "doctorAr"), {
+// Helper para obtener la fecha en formato YYYY/MM/DD
+const getDatePath = () => {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0"); // Meses van de 0-11
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}/${month}/${day}`;
+};
+
+export const saveNewDoctorAr = async (data: any) => {
+  const datePath = getDatePath();
+  await addDoc(collection(db, `doctorAr/${datePath}`), {
     ...data,
   });
 };
 
-export const saveNewDoctorPr = (data: any) => {
-  addDoc(collection(db, "doctorPr"), {
+export const saveNewDoctorPr = async (data: any) => {
+  const datePath = getDatePath();
+  await addDoc(collection(db, `doctorPr/${datePath}`), {
     ...data,
   });
 };
 
-export const contactForm = (data: any) => {
-  addDoc(collection(db, "ContactForm"), {
+export const contactForm = async (data: any) => {
+  const datePath = getDatePath();
+  await addDoc(collection(db, `ContactForm/${datePath}`), {
     ...data,
   });
 };
 
-export const saveDispensaryPr = (datos: any) => {
-  addDoc(collection(db, "dispensaryPr"), {
+export const saveDispensaryPr = async (datos: any) => {
+  const datePath = getDatePath();
+  await addDoc(collection(db, `dispensaryPr/${datePath}`), {
     ...datos,
   });
 };
