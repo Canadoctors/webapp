@@ -16,14 +16,15 @@
     "@radix-ui/react-popover": "^1.1.2",
     "@radix-ui/react-select": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "date-fns": "^3.0.0",
+    "date-fns": "^3.6.0",
     "firebase": "^11.0.2",
     "lucide-react": "^0.460.0",
     "next": "^15.0.3",
     "react": "^18.2.0",
-    "react-day-picker": "^9.4.0",
+    "react-day-picker": "^8.10.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-scroll-parallax": "^3.4.5",
@@ -48,8 +49,7 @@
   "engines": {
     "node": ">=18.0.0"
   },
- "resolutions": {
-  "date-fns": "^3.0.0"
-}
-
+  "resolutions": {
+    "date-fns": "^3.0.0"
+  }
 }
