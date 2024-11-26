@@ -17,7 +17,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/hooks/use-toast"
-import { Toast, ToastProvider } from "@/components/ui/toast"
+import { Toast} from "@/components/ui/toast"
+import { Toaster } from "@/components/ui/toaster"
 
 interface Inputs {
   firstName: string;
@@ -82,7 +83,7 @@ export default function DoctorFormPr() {
   };
 
   return (
-    <ToastProvider>
+    <>
       <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-50 via-white to-white">
         <div className="container mx-auto px-4 py-8 lg:py-12">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start max-w-6xl mx-auto">
@@ -270,11 +271,8 @@ export default function DoctorFormPr() {
                         id="cannabisUse"
                         placeholder="Por favor describa su experiencia..."
                         className="min-h-[100px] bg-white"
-                        {...register('cannabisUse', { required: true })}
+                        {...register('cannabisUse')}
                       />
-                      {errors.cannabisUse && (
-                        <span className="text-sm text-red-500">Este campo es requerido</span>
-                      )}
                     </div>
 
                     <div className="space-y-2">
@@ -287,14 +285,14 @@ export default function DoctorFormPr() {
                           Tengo una Licencia de Cannabis
                         </Label>
                       </div>
-                      {tieneLicencia && (
+                      {watch('tieneLicencia') && (
                         <div className="mt-2">
                           <Label htmlFor="numeroLicencia">Número de Licencia de Cannabis</Label>
                           <Input
                             id="numeroLicencia"
                             placeholder="Ingrese su número de licencia"
                             className="bg-white mt-1"
-                            {...register('numeroLicencia', { required: tieneLicencia })}
+                            {...register('numeroLicencia', { required: watch('tieneLicencia') })}
                           />
                           {errors.numeroLicencia && (
                             <span className="text-sm text-red-500">Este campo es requerido si tiene licencia</span>
@@ -332,10 +330,8 @@ export default function DoctorFormPr() {
             </div>
           </div>
         </div>
-        <div className="fixed bottom-4 right-4 z-50">
-          <Toast />
-        </div>
+        <Toaster />
       </div>
-    </ToastProvider>
+    </>
   )
 }
