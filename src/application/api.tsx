@@ -1,42 +1,66 @@
-import firebase, { db } from "./firebase";
+import { db } from "./firebase";
 import {
+  doc,
   collection,
   addDoc,
+  setDoc,
 } from "firebase/firestore";
 
-// Helper para obtener la fecha en formato YYYY/MM/DD
+// Helper para obtener la fecha en formato YYYY-MM-DD
 const getDatePath = () => {
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0"); // Meses van de 0-11
   const day = String(now.getDate()).padStart(2, "0");
-  return `${year}/${month}/${day}`;
+  return `${year}-${month}-${day}`;
 };
 
 export const saveNewDoctorAr = async (data: any) => {
   const datePath = getDatePath();
-  await addDoc(collection(db, `doctorAr/${datePath}`), {
+
+  // Crear documento intermedio basado en la fecha
+  const docRef = doc(db, "doctorAr", datePath);
+  const collectionRef = collection(docRef, "submissions");
+
+  // Agregar datos a la subcolección
+  await addDoc(collectionRef, {
     ...data,
+    timestamp: new Date().toISOString(),
   });
 };
 
 export const saveNewDoctorPr = async (data: any) => {
   const datePath = getDatePath();
-  await addDoc(collection(db, `doctorPr/${datePath}`), {
+
+  const docRef = doc(db, "doctorPr", datePath);
+  const collectionRef = collection(docRef, "submissions");
+
+  await addDoc(collectionRef, {
     ...data,
+    timestamp: new Date().toISOString(),
   });
 };
 
 export const contactForm = async (data: any) => {
   const datePath = getDatePath();
-  await addDoc(collection(db, `ContactForm/${datePath}`), {
+
+  const docRef = doc(db, "ContactForm", datePath);
+  const collectionRef = collection(docRef, "submissions");
+
+  await addDoc(collectionRef, {
     ...data,
+    timestamp: new Date().toISOString(),
   });
 };
 
 export const saveDispensaryPr = async (datos: any) => {
   const datePath = getDatePath();
-  await addDoc(collection(db, `dispensaryPr/${datePath}`), {
+
+  const docRef = doc(db, "dispensaryPr", datePath);
+  const collectionRef = collection(docRef, "submissions");
+
+  await addDoc(collectionRef, {
     ...datos,
+    timestamp: new Date().toISOString(),
   });
 };

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -48,12 +48,15 @@ export default function DoctorFormPr() {
   const fechaReunion = watch("fechaReunion");
 
   const onSubmitHandler: SubmitHandler<Inputs> = async (data) => {
+    console.log("Form submitted with data:", data);
     const formattedData = {
       ...data,
       fechaCompletado: new Date()
     };
     try {
-      await saveNewDoctorPr(formattedData);
+      console.log("Calling saveNewDoctorPr with:", formattedData);
+      const result = await saveNewDoctorPr(formattedData);
+      console.log("saveNewDoctorPr result:", result);
       setIsSuccess(true);
       toast({
         title: "Registro exitoso",
@@ -69,6 +72,7 @@ export default function DoctorFormPr() {
         router.push('/');
       }, 5000);
     } catch (error) {
+      console.error("Error in saveNewDoctorPr:", error);
       toast({
         title: "Error",
         description: "Hubo un problema al enviar su información. Por favor, intente de nuevo.",
@@ -85,7 +89,7 @@ export default function DoctorFormPr() {
             <div className="space-y-6 lg:sticky lg:top-8">
               <div className="mb-8">
                 <Image
-                  src="../images/logosCD/logopositivo.svg"
+                  src="/images/logosCD/logopositivo.svg"
                   alt="CANADOCTORS Logo"
                   width={200}
                   height={50}
