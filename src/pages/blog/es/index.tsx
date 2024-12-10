@@ -11,10 +11,10 @@ interface Article {
   };
 }
 
-const Articles = () => {
+const BlogEspanol = () => {
   const [articles, setArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Agregado para manejo de carga
-  const [error, setError] = useState<string | null>(null); // Agregado para manejo de errores
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -40,16 +40,15 @@ const Articles = () => {
       }
     };
 
-
-    
     fetchArticles();
   }, []);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div>
-      <h1>Articles</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      <h1>Blog en Español</h1>
       <ul>
         {articles.map((article) => (
           <li key={article.id}>
@@ -62,4 +61,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default BlogEspanol;
