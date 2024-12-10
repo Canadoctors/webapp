@@ -40,6 +40,8 @@ const Articles = () => {
       }
     };
 
+
+    
     fetchArticles();
   }, []);
 
