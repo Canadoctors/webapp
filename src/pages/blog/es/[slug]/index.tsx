@@ -97,12 +97,15 @@ export default function BlogPost() {
   if (error) return <div className="container mx-auto px-4 py-8">Error: {error}</div>
   if (!article) return <div className="container mx-auto px-4 py-8">Artículo no encontrado</div>
 
+
+  const BASE_URL = "https://strapi-dqjm.onrender.com";
+
   return (
     <div className="container mx-auto px-4 py-8">
       <Card>
         <div className="aspect-video relative">
           <Image
-            src={article.cover?.url || "/placeholder.svg"}
+             src={`${BASE_URL}${article.cover?.url}` || '/placeholder.svg'}
             alt={article.cover?.alternativeText || article.title}
             layout="fill"
             objectFit="cover"

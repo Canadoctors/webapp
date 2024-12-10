@@ -99,6 +99,8 @@ export default function PuertoRicoLandingPage() {
     fetchArticles()
   }, [])
 
+  const BASE_URL = "https://strapi-dqjm.onrender.com";
+
   return (
     <ParallaxProvider>
       <div className="flex flex-col min-h-screen">
@@ -308,7 +310,7 @@ export default function PuertoRicoLandingPage() {
                     <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
                       <div className="aspect-video relative">
                         <Image
-                          src={article.cover?.url || '/placeholder.svg'}
+                          src={`${BASE_URL}${article.cover?.url}` || '/placeholder.svg'}
                           alt={article.cover?.alternativeText || article.title}
                           layout="fill"
                           objectFit="cover"
@@ -316,7 +318,7 @@ export default function PuertoRicoLandingPage() {
                       </div>
                       <CardHeader>
                         <CardTitle className="line-clamp-2">
-                          <Link href={`/blog/${article.id}`} className="hover:underline">
+                          <Link href={`/blog/es/${article.slug}`} className="hover:underline">
                             {article.title}
                           </Link>
                         </CardTitle>
