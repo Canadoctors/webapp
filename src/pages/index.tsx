@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
@@ -10,6 +10,42 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 import { Phone, Mail, Video, Star, Heart, Menu, X } from 'lucide-react'
 
+interface Article {
+  id: number
+  documentId: string
+  title: string
+  description: string
+  slug: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  cover: {
+    id: number
+    documentId: string
+    name: string
+    alternativeText: string | null
+    caption: string | null
+    width: number
+    height: number
+    formats: {
+      large: { url: string }
+      small: { url: string }
+      medium: { url: string }
+      thumbnail: { url: string }
+    }
+    hash: string
+    ext: string
+    mime: string
+    size: number
+    url: string
+    previewUrl: string | null
+    provider: string
+    provider_metadata: any
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+  }
+}
 export const metadata: Metadata = {
   title: 'Cannabis Medicinal en Puerto Rico | CanaDoctors',
   description: 'Obtén tu tarjeta de Cannabis Medicinal en Puerto Rico con CanaDoctors. Orientación experta, aprobaciones rápidas y atención compasiva. Comienza tu camino hacia el bienestar hoy.',
@@ -32,6 +68,36 @@ export const metadata: Metadata = {
 
 export default function PuertoRicoLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [articles, setArticles] = useState<Article[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const response = await fetch('https://strapi-dqjm.onrender.com/api/articles?sort=publishedAt:desc&pagination[limit]=3&populate=*', {
+          headers: {
+            Authorization: `Bearer 0f7bcb4965a447d2076e3576bda02197a9776e6a01828e692b0a0fcdd68208545f4a524fc39801617118041aafcd083503aed03b5743b0ab52796e3f7bd3c76322f706aaf495744a5e128d12b9be7a87473ce39cc2a0f805fe164689336d25f7b553bc0bac80bca3d64e7e0217287688f0f6cdd6900c2c26683b62f20f732d3f`,
+          },
+        })
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        setArticles(data.data)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Error desconocido')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchArticles()
+  }, [])
 
   return (
     <ParallaxProvider>
@@ -227,6 +293,47 @@ export default function PuertoRicoLandingPage() {
               </div>
             </div>
           </section>
+
+          <section id="blog" className="py-12 md:py-24 lg:py-32 bg-gray-50">
+          <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">Últimos Artículos</h2>
+            {loading ? (
+              <p className="text-center">Cargando artículos...</p>
+            ) : error ? (
+              <p className="text-center text-red-500">Error: {error}</p>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {articles.map((article) => (
+                  <Parallax key={article.id} translateY={[10, -10]}>
+                    <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
+                      <div className="aspect-video relative">
+                        <Image
+                          src={article.cover?.url || '/placeholder.svg'}
+                          alt={article.cover?.alternativeText || article.title}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="line-clamp-2">
+                          <Link href={`/blog/${article.id}`} className="hover:underline">
+                            {article.title}
+                          </Link>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="line-clamp-3 mb-4">{article.description}</p>
+                        <Button variant="outline" asChild>
+                          <Link href={`/blog/${article.id}`}>Leer más</Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Parallax>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
 
           <section id="proceso" className="py-12 md:py-24 lg:py-32 bg-gray-50">
             <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
