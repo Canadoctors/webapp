@@ -324,7 +324,7 @@ export default function PuertoRicoLandingPage() {
                       <CardContent>
                         <p className="line-clamp-3 mb-4">{article.description}</p>
                         <Button variant="outline" asChild>
-                          <Link href={`/blog/${article.id}`}>Leer más</Link>
+                          <Link href={`/blog/es/${article.slug}`}>Leer más</Link>
                         </Button>
                       </CardContent>
                     </Card>
