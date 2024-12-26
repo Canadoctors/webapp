@@ -5,45 +5,106 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ArrowRight, Calendar, Clock, LineChart, ShieldCheck, Users, PhoneIcon as WhatsApp, Mail, Globe, MessageSquare } from 'lucide-react'
+import { ArrowRight, Calendar, Clock, LineChart, ShieldCheck, Users, PhoneIcon as WhatsApp, Mail, Globe, MessageSquare, Menu, X } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
+import { useEffect, useState, useRef } from "react"
+import { saveDispensaryPr }  from "../../../application/api";
 import Budtender from "../../../assets/images/budtender.png"
 import Iphone from "../../../assets/images/iphone.png"
 
 export default function LandingPage() {
-  useEffect(() => {
-    const smoothScroll = (e: Event) => {
-      e.preventDefault();
-      const target = e.target as HTMLAnchorElement;
-      const id = target.getAttribute('href')?.slice(1);
-      if (id) {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
-          });
-        }
-      }
-    };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    dispensary: '',
+    location: '',
+    phone: '',
+    email: '',
+    date: '',
+    time: ''
+  });
 
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-      link.addEventListener('click', smoothScroll);
+  // Refs for sections that will be animated
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-up');
+            entry.target.classList.remove('opacity-0');
+            entry.target.classList.add('opacity-100');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    // Get all sections
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section) => {
+      section.classList.add('transition-all', 'duration-1000', 'opacity-0');
+      observer.observe(section);
     });
 
-    return () => {
-      links.forEach(link => {
-        link.removeEventListener('click', smoothScroll);
-      });
-    };
+    return () => observer.disconnect();
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await saveDispensaryPr(formData);
+      alert('Solicitud enviada con éxito');
+      setFormData({
+        dispensary: '',
+        location: '',
+        phone: '',
+        email: '',
+        date: '',
+        time: ''
+      });
+    } catch (error) {
+      console.error('Error al enviar la solicitud:', error);
+      alert('Error al enviar la solicitud');
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleTimeChange = (value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      time: value
+    }));
+  };
+
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const href = e.currentTarget.getAttribute('href');
+    if (href?.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+        setIsMenuOpen(false); // Cierra el menú móvil después de hacer clic
+      }
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b sticky top-0 bg-white z-50">
+      <header className="px-4 lg:px-6 h-16 flex items-center border-b sticky top-0 bg-white/80 backdrop-blur-sm z-50 transition-all duration-300">
         <Link className="flex items-center justify-center" href="#">
           <Image
             src="../../../images/logosCD/logopositivo.svg"
@@ -54,20 +115,82 @@ export default function LandingPage() {
           />
           <span className="sr-only">CanaDoctors</span>
         </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#beneficios">
+        
+        {/* Mobile menu button */}
+        <button
+          className="ml-auto md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
+
+        {/* Desktop navigation */}
+        <nav className="hidden md:flex ml-auto gap-4 sm:gap-6">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#beneficios" onClick={smoothScroll}>
             Beneficios
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#caracteristicas">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#caracteristicas" onClick={smoothScroll}>
             Características
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contacto">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contacto" onClick={smoothScroll}>
             Contacto
           </Link>
         </nav>
+
+        {/* Mobile navigation */}
+        <div className={`
+          fixed inset-x-0 top-16 bg-white border-b border-gray-200 md:hidden
+          transition-all duration-300 transform
+          ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}
+        `}>
+          <nav className="flex flex-col p-4 gap-4">
+            <Link 
+              className="text-sm font-medium hover:underline underline-offset-4 py-2" 
+              href="#beneficios"
+              onClick={smoothScroll}
+            >
+              Beneficios
+            </Link>
+            <Link 
+              className="text-sm font-medium hover:underline underline-offset-4 py-2" 
+              href="#caracteristicas"
+              onClick={smoothScroll}
+            >
+              Características
+            </Link>
+            <Link 
+              className="text-sm font-medium hover:underline underline-offset-4 py-2" 
+              href="#contacto"
+              onClick={smoothScroll}
+            >
+              Contacto
+            </Link>
+          </nav>
+        </div>
       </header>
+
+      <style jsx global>{`
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-up {
+          animation: fadeUp 1s ease-out forwards;
+        }
+      `}</style>
+
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-teal-500 to-emerald-500">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-teal-500 to-emerald-500 animate-fade-up">
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 items-center lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4 text-white">
@@ -78,27 +201,32 @@ export default function LandingPage() {
                   <p className="max-w-[600px] text-zinc-100 md:text-xl">
                     Plataforma integral para la retención y obtención de nuevos pacientes. Conectamos médicos certificados con pacientes, simplificando el proceso y aumentando tus ingresos.
                   </p>
+                  <p className="text-xl font-semibold text-white bg-green-500/20 inline-block px-4 py-2 rounded-lg mt-2">
+                    ¡3 meses gratis al registrarte ahora!
+                  </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
                   <Link
-                    className="inline-flex h-11 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-teal-500 shadow transition-colors hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                    className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl bg-white text-sm font-medium text-teal-600 transition-colors hover:bg-zinc-50"
                     href="#contacto"
+                    onClick={smoothScroll}
                   >
                     Programa una Reunión
                   </Link>
                   <Link
-                    className="inline-flex h-11 items-center justify-center rounded-md border border-white px-8 text-sm font-medium text-white shadow-sm transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-teal-500"
+                    className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl border-2 border-white bg-transparent text-sm font-medium text-white transition-colors hover:bg-white/10"
                     href="#beneficios"
+                    onClick={smoothScroll}
                   >
                     Conoce más
                   </Link>
                   <Link
-                    className="inline-flex h-11 items-center justify-center rounded-md bg-green-500 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-teal-500"
+                    className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl bg-green-500 text-sm font-medium text-white transition-colors hover:bg-green-600"
                     href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20tener%20más%20información%20para%20mi%20dispensario"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <WhatsApp className="mr-2 h-4 w-4" />
+                    <WhatsApp className="mr-2 h-5 w-5" />
                     Contactar por WhatsApp
                   </Link>
                 </div>
@@ -113,7 +241,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32" id="beneficios">
+        <section className="w-full py-12 md:py-24 lg:py-32 animate-fade-up" id="beneficios">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -186,7 +314,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-zinc-50" id="caracteristicas">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-zinc-50 animate-fade-up" id="caracteristicas">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -202,7 +330,7 @@ export default function LandingPage() {
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
                 height={310}
                 src={Iphone}
-                width={650}
+                width={550}
               />
               <div className="flex flex-col justify-center space-y-4">
                 <ul className="grid gap-6">
@@ -243,7 +371,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-teal-500" id="contacto">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-teal-500 animate-fade-up" id="contacto">
           <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
@@ -257,29 +385,62 @@ export default function LandingPage() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col space-y-4 bg-white p-6 rounded-lg">
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-4 bg-white p-6 rounded-lg">
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="dispensary">Nombre del Dispensario</Label>
-                    <Input id="dispensary" placeholder="Ingresa el nombre de tu dispensario" />
+                    <Input 
+                      id="dispensary" 
+                      placeholder="Ingresa el nombre de tu dispensario"
+                      value={formData.dispensary}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="location">Ubicación</Label>
-                    <Input id="location" placeholder="Ciudad, Estado" />
+                    <Input 
+                      id="location" 
+                      placeholder="Ciudad, Estado"
+                      value={formData.location}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="phone">Teléfono</Label>
-                    <Input id="phone" placeholder="(123) 456-7890" type="tel" />
+                    <Input 
+                      id="phone" 
+                      placeholder="(123) 456-7890" 
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="email">Correo Electrónico</Label>
-                    <Input id="email" placeholder="tu@email.com" type="email" />
+                    <Input 
+                      id="email" 
+                      placeholder="tu@email.com" 
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required 
+                    />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="date">Fecha Preferida</Label>
                     <div className="flex space-x-2">
-                      <Input id="date" type="date" className="flex-1" />
-                      <Select>
+                      <Input 
+                        id="date" 
+                        type="date" 
+                        className="flex-1"
+                        value={formData.date}
+                        onChange={handleInputChange}
+                        required 
+                      />
+                      <Select onValueChange={handleTimeChange} value={formData.time}>
                         <SelectTrigger className="w-[180px]">
                           <SelectValue placeholder="Hora" />
                         </SelectTrigger>
@@ -295,11 +456,11 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                <Button className="bg-teal-500 hover:bg-teal-600 text-white">
+                <Button type="submit" className="bg-teal-500 hover:bg-teal-600 text-white">
                   Solicitar Reunión
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
         </section>
