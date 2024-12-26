@@ -310,7 +310,7 @@ export default function PuertoRicoLandingPage() {
                     <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
                       <div className="aspect-video relative">
                         <Image
-                          src={`${BASE_URL}${article.cover?.url}` || '/placeholder.svg'}
+                          src={article.cover?.url || '/placeholder.svg'}
                           alt={article.cover?.alternativeText || article.title}
                           layout="fill"
                           objectFit="cover"

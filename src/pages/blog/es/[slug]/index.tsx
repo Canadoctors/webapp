@@ -3,9 +3,11 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import Image from 'next/image'
+import { SiteHeader } from '@/components/site-header'
+import { BlogSidebar } from '@/components/blog-sidebar'
 
 interface Article {
   id: number
@@ -93,47 +95,72 @@ export default function BlogPost() {
     fetchArticle()
   }, [slug])
 
-  if (loading) return <div className="container mx-auto px-4 py-8">Cargando artículo...</div>
-  if (error) return <div className="container mx-auto px-4 py-8">Error: {error}</div>
-  if (!article) return <div className="container mx-auto px-4 py-8">Artículo no encontrado</div>
+  if (loading) return (
+    <>
+      <SiteHeader />
+      <div className="container mx-auto px-4 py-8">Cargando artículo...</div>
+    </>
+  )
+  
+  if (error) return (
+    <>
+      <SiteHeader />
+      <div className="container mx-auto px-4 py-8">Error: {error}</div>
+    </>
+  )
+  
+  if (!article) return (
+    <>
+      <SiteHeader />
+      <div className="container mx-auto px-4 py-8">Artículo no encontrado</div>
+    </>
+  )
 
-
-  const BASE_URL = "https://strapi-dqjm.onrender.com";
+  const BASE_URL = "https://strapi-dqjm.onrender.com"
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Card>
-        <div className="aspect-video relative">
-          <Image
-             src={`${BASE_URL}${article.cover?.url}` || '/placeholder.svg'}
-            alt={article.cover?.alternativeText || article.title}
-            layout="fill"
-            objectFit="cover"
-          />
+    <>
+      <SiteHeader />
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_300px]">
+          <div className="space-y-6">
+            <Card>
+              <div className="aspect-video relative">
+                <Image
+                  src={`${BASE_URL}${article.cover?.url}` || '/placeholder.svg'}
+                  alt={article.cover?.alternativeText || article.title}
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                />
+              </div>
+              <CardHeader>
+                <CardTitle>{article.title}</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  Publicado el {new Date(article.publishedAt).toLocaleDateString('es-PR')}
+                </p>
+              </CardHeader>
+              <CardContent>
+                <p className="mb-4">{article.description}</p>
+                {article.blocks.map((block, index) => (
+                  <div key={index} className="mb-4 prose prose-green max-w-none">
+                    {block.__component === 'shared.rich-text' && (
+                      <div dangerouslySetInnerHTML={{ __html: block.body }} />
+                    )}
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
+            <Button asChild>
+              <Link href="/">Volver a la página principal</Link>
+            </Button>
+          </div>
+          <aside className="md:sticky md:top-20 md:self-start">
+            <BlogSidebar />
+          </aside>
         </div>
-        <CardHeader>
-          <CardTitle>{article.title}</CardTitle>
-          <p className="text-sm text-gray-500">
-            Publicado el {new Date(article.publishedAt).toLocaleDateString('es-PR')}
-          </p>
-        </CardHeader>
-        <CardContent>
-          <p className="mb-4">{article.description}</p>
-          {article.blocks.map((block, index) => (
-            <div key={index} className="mb-4">
-              {block.__component === 'shared.rich-text' && (
-                <div dangerouslySetInnerHTML={{ __html: block.body }} />
-              )}
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-      <div className="mt-8">
-        <Button asChild>
-          <Link href="/">Volver a la página principal</Link>
-        </Button>
       </div>
-    </div>
+    </>
   )
 }
 
