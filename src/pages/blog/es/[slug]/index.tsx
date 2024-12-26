@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SiteHeader } from '@/components/site-header'
 import { BlogSidebar } from '@/components/blog-sidebar'
+import { ShareButtons } from '@/components/share-buttons'
 
 interface Article {
   id: number
@@ -140,6 +141,10 @@ export default function BlogPost() {
                 <p className="text-sm text-muted-foreground">
                   Publicado el {new Date(article.publishedAt).toLocaleDateString('es-PR')}
                 </p>
+                <ShareButtons 
+                  url={typeof window !== 'undefined' ? window.location.href : ''}
+                  title={article.title}
+                />
               </CardHeader>
               <CardContent>
                 <p className="mb-6 text-lg text-muted-foreground leading-relaxed">{article.description}</p>
