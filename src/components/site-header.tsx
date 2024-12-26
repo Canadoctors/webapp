@@ -12,17 +12,17 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 h-14">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="https://canadoctors.com/" className="flex items-center space-x-2">
           <Image src="/images/logosCD/logopositivo.svg" alt="Logo de CanaDoctors" width={150} height={60} />
         </Link>
         <nav className="hidden md:flex gap-4">
-          <Link href="#beneficios" className="text-sm font-medium hover:underline underline-offset-4">Beneficios</Link>
-          <Link href="#proceso" className="text-sm font-medium hover:underline underline-offset-4">Proceso</Link>
-          <Link href="#servicios" className="text-sm font-medium hover:underline underline-offset-4">Servicios</Link>
-          <Link href="#faq" className="text-sm font-medium hover:underline underline-offset-4">Preguntas Frecuentes</Link>
+          <Link href="https://canadoctors.com/#beneficios" className="text-sm font-medium hover:underline underline-offset-4">Beneficios</Link>
+          <Link href="https://canadoctors.com/#proceso" className="text-sm font-medium hover:underline underline-offset-4">Proceso</Link>
+          <Link href="https://canadoctors.com/#servicios" className="text-sm font-medium hover:underline underline-offset-4">Servicios</Link>
+          <Link href="https://canadoctors.com/#faq" className="text-sm font-medium hover:underline underline-offset-4">Preguntas Frecuentes</Link>
         </nav>
         <Button className="hidden md:inline-flex" asChild>
-          <Link href="https://app.canadoctors.com/cuidadeti">Reservar Consulta</Link>
+          <Link href="https://app.canadoctors.com/signup/canadoctors">Reservar Consulta</Link>
         </Button>
         <button
           className="md:hidden p-2"
