@@ -147,12 +147,21 @@ export default function BlogPost() {
                   <div key={index} className="prose prose-lg prose-green max-w-none">
                     {block.__component === 'shared.rich-text' && (
                       <div 
-                        dangerouslySetInnerHTML={{ __html: block.body }}
-                        className="[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4
+                        dangerouslySetInnerHTML={{ 
+                          __html: block.body
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **text** to <strong>
+                            .replace(/\n\n/g, '</p><p>') // Convert double line breaks to new paragraphs
+                            .replace(/\n/g, '<br />') // Convert single line breaks to <br>
+                        }}
+                        className="prose prose-lg prose-green max-w-none
+                                   [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4
                                    [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-6 [&>h3]:mb-3
                                    [&>p]:leading-relaxed [&>p]:mb-4
+                                   [&>p>strong]:font-bold [&>p>strong]:text-gray-900
                                    [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-4
+                                   [&>ul>li]:mb-2
                                    [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-4
+                                   [&>ol>li]:mb-2
                                    [&>blockquote]:border-l-4 [&>blockquote]:border-green-500 
                                    [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:my-6
                                    [&>a]:text-green-600 [&>a]:underline-offset-4 [&>a]:hover:text-green-700"
