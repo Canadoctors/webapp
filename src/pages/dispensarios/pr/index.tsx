@@ -222,7 +222,7 @@ export default function LandingPage() {
                   </Link>
                   <Link
                     className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl bg-green-500 text-sm font-medium text-white transition-colors hover:bg-green-600"
-                    href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20tener%20más%20información%20para%20mi%20dispensario"
+                    href="https://wa.me/+17865241975?text=Hola,%20me%20interesa%20tener%20más%20información%20para%20mi%20dispensario"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
