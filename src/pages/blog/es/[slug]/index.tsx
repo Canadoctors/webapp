@@ -121,44 +121,69 @@ export default function BlogPost() {
   return (
     <>
       <SiteHeader />
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_300px]">
+      <div className="container mx-auto px-4 py-8 lg:px-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_350px] xl:gap-8">
           <div className="space-y-6">
-            <Card>
-              <div className="aspect-video relative">
+            <Card className="overflow-hidden">
+              <div className="aspect-video relative lg:aspect-[2/1]">
                 <Image
                   src={article.cover?.url || '/placeholder.svg'}
                   alt={article.cover?.alternativeText || article.title}
                   layout="fill"
                   objectFit="cover"
                   priority
+                  className="transition-transform hover:scale-105 duration-500"
                 />
-
-               
               </div>
-              <CardHeader>
-                <CardTitle>{article.title}</CardTitle>
+              <CardHeader className="space-y-2">
+                <CardTitle className="text-2xl lg:text-3xl font-bold">{article.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">
                   Publicado el {new Date(article.publishedAt).toLocaleDateString('es-PR')}
                 </p>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">{article.description}</p>
+                <p className="mb-6 text-lg text-muted-foreground leading-relaxed">{article.description}</p>
                 {article.blocks.map((block, index) => (
-                  <div key={index} className="mb-4 prose prose-green max-w-none">
+                  <div key={index} className="prose prose-lg prose-green max-w-none">
                     {block.__component === 'shared.rich-text' && (
-                      <div dangerouslySetInnerHTML={{ __html: block.body }} />
+                      <div 
+                        dangerouslySetInnerHTML={{ __html: block.body }}
+                        className="[&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4
+                                   [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-6 [&>h3]:mb-3
+                                   [&>p]:leading-relaxed [&>p]:mb-4
+                                   [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-4
+                                   [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-4
+                                   [&>blockquote]:border-l-4 [&>blockquote]:border-green-500 
+                                   [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:my-6
+                                   [&>a]:text-green-600 [&>a]:underline-offset-4 [&>a]:hover:text-green-700"
+                      />
                     )}
                   </div>
                 ))}
               </CardContent>
             </Card>
-            <Button asChild>
-              <Link href="/">Volver a la página principal</Link>
+            <Button variant="outline" size="lg" asChild className="mt-8">
+              <Link href="/" className="flex items-center gap-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-4 h-4"
+                >
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Volver a la página principal
+              </Link>
             </Button>
           </div>
-          <aside className="md:sticky md:top-20 md:self-start">
-            <BlogSidebar />
+          <aside className="lg:sticky lg:top-24 lg:self-start">
+            <BlogSidebar currentSlug={slug} />
           </aside>
         </div>
       </div>

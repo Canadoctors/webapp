@@ -116,7 +116,7 @@ export default function PuertoRicoLandingPage() {
               <Link href="#faq" className="text-sm font-medium hover:underline underline-offset-4">Preguntas Frecuentes</Link>
             </nav>
             <Button className="hidden md:inline-flex" asChild>
-              <Link href="https://app.canadoctors.com/cuidadeti">Reservar Consulta</Link>
+              <Link href="https://app.canadoctors.com/signup/canadoctors">Reservar Consulta</Link>
             </Button>
             <button
               className="md:hidden p-2"
@@ -453,7 +453,7 @@ export default function PuertoRicoLandingPage() {
                   Reserva tu consulta hoy y da el primer paso hacia el alivio natural con cannabis medicinal.
                 </p>
                 <Button size="lg" variant="secondary" asChild>
-                  <Link href="https://app.canadoctors.com/cuidadeti">Reserva Tu Consulta Ahora</Link>
+                  <Link href="https://app.canadoctors.com/signup/canadoctors">Reserva Tu Consulta Ahora</Link>
                 </Button>
               </div>
             </div>
