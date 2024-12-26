@@ -127,12 +127,14 @@ export default function BlogPost() {
             <Card>
               <div className="aspect-video relative">
                 <Image
-                  src={`${BASE_URL}${article.cover?.url}` || '/placeholder.svg'}
+                  src={article.cover?.url || '/placeholder.svg'}
                   alt={article.cover?.alternativeText || article.title}
                   layout="fill"
                   objectFit="cover"
                   priority
                 />
+
+               
               </div>
               <CardHeader>
                 <CardTitle>{article.title}</CardTitle>
