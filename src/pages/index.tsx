@@ -309,12 +309,14 @@ export default function PuertoRicoLandingPage() {
                   <Parallax key={article.id} translateY={[10, -10]}>
                     <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
                       <div className="aspect-video relative">
-                        <Image
-                          src={article.cover?.url || '/placeholder.svg'}
-                          alt={article.cover?.alternativeText || article.title}
-                          layout="fill"
-                          objectFit="cover"
-                        />
+                        
+                      <Image
+  src={article.cover?.url || '/placeholder.svg'}
+  alt={article.cover?.alternativeText || article.title}
+  layout="fill"
+  objectFit="cover"
+/>
+
                       </div>
                       <CardHeader>
                         <CardTitle className="line-clamp-2">
