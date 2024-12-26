@@ -208,7 +208,7 @@ export default function PuertoRicoLandingPage() {
                     </p>
                     <div className="flex flex-wrap gap-4">
                       <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100" asChild>
-                        <Link href="https://app.canadoctors.com/cuidadeti">
+                        <Link href="https://app.canadoctors.com/signup/canadoctors">
                           Iniciar Solicitud
                         </Link>
                       </Button>
