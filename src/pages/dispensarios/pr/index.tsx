@@ -480,11 +480,11 @@ export default function LandingPage() {
             </p>
           </div>
           <div className="flex gap-4">
-            <Link className="text-sm hover:underline underline-offset-4" href="#">
+            <Link className="text-sm hover:underline underline-offset-4" href="https://canadoctors.com/terms">
               Términos
             </Link>
-            <Link className="text-sm hover:underline underline-offset-4" href="#">
-              Privacidad
+            <Link className="text-sm hover:underline underline-offset-4" href="https://canadoctors.com/faq/pr">
+              FAQs
             </Link>
           </div>
         </div>
