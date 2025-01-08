@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ['strapi-dqjm.onrender.com'],
     domains: ['res.cloudinary.com'],
+    domains: ['localhost'],
   },
 }
 
