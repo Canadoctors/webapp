@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Metadata } from "next"
 import Speaker from "../../assets/images/cannmedevent.jpeg"
 import Cannmed from "../../assets/images/cannmed.png"
+import Prich from "../../assets/images/prich.png"
 
 export const metadata: Metadata = {
   title: 'Congreso Médico de Cannabis | CanaDoctors',
@@ -57,7 +58,7 @@ export default function EventPage() {
               className="object-contain"
             />
             <Image
-              src="https://canadoctors.com/images/prich.png"
+              src={Prich}
               alt="PrichBiotech Logo"
               width={150}
               height={60}
