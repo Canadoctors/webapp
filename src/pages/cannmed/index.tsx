@@ -57,7 +57,7 @@ export default function EventPage() {
               className="object-contain"
             />
             <Image
-              src="https://canadoctors.com/images/logosCD/prich.png"
+              src="https://canadoctors.com/images/prich.png"
               alt="PrichBiotech Logo"
               width={150}
               height={60}
