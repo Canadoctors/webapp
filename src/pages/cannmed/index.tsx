@@ -57,7 +57,7 @@ export default function EventPage() {
               className="object-contain"
             />
             <Image
-              src="http://localhost:3000/images/logosCD/prich.png"
+              src="https://canadoctors.com/images/logosCD/prich.png"
               alt="PrichBiotech Logo"
               width={150}
               height={60}
@@ -188,22 +188,18 @@ export default function EventPage() {
                 </li>
               
                 <li>
-                  <a href="https://canadoctors.com" className="hover:text-white">
+                  <a href="https://app.canadoctors.com/signup/canadoctors" className="hover:text-white">
                    Get Medical Id
                   </a>
                 </li>
-                <li>
-                  <a href="https://canadoctors.com" className="hover:text-white">
-                   Blog
-                  </a>
-                </li>
+              
                 <li>
                   <a href="https://cannmedevents.com" className="hover:text-white">
                     CannMed Events
                   </a>
                 </li>
                 <li>
-                  <a href="https://cannmedevents.com" className="hover:text-white">
+                  <a href="https://prichbiotech.com" className="hover:text-white">
                     Prich Biotech
                   </a>
                 </li>
