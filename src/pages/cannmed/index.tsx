@@ -1,18 +1,17 @@
 'use client'
 
+import { toast, Toaster } from 'react-hot-toast'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
-import { useToast } from "@/hooks/use-toast"
-import { Toast} from "@/components/ui/toast"
-import { Toaster } from "@/components/ui/toaster"
 import Image from "next/image"
 import Link from "next/link"
 import Head from "next/head"
 import { useRef } from "react"
+import { useRouter } from 'next/router'
 import { saveCannMed } from "@/application/api"
 
 // Import all speaker images
@@ -25,7 +24,8 @@ import SpeakerThree from "../../assets/images/cannmed/LM-headshot-2023.png"
 import SpeakerFour from "../../assets/images/cannmed/Headshot-2.png"
 
 export default function CannMedPage() {
-  const { toast } = useToast()
+  
+  const router = useRouter()
   const registroRef = useRef<HTMLElement>(null)
 
   const scrollToRegistro = () => {
@@ -39,32 +39,30 @@ export default function CannMedPage() {
     
     try {
       await saveCannMed({
-        nombre: formData.get('nombre'),
-        apellido: formData.get('apellido'),
-        email: formData.get('email'),
-        telefono: formData.get('telefono'),
-        especialidad: formData.get('especialidad'),
-        ciudad: formData.get('ciudad'),
-        direccion: formData.get('direccion'),
-        hasPrescrito: formData.get('hasPrescrito'),
-        conocimiento: formData.get('conocimiento'),
-        interes: formData.get('interes'),
-        licencia: formData.get('licencia'),
+        nombre: formData.get('nombre') as string,
+        apellido: formData.get('apellido') as string,
+        email: formData.get('email') as string,
+        telefono: formData.get('telefono') as string,
+        especialidad: formData.get('especialidad') as string,
+        ciudad: formData.get('ciudad') as string,
+        direccion: formData.get('direccion') as string,
+        hasPrescrito: formData.get('hasPrescrito') as string,
+        conocimiento: formData.get('conocimiento') as string,
+        interes: formData.get('interes') as string,
+        licencia: formData.get('licencia') as string,
         fechaRegistro: new Date()
       })
   
-      toast({
-        title: "Registro exitoso",
-        description: "Hemos recibido tu solicitud. Te contactaremos pronto.",
-      })
+      toast.success("Registro exitoso. Hemos recibido tu solicitud. Te contactaremos pronto.")
   
       form.reset()
+
+      // Espera 3 segundos antes de redirigir
+      setTimeout(() => {
+        router.push('https://canadoctors.com')
+      }, 3000)
     } catch (error) {
-      toast({
-        title: "Error en el registro",
-        description: "Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.",
-        variant: "destructive"
-      })
+      toast.error("Error en el registro. Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.")
     }
   }
 
@@ -371,6 +369,7 @@ export default function CannMedPage() {
                   Enviar Solicitud
                 </Button>
               </form>
+              <Toaster />
             </div>
           </div>
         </section>
