@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "esnext", // Soporte moderno para las características de JS/TS.
-    "lib": ["dom", "dom.iterable", "esnext"], // Incluye las bibliotecas necesarias.
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Incluye las bibliotecas necesarias.
     "allowJs": true, // Permite usar archivos JS.
     "skipLibCheck": true, // Omite chequeos de tipado en dependencias.
     "strict": true, // Mantiene las comprobaciones estrictas.
@@ -14,18 +18,25 @@
     "isolatedModules": true, // Requerido para Next.js.
     "jsx": "preserve", // Para compatibilidad con JSX en Next.js.
     "incremental": true, // Mejora los tiempos de recompilación.
-    
-   "paths": {
-  "@/*": ["./src/*"]
- 
-}
-
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/**/*"
+    "next-env.d.ts",
+    "src/**/*",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

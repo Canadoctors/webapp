@@ -1,101 +1,14 @@
-'use client'
-
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent } from "@/components/ui/card"
-import { useToast } from "@/hooks/use-toast"
-import { Toast} from "@/components/ui/toast"
-import { Toaster } from "@/components/ui/toaster"
 import Image from "next/image"
 import Link from "next/link"
 import Head from "next/head"
-import { useRef } from "react"
-import { collection, addDoc } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
 
-// Import all speaker images
-import Speaker from "../../assets/images/cannmedevent.jpeg"
-import Cannmed from "../../assets/images/cannmed.png"
-import Prich from "../../assets/images/prich.png"
-import SpeakerOne from "../../assets/images/cannmed/CanMed-Speakers-Bonnie.png"
-import SpeakerTwo from "../../assets/images/cannmed/CanMed-Speakers-Sulak.png"
-import SpeakerThree from "../../assets/images/cannmed/LM-headshot-2023.png"
-import SpeakerFour from "../../assets/images/cannmed/Headshot-2.png"
-
-export default function CannMedPage() {
-  const { toast } = useToast()
-  const registroRef = useRef<HTMLElement>(null)
-
-  const scrollToRegistro = () => {
-    registroRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    
-    try {
-      const docRef = await addDoc(collection(db, "registros"), {
-        nombre: formData.get('nombre'),
-        apellido: formData.get('apellido'),
-        email: formData.get('email'),
-        telefono: formData.get('telefono'),
-        especialidad: formData.get('especialidad'),
-        ciudad: formData.get('ciudad'),
-        direccion: formData.get('direccion'),
-        hasPrescrito: formData.get('hasPrescrito'),
-        conocimiento: formData.get('conocimiento'),
-        interes: formData.get('interes'),
-        licencia: formData.get('licencia'),
-        fechaRegistro: new Date()
-      })
-
-      toast({
-        title: "Registro exitoso",
-        description: "Hemos recibido tu solicitud. Te contactaremos pronto.",
-      })
-
-      form.reset()
-    } catch (error) {
-      toast({
-        title: "Error en el registro",
-        description: "Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.",
-        variant: "destructive"
-      })
-    }
-  }
-
-  const speakers = [
-    {
-      name: "Bonni Goldstein, MD",
-      specialty: "Medical Director / Owner",
-      bio: "Canna-Centers Wellness",
-      image: SpeakerOne
-    },
-    {
-      name: "Dustin Sulak, DO",
-      specialty: "Co-Founder & Medical Director",
-      bio: "Healer.com",
-      image: SpeakerTwo
-    },
-    {
-      name: "Laszlo Mechtler, MD",
-      specialty: "Chief Medical Officer",
-      bio: "DENT Neurologic Institute",
-      image: SpeakerThree
-    },
-    {
-      name: "Laura Barrett, MBA, BSN, RN",
-      specialty: "Founder",
-      bio: "Ask Nurse Laura",
-      image: SpeakerFour
-    }
-  ]
-
+export default function HomePage() {
   return (
     <>
       <Head>
@@ -118,17 +31,13 @@ export default function CannMedPage() {
                 <p className="text-xl opacity-90">
                   Únete a los expertos líderes en cannabis medicinal para un evento educativo exclusivo para profesionales de la salud.
                 </p>
-                <Button 
-                  size="lg" 
-                  className="bg-white text-teal-600 hover:bg-white/90"
-                  onClick={scrollToRegistro}
-                >
+                <Button size="lg" className="bg-white text-teal-600 hover:bg-white/90">
                   Registrarse Ahora
                 </Button>
               </div>
               <div className="relative h-[300px] md:h-[400px]">
                 <Image
-                  src={Speaker}
+                  src="/placeholder.svg?height=400&width=600"
                   alt="Medical Cannabis Conference"
                   fill
                   className="object-cover rounded-lg"
@@ -172,7 +81,7 @@ export default function CannMedPage() {
                   </CardContent>
                 </Card>
               </div>
-              <Link href="/cannmed/workshop">
+              <Link href="/workshop">
                 <Button size="lg" className="mt-8">
                   Ver Detalles del Workshop
                 </Button>
@@ -182,57 +91,45 @@ export default function CannMedPage() {
         </section>
 
         {/* Speakers Section */}
-
-
-<section className="py-16 bg-white">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl font-bold text-center mb-12">Speakers Destacados</h2>
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {speakers.map((speaker, index) => (
-        <Card key={index} className="hover:shadow-lg transition-shadow">
-          <CardContent className="p-4">
-            <div className="aspect-square relative mb-3 overflow-hidden rounded-full border-2 border-teal-500">
-              <Image
-                src={speaker.image}
-                alt={speaker.name}
-                fill
-                className="object-cover"
-              />
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Speakers Destacados</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[1, 2, 3].map((speaker) => (
+                <Card key={speaker}>
+                  <CardContent className="pt-6">
+                    <div className="aspect-square relative mb-4">
+                      <Image
+                        src={`/placeholder.svg?height=300&width=300`}
+                        alt={`Speaker ${speaker}`}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold">Dr. Nombre del Speaker</h3>
+                    <p className="text-gray-600">Especialidad / Institución</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-            <h3 className="text-lg font-semibold">{speaker.name}</h3>
-            <p className="text-sm text-gray-600">{speaker.specialty}</p>
-            <p className="text-xs text-gray-500 mt-1">{speaker.bio}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+          </div>
+        </section>
 
         {/* Logos Section */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center items-center gap-12">
               <Image
-                src="../../images/logosCD/logopositivo.svg"
+                src="/placeholder.svg?height=60&width=200"
                 alt="CanaDoctors Logo"
                 width={200}
                 height={60}
                 className="object-contain"
               />
               <Image
-                src={Prich}
+                src="/placeholder.svg?height=60&width=200"
                 alt="PrichBiotech Logo"
-                width={150}
-                height={60}
-                className="object-contain"
-              />
-              <Image
-                src={Cannmed}
-                alt="Cannmed"
-                width={150}
+                width={200}
                 height={60}
                 className="object-contain"
               />
@@ -273,7 +170,7 @@ export default function CannMedPage() {
         </section>
 
         {/* Registration Form */}
-        <section className="py-16 bg-gray-50" id="registro" ref={registroRef}>
+        <section className="py-16 bg-gray-50" id="registro">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-10">
@@ -282,40 +179,40 @@ export default function CannMedPage() {
                   Complete el formulario para aplicar al workshop gratuito
                 </p>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
                   <div>
                     <Label htmlFor="nombre">Nombre</Label>
-                    <Input id="nombre" name="nombre" required />
+                    <Input id="nombre" required />
                   </div>
                   <div>
                     <Label htmlFor="apellido">Apellido</Label>
-                    <Input id="apellido" name="apellido" required />
+                    <Input id="apellido" required />
                   </div>
                 </div>
                 <div>
                   <Label htmlFor="email">Correo Electrónico</Label>
-                  <Input type="email" id="email" name="email" required />
+                  <Input type="email" id="email" required />
                 </div>
                 <div>
                   <Label htmlFor="telefono">Teléfono</Label>
-                  <Input type="tel" id="telefono" name="telefono" required />
+                  <Input type="tel" id="telefono" required />
                 </div>
                 <div>
                   <Label htmlFor="especialidad">Especialidad Médica</Label>
-                  <Input id="especialidad" name="especialidad" required />
+                  <Input id="especialidad" required />
                 </div>
                 <div>
                   <Label htmlFor="ciudad">Ciudad de Trabajo</Label>
-                  <Input id="ciudad" name="ciudad" required />
+                  <Input id="ciudad" required />
                 </div>
                 <div>
                   <Label htmlFor="direccion">Dirección de Consultorio</Label>
-                  <Input id="direccion" name="direccion" required />
+                  <Input id="direccion" required />
                 </div>
                 <div className="space-y-4">
                   <Label>¿Ha prescrito cannabis medicinal anteriormente?</Label>
-                  <RadioGroup defaultValue="no" name="hasPrescrito">
+                  <RadioGroup defaultValue="no">
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="si" id="prescrito-si" />
                       <Label htmlFor="prescrito-si">Sí</Label>
@@ -328,7 +225,7 @@ export default function CannMedPage() {
                 </div>
                 <div className="space-y-4">
                   <Label>Nivel de conocimiento en cannabis medicinal</Label>
-                  <RadioGroup defaultValue="basico" name="conocimiento">
+                  <RadioGroup defaultValue="basico">
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="ninguno" id="conocimiento-ninguno" />
                       <Label htmlFor="conocimiento-ninguno">Ninguno</Label>
@@ -349,11 +246,11 @@ export default function CannMedPage() {
                 </div>
                 <div>
                   <Label htmlFor="interes">¿Por qué está interesado en aprender sobre cannabis medicinal?</Label>
-                  <Textarea id="interes" name="interes" required />
+                  <Textarea id="interes" required />
                 </div>
                 <div className="space-y-4">
                   <Label>¿Está interesado en obtener una licencia de cannabis medicinal?</Label>
-                  <RadioGroup defaultValue="si" name="licencia">
+                  <RadioGroup defaultValue="si">
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="si" id="licencia-si" />
                       <Label htmlFor="licencia-si">Sí</Label>
@@ -383,11 +280,11 @@ export default function CannMedPage() {
               <div>
                 <h3 className="font-bold text-lg mb-4">Contacto</h3>
                 <p className="text-gray-400">Email: info@canadoctors.com</p>
+                <p className="text-gray-400">Tel: (123) 456-7890</p>
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-4">Ubicación</h3>
-                <p className="text-gray-400">Wyndham Grand Rio Mar Rainforest Beach and Golf Resort</p>
-                <p className="text-gray-400">6000 Blvd. Río Mar, Rio Grande, 00745</p>
+                <p className="text-gray-400">San Juan, Puerto Rico</p>
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-4">Enlaces</h3>
@@ -398,18 +295,8 @@ export default function CannMedPage() {
                     </a>
                   </li>
                   <li>
-                    <a href="https://app.canadoctors.com/signup/canadoctors" className="hover:text-white">
-                      Get Medical Id
-                    </a>
-                  </li>
-                  <li>
                     <a href="https://cannmedevents.com" className="hover:text-white">
                       CannMed Events
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://prichbiotech.com" className="hover:text-white">
-                      Prich Biotech
                     </a>
                   </li>
                 </ul>
@@ -417,8 +304,7 @@ export default function CannMedPage() {
               <div>
                 <h3 className="font-bold text-lg mb-4">Redes Sociales</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
-                  <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
+                  {/* Add social media icons/links here */}
                 </div>
               </div>
             </div>
