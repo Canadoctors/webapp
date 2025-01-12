@@ -13,8 +13,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Head from "next/head"
 import { useRef } from "react"
-import { collection, addDoc } from 'firebase/firestore'
-import { db } from '@/lib/firebase'
+import { saveCannMed } from "@/application/api"
 
 // Import all speaker images
 import Speaker from "../../assets/images/cannmedevent.jpeg"
@@ -39,7 +38,7 @@ export default function CannMedPage() {
     const formData = new FormData(form)
     
     try {
-      const docRef = await addDoc(collection(db, "registros"), {
+      await saveCannMed({
         nombre: formData.get('nombre'),
         apellido: formData.get('apellido'),
         email: formData.get('email'),
@@ -53,12 +52,12 @@ export default function CannMedPage() {
         licencia: formData.get('licencia'),
         fechaRegistro: new Date()
       })
-
+  
       toast({
         title: "Registro exitoso",
         description: "Hemos recibido tu solicitud. Te contactaremos pronto.",
       })
-
+  
       form.reset()
     } catch (error) {
       toast({

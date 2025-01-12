@@ -64,3 +64,15 @@ export const saveDispensaryPr = async (datos: any) => {
     timestamp: new Date().toISOString(),
   });
 };
+
+export const saveCannMed = async (datos: any) => {
+  const datePath = getDatePath();
+
+  const docRef = doc(db, "Cannmed", datePath);
+  const collectionRef = collection(docRef, "submissions");
+
+  await addDoc(collectionRef, {
+    ...datos,
+    timestamp: new Date().toISOString(),
+  });
+};
