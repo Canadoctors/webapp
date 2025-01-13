@@ -43,11 +43,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Plataforma líder en cannabis medicinal." />
         <meta property="og:title" content="Canadoctors" />
         <meta property="og:description" content="Plataforma líder en cannabis medicinal." />
-        <meta property="og:image" content="/images/logosCD/logopositivo.svg" />
+        <meta property="og:image" content="https://canadoctors.com/images/logosCD/logopositivo.svg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.canadoctors.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/images/logosCD/logopositivo.svg" />
+        <meta name="twitter:image" content="https://canadoctors.com/images/logosCD/logopositivo.svg" />
       </Head>
       <Component {...pageProps} />
     </>
