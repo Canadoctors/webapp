@@ -87,18 +87,15 @@ export default function LandingPage() {
     }));
   };
 
-  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    const href = e.currentTarget.getAttribute('href');
-    if (href?.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-        setIsMenuOpen(false); // Cierra el menú móvil después de hacer clic
-      }
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+      setIsMenuOpen(false);
     }
   };
 
@@ -116,7 +113,6 @@ export default function LandingPage() {
           <span className="sr-only">CanaDoctors</span>
         </Link>
         
-        {/* Mobile menu button */}
         <button
           className="ml-auto md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -128,20 +124,18 @@ export default function LandingPage() {
           )}
         </button>
 
-        {/* Desktop navigation */}
         <nav className="hidden md:flex ml-auto gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#beneficios" onClick={smoothScroll}>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#beneficios" onClick={(e) => smoothScroll(e, 'beneficios')}>
             Beneficios
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#caracteristicas" onClick={smoothScroll}>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#caracteristicas" onClick={(e) => smoothScroll(e, 'caracteristicas')}>
             Características
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contacto" onClick={smoothScroll}>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contacto" onClick={(e) => smoothScroll(e, 'contacto')}>
             Contacto
           </Link>
         </nav>
 
-        {/* Mobile navigation */}
         <div className={`
           fixed inset-x-0 top-16 bg-white border-b border-gray-200 md:hidden
           transition-all duration-300 transform
@@ -151,21 +145,21 @@ export default function LandingPage() {
             <Link 
               className="text-sm font-medium hover:underline underline-offset-4 py-2" 
               href="#beneficios"
-              onClick={smoothScroll}
+              onClick={(e) => smoothScroll(e, 'beneficios')}
             >
               Beneficios
             </Link>
             <Link 
               className="text-sm font-medium hover:underline underline-offset-4 py-2" 
               href="#caracteristicas"
-              onClick={smoothScroll}
+              onClick={(e) => smoothScroll(e, 'caracteristicas')}
             >
               Características
             </Link>
             <Link 
               className="text-sm font-medium hover:underline underline-offset-4 py-2" 
               href="#contacto"
-              onClick={smoothScroll}
+              onClick={(e) => smoothScroll(e, 'contacto')}
             >
               Contacto
             </Link>
@@ -209,14 +203,14 @@ export default function LandingPage() {
                   <Link
                     className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl bg-white text-sm font-medium text-teal-600 transition-colors hover:bg-zinc-50"
                     href="#contacto"
-                    onClick={smoothScroll}
+                    onClick={(e) => smoothScroll(e, 'contacto')}
                   >
                     Programa una Reunión
                   </Link>
                   <Link
                     className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl border-2 border-white bg-transparent text-sm font-medium text-white transition-colors hover:bg-white/10"
                     href="#beneficios"
-                    onClick={smoothScroll}
+                    onClick={(e) => smoothScroll(e, 'beneficios')}
                   >
                     Conoce más
                   </Link>
@@ -476,7 +470,7 @@ export default function LandingPage() {
               className="h-2 w-auto"
             />
             <p className="text-center text-sm leading-loose text-zinc-500 md:text-left">
-              © 2024 CanaDoctors. Todos los derechos reservados.
+              © 2025 CanaDoctors. Todos los derechos reservados.
             </p>
           </div>
           <div className="flex gap-4">
