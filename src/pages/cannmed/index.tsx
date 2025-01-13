@@ -361,7 +361,7 @@ export default function CannMedPage() {
                     </div>
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="talvez" id="licencia-talvez" />
-                      <Label htmlFor="licencia-talvez">Tal vez</Label>
+                      <Label htmlFor="licencia-talvez">Ya poseo una</Label>
                     </div>
                   </RadioGroup>
                 </div>
