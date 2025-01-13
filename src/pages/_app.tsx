@@ -43,11 +43,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Plataforma Líder en Cannabis Medicinal | Conectando Médicos y Pacientes" />
         <meta property="og:title" content="Canadoctors" />
         <meta property="og:description" content="Conecta con médicos expertos en cannabis medicinal para obtener tu licencia y tratamientos en Puerto Rico." />
-        <meta property="og:image" content="https://canadoctors.com/images/thumb.jpg" />
+        <meta property="og:image" content="https://canadoctors.com/thumb.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.canadoctors.com" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://canadoctors.com/images/thumb.jpg" />
+        <meta name="twitter:image" content="https://canadoctors.com/thumb.jpg" />
       </Head>
       <Component {...pageProps} />
     </>
