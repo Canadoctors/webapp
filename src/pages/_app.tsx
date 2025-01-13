@@ -40,9 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Canadoctors</title>
-        <meta name="description" content="Plataforma líder en cannabis medicinal." />
+        <meta name="description" content="Plataforma Líder en Cannabis Medicinal | Conectando Médicos y Pacientes" />
         <meta property="og:title" content="Canadoctors" />
-        <meta property="og:description" content="Plataforma líder en cannabis medicinal." />
+        <meta property="og:description" content="Conecta con médicos expertos en cannabis medicinal para obtener tu licencia y tratamientos en Puerto Rico." />
         <meta property="og:image" content="https://canadoctors.com/images/thumb.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.canadoctors.com" />
