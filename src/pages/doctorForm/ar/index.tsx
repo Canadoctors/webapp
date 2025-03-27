@@ -1,21 +1,23 @@
-import Image from "next/image";
-import Link from "next/link";
-import { saveNewDoctorAr } from "../../../application/api";
-import { SubmitHandler, useForm } from "react-hook-form";
-import Router from "next/router";
-import { Home } from "../../../components/Home";
-import canadoctorsLogo from "/public/images/logosCD/logopositivo.svg";
-import imagePatient from "/public/images/bg/doctor1.jpg";
-import FormField from "../../../components/FormFiel";
-import { FaChild, FaSistrix } from "react-icons/fa";
+"use client"
+
+import Image from "next/image"
+import Link from "next/link"
+import { saveNewDoctorAr } from "../../../application/api"
+import { type SubmitHandler, useForm } from "react-hook-form"
+import Router from "next/router"
+import { Home } from "../../../components/Home"
+import canadoctorsLogo from "/public/images/logosCD/logopositivo.svg"
+import imagePatient from "/public/images/bg/doctor1.jpg"
+import FormField from "../../../components/FormFiel"
+import { FaChild, FaSistrix } from "react-icons/fa"
 
 interface Inputs {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: number;
-  speciality: string;
-  description: string;
+  firstName: string
+  lastName: string
+  email: string
+  phone: number
+  speciality: string
+  description: string
 }
 
 const DoctorFormAr = () => {
@@ -23,15 +25,15 @@ const DoctorFormAr = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>()
 
   const onSubmitHandler: SubmitHandler<Inputs> = (data) => {
-    saveNewDoctorAr(data);
+    saveNewDoctorAr(data)
     Router.push({
       pathname: "/landingSent",
       query: { name: data.firstName },
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -49,12 +51,7 @@ const DoctorFormAr = () => {
           <div className="flex-1">
             <div className="text-center">
               <Link href="/">
-                <Image
-                  src={canadoctorsLogo}
-                  height={60}
-                  width={280}
-                  alt="Logo Canadoctors"
-                />
+                <Image src={canadoctorsLogo} height={60} width={280} alt="Logo Canadoctors" />
               </Link>
             </div>
             <div className="mt-8">
@@ -150,11 +147,10 @@ const DoctorFormAr = () => {
             <div className="basis-1/2 flex flex-col justify-center">
               <div className="container px-5 mx-auto">
                 <div className="text-center mb-20">
-                  <h1 className="text-2xl sm:text-3xl font-medium text-white mb-4">
-                    Sé parte de la comunidad
-                  </h1>
+                  <h1 className="text-2xl sm:text-3xl font-medium text-white mb-4">Sé parte de la comunidad</h1>
                   <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-white">
-                    Formá parte de una amplia red de profesionales que buscan mejorar la calidad de vida de sus pacientes.
+                    Formá parte de una amplia red de profesionales que buscan mejorar la calidad de vida de sus
+                    pacientes.
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-evenly gap-6">
@@ -162,40 +158,34 @@ const DoctorFormAr = () => {
                     <div className="w-20 h-20 flex items-center justify-center rounded-full bg-indigo-100 mb-5">
                       <FaChild className="w-10 h-10 text-[#00A099]" />
                     </div>
-                    <h2 className="text-lg font-medium text-white mb-3">
-                      Accesibilidad
-                    </h2>
+                    <h2 className="text-lg font-medium text-white mb-3">Accesibilidad</h2>
                     <p className="leading-relaxed text-white">
-                      Ofrecé un servicio más accesible y eficiente a tus pacientes y lográ un mejor seguimiento sobre cada uno.
+                      Ofrecé un servicio más accesible y eficiente a tus pacientes y lográ un mejor seguimiento sobre
+                      cada uno.
                     </p>
                   </div>
                   <div className="p-4 flex flex-col text-center items-center">
                     <div className="w-20 h-20 flex items-center justify-center rounded-full bg-indigo-100 mb-5">
                       <FaSistrix className="w-10 h-10 text-[#00A099]" />
                     </div>
-                    <h2 className="text-lg font-medium text-white mb-3">
-                      Trazabilidad
-                    </h2>
+                    <h2 className="text-lg font-medium text-white mb-3">Trazabilidad</h2>
                     <p className="leading-relaxed text-white">
-                      Lográ un seguimiento personalizado de cada paciente y accedé de forma rápida y sencilla a su historial médico.
+                      Lográ un seguimiento personalizado de cada paciente y accedé de forma rápida y sencilla a su
+                      historial médico.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="basis-1/2 relative">
-              <Image
-                src={imagePatient}
-                layout="fill"
-                objectFit="cover"
-                alt="Paciente y médico interactuando"
-              />
+              <Image src={imagePatient} layout="fill" objectFit="cover" alt="Paciente y médico interactuando" />
             </div>
           </div>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default DoctorFormAr;
+export default DoctorFormAr
+

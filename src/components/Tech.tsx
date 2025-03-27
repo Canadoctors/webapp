@@ -1,8 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import ImageOne from "../../public/images/tech/tech1.png";
-import ImageTwo from "../../public/images/tech/tech2.png";
-import ImageThree from "../../public/images/tech/tech3.png";
+import Image from "next/image"
+import ImageOne from "../../public/images/tech/tech1.png"
+import ImageTwo from "../../public/images/tech/tech2.png"
+import ImageThree from "../../public/images/tech/tech3.png"
 
 export const Tech = () => {
   return (
@@ -14,8 +13,7 @@ export const Tech = () => {
               Tecnología aplicada a la industria del cannabis medicinal
             </h1>
             <p className="text-lg text-cdgrey">
-              Canadoctors te conecta con médicos especialistas en
-              endocannabinología licenciados y matriculados.
+              Canadoctors te conecta con médicos especialistas en endocannabinología licenciados y matriculados.
             </p>
           </div>
           <div className="grid grid-cols-5 grid-rows-4 gap-4 md:w-5/12 lg:w-6/12">
@@ -53,5 +51,6 @@ export const Tech = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
+

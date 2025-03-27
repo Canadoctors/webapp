@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import footerLogo from "../../public/images/logosCD/logocanadoctorwhite.svg";
-import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
-import { AiOutlineYoutube } from "react-icons/ai";
+import Image from "next/image"
+import Link from "next/link"
+import footerLogo from "../../public/images/logosCD/logocanadoctorwhite.svg"
+import { FaInstagram } from "react-icons/fa"
+import { AiOutlineYoutube } from "react-icons/ai"
 
 export const Footer = () => {
   return (
@@ -43,9 +43,7 @@ export const Footer = () => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="flex flex-wrap items-top mb-6">
               <div className="w-full lg:w-4/12 px-4 ml-auto">
-                <span className="block uppercase text-slate-50 text-md font-semibold mb-2">
-                  Enlaces Utiles
-                </span>
+                <span className="block uppercase text-slate-50 text-md font-semibold mb-2">Enlaces Utiles</span>
                 <ul className="list-unstyled">
                   <li>
                     <Link href="/" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
@@ -53,12 +51,18 @@ export const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="#Contact" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                    <Link
+                      href="#Contact"
+                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
+                    >
                       Contacto
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://app.canadoctors.com/signup" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                    <Link
+                      href="https://app.canadoctors.com/signup"
+                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
+                    >
                       Regístrate
                     </Link>
                   </li>
@@ -66,17 +70,21 @@ export const Footer = () => {
               </div>
 
               <div className="w-full lg:w-4/12 px-4">
-                <span className="block uppercase text-slate-50 text-md font-semibold mb-2">
-                  Otros Enlaces
-                </span>
+                <span className="block uppercase text-slate-50 text-md font-semibold mb-2">Otros Enlaces</span>
                 <ul className="list-unstyled">
                   <li>
-                    <Link href="https://app.canadoctors.com/" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                    <Link
+                      href="https://app.canadoctors.com/"
+                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
+                    >
                       Ingresar
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
+                    <Link
+                      href="/terms"
+                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
+                    >
                       Términos y condiciones
                     </Link>
                   </li>
@@ -96,5 +104,6 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
+

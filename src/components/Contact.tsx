@@ -1,13 +1,13 @@
-import { useForm, SubmitHandler } from "react-hook-form";
-import FormField from "./FormFiel";
-import { contactForm } from "../application/api";
-import { NAME } from "../validations/validations";
+import { useForm, type SubmitHandler } from "react-hook-form"
+import FormField from "./FormFiel"
+import { contactForm } from "../application/api"
+import { NAME } from "../validations/validations"
 
 type ContactSubmitForm = {
-  fullName: string;
-  email: string;
-  message: string;
-};
+  fullName: string
+  email: string
+  message: string
+}
 
 export const Contact = () => {
   const {
@@ -15,34 +15,28 @@ export const Contact = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<ContactSubmitForm>();
+  } = useForm<ContactSubmitForm>()
 
   const onSubmit: SubmitHandler<ContactSubmitForm> = (data) => {
-    contactForm(data);
+    contactForm(data)
     try {
-      alert("Mensaje enviado");
-      reset();
+      alert("Mensaje enviado")
+      reset()
     } catch (error) {
-      alert("Error al enviar el mensaje");
+      alert("Error al enviar el mensaje")
     }
-  };
+  }
 
   return (
     <>
-      <div
-        id="Contact"
-        className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4"
-      >
+      <div id="Contact" className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
         <div className="flex flex-wrap justify-center pt-8">
           <div className="w-full lg:w-7/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-white">
               <div className="flex-auto p-5 lg:p-10">
-                <h4 className="text-2xl font-semibold">
-                  Contactese con nosotros
-                </h4>
+                <h4 className="text-2xl font-semibold">Contactese con nosotros</h4>
                 <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                  Complete éste formulario y nos pondremos en contacto con usted
-                  lo antes posible.
+                  Complete éste formulario y nos pondremos en contacto con usted lo antes posible.
                 </p>
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="relative w-full">
@@ -140,5 +134,6 @@ export const Contact = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
+

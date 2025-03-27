@@ -1,4 +1,8 @@
-import { useState } from 'react'
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -6,24 +10,24 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
-import { UserRound, Mail, Phone, Stethoscope } from 'lucide-react'
-import { Leaf } from 'lucide-react'
+import { UserRound, Stethoscope } from "lucide-react"
+import { Leaf } from "lucide-react"
 
 export function MedicalRegistration() {
   const [formData, setFormData] = useState({
-    credential: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    specialty: '',
-    cannabisUse: '',
-    hasLicense: false
+    credential: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    specialty: "",
+    cannabisUse: "",
+    hasLicense: false,
   })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    console.log("Form submitted:", formData)
   }
 
   return (
@@ -38,7 +42,8 @@ export function MedicalRegistration() {
         <div className="space-y-4">
           <h1 className="text-4xl font-bold text-teal-700">Join Our Medical Cannabis Program</h1>
           <p className="text-lg text-muted-foreground">
-            Connect with a network of healthcare professionals dedicated to improving patient quality of life through medical cannabis treatment.
+            Connect with a network of healthcare professionals dedicated to improving patient quality of life through
+            medical cannabis treatment.
           </p>
           <div className="grid gap-6 mt-8">
             <div className="flex items-center gap-4">
@@ -56,7 +61,9 @@ export function MedicalRegistration() {
               </div>
               <div>
                 <h3 className="font-semibold">Patient Care</h3>
-                <p className="text-sm text-muted-foreground">Enhance your practice with evidence-based cannabis treatments</p>
+                <p className="text-sm text-muted-foreground">
+                  Enhance your practice with evidence-based cannabis treatments
+                </p>
               </div>
             </div>
           </div>
@@ -70,9 +77,7 @@ export function MedicalRegistration() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="credential">Medical Credential</Label>
-                <Select
-                  onValueChange={(value) => setFormData({ ...formData, credential: value })}
-                >
+                <Select onValueChange={(value) => setFormData({ ...formData, credential: value })}>
                   <SelectTrigger>
                     <SelectValue placeholder="Select your credential" />
                   </SelectTrigger>
@@ -145,9 +150,7 @@ export function MedicalRegistration() {
               <div className="flex items-center space-x-2">
                 <Checkbox
                   id="license"
-                  onCheckedChange={(checked) =>
-                    setFormData({ ...formData, hasLicense: checked as boolean })
-                  }
+                  onCheckedChange={(checked) => setFormData({ ...formData, hasLicense: checked as boolean })}
                 />
                 <Label htmlFor="license">I have a Cannabis License</Label>
               </div>
@@ -162,3 +165,4 @@ export function MedicalRegistration() {
     </div>
   )
 }
+

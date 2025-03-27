@@ -1,8 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { FileText, ExternalLink, Clock, Newspaper } from 'lucide-react'
-import { useRelatedArticles } from '@/hooks/use-related-articles'
+import { FileText, ExternalLink, Clock, Newspaper } from "lucide-react"
+import { useRelatedArticles } from "@/hooks/use-related-articles"
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface BlogSidebarProps {
@@ -60,9 +60,7 @@ export function BlogSidebar({ currentSlug }: BlogSidebarProps) {
                     <span className="line-clamp-2">{article.title}</span>
                   </Link>
                 </Button>
-                <p className="text-sm text-muted-foreground line-clamp-2 pl-6">
-                  {article.description}
-                </p>
+                <p className="text-sm text-muted-foreground line-clamp-2 pl-6">{article.description}</p>
               </div>
             ))
           ) : (

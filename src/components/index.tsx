@@ -13,7 +13,10 @@ export default function HomePage() {
     <>
       <Head>
         <title>Congreso Médico de Cannabis | CanaDoctors</title>
-        <meta name="description" content="Únete al Congreso Médico de Cannabis en Puerto Rico. Pre-evento especial el 14 de enero, 2024. Regístrate ahora para esta oportunidad única de aprendizaje y networking." />
+        <meta
+          name="description"
+          content="Únete al Congreso Médico de Cannabis en Puerto Rico. Pre-evento especial el 14 de enero, 2024. Regístrate ahora para esta oportunidad única de aprendizaje y networking."
+        />
       </Head>
 
       <div className="min-h-screen">
@@ -25,11 +28,10 @@ export default function HomePage() {
                 <div className="inline-block bg-white/10 px-4 py-1 rounded-full text-sm backdrop-blur">
                   Pre-evento: 14 de enero, 2024
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold">
-                  Congreso Médico de Cannabis en Puerto Rico
-                </h1>
+                <h1 className="text-4xl md:text-6xl font-bold">Congreso Médico de Cannabis en Puerto Rico</h1>
                 <p className="text-xl opacity-90">
-                  Únete a los expertos líderes en cannabis medicinal para un evento educativo exclusivo para profesionales de la salud.
+                  Únete a los expertos líderes en cannabis medicinal para un evento educativo exclusivo para
+                  profesionales de la salud.
                 </p>
                 <Button size="lg" className="bg-white text-teal-600 hover:bg-white/90">
                   Registrarse Ahora
@@ -55,11 +57,10 @@ export default function HomePage() {
               <div className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium">
                 ¡Oportunidad Exclusiva!
               </div>
-              <h2 className="text-4xl font-bold text-gray-900">
-                Workshop Gratuito de Capacitación
-              </h2>
+              <h2 className="text-4xl font-bold text-gray-900">Workshop Gratuito de Capacitación</h2>
               <p className="text-xl text-gray-600">
-                Ofrecemos acceso gratuito a 22 médicos seleccionados para participar en nuestro workshop especializado de cannabis medicinal.
+                Ofrecemos acceso gratuito a 22 médicos seleccionados para participar en nuestro workshop especializado
+                de cannabis medicinal.
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <Card>
@@ -143,7 +144,8 @@ export default function HomePage() {
             <div className="max-w-3xl mx-auto text-center space-y-6">
               <h2 className="text-3xl font-bold text-gray-900">Pre-Evento Especial</h2>
               <p className="text-xl text-gray-600">
-                14 de enero, 2024 - Una oportunidad única para conectar con expertos y obtener información exclusiva sobre el congreso principal en junio.
+                14 de enero, 2024 - Una oportunidad única para conectar con expertos y obtener información exclusiva
+                sobre el congreso principal en junio.
               </p>
               <div className="grid gap-6 md:grid-cols-2 text-left">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -175,9 +177,7 @@ export default function HomePage() {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold text-gray-900">Registro para el Workshop</h2>
-                <p className="mt-2 text-gray-600">
-                  Complete el formulario para aplicar al workshop gratuito
-                </p>
+                <p className="mt-2 text-gray-600">Complete el formulario para aplicar al workshop gratuito</p>
               </div>
               <form className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
@@ -303,9 +303,7 @@ export default function HomePage() {
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-4">Redes Sociales</h3>
-                <div className="flex space-x-4">
-                  {/* Add social media icons/links here */}
-                </div>
+                <div className="flex space-x-4">{/* Add social media icons/links here */}</div>
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">

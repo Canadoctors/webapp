@@ -1,11 +1,11 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['strapi-dqjm.onrender.com'],
-    domains: ['res.cloudinary.com'],
-    domains: ['localhost'],
+    domains: ["strapi-dqjm.onrender.com"],
+    domains: ["res.cloudinary.com"],
+    domains: ["localhost"],
   },
 }
 
 module.exports = nextConfig
+

@@ -1,36 +1,35 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+import { useState } from "react"
+import { useForm, type SubmitHandler } from "react-hook-form"
+import { useRouter } from "next/navigation"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { saveNewDoctorPr } from "../../../application/api";
+import { saveNewDoctorPr } from "../../../application/api"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Calendar } from "@/components/ui/calendar"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
-import { UserRound, Stethoscope, ArrowRight, CalendarIcon, CheckCircle } from 'lucide-react'
+import { UserRound, Stethoscope, ArrowRight, CalendarIcon, CheckCircle } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
 import { useToast } from "@/hooks/use-toast"
-import { Toast} from "@/components/ui/toast"
 import { Toaster } from "@/components/ui/toaster"
 
 interface Inputs {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  specialty: string;
-  cannabisUse: string;
-  fechaReunion?: Date;
-  tieneLicencia: boolean;
-  numeroLicencia?: string;
-  fechaCompletado: Date;
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  specialty: string
+  cannabisUse: string
+  fechaReunion?: Date
+  tieneLicencia: boolean
+  numeroLicencia?: string
+  fechaCompletado: Date
 }
 
 export default function DoctorFormPr() {
@@ -42,23 +41,23 @@ export default function DoctorFormPr() {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors, isSubmitting }
-  } = useForm<Inputs>();
+    formState: { errors, isSubmitting },
+  } = useForm<Inputs>()
 
-  const tieneLicencia = watch("tieneLicencia");
-  const fechaReunion = watch("fechaReunion");
+  const tieneLicencia = watch("tieneLicencia")
+  const fechaReunion = watch("fechaReunion")
 
   const onSubmitHandler: SubmitHandler<Inputs> = async (data) => {
-    console.log("Form submitted with data:", data);
+    console.log("Form submitted with data:", data)
     const formattedData = {
       ...data,
-      fechaCompletado: new Date()
-    };
+      fechaCompletado: new Date(),
+    }
     try {
-      console.log("Calling saveNewDoctorPr with:", formattedData);
-      const result = await saveNewDoctorPr(formattedData);
-      console.log("saveNewDoctorPr result:", result);
-      setIsSuccess(true);
+      console.log("Calling saveNewDoctorPr with:", formattedData)
+      const result = await saveNewDoctorPr(formattedData)
+      console.log("saveNewDoctorPr result:", result)
+      setIsSuccess(true)
       toast({
         title: "Registro exitoso",
         description: (
@@ -68,19 +67,19 @@ export default function DoctorFormPr() {
           </div>
         ),
         duration: 5000,
-      });
+      })
       setTimeout(() => {
-        router.push('/');
-      }, 5000);
+        router.push("/")
+      }, 5000)
     } catch (error) {
-      console.error("Error in saveNewDoctorPr:", error);
+      console.error("Error in saveNewDoctorPr:", error)
       toast({
         title: "Error",
         description: "Hubo un problema al enviar su información. Por favor, intente de nuevo.",
         variant: "destructive",
-      });
+      })
     }
-  };
+  }
 
   return (
     <>
@@ -110,7 +109,8 @@ export default function DoctorFormPr() {
                   Únete a Nuestro Programa de Cannabis Medicinal
                 </h1>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Conéctate con una red de profesionales de la salud dedicados a mejorar la calidad de vida de los pacientes a través del tratamiento con cannabis medicinal.
+                  Conéctate con una red de profesionales de la salud dedicados a mejorar la calidad de vida de los
+                  pacientes a través del tratamiento con cannabis medicinal.
                 </p>
               </div>
 
@@ -130,7 +130,9 @@ export default function DoctorFormPr() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-teal-900">Atención al Paciente</h3>
-                    <p className="text-sm text-muted-foreground">Mejora tu práctica con tratamientos de cannabis basados en evidencia</p>
+                    <p className="text-sm text-muted-foreground">
+                      Mejora tu práctica con tratamientos de cannabis basados en evidencia
+                    </p>
                   </div>
                 </div>
               </div>
@@ -153,11 +155,9 @@ export default function DoctorFormPr() {
                           id="firstName"
                           placeholder="Ingrese su nombre"
                           className="bg-white"
-                          {...register('firstName', { required: true })}
+                          {...register("firstName", { required: true })}
                         />
-                        {errors.firstName && (
-                          <span className="text-sm text-red-500">Este campo es requerido</span>
-                        )}
+                        {errors.firstName && <span className="text-sm text-red-500">Este campo es requerido</span>}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="lastName">Apellido</Label>
@@ -165,11 +165,9 @@ export default function DoctorFormPr() {
                           id="lastName"
                           placeholder="Ingrese su apellido"
                           className="bg-white"
-                          {...register('lastName', { required: true })}
+                          {...register("lastName", { required: true })}
                         />
-                        {errors.lastName && (
-                          <span className="text-sm text-red-500">Este campo es requerido</span>
-                        )}
+                        {errors.lastName && <span className="text-sm text-red-500">Este campo es requerido</span>}
                       </div>
                     </div>
 
@@ -180,9 +178,9 @@ export default function DoctorFormPr() {
                         type="email"
                         placeholder="Ingrese su correo electrónico"
                         className="bg-white"
-                        {...register('email', { 
-                          required: true, 
-                          pattern: /^\S+@\S+$/i 
+                        {...register("email", {
+                          required: true,
+                          pattern: /^\S+@\S+$/i,
                         })}
                       />
                       {errors.email && (
@@ -197,11 +195,9 @@ export default function DoctorFormPr() {
                         type="tel"
                         placeholder="Ingrese su número de teléfono"
                         className="bg-white"
-                        {...register('phone', { required: true })}
+                        {...register("phone", { required: true })}
                       />
-                      {errors.phone && (
-                        <span className="text-sm text-red-500">Este campo es requerido</span>
-                      )}
+                      {errors.phone && <span className="text-sm text-red-500">Este campo es requerido</span>}
                     </div>
 
                     <div className="space-y-2">
@@ -210,11 +206,9 @@ export default function DoctorFormPr() {
                         id="specialty"
                         placeholder="Ingrese su especialidad médica"
                         className="bg-white"
-                        {...register('specialty', { required: true })}
+                        {...register("specialty", { required: true })}
                       />
-                      {errors.specialty && (
-                        <span className="text-sm text-red-500">Este campo es requerido</span>
-                      )}
+                      {errors.specialty && <span className="text-sm text-red-500">Este campo es requerido</span>}
                     </div>
 
                     <div className="space-y-2">
@@ -225,7 +219,7 @@ export default function DoctorFormPr() {
                             variant={"outline"}
                             className={cn(
                               "w-full justify-start text-left font-normal",
-                              !fechaReunion && "text-muted-foreground"
+                              !fechaReunion && "text-muted-foreground",
                             )}
                           >
                             <CalendarIcon className="mr-2 h-4 w-4" />
@@ -238,9 +232,9 @@ export default function DoctorFormPr() {
                             selected={fechaReunion}
                             onSelect={(date) => {
                               if (date) {
-                                const now = new Date();
-                                date.setHours(now.getHours(), now.getMinutes());
-                                setValue('fechaReunion', date);
+                                const now = new Date()
+                                date.setHours(now.getHours(), now.getMinutes())
+                                setValue("fechaReunion", date)
                               }
                             }}
                             initialFocus
@@ -252,10 +246,10 @@ export default function DoctorFormPr() {
                               type="time"
                               value={fechaReunion ? format(fechaReunion, "HH:mm") : ""}
                               onChange={(e) => {
-                                const [hours, minutes] = e.target.value.split(':');
-                                const newDate = new Date(fechaReunion || new Date());
-                                newDate.setHours(parseInt(hours), parseInt(minutes));
-                                setValue('fechaReunion', newDate);
+                                const [hours, minutes] = e.target.value.split(":")
+                                const newDate = new Date(fechaReunion || new Date())
+                                newDate.setHours(Number.parseInt(hours), Number.parseInt(minutes))
+                                setValue("fechaReunion", newDate)
                               }}
                             />
                           </div>
@@ -264,35 +258,33 @@ export default function DoctorFormPr() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="cannabisUse">
-                        ¿Cómo utiliza el cannabis medicinal con sus pacientes?
-                      </Label>
+                      <Label htmlFor="cannabisUse">¿Cómo utiliza el cannabis medicinal con sus pacientes?</Label>
                       <Textarea
                         id="cannabisUse"
                         placeholder="Por favor describa su experiencia..."
                         className="min-h-[100px] bg-white"
-                        {...register('cannabisUse')}
+                        {...register("cannabisUse")}
                       />
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center space-x-2">
-                        <Checkbox
-                          id="tieneLicencia"
-                          {...register('tieneLicencia')}
-                        />
-                        <Label htmlFor="tieneLicencia" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        <Checkbox id="tieneLicencia" {...register("tieneLicencia")} />
+                        <Label
+                          htmlFor="tieneLicencia"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
                           Tengo una Licencia de Cannabis
                         </Label>
                       </div>
-                      {watch('tieneLicencia') && (
+                      {watch("tieneLicencia") && (
                         <div className="mt-2">
                           <Label htmlFor="numeroLicencia">Número de Licencia de Cannabis</Label>
                           <Input
                             id="numeroLicencia"
                             placeholder="Ingrese su número de licencia"
                             className="bg-white mt-1"
-                            {...register('numeroLicencia', { required: watch('tieneLicencia') })}
+                            {...register("numeroLicencia", { required: watch("tieneLicencia") })}
                           />
                           {errors.numeroLicencia && (
                             <span className="text-sm text-red-500">Este campo es requerido si tiene licencia</span>
@@ -300,13 +292,9 @@ export default function DoctorFormPr() {
                         </div>
                       )}
                     </div>
-                    <input
-                      type="hidden"
-                      {...register('fechaCompletado')}
-                      value={new Date().toISOString()}
-                    />
-                    <Button 
-                      type="submit" 
+                    <input type="hidden" {...register("fechaCompletado")} value={new Date().toISOString()} />
+                    <Button
+                      type="submit"
                       className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold h-11"
                       disabled={isSubmitting || isSuccess}
                     >
@@ -335,3 +323,4 @@ export default function DoctorFormPr() {
     </>
   )
 }
+

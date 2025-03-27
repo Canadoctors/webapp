@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
@@ -16,19 +16,32 @@ export function SiteHeader() {
           <Image src="/images/logosCD/logopositivo.svg" alt="Logo de CanaDoctors" width={150} height={60} />
         </Link>
         <nav className="hidden md:flex gap-4">
-          <Link href="https://canadoctors.com/#beneficios" className="text-sm font-medium hover:underline underline-offset-4">Beneficios</Link>
-          <Link href="https://canadoctors.com/#proceso" className="text-sm font-medium hover:underline underline-offset-4">Proceso</Link>
-          <Link href="https://canadoctors.com/#servicios" className="text-sm font-medium hover:underline underline-offset-4">Servicios</Link>
-          <Link href="https://canadoctors.com/#faq" className="text-sm font-medium hover:underline underline-offset-4">Preguntas Frecuentes</Link>
+          <Link
+            href="https://canadoctors.com/#beneficios"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Beneficios
+          </Link>
+          <Link
+            href="https://canadoctors.com/#proceso"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Proceso
+          </Link>
+          <Link
+            href="https://canadoctors.com/#servicios"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Servicios
+          </Link>
+          <Link href="https://canadoctors.com/#faq" className="text-sm font-medium hover:underline underline-offset-4">
+            Preguntas Frecuentes
+          </Link>
         </nav>
         <Button className="hidden md:inline-flex" asChild>
           <Link href="https://app.canadoctors.com/signup/canadoctors">Reservar Consulta</Link>
         </Button>
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Alternar menú"
-        >
+        <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Alternar menú">
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
@@ -83,7 +96,7 @@ export function SiteHeader() {
                 >
                   CONTACTO
                 </Link>
-                <Button 
+                <Button
                   size="lg"
                   variant="secondary"
                   className="mt-4 bg-white/20 text-white hover:bg-white/30 border-2 border-white"

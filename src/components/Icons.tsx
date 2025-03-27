@@ -1,10 +1,10 @@
-import Image, { StaticImageData } from "next/image";
+import Image, { type StaticImageData } from "next/image"
 
 type IconsProps = {
-  iconUrl: string | StaticImageData; // Para URL dinámica o imágenes importadas
-  title1: string;
-  shortDesc: string;
-};
+  iconUrl: string | StaticImageData // Para URL dinámica o imágenes importadas
+  title1: string
+  shortDesc: string
+}
 
 export const Icons = ({ iconUrl, title1, shortDesc }: IconsProps) => {
   return (
@@ -15,5 +15,6 @@ export const Icons = ({ iconUrl, title1, shortDesc }: IconsProps) => {
       </div>
       <p className="text-sm text-gray-600">{shortDesc}</p>
     </div>
-  );
-};
+  )
+}
+

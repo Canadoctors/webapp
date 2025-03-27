@@ -10,5 +10,6 @@ export const Movie = () => {
         allowFullScreen
       ></iframe>
     </div>
-  );
-};
+  )
+}
+

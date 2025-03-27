@@ -1,8 +1,8 @@
-import Image from "next/image";
-import iphonePic from "../../public/images/iconFlags/iphone.png";
-import pr from "../../public/images/iconFlags/pr.png";
-import arg from "../../public/images/iconFlags/arg.png";
-import Link from "next/link";
+import Image from "next/image"
+import iphonePic from "../../public/images/iconFlags/iphone.png"
+import pr from "../../public/images/iconFlags/pr.png"
+import arg from "../../public/images/iconFlags/arg.png"
+import Link from "next/link"
 
 export const Iphone = () => {
   return (
@@ -12,8 +12,7 @@ export const Iphone = () => {
           Preguntas Frecuentes
         </h2>
         <p className="text-md mt-4 text-gray-400">
-          Actualmente nuestra plataforma está operativa en Estados Unidos,
-          Puerto Rico y Argentina.
+          Actualmente nuestra plataforma está operativa en Estados Unidos, Puerto Rico y Argentina.
         </p>
         <div className="flex py-6 justify-center md:justify-start gap-4">
           <Link href="/faq/ar">
@@ -34,5 +33,6 @@ export const Iphone = () => {
         />
       </div>
     </main>
-  );
-};
+  )
+}
+

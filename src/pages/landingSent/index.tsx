@@ -1,12 +1,12 @@
-import React from "react";
-import Image from "next/image";
-import { useRouter } from "next/router";
+"use client"
+import Image from "next/image"
+import { useRouter } from "next/router"
 
-import Logo from "../../../public/images/logosCD/logocanadoctorwhite.svg";
-import iconEmail from "../../../public/images/iconCards/email.png";
+import Logo from "../../../public/images/logosCD/logocanadoctorwhite.svg"
+import iconEmail from "../../../public/images/iconCards/email.png"
 
 function LandingSent() {
-  const { query } = useRouter();
+  const { query } = useRouter()
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-6 sm:py-12 h-full bg-gradient-to-b from-[#8CBB93]/90 to-[#00A099]/90 bg-opacity-40">
@@ -18,12 +18,12 @@ function LandingSent() {
           <Image src={iconEmail} height={159} width={150} alt="" />
         </div>
         <h2 className="mt-8 text-[30px] font-semibold text-white">
-          Gracias <span className="capitalize">{query.name}</span>, nos
-          pondremos en contacto contigo a la brevedad.
+          Gracias <span className="capitalize">{query.name}</span>, nos pondremos en contacto contigo a la brevedad.
         </h2>
       </div>
     </div>
-  );
+  )
 }
 
-export default LandingSent;
+export default LandingSent
+

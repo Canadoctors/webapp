@@ -9,7 +9,10 @@ export default function WorkshopPage() {
     <>
       <Head>
         <title>Workshop de Cannabis Medicinal | CanaDoctors</title>
-        <meta name="description" content="Workshop gratuito de capacitación en cannabis medicinal para 22 médicos seleccionados. Aprende de expertos y obtén tu certificación." />
+        <meta
+          name="description"
+          content="Workshop gratuito de capacitación en cannabis medicinal para 22 médicos seleccionados. Aprende de expertos y obtén tu certificación."
+        />
       </Head>
 
       <div className="min-h-screen">
@@ -17,12 +20,8 @@ export default function WorkshopPage() {
         <section className="bg-gradient-to-br from-teal-500 to-green-500 text-white">
           <div className="container mx-auto px-4 py-16 md:py-24">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Workshop de Capacitación en Cannabis Medicinal
-              </h1>
-              <p className="text-xl opacity-90 mb-8">
-                Una oportunidad única para 22 médicos seleccionados
-              </p>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">Workshop de Capacitación en Cannabis Medicinal</h1>
+              <p className="text-xl opacity-90 mb-8">Una oportunidad única para 22 médicos seleccionados</p>
               <Link href="/#registro">
                 <Button size="lg" className="bg-white text-teal-600 hover:bg-white/90">
                   Aplicar Ahora
@@ -94,17 +93,13 @@ export default function WorkshopPage() {
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Módulo 3: Práctica Clínica</h3>
-                    <p className="text-gray-600">
-                      Dosificación, seguimiento de pacientes y casos clínicos prácticos
-                    </p>
+                    <p className="text-gray-600">Dosificación, seguimiento de pacientes y casos clínicos prácticos</p>
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold mb-2">Módulo 4: Aspectos Legales</h3>
-                    <p className="text-gray-600">
-                      Marco regulatorio y mejores prácticas en la prescripción
-                    </p>
+                    <p className="text-gray-600">Marco regulatorio y mejores prácticas en la prescripción</p>
                   </CardContent>
                 </Card>
               </div>
@@ -151,9 +146,7 @@ export default function WorkshopPage() {
                 No pierdas la oportunidad de ser uno de los 22 médicos seleccionados para este workshop gratuito.
               </p>
               <Link href="/#registro">
-                <Button size="lg">
-                  Aplicar al Workshop
-                </Button>
+                <Button size="lg">Aplicar al Workshop</Button>
               </Link>
             </div>
           </div>

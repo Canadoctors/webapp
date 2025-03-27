@@ -1,117 +1,122 @@
 [
-    {
-        "id":1,
-        "question":"¿Qué es canadoctors?",
-        "answer":"Canadoctors es una plataforma que conecta médicos y pacientes de cannabis medicinal."
-    },
-    {
-        "id":2,
-        "question":"¿Tengo un problema técnico a quién contacto? ó ¿Cómo me contacto con soporte?",
-        "answer":"Podes contactarte mediante mail a la siguiente direccion info@canadoctors.com o dejanos tus datos y consulta en el siguiente formulario que alguien de nuestro equipo te contactará a la brevedad."
-    },
-    {
-        "id":3,
-        "question":"¿Es legal solicitar el licencia para uso del cannabis medicinal? ",
-        "answer":"Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional, por lo cual se alinea con todas las leyes vigentes que autorizan el uso del cannabis medicinal."
-    },
-    {
-        "id":4,
-        "question":"¿Cuál es el proceso para solicitar la licencia para uso del cannabis medicinal?",
-        "answer":"Un profesional de la salud, evaluará tu caso y de acuerdo a tu necesidad te recomendará la utilizacion de cannabis medicinal."
-    },
-    {
-        "id":5,
-        "question":"¿Que es una licencia para uso del cannabis medicinal?",
-        "answer":[
-            "Luego de una evaluación médica, si el médico autorizado determina que usted sufre de una condición cubierta por la Ley 42-2017 y que se beneficiaría de tratamiento con Cannabis, él o ella le harán una recomendación por escrito para el uso de Cannabis Medicinal.\n",
+  {
+    "id": 1,
+    "question": "¿Qué es canadoctors?",
+    "answer": "Canadoctors es una plataforma que conecta médicos y pacientes de cannabis medicinal."
+  },
+  {
+    "id": 2,
+    "question": "¿Tengo un problema técnico a quién contacto? ó ¿Cómo me contacto con soporte?",
+    "answer": "Podes contactarte mediante mail a la siguiente direccion info@canadoctors.com o dejanos tus datos y consulta en el siguiente formulario que alguien de nuestro equipo te contactará a la brevedad."
+  },
+  {
+    "id": 3,
+    "question": "¿Es legal solicitar el licencia para uso del cannabis medicinal? ",
+    "answer": "Nuestra plataforma cuenta con un proceso en cumplimiento con los estandares de seguridad internacional, por lo cual se alinea con todas las leyes vigentes que autorizan el uso del cannabis medicinal."
+  },
+  {
+    "id": 4,
+    "question": "¿Cuál es el proceso para solicitar la licencia para uso del cannabis medicinal?",
+    "answer": "Un profesional de la salud, evaluará tu caso y de acuerdo a tu necesidad te recomendará la utilizacion de cannabis medicinal."
+  },
+  {
+    "id": 5,
+    "question": "¿Que es una licencia para uso del cannabis medicinal?",
+    "answer": [
+      "Luego de una evaluación médica, si el médico autorizado determina que usted sufre de una condición cubierta por la Ley 42-2017 y que se beneficiaría de tratamiento con Cannabis, él o ella le harán una recomendación por escrito para el uso de Cannabis Medicinal.\n",
 
-            "\nEsta recomendación NO es una receta ni le permite comprar Cannabis Medicinal en un dispensario.\n",
-            
-            "Con esa recomendación y otros documentos, usted puede ir al Departamento de Salud de Puerto Rico para solicitar su licencia de Cannabis Medicinal. Para lista completa de documentos necesarios favor visitar: Documentos Requeridos por el Deparatamento de Salud"
-        ]
-    },
-    {
-        "id":6,
-        "question":"¿Para qué condiciones medicas está permitido emitir la licencia?",
-        "answer": ["Está permitido emitir la licencia para las siguientes condiciones médicas: \n",
-        "\t\u2022 Desórdenes de Ansiedad.\n",
-        "\t\u2022 Insomnia.\n",
-        "\t\u2022 PTSD.\n",
-        "\t\u2022 Depresión.\n",
-        "\t\u2022 Trastorno Bipolar.\n",
-        "\t\u2022 Dolor Crónico.\n",
-        "\t\u2022 Artritis.\n",
-        "\t\u2022 Glaucoma.\n",
-        "\t\u2022 Migraña.\n",
-        "\t\u2022 Náuseas Severas.\n",
-        "\t\u2022 Fibromialgia.\n",
-        "\t\u2022 Enfermedad Inflamatoria Intestinal.\n",
-        "\t\u2022 Anorexia.\n",
-        "\t\u2022 Epilepsia.\n",
-        "\t\u2022 Autismo.\n",
-        "\t\u2022 Alzheimer.\n",
-        "\t\u2022 Parkinson.\n",
-        "\t\u2022 Espasmos Musculares Persistentes.\n",
-        "\t\u2022 Hepatitis C.\n",
-        "\t\u2022 Cáncer.\n",
-        "\t\u2022 HIV.\n",
-        "\t\u2022 SIDA.\n",
-        "\t\u2022 Lesión en el Cordón Espinal.\n",
-        "\t\u2022 Esclerosis Múltiple.\n",
-        "\t\u2022 Esclerosis Lateral Amiotrófica.\n",
-        "\t\u2022 Neuropatías Periferales.\n",
-        "\t\u2022 Caquexia.\n",
-        "\t\u2022 Enfermedades incurables y avanzadas que requieran cuidado paliativo.\n",
-        "\t\u2022 Cualquier otra condición que su doctor considere debilitante.\n"
+      "\nEsta recomendación NO es una receta ni le permite comprar Cannabis Medicinal en un dispensario.\n",
+
+      "Con esa recomendación y otros documentos, usted puede ir al Departamento de Salud de Puerto Rico para solicitar su licencia de Cannabis Medicinal. Para lista completa de documentos necesarios favor visitar: Documentos Requeridos por el Deparatamento de Salud"
     ]
-    },
-    {
-        "id":7,
-        "question":"¿Qué medicos estan habilitados para emitirlos?",
-        "answer":"Médicos registrados con matrícula especial para emitir dichos certificados"
-    },
-    {
-        "id":8,
-        "question":"¿Cuáles medios de pago son aceptados?",
-        "answer":"Se aceptan como medios de pago tarjetas de débito, crédito y transferencia bancaria"
-    },
-    {
-        "id":9,
-        "question":"¿Hay política de reembolso?",
-        "answer":"Ver legales (link)"
-    },
-    {
-        "id":10,
-        "question":"¿Cuánto es el tiempo de vigencia de la licencia?",
-        "answer":"La licencia para uso de Cannabis Medicinal es válida por hasta un (1) año a discreción del doctor que le evalua."
-    },
-    {
-        "id":11,
-        "question":"¿La licencia es válida a nivel internacional?",
-        "answer":"Solo valido en PR"
-    },
-    {
-        "id":12,
-        "question":"¿Qué cantidad puedo tener de cannabis medicinal?",
-        "answer":["Según el artículo 8 del Reglamento 9038 de Cannabis, el suministro adecuado que se puede recomendar a un paciente es: \n",
-        
-        "\n\t\u2022 El límite de suministro máximo diario es de 1 onza, equivalente a 28 gramos, de la flor de Cannabis Medicinal o su equivalente. La proporción de flor a concentrado y a comestible es la siguiente:\n",
-        "\n\t\t\u2022 28 gramos de flor equivale a 8 gramos de THC en concentrado.\n",
-        "\t\t\u2022 28 gramos de flor equivale a 800 miligramos de THC en comestible.\n",
-        
-        "\n\t\u2022 Los pacientes o acompañantes autorizados con su registro válido y vigente pueden adquirir y poseer hasta un máximo de suministro de hasta 30 días de CM en los dispensarios registrados y con licencia.\n",
-        "\t\u2022 Luego de los 30 días, el paciente o su acompañante autorizado podrá acudir al dispensario para el reabastecimiento del CM o sus productos derivados según indique la recomendación médica."]
-    },
-    {
-        "id":13,
-        "question":"¿Qué pruebas médicas se hacen al paciente para validar su condición para el uso de cannabis medicinal?",
-        "answer":["La evidencia necesaria es a discreción del doctor o doctora que le evalúe. Durante la consulta, el doctor puede administrarle ciertas pruebas que lo ayudan a determinar si usted cualifica.\nPor ejemplo, el doctor puede administrarle la prueba GAD-7 para determinar si sus niveles de ansiedad lo cualifican para uso de Cannabis Medicinal.\n\n",
+  },
+  {
+    "id": 6,
+    "question": "¿Para qué condiciones medicas está permitido emitir la licencia?",
+    "answer": [
+      "Está permitido emitir la licencia para las siguientes condiciones médicas: \n",
+      "\t\u2022 Desórdenes de Ansiedad.\n",
+      "\t\u2022 Insomnia.\n",
+      "\t\u2022 PTSD.\n",
+      "\t\u2022 Depresión.\n",
+      "\t\u2022 Trastorno Bipolar.\n",
+      "\t\u2022 Dolor Crónico.\n",
+      "\t\u2022 Artritis.\n",
+      "\t\u2022 Glaucoma.\n",
+      "\t\u2022 Migraña.\n",
+      "\t\u2022 Náuseas Severas.\n",
+      "\t\u2022 Fibromialgia.\n",
+      "\t\u2022 Enfermedad Inflamatoria Intestinal.\n",
+      "\t\u2022 Anorexia.\n",
+      "\t\u2022 Epilepsia.\n",
+      "\t\u2022 Autismo.\n",
+      "\t\u2022 Alzheimer.\n",
+      "\t\u2022 Parkinson.\n",
+      "\t\u2022 Espasmos Musculares Persistentes.\n",
+      "\t\u2022 Hepatitis C.\n",
+      "\t\u2022 Cáncer.\n",
+      "\t\u2022 HIV.\n",
+      "\t\u2022 SIDA.\n",
+      "\t\u2022 Lesión en el Cordón Espinal.\n",
+      "\t\u2022 Esclerosis Múltiple.\n",
+      "\t\u2022 Esclerosis Lateral Amiotrófica.\n",
+      "\t\u2022 Neuropatías Periferales.\n",
+      "\t\u2022 Caquexia.\n",
+      "\t\u2022 Enfermedades incurables y avanzadas que requieran cuidado paliativo.\n",
+      "\t\u2022 Cualquier otra condición que su doctor considere debilitante.\n"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "¿Qué medicos estan habilitados para emitirlos?",
+    "answer": "Médicos registrados con matrícula especial para emitir dichos certificados"
+  },
+  {
+    "id": 8,
+    "question": "¿Cuáles medios de pago son aceptados?",
+    "answer": "Se aceptan como medios de pago tarjetas de débito, crédito y transferencia bancaria"
+  },
+  {
+    "id": 9,
+    "question": "¿Hay política de reembolso?",
+    "answer": "Ver legales (link)"
+  },
+  {
+    "id": 10,
+    "question": "¿Cuánto es el tiempo de vigencia de la licencia?",
+    "answer": "La licencia para uso de Cannabis Medicinal es válida por hasta un (1) año a discreción del doctor que le evalua."
+  },
+  {
+    "id": 11,
+    "question": "¿La licencia es válida a nivel internacional?",
+    "answer": "Solo valido en PR"
+  },
+  {
+    "id": 12,
+    "question": "¿Qué cantidad puedo tener de cannabis medicinal?",
+    "answer": [
+      "Según el artículo 8 del Reglamento 9038 de Cannabis, el suministro adecuado que se puede recomendar a un paciente es: \n",
 
-        "Adicionalmente, usted puede sustentar su condición con algunos de los siguientes documentos:\n",
-        
-        "\n\t\u2022 Una certificación de su condición por su médico primario o especialista.",
-        "\n\t\u2022 Lectura reciente de alguna placa (Rayos X, CT-Scan o MRI).",
-        "\n\t\u2022 Medicamentos prescritos que no tengan más de 3 meses."
-        ]
-    }
+      "\n\t\u2022 El límite de suministro máximo diario es de 1 onza, equivalente a 28 gramos, de la flor de Cannabis Medicinal o su equivalente. La proporción de flor a concentrado y a comestible es la siguiente:\n",
+      "\n\t\t\u2022 28 gramos de flor equivale a 8 gramos de THC en concentrado.\n",
+      "\t\t\u2022 28 gramos de flor equivale a 800 miligramos de THC en comestible.\n",
+
+      "\n\t\u2022 Los pacientes o acompañantes autorizados con su registro válido y vigente pueden adquirir y poseer hasta un máximo de suministro de hasta 30 días de CM en los dispensarios registrados y con licencia.\n",
+      "\t\u2022 Luego de los 30 días, el paciente o su acompañante autorizado podrá acudir al dispensario para el reabastecimiento del CM o sus productos derivados según indique la recomendación médica."
+    ]
+  },
+  {
+    "id": 13,
+    "question": "¿Qué pruebas médicas se hacen al paciente para validar su condición para el uso de cannabis medicinal?",
+    "answer": [
+      "La evidencia necesaria es a discreción del doctor o doctora que le evalúe. Durante la consulta, el doctor puede administrarle ciertas pruebas que lo ayudan a determinar si usted cualifica.\nPor ejemplo, el doctor puede administrarle la prueba GAD-7 para determinar si sus niveles de ansiedad lo cualifican para uso de Cannabis Medicinal.\n\n",
+
+      "Adicionalmente, usted puede sustentar su condición con algunos de los siguientes documentos:\n",
+
+      "\n\t\u2022 Una certificación de su condición por su médico primario o especialista.",
+      "\n\t\u2022 Lectura reciente de alguna placa (Rayos X, CT-Scan o MRI).",
+      "\n\t\u2022 Medicamentos prescritos que no tengan más de 3 meses."
+    ]
+  }
 ]
+

@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react'
+"use client"
+
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { CalendarIcon, ClockIcon } from 'lucide-react'
+import { CalendarIcon } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
 
 interface Article {
@@ -25,7 +27,7 @@ export default function BlogPage() {
       setLoading(true)
       setError(null)
       try {
-        const response = await fetch('https://strapi-dqjm.onrender.com/api/articles', {
+        const response = await fetch("https://strapi-dqjm.onrender.com/api/articles", {
           headers: {
             Authorization: `Bearer 0f7bcb4965a447d2076e3576bda02197a9776e6a01828e692b0a0fcdd68208545f4a524fc39801617118041aafcd083503aed03b5743b0ab52796e3f7bd3c76322f706aaf495744a5e128d12b9be7a87473ce39cc2a0f805fe164689336d25f7b553bc0bac80bca3d64e7e0217287688f0f6cdd6900c2c26683b62f20f732d3f`,
           },
@@ -38,7 +40,7 @@ export default function BlogPage() {
         const data = await response.json()
         setArticles(data.data)
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Error desconocido')
+        setError(err instanceof Error ? err.message : "Error desconocido")
       } finally {
         setLoading(false)
       }
@@ -59,9 +61,7 @@ export default function BlogPage() {
     <div className="container mx-auto px-4 py-12">
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Blog de Cannabis Medicinal</h1>
-        <p className="text-muted-foreground">
-          Información actualizada sobre cannabis medicinal en Puerto Rico
-        </p>
+        <p className="text-muted-foreground">Información actualizada sobre cannabis medicinal en Puerto Rico</p>
       </div>
 
       {loading ? (
@@ -86,18 +86,19 @@ export default function BlogPage() {
                 <CardTitle className="line-clamp-2">{article.title}</CardTitle>
                 <CardDescription className="flex items-center gap-2">
                   <CalendarIcon className="h-4 w-4" />
-                  {new Date(article.publishedAt).toLocaleDateString('es-PR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
+                  {new Date(article.publishedAt).toLocaleDateString("es-PR", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="mb-4 line-clamp-3 text-muted-foreground">
-                  {article.description}
-                </p>
-                <Button variant="outline" className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white hover:from-teal-600 hover:to-green-600">
+                <p className="mb-4 line-clamp-3 text-muted-foreground">{article.description}</p>
+                <Button
+                  variant="outline"
+                  className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white hover:from-teal-600 hover:to-green-600"
+                >
                   Leer más
                 </Button>
               </CardContent>

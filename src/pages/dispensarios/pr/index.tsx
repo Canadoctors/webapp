@@ -1,103 +1,114 @@
-'use client'
+import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ArrowRight, Calendar, Clock, LineChart, ShieldCheck, Users, PhoneIcon as WhatsApp, Mail, Globe, MessageSquare, Menu, X } from 'lucide-react'
+import {
+  ArrowRight,
+  LineChart,
+  ShieldCheck,
+  Users,
+  PhoneIcon as WhatsApp,
+  Mail,
+  Globe,
+  MessageSquare,
+  Menu,
+  X,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState, useRef } from "react"
-import { saveDispensaryPr }  from "../../../application/api";
+import { saveDispensaryPr } from "../../../application/api"
 import Budtender from "../../../assets/images/budtender.png"
 import Iphone from "../../../assets/images/iphone.png"
 
 export default function LandingPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [formData, setFormData] = useState({
-    dispensary: '',
-    location: '',
-    phone: '',
-    email: '',
-    date: '',
-    time: ''
-  });
+    dispensary: "",
+    location: "",
+    phone: "",
+    email: "",
+    date: "",
+    time: "",
+  })
 
   // Refs for sections that will be animated
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-up');
-            entry.target.classList.remove('opacity-0');
-            entry.target.classList.add('opacity-100');
+            entry.target.classList.add("animate-fade-up")
+            entry.target.classList.remove("opacity-0")
+            entry.target.classList.add("opacity-100")
           }
-        });
+        })
       },
       {
         threshold: 0.1,
-      }
-    );
+      },
+    )
 
     // Get all sections
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll("section")
     sections.forEach((section) => {
-      section.classList.add('transition-all', 'duration-1000', 'opacity-0');
-      observer.observe(section);
-    });
+      section.classList.add("transition-all", "duration-1000", "opacity-0")
+      observer.observe(section)
+    })
 
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      await saveDispensaryPr(formData);
-      alert('Solicitud enviada con éxito');
+      await saveDispensaryPr(formData)
+      alert("Solicitud enviada con éxito")
       setFormData({
-        dispensary: '',
-        location: '',
-        phone: '',
-        email: '',
-        date: '',
-        time: ''
-      });
+        dispensary: "",
+        location: "",
+        phone: "",
+        email: "",
+        date: "",
+        time: "",
+      })
     } catch (error) {
-      console.error('Error al enviar la solicitud:', error);
-      alert('Error al enviar la solicitud');
+      console.error("Error al enviar la solicitud:", error)
+      alert("Error al enviar la solicitud")
     }
-  };
+  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
+    const { id, value } = e.target
+    setFormData((prev) => ({
       ...prev,
-      [id]: value
-    }));
-  };
+      [id]: value,
+    }))
+  }
 
   const handleTimeChange = (value: string) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      time: value
-    }));
-  };
+      time: value,
+    }))
+  }
 
   const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
+    e.preventDefault()
+    const targetElement = document.getElementById(targetId)
     if (targetElement) {
       targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-      setIsMenuOpen(false);
+        behavior: "smooth",
+        block: "start",
+      })
+      setIsMenuOpen(false)
     }
-  };
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -112,54 +123,61 @@ export default function LandingPage() {
           />
           <span className="sr-only">CanaDoctors</span>
         </Link>
-        
-        <button
-          className="ml-auto md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+
+        <button className="ml-auto md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
 
         <nav className="hidden md:flex ml-auto gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#beneficios" onClick={(e) => smoothScroll(e, 'beneficios')}>
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="#beneficios"
+            onClick={(e) => smoothScroll(e, "beneficios")}
+          >
             Beneficios
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#caracteristicas" onClick={(e) => smoothScroll(e, 'caracteristicas')}>
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="#caracteristicas"
+            onClick={(e) => smoothScroll(e, "caracteristicas")}
+          >
             Características
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#contacto" onClick={(e) => smoothScroll(e, 'contacto')}>
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4"
+            href="#contacto"
+            onClick={(e) => smoothScroll(e, "contacto")}
+          >
             Contacto
           </Link>
         </nav>
 
-        <div className={`
+        <div
+          className={`
           fixed inset-x-0 top-16 bg-white border-b border-gray-200 md:hidden
           transition-all duration-300 transform
-          ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}
-        `}>
+          ${isMenuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}
+        `}
+        >
           <nav className="flex flex-col p-4 gap-4">
-            <Link 
-              className="text-sm font-medium hover:underline underline-offset-4 py-2" 
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4 py-2"
               href="#beneficios"
-              onClick={(e) => smoothScroll(e, 'beneficios')}
+              onClick={(e) => smoothScroll(e, "beneficios")}
             >
               Beneficios
             </Link>
-            <Link 
-              className="text-sm font-medium hover:underline underline-offset-4 py-2" 
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4 py-2"
               href="#caracteristicas"
-              onClick={(e) => smoothScroll(e, 'caracteristicas')}
+              onClick={(e) => smoothScroll(e, "caracteristicas")}
             >
               Características
             </Link>
-            <Link 
-              className="text-sm font-medium hover:underline underline-offset-4 py-2" 
+            <Link
+              className="text-sm font-medium hover:underline underline-offset-4 py-2"
               href="#contacto"
-              onClick={(e) => smoothScroll(e, 'contacto')}
+              onClick={(e) => smoothScroll(e, "contacto")}
             >
               Contacto
             </Link>
@@ -193,7 +211,8 @@ export default function LandingPage() {
                     Potencia tu Dispensario con CanaDoctors
                   </h1>
                   <p className="max-w-[600px] text-zinc-100 md:text-xl">
-                    Plataforma integral para la retención y obtención de nuevos pacientes. Conectamos médicos certificados con pacientes, simplificando el proceso y aumentando tus ingresos.
+                    Plataforma integral para la retención y obtención de nuevos pacientes. Conectamos médicos
+                    certificados con pacientes, simplificando el proceso y aumentando tus ingresos.
                   </p>
                   <p className="text-xl font-semibold text-white bg-green-500/20 inline-block px-4 py-2 rounded-lg mt-2">
                     ¡3 meses gratis al registrarte ahora!
@@ -203,14 +222,14 @@ export default function LandingPage() {
                   <Link
                     className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl bg-white text-sm font-medium text-teal-600 transition-colors hover:bg-zinc-50"
                     href="#contacto"
-                    onClick={(e) => smoothScroll(e, 'contacto')}
+                    onClick={(e) => smoothScroll(e, "contacto")}
                   >
                     Programa una Reunión
                   </Link>
                   <Link
                     className="w-full sm:w-auto px-4 h-12 inline-flex items-center justify-center rounded-xl border-2 border-white bg-transparent text-sm font-medium text-white transition-colors hover:bg-white/10"
                     href="#beneficios"
-                    onClick={(e) => smoothScroll(e, 'beneficios')}
+                    onClick={(e) => smoothScroll(e, "beneficios")}
                   >
                     Conoce más
                   </Link>
@@ -332,7 +351,8 @@ export default function LandingPage() {
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Landing Page Personalizada</h3>
                       <p className="text-zinc-500">
-                        Cada dispensario recibe una landing page única con un formulario de captura optimizado para convertir visitantes en pacientes.
+                        Cada dispensario recibe una landing page única con un formulario de captura optimizado para
+                        convertir visitantes en pacientes.
                       </p>
                     </div>
                   </li>
@@ -340,7 +360,8 @@ export default function LandingPage() {
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Campañas de Email Automatizadas</h3>
                       <p className="text-zinc-500">
-                        Sistema de recordatorios para renovación de licencias y campañas personalizadas para mantener el engagement de tus pacientes.
+                        Sistema de recordatorios para renovación de licencias y campañas personalizadas para mantener el
+                        engagement de tus pacientes.
                       </p>
                     </div>
                   </li>
@@ -348,7 +369,8 @@ export default function LandingPage() {
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Chatbot con Inteligencia Artificial</h3>
                       <p className="text-zinc-500">
-                        Proporciona atención instantánea y respuestas a preguntas frecuentes, mejorando la experiencia del paciente y reduciendo la carga de trabajo del personal.
+                        Proporciona atención instantánea y respuestas a preguntas frecuentes, mejorando la experiencia
+                        del paciente y reduciendo la carga de trabajo del personal.
                       </p>
                     </div>
                   </li>
@@ -356,7 +378,8 @@ export default function LandingPage() {
                     <div className="grid gap-1">
                       <h3 className="text-xl font-bold">Dashboard para Budtenders</h3>
                       <p className="text-zinc-500">
-                        Herramienta de gestión en tiempo real para seguimiento de pacientes, trámites y análisis de datos para optimizar tus operaciones.
+                        Herramienta de gestión en tiempo real para seguimiento de pacientes, trámites y análisis de
+                        datos para optimizar tus operaciones.
                       </p>
                     </div>
                   </li>
@@ -375,7 +398,8 @@ export default function LandingPage() {
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl">Agenda una Reunión</h2>
                   <p className="max-w-[600px] text-zinc-100 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Descubre cómo podemos ayudarte a optimizar tus operaciones, aumentar tus ingresos y mejorar la retención de pacientes.
+                    Descubre cómo podemos ayudarte a optimizar tus operaciones, aumentar tus ingresos y mejorar la
+                    retención de pacientes.
                   </p>
                 </div>
               </div>
@@ -383,56 +407,56 @@ export default function LandingPage() {
                 <div className="grid gap-4">
                   <div className="grid gap-2">
                     <Label htmlFor="dispensary">Nombre del Dispensario</Label>
-                    <Input 
-                      id="dispensary" 
+                    <Input
+                      id="dispensary"
                       placeholder="Ingresa el nombre de tu dispensario"
                       value={formData.dispensary}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="location">Ubicación</Label>
-                    <Input 
-                      id="location" 
+                    <Input
+                      id="location"
                       placeholder="Ciudad, Estado"
                       value={formData.location}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="phone">Teléfono</Label>
-                    <Input 
-                      id="phone" 
-                      placeholder="(123) 456-7890" 
+                    <Input
+                      id="phone"
+                      placeholder="(123) 456-7890"
                       type="tel"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="email">Correo Electrónico</Label>
-                    <Input 
-                      id="email" 
-                      placeholder="tu@email.com" 
+                    <Input
+                      id="email"
+                      placeholder="tu@email.com"
                       type="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      required 
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="date">Fecha Preferida</Label>
                     <div className="flex space-x-2">
-                      <Input 
-                        id="date" 
-                        type="date" 
+                      <Input
+                        id="date"
+                        type="date"
                         className="flex-1"
                         value={formData.date}
                         onChange={handleInputChange}
-                        required 
+                        required
                       />
                       <Select onValueChange={handleTimeChange} value={formData.time}>
                         <SelectTrigger className="w-[180px]">

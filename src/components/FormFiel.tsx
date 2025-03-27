@@ -1,44 +1,35 @@
-import React, { FunctionComponent } from "react";
+import type { FunctionComponent } from "react"
 
 const styleInput =
-  "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]";
+  "block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]"
 
 const styleSelect =
-  "block w-full px-3 py-2.5 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]";
+  "block w-full px-3 py-2.5 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]"
 
-const styleCheckbox = "form-checkbox h-5 w-5 accent-[#00A099]";
+const styleCheckbox = "form-checkbox h-5 w-5 accent-[#00A099]"
 
 const styleTextarea =
-  "block w-full px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]";
+  "block w-full px-2 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#00A099] focus:outline-none focus:ring-2 focus:ring-[#00A099]"
 
 interface FormFieldProps {
-  id: string;
-  name: string;
-  type:
-    | "text"
-    | "email"
-    | "number"
-    | "password"
-    | "date"
-    | "select"
-    | "checkbox"
-    | "radio"
-    | "textarea";
-  minLength?: number;
-  maxLength?: number;
-  placeholder?: string;
-  value?: string;
-  errors: any;
-  register: any;
-  validation?: any;
-  toggleIcon?: any;
-  options?: any;
-  label?: string;
-  required?: boolean;
-  valueAsNumber?: boolean;
-  errorCheckbox?: string;
-  rows?: number;
-  autoComplete?: string; // Corregido aquí
+  id: string
+  name: string
+  type: "text" | "email" | "number" | "password" | "date" | "select" | "checkbox" | "radio" | "textarea"
+  minLength?: number
+  maxLength?: number
+  placeholder?: string
+  value?: string
+  errors: any
+  register: any
+  validation?: any
+  toggleIcon?: any
+  options?: any
+  label?: string
+  required?: boolean
+  valueAsNumber?: boolean
+  errorCheckbox?: string
+  rows?: number
+  autoComplete?: string // Corregido aquí
 }
 
 const FormField: FunctionComponent<FormFieldProps> = ({
@@ -87,9 +78,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               minLength={minLength}
               maxLength={maxLength}
               placeholder={placeholder}
-              className={`${styleInput} ${
-                errors[id] ? "border-red-500 border-2" : "border-gray-300"
-              }`}
+              className={`${styleInput} ${errors[id] ? "border-red-500 border-2" : "border-gray-300"}`}
               {...register(id, {
                 valueAsNumber: valueAsNumber,
                 required: {
@@ -112,7 +101,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
             />
             {toggleIcon}
           </div>
-        );
+        )
 
       case "select":
         return (
@@ -128,9 +117,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
             <select
               id={id}
               value={value}
-              className={`${styleSelect} ${
-                errors[id] ? "border-red-500 border-2" : "border-gray-300"
-              }`}
+              className={`${styleSelect} ${errors[id] ? "border-red-500 border-2" : "border-gray-300"}`}
               {...register(id, {
                 required: {
                   value: required,
@@ -147,7 +134,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
                 ))}
             </select>
           </>
-        );
+        )
 
       case "checkbox":
       case "radio":
@@ -174,7 +161,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               {label}
             </label>
           </div>
-        );
+        )
 
       case "textarea":
         return (
@@ -183,9 +170,7 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               id={id}
               rows={rows}
               placeholder={placeholder}
-              className={`${styleTextarea} ${
-                errors[id] ? "border-red-500 border-2" : "border-gray-300"
-              }`}
+              className={`${styleTextarea} ${errors[id] ? "border-red-500 border-2" : "border-gray-300"}`}
               {...register(id, {
                 required: {
                   value: required,
@@ -202,18 +187,17 @@ const FormField: FunctionComponent<FormFieldProps> = ({
               {label}
             </label>
           </div>
-        );
+        )
     }
-  };
+  }
 
   return (
     <div className="pt-2">
       {renderField()}
-      {errors[id] && (
-        <p className="text-red-500 text-sm mt-2">{errors[id].message}</p>
-      )}
+      {errors[id] && <p className="text-red-500 text-sm mt-2">{errors[id].message}</p>}
     </div>
-  );
-};
+  )
+}
 
-export default FormField;
+export default FormField
+

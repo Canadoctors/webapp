@@ -1,14 +1,12 @@
-'use client'
-
-import { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import Link from 'next/link'
-import Image from 'next/image'
+import { useState, useEffect } from "react"
+import { useParams } from "next/navigation"
+import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { SiteHeader } from '@/components/site-header'
-import { BlogSidebar } from '@/components/blog-sidebar'
-import { ShareButtons } from '@/components/share-buttons'
+import { SiteHeader } from "@/components/site-header"
+import { BlogSidebar } from "@/components/blog-sidebar"
+import { ShareButtons } from "@/components/share-buttons"
 
 interface Article {
   id: number
@@ -62,7 +60,7 @@ export default function BlogPost() {
   useEffect(() => {
     const fetchArticle = async () => {
       if (!slug) {
-        setError('No se proporcionó un slug válido')
+        setError("No se proporcionó un slug válido")
         setLoading(false)
         return
       }
@@ -70,11 +68,14 @@ export default function BlogPost() {
       setLoading(true)
       setError(null)
       try {
-        const response = await fetch(`https://strapi-dqjm.onrender.com/api/articles?filters[slug][$eq]=${slug}&populate=*`, {
-          headers: {
-            Authorization: `Bearer 0f7bcb4965a447d2076e3576bda02197a9776e6a01828e692b0a0fcdd68208545f4a524fc39801617118041aafcd083503aed03b5743b0ab52796e3f7bd3c76322f706aaf495744a5e128d12b9be7a87473ce39cc2a0f805fe164689336d25f7b553bc0bac80bca3d64e7e0217287688f0f6cdd6900c2c26683b62f20f732d3f`,
+        const response = await fetch(
+          `https://strapi-dqjm.onrender.com/api/articles?filters[slug][$eq]=${slug}&populate=*`,
+          {
+            headers: {
+              Authorization: `Bearer 0f7bcb4965a447d2076e3576bda02197a9776e6a01828e692b0a0fcdd68208545f4a524fc39801617118041aafcd083503aed03b5743b0ab52796e3f7bd3c76322f706aaf495744a5e128d12b9be7a87473ce39cc2a0f805fe164689336d25f7b553bc0bac80bca3d64e7e0217287688f0f6cdd6900c2c26683b62f20f732d3f`,
+            },
           },
-        })
+        )
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`)
@@ -84,10 +85,10 @@ export default function BlogPost() {
         if (data.data && data.data.length > 0) {
           setArticle(data.data[0])
         } else {
-          throw new Error('Artículo no encontrado')
+          throw new Error("Artículo no encontrado")
         }
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Error desconocido')
+        setError(err instanceof Error ? err.message : "Error desconocido")
       } finally {
         setLoading(false)
       }
@@ -96,26 +97,29 @@ export default function BlogPost() {
     fetchArticle()
   }, [slug])
 
-  if (loading) return (
-    <>
-      <SiteHeader />
-      <div className="container mx-auto px-4 py-8">Cargando artículo...</div>
-    </>
-  )
-  
-  if (error) return (
-    <>
-      <SiteHeader />
-      <div className="container mx-auto px-4 py-8">Error: {error}</div>
-    </>
-  )
-  
-  if (!article) return (
-    <>
-      <SiteHeader />
-      <div className="container mx-auto px-4 py-8">Artículo no encontrado</div>
-    </>
-  )
+  if (loading)
+    return (
+      <>
+        <SiteHeader />
+        <div className="container mx-auto px-4 py-8">Cargando artículo...</div>
+      </>
+    )
+
+  if (error)
+    return (
+      <>
+        <SiteHeader />
+        <div className="container mx-auto px-4 py-8">Error: {error}</div>
+      </>
+    )
+
+  if (!article)
+    return (
+      <>
+        <SiteHeader />
+        <div className="container mx-auto px-4 py-8">Artículo no encontrado</div>
+      </>
+    )
 
   const BASE_URL = "https://strapi-dqjm.onrender.com"
 
@@ -128,7 +132,7 @@ export default function BlogPost() {
             <Card className="overflow-hidden">
               <div className="aspect-video relative lg:aspect-[2/1]">
                 <Image
-                  src={article.cover?.url || '/placeholder.svg'}
+                  src={article.cover?.url || "/placeholder.svg"}
                   alt={article.cover?.alternativeText || article.title}
                   layout="fill"
                   objectFit="cover"
@@ -139,24 +143,21 @@ export default function BlogPost() {
               <CardHeader className="space-y-2">
                 <CardTitle className="text-2xl lg:text-3xl font-bold">{article.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">
-                  Publicado el {new Date(article.publishedAt).toLocaleDateString('es-PR')}
+                  Publicado el {new Date(article.publishedAt).toLocaleDateString("es-PR")}
                 </p>
-                <ShareButtons 
-                  url={typeof window !== 'undefined' ? window.location.href : ''}
-                  title={article.title}
-                />
+                <ShareButtons url={typeof window !== "undefined" ? window.location.href : ""} title={article.title} />
               </CardHeader>
               <CardContent>
                 <p className="mb-6 text-lg text-muted-foreground leading-relaxed">{article.description}</p>
                 {article.blocks.map((block, index) => (
                   <div key={index} className="prose prose-lg prose-green max-w-none">
-                    {block.__component === 'shared.rich-text' && (
-                      <div 
-                        dangerouslySetInnerHTML={{ 
+                    {block.__component === "shared.rich-text" && (
+                      <div
+                        dangerouslySetInnerHTML={{
                           __html: block.body
-                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Convert **text** to <strong>
-                            .replace(/\n\n/g, '</p><p>') // Convert double line breaks to new paragraphs
-                            .replace(/\n/g, '<br />') // Convert single line breaks to <br>
+                            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // Convert **text** to <strong>
+                            .replace(/\n\n/g, "</p><p>") // Convert double line breaks to new paragraphs
+                            .replace(/\n/g, "<br />"), // Convert single line breaks to <br>
                         }}
                         className="prose prose-lg prose-green max-w-none
                                    [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4
@@ -190,7 +191,7 @@ export default function BlogPost() {
                   strokeLinejoin="round"
                   className="w-4 h-4"
                 >
-                  <path d="m15 18-6-6 6-6"/>
+                  <path d="m15 18-6-6 6-6" />
                 </svg>
                 Volver a la página principal
               </Link>

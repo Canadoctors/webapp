@@ -1,6 +1,6 @@
-'use client'
+import type React from "react"
 
-import { toast, Toaster } from 'react-hot-toast'
+import { toast, Toaster } from "react-hot-toast"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -11,7 +11,7 @@ import Image from "next/image"
 import Link from "next/link"
 import Head from "next/head"
 import { useRef } from "react"
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router"
 import { saveCannMed } from "@/application/api"
 
 // Import all speaker images
@@ -24,42 +24,41 @@ import SpeakerThree from "../../assets/images/cannmed/LM-headshot-2023.png"
 import SpeakerFour from "../../assets/images/cannmed/Headshot-2.png"
 
 export default function CannMedPage() {
-  
   const router = useRouter()
   const registroRef = useRef<HTMLElement>(null)
 
   const scrollToRegistro = () => {
-    registroRef.current?.scrollIntoView({ behavior: 'smooth' })
+    registroRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
     const formData = new FormData(form)
-    
+
     try {
       await saveCannMed({
-        nombre: formData.get('nombre') as string,
-        apellido: formData.get('apellido') as string,
-        email: formData.get('email') as string,
-        telefono: formData.get('telefono') as string,
-        especialidad: formData.get('especialidad') as string,
-        ciudad: formData.get('ciudad') as string,
-        direccion: formData.get('direccion') as string,
-        hasPrescrito: formData.get('hasPrescrito') as string,
-        conocimiento: formData.get('conocimiento') as string,
-        interes: formData.get('interes') as string,
-        licencia: formData.get('licencia') as string,
-        fechaRegistro: new Date()
+        nombre: formData.get("nombre") as string,
+        apellido: formData.get("apellido") as string,
+        email: formData.get("email") as string,
+        telefono: formData.get("telefono") as string,
+        especialidad: formData.get("especialidad") as string,
+        ciudad: formData.get("ciudad") as string,
+        direccion: formData.get("direccion") as string,
+        hasPrescrito: formData.get("hasPrescrito") as string,
+        conocimiento: formData.get("conocimiento") as string,
+        interes: formData.get("interes") as string,
+        licencia: formData.get("licencia") as string,
+        fechaRegistro: new Date(),
       })
-  
+
       toast.success("Registro exitoso. Hemos recibido tu solicitud. Te contactaremos pronto.")
-  
+
       form.reset()
 
       // Espera 3 segundos antes de redirigir
       setTimeout(() => {
-        router.push('https://canadoctors.com')
+        router.push("https://canadoctors.com")
       }, 3000)
     } catch (error) {
       toast.error("Error en el registro. Hubo un problema al enviar tu solicitud. Por favor intenta nuevamente.")
@@ -71,33 +70,36 @@ export default function CannMedPage() {
       name: "Bonni Goldstein, MD",
       specialty: "Medical Director / Owner",
       bio: "Canna-Centers Wellness",
-      image: SpeakerOne
+      image: SpeakerOne,
     },
     {
       name: "Dustin Sulak, DO",
       specialty: "Co-Founder & Medical Director",
       bio: "Healer.com",
-      image: SpeakerTwo
+      image: SpeakerTwo,
     },
     {
       name: "Laszlo Mechtler, MD",
       specialty: "Chief Medical Officer",
       bio: "DENT Neurologic Institute",
-      image: SpeakerThree
+      image: SpeakerThree,
     },
     {
       name: "Laura Barrett, MBA, BSN, RN",
       specialty: "Founder",
       bio: "Ask Nurse Laura",
-      image: SpeakerFour
-    }
+      image: SpeakerFour,
+    },
   ]
 
   return (
     <>
       <Head>
         <title>Congreso Médico de Cannabis | CanaDoctors</title>
-        <meta name="description" content="Únete al Congreso Médico de Cannabis en Puerto Rico. Pre-evento especial el 14 de enero, 2024. Regístrate ahora para esta oportunidad única de aprendizaje y networking." />
+        <meta
+          name="description"
+          content="Únete al Congreso Médico de Cannabis en Puerto Rico. Pre-evento especial el 14 de enero, 2024. Regístrate ahora para esta oportunidad única de aprendizaje y networking."
+        />
       </Head>
 
       <div className="min-h-screen">
@@ -109,17 +111,12 @@ export default function CannMedPage() {
                 <div className="inline-block bg-white/10 px-4 py-1 rounded-full text-sm backdrop-blur">
                   Pre-evento: 14 de enero, 2024
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold">
-                  Congreso Médico de Cannabis en Puerto Rico
-                </h1>
+                <h1 className="text-4xl md:text-6xl font-bold">Congreso Médico de Cannabis en Puerto Rico</h1>
                 <p className="text-xl opacity-90">
-                  Únete a los expertos líderes en cannabis medicinal para un evento educativo exclusivo para profesionales de la salud.
+                  Únete a los expertos líderes en cannabis medicinal para un evento educativo exclusivo para
+                  profesionales de la salud.
                 </p>
-                <Button 
-                  size="lg" 
-                  className="bg-white text-teal-600 hover:bg-white/90"
-                  onClick={scrollToRegistro}
-                >
+                <Button size="lg" className="bg-white text-teal-600 hover:bg-white/90" onClick={scrollToRegistro}>
                   Registrarse Ahora
                 </Button>
               </div>
@@ -143,11 +140,10 @@ export default function CannMedPage() {
               <div className="inline-block bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium">
                 ¡Oportunidad Exclusiva!
               </div>
-              <h2 className="text-4xl font-bold text-gray-900">
-                Workshop Gratuito de Capacitación
-              </h2>
+              <h2 className="text-4xl font-bold text-gray-900">Workshop Gratuito de Capacitación</h2>
               <p className="text-xl text-gray-600">
-                Ofrecemos acceso gratuito a 22 médicos seleccionados para participar en nuestro workshop especializado de cannabis medicinal.
+                Ofrecemos acceso gratuito a 22 médicos seleccionados para participar en nuestro workshop especializado
+                de cannabis medicinal.
               </p>
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <Card>
@@ -180,33 +176,25 @@ export default function CannMedPage() {
 
         {/* Speakers Section */}
 
-
-<section className="py-16 bg-white">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl font-bold text-center mb-12">Speakers Destacados</h2>
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {speakers.map((speaker, index) => (
-        <Card key={index} className="hover:shadow-lg transition-shadow">
-          <CardContent className="p-4">
-            <div className="aspect-square relative mb-3 overflow-hidden rounded-full border-2 border-teal-500">
-              <Image
-                src={speaker.image}
-                alt={speaker.name}
-                fill
-                className="object-cover"
-              />
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">Speakers Destacados</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {speakers.map((speaker, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-4">
+                    <div className="aspect-square relative mb-3 overflow-hidden rounded-full border-2 border-teal-500">
+                      <Image src={speaker.image} alt={speaker.name} fill className="object-cover" />
+                    </div>
+                    <h3 className="text-lg font-semibold">{speaker.name}</h3>
+                    <p className="text-sm text-gray-600">{speaker.specialty}</p>
+                    <p className="text-xs text-gray-500 mt-1">{speaker.bio}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-            <h3 className="text-lg font-semibold">{speaker.name}</h3>
-            <p className="text-sm text-gray-600">{speaker.specialty}</p>
-            <p className="text-xs text-gray-500 mt-1">{speaker.bio}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+          </div>
+        </section>
 
         {/* Logos Section */}
         <section className="py-12 bg-white">
@@ -219,20 +207,8 @@ export default function CannMedPage() {
                 height={60}
                 className="object-contain"
               />
-              <Image
-                src={Prich}
-                alt="PrichBiotech Logo"
-                width={150}
-                height={60}
-                className="object-contain"
-              />
-              <Image
-                src={Cannmed}
-                alt="Cannmed"
-                width={150}
-                height={60}
-                className="object-contain"
-              />
+              <Image src={Prich} alt="PrichBiotech Logo" width={150} height={60} className="object-contain" />
+              <Image src={Cannmed} alt="Cannmed" width={150} height={60} className="object-contain" />
             </div>
           </div>
         </section>
@@ -243,7 +219,8 @@ export default function CannMedPage() {
             <div className="max-w-3xl mx-auto text-center space-y-6">
               <h2 className="text-3xl font-bold text-gray-900">Pre-Evento Especial</h2>
               <p className="text-xl text-gray-600">
-                14 de enero, 2024 - Una oportunidad única para conectar con expertos y obtener información exclusiva sobre el congreso principal en junio.
+                14 de enero, 2024 - Una oportunidad única para conectar con expertos y obtener información exclusiva
+                sobre el congreso principal en junio.
               </p>
               <div className="grid gap-6 md:grid-cols-2 text-left">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -275,9 +252,7 @@ export default function CannMedPage() {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold text-gray-900">Registro para el Workshop</h2>
-                <p className="mt-2 text-gray-600">
-                  Complete el formulario para aplicar al workshop gratuito
-                </p>
+                <p className="mt-2 text-gray-600">Complete el formulario para aplicar al workshop gratuito</p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
@@ -415,8 +390,12 @@ export default function CannMedPage() {
               <div>
                 <h3 className="font-bold text-lg mb-4">Redes Sociales</h3>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-gray-400 hover:text-white">LinkedIn</a>
-                  <a href="#" className="text-gray-400 hover:text-white">Instagram</a>
+                  <a href="#" className="text-gray-400 hover:text-white">
+                    LinkedIn
+                  </a>
+                  <a href="#" className="text-gray-400 hover:text-white">
+                    Instagram
+                  </a>
                 </div>
               </div>
             </div>

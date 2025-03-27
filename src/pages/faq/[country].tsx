@@ -1,22 +1,20 @@
-import React from "react";
-import { FaAngleUp } from "react-icons/fa";
-import { useRouter } from "next/router";
+"use client"
+import { FaAngleUp } from "react-icons/fa"
+import { useRouter } from "next/router"
 
-import faqAr from "../../data/faqAR.json";
-import faqPr from "../../data/faqPR.json";
+import faqAr from "../../data/faqAR.json"
+import faqPr from "../../data/faqPR.json"
 
-function CountryFaq() { // Cambiamos el nombre para que comience con mayúscula
-  const { query } = useRouter();
+function CountryFaq() {
+  // Cambiamos el nombre para que comience con mayúscula
+  const { query } = useRouter()
 
   return (
     <div className="max-w-screen-xl mx-auto px-5 bg-white min-h-screen">
       <div className="flex flex-col items-center">
-        <h2 className="font-bold text-5xl mt-5 tracking-tight">
-          Preguntas frecuentes
-        </h2>
+        <h2 className="font-bold text-5xl mt-5 tracking-tight">Preguntas frecuentes</h2>
         <p className="text-neutral-500 text-lg mt-6">
-          Las preguntas más comunes sobre cómo funciona Canadoctors y qué puede
-          hacer por usted.
+          Las preguntas más comunes sobre cómo funciona Canadoctors y qué puede hacer por usted.
         </p>
       </div>
       <div className="grid divide-y divide-neutral-200 max-w-4xl mx-auto mt-8">
@@ -32,9 +30,7 @@ function CountryFaq() { // Cambiamos el nombre para que comience con mayúscula
                       <FaAngleUp className="text-xl" />
                     </span>
                   </summary>
-                  <p className="whitespace-pre-wrap text-neutral-600 mt-3 group-open:animate-fadeIn">
-                    {faq.answer}
-                  </p>
+                  <p className="whitespace-pre-wrap text-neutral-600 mt-3 group-open:animate-fadeIn">{faq.answer}</p>
                 </details>
               </div>
             ))}
@@ -53,9 +49,7 @@ function CountryFaq() { // Cambiamos el nombre para que comience con mayúscula
                       <FaAngleUp className="text-xl" />
                     </span>
                   </summary>
-                  <p className="whitespace-pre-wrap text-neutral-600 mt-3 group-open:animate-fadeIn">
-                    {faq.answer}
-                  </p>
+                  <p className="whitespace-pre-wrap text-neutral-600 mt-3 group-open:animate-fadeIn">{faq.answer}</p>
                 </details>
               </div>
             ))}
@@ -63,7 +57,8 @@ function CountryFaq() { // Cambiamos el nombre para que comience con mayúscula
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default CountryFaq;
+export default CountryFaq
+
