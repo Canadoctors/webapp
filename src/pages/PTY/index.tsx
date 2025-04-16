@@ -1,9 +1,8 @@
+import { useState, useEffect, useRef } from "react"
 import type React from "react"
 
-import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -19,31 +18,45 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
-import { CheckCircle, Menu, X } from "lucide-react"
+import { CheckCircle, Menu, X, Leaf, Heart, Users, ThumbsUp } from "lucide-react"
 import { contactForm } from "@/application/api"
 import { useToast } from "@/hooks/use-toast"
+import { db } from "@/lib/firebase" // Asegúrate de que esta importación sea correcta
+import { collection, addDoc, onSnapshot, doc, updateDoc, getDoc, setDoc } from "firebase/firestore"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-export const metadata: Metadata = {
-  title: "Cannabis Medicinal en Panamá | CanaDoctors",
-  description:
-    "Información sobre el cannabis medicinal en Panamá, patologías tratadas y cómo acceder a tratamientos legales. Orientación experta y atención personalizada.",
-  openGraph: {
-    title: "Cannabis Medicinal en Panamá | CanaDoctors",
-    description:
-      "Información sobre el cannabis medicinal en Panamá, patologías tratadas y cómo acceder a tratamientos legales.",
-    url: "https://canadoctors.com/PTY",
-    siteName: "CanaDoctors",
-    images: [
-      {
-        url: "https://canadoctors.com/og-image-panama.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "es-PA",
-    type: "website",
-  },
-}
+// Lista de patologías tratadas con cannabis medicinal
+const patologias = [
+  "Dolor crónico",
+  "Epilepsia refractaria",
+  "Esclerosis múltiple",
+  "Náuseas por quimioterapia",
+  "Glaucoma",
+  "Enfermedad de Alzheimer",
+  "Trastorno de estrés postraumático",
+  "Fibromialgia",
+  "Artritis",
+  "Insomnio",
+  "Ansiedad",
+  "Otra",
+]
+
+// Lista de provincias de Panamá
+const provincias = [
+  "Bocas del Toro",
+  "Chiriquí",
+  "Coclé",
+  "Colón",
+  "Darién",
+  "Herrera",
+  "Los Santos",
+  "Panamá",
+  "Panamá Oeste",
+  "Veraguas",
+  "Guna Yala",
+  "Emberá-Wounaan",
+  "Ngäbe-Buglé",
+]
 
 export default function PanamaLandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,6 +64,154 @@ export default function PanamaLandingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const { toast } = useToast()
+
+  // Estados para el contador y el formulario de apoyo
+  const [supportCount, setSupportCount] = useState(0)
+  const [isSupportDialogOpen, setIsSupportDialogOpen] = useState(false)
+  const [isSupportSubmitting, setIsSupportSubmitting] = useState(false)
+  const [isSupportSuccess, setIsSupportSuccess] = useState(false)
+  const [supportFormData, setSupportFormData] = useState({
+    fullName: "",
+    email: "",
+    pathology: "",
+    province: "",
+  })
+
+  // Referencia para la sección de apoyo
+  const supportSectionRef = useRef<HTMLElement>(null)
+
+  // Efecto para obtener el contador de apoyos en tiempo real
+  useEffect(() => {
+    const counterRef = doc(db, "counters", "supportCounter")
+
+    // Obtener el contador inicial
+    const getInitialCount = async () => {
+      try {
+        const docSnap = await getDoc(counterRef)
+        if (docSnap.exists()) {
+          setSupportCount(docSnap.data().count || 0)
+        } else {
+          // Si no existe el documento contador, lo creamos
+          await setDoc(counterRef, { count: 0 })
+          setSupportCount(0)
+        }
+      } catch (error) {
+        console.error("Error al obtener el contador:", error)
+        // Si hay error al obtener, intentamos crear el documento
+        try {
+          await setDoc(counterRef, { count: 0 })
+        } catch (innerError) {
+          console.error("Error al crear el contador:", innerError)
+        }
+      }
+    }
+
+    getInitialCount()
+
+    // Suscribirse a cambios en el contador
+    const unsubscribe = onSnapshot(counterRef, (doc) => {
+      if (doc.exists()) {
+        setSupportCount(doc.data().count || 0)
+      }
+    })
+
+    return () => unsubscribe()
+  }, [])
+
+  const handleSupportInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setSupportFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleProvinceChange = (value: string) => {
+    setSupportFormData((prev) => ({
+      ...prev,
+      province: value,
+    }))
+  }
+
+  const handlePathologyChange = (value: string) => {
+    setSupportFormData((prev) => ({
+      ...prev,
+      pathology: value,
+    }))
+  }
+
+  const handleSupportSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Validación básica
+    if (
+      !supportFormData.fullName ||
+      !supportFormData.email ||
+      !supportFormData.pathology ||
+      !supportFormData.province
+    ) {
+      toast({
+        title: "Error",
+        description: "Por favor complete todos los campos del formulario.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsSupportSubmitting(true)
+
+    try {
+      // Añadir el nuevo apoyo a la colección
+      await addDoc(collection(db, "supports"), {
+        ...supportFormData,
+        timestamp: new Date().toISOString(),
+      })
+
+      // Actualizar el contador
+      const counterRef = doc(db, "counters", "supportCounter")
+      const docSnap = await getDoc(counterRef)
+
+      if (docSnap.exists()) {
+        await updateDoc(counterRef, {
+          count: (docSnap.data().count || 0) + 1,
+        })
+      } else {
+        await setDoc(counterRef, { count: 1 })
+      }
+
+      setIsSupportSuccess(true)
+      toast({
+        title: "¡Gracias por tu apoyo!",
+        description: (
+          <div className="flex items-center">
+            <ThumbsUp className="h-5 w-5 text-green-500 mr-2" />
+            <span>Tu apoyo ha sido registrado exitosamente.</span>
+          </div>
+        ),
+      })
+
+      // Resetear el formulario después de 3 segundos
+      setTimeout(() => {
+        setSupportFormData({
+          fullName: "",
+          email: "",
+          pathology: "",
+          province: "",
+        })
+        setIsSupportSuccess(false)
+        setIsSupportDialogOpen(false)
+      }, 3000)
+    } catch (error) {
+      console.error("Error al registrar apoyo:", error)
+      toast({
+        title: "Error",
+        description: "Hubo un problema al registrar tu apoyo. Por favor intenta nuevamente.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSupportSubmitting(false)
+    }
+  }
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -129,6 +290,10 @@ export default function PanamaLandingPage() {
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const scrollToSupportSection = () => {
+    supportSectionRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -391,9 +556,21 @@ export default function PanamaLandingPage() {
                   acceder a tratamientos autorizados.
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-white text-primary hover:bg-gray-100"
+                    onClick={scrollToSupportSection}
+                  >
+                    Apoyar la Iniciativa
+                  </Button>
                   <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                     <DialogTrigger asChild>
-                      <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="bg-transparent text-white border-white hover:bg-white/10"
+                      >
                         Solicitar Información
                       </Button>
                     </DialogTrigger>
@@ -502,51 +679,175 @@ export default function PanamaLandingPage() {
           </div>
         </section>
 
-        {/* Marco Legal Section */}
-        <section id="legalidad" className="py-16 bg-white">
+        {/* Nueva sección de apoyo ciudadano */}
+        <section ref={supportSectionRef} className="py-16 md:py-24 bg-gradient-to-br from-emerald-50 to-teal-50">
           <div className="container mx-auto px-4 lg:px-8 xl:px-12 max-w-7xl">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4">
-                Marco Legal del Cannabis Medicinal en Panamá
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-flex items-center justify-center p-2 bg-teal-100 rounded-full mb-4">
+                <Leaf className="h-6 w-6 text-teal-600" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-teal-800 mb-4">
+                Suma tu apoyo para que el programa de cannabis medicinal en Panamá comience
               </h2>
-              <p className="text-lg text-gray-600">
-                Panamá aprobó la Ley 242 en octubre de 2021 que regula el uso medicinal y terapéutico del cannabis.
+              <p className="text-lg text-gray-600 mb-8">
+                Tu voz es importante para impulsar el acceso a tratamientos que mejoren la calidad de vida de miles de
+                panameños.
               </p>
+
+              <div className="flex flex-col items-center justify-center">
+                <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 w-full max-w-md mx-auto">
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    <Users className="h-8 w-8 text-teal-600" />
+                    <h3 className="text-xl font-semibold text-gray-800">Personas que ya apoyaron</h3>
+                  </div>
+                  <div className="text-5xl md:text-6xl font-bold text-teal-600 flex justify-center items-center h-24">
+                    {supportCount}
+                  </div>
+                  <div className="flex justify-center mt-4">
+                    <div className="bg-teal-100 rounded-full h-2 w-full max-w-xs">
+                      <div
+                        className="bg-teal-500 h-2 rounded-full transition-all duration-1000"
+                        style={{ width: `${Math.min(supportCount / 10, 100)}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-500 text-center mt-4">
+                    Ayúdanos a llegar a nuestra meta de 1,000 apoyos
+                  </p>
+                </div>
+
+                <Dialog open={isSupportDialogOpen} onOpenChange={setIsSupportDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="lg"
+                      className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      <ThumbsUp className="mr-2 h-5 w-5" />
+                      Quiero apoyar
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle>Apoya el programa de cannabis medicinal</DialogTitle>
+                      <DialogDescription>
+                        Completa el formulario para registrar tu apoyo a esta importante iniciativa.
+                      </DialogDescription>
+                    </DialogHeader>
+                    {isSupportSuccess ? (
+                      <div className="flex flex-col items-center justify-center py-6 space-y-4">
+                        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                          <CheckCircle className="h-8 w-8 text-green-600" />
+                        </div>
+                        <h3 className="text-xl font-semibold text-center">¡Gracias por tu apoyo!</h3>
+                        <p className="text-center text-muted-foreground">
+                          Tu apoyo ha sido registrado exitosamente y será de gran ayuda para impulsar esta iniciativa.
+                        </p>
+                      </div>
+                    ) : (
+                      <form onSubmit={handleSupportSubmit} className="space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="fullName">Nombre completo</Label>
+                          <Input
+                            id="fullName"
+                            name="fullName"
+                            value={supportFormData.fullName}
+                            onChange={handleSupportInputChange}
+                            placeholder="Ingresa tu nombre completo"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="email">Correo electrónico</Label>
+                          <Input
+                            id="email"
+                            name="email"
+                            type="email"
+                            value={supportFormData.email}
+                            onChange={handleSupportInputChange}
+                            placeholder="tu@email.com"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="pathology">Patología</Label>
+                          <Select onValueChange={handlePathologyChange} value={supportFormData.pathology}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Selecciona una patología" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {patologias.map((patologia) => (
+                                <SelectItem key={patologia} value={patologia}>
+                                  {patologia}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="province">Provincia</Label>
+                          <Select onValueChange={handleProvinceChange} value={supportFormData.province}>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Selecciona tu provincia" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {provincias.map((provincia) => (
+                                <SelectItem key={provincia} value={provincia}>
+                                  {provincia}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                        <Button type="submit" className="w-full" disabled={isSupportSubmitting}>
+                          {isSupportSubmitting ? "Enviando..." : "Registrar mi apoyo"}
+                        </Button>
+                        <p className="text-xs text-center text-gray-500">
+                          Tu información será utilizada únicamente para fines de esta iniciativa y no será compartida
+                          con terceros.
+                        </p>
+                      </form>
+                    )}
+                  </DialogContent>
+                </Dialog>
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="bg-gradient-to-br from-green-50 to-teal-50">
-                <CardHeader>
-                  <CardTitle>Ley 242 de 2021</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Establece el marco regulatorio para el acceso seguro y controlado al cannabis medicinal para
-                    pacientes con condiciones específicas.
+            <div className="grid md:grid-cols-3 gap-6 mt-12">
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="rounded-full bg-green-100 w-12 h-12 flex items-center justify-center mb-4">
+                    <Heart className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Mejora la calidad de vida</h3>
+                  <p className="text-gray-600">
+                    El cannabis medicinal puede aliviar síntomas de múltiples condiciones médicas, mejorando
+                    significativamente la calidad de vida de los pacientes.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-green-50 to-teal-50">
-                <CardHeader>
-                  <CardTitle>Productos Permitidos</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    La ley panameña permite principalmente productos farmacéuticos derivados del cannabis como aceites,
-                    tinturas, cápsulas y otros preparados medicinales.
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="rounded-full bg-green-100 w-12 h-12 flex items-center justify-center mb-4">
+                    <Leaf className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Alternativa natural</h3>
+                  <p className="text-gray-600">
+                    Ofrece una alternativa terapéutica natural con menos efectos secundarios que muchos medicamentos
+                    convencionales.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-to-br from-green-50 to-teal-50">
-                <CardHeader>
-                  <CardTitle>Registro Obligatorio</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Los pacientes deben registrarse en el Ministerio de Salud de Panamá para acceder legalmente a estos
-                    tratamientos, siempre bajo prescripción médica.
+              <Card className="bg-white/80 backdrop-blur-sm">
+                <CardContent className="p-6">
+                  <div className="rounded-full bg-green-100 w-12 h-12 flex items-center justify-center mb-4">
+                    <Users className="h-6 w-6 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Beneficio social</h3>
+                  <p className="text-gray-600">
+                    La implementación del programa generará empleos, investigación científica y desarrollo económico
+                    para Panamá.
                   </p>
                 </CardContent>
               </Card>
@@ -765,7 +1066,7 @@ export default function PanamaLandingPage() {
               </div>
               <div className="hidden md:block">
                 <Image
-                  src="/images/cannabis-doctor-consultation.jpg"
+                  src="/images/md/prmdform.webp"
                   alt="Consulta médica sobre cannabis"
                   width={500}
                   height={300}
@@ -966,4 +1267,3 @@ export default function PanamaLandingPage() {
     </div>
   )
 }
-

@@ -211,4 +211,3 @@ const DoctorFormPr = () => {
 }
 
 export default DoctorFormPr
-

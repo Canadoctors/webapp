@@ -50,4 +50,3 @@ export const Home = ({ imgSrc, textIntro, button1Title, button1Url, button2Title
     </div>
   )
 }
-

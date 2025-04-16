@@ -17,4 +17,3 @@ export const Icons = ({ iconUrl, title1, shortDesc }: IconsProps) => {
     </div>
   )
 }
-

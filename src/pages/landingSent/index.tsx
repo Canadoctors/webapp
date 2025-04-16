@@ -26,4 +26,3 @@ function LandingSent() {
 }
 
 export default LandingSent
-

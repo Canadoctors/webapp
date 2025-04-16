@@ -52,4 +52,3 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
     </div>
   )
 }
-

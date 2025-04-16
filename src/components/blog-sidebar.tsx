@@ -71,4 +71,3 @@ export function BlogSidebar({ currentSlug }: BlogSidebarProps) {
     </div>
   )
 }
-

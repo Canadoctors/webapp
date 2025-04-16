@@ -71,4 +71,3 @@ export const saveCannMed = async (datos: any) => {
     timestamp: new Date().toISOString(),
   })
 }
-

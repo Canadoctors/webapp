@@ -49,4 +49,3 @@ export function useRelatedArticles(currentSlug: string) {
 
   return { articles, loading }
 }
-

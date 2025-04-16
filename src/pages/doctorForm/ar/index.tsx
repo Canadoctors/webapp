@@ -188,4 +188,3 @@ const DoctorFormAr = () => {
 }
 
 export default DoctorFormAr
-
