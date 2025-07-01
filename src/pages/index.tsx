@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -72,6 +74,8 @@ export default function PuertoRicoLandingPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  // Comentar el useEffect que obtiene artículos de Strapi
+  /*
   useEffect(() => {
     const fetchArticles = async () => {
       setLoading(true)
@@ -101,6 +105,47 @@ export default function PuertoRicoLandingPage() {
 
     fetchArticles()
   }, [])
+  */
+
+  // Agregar artículos estáticos locales
+  const staticArticles = [
+    {
+      id: 1,
+      title: "Cómo obtener tu licencia de cannabis medicinal en Puerto Rico: Guía paso a paso (2025)",
+      description:
+        "Guía completa actualizada para obtener tu licencia de cannabis medicinal en Puerto Rico de forma rápida y segura con CanaDoctors.",
+      slug: "como-obtener-licencia-cannabis-medicinal-puerto-rico-2025",
+      cover: {
+        url: "/images/blog/como-obtener-tu-licencia-canabis-medicinal-puerto-rico.png",
+        alternativeText: "Guía para obtener licencia de cannabis medicinal en Puerto Rico",
+      },
+      publishedAt: "2025-01-07",
+    },
+    {
+      id: 2,
+      title: "Diferencias entre genéticas Sativa, Índica e Híbrida: ¿Cuál es mejor para tu tratamiento?",
+      description:
+        "Descubre las diferencias entre las genéticas de cannabis medicinal y cuál es la más adecuada para tu condición de salud.",
+      slug: "diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal",
+      cover: {
+        url: "/images/blog/diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal.png",
+        alternativeText: "Diferencias entre genéticas de cannabis medicinal",
+      },
+      publishedAt: "2025-01-07",
+    },
+    {
+      id: 3,
+      title: "Cómo los dispensarios en Puerto Rico pueden mejorar la atención al paciente con tecnología",
+      description:
+        "Descubre cómo la tecnología y el seguimiento en tiempo real están revolucionando la atención en dispensarios de cannabis medicinal.",
+      slug: "como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia",
+      cover: {
+        url: "/images/blog/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia.png",
+        alternativeText: "Tecnología en dispensarios de cannabis medicinal",
+      },
+      publishedAt: "2025-01-07",
+    },
+  ]
 
   const BASE_URL = "https://strapi-dqjm.onrender.com"
 
@@ -121,6 +166,9 @@ export default function PuertoRicoLandingPage() {
               </Link>
               <Link href="#servicios" className="text-sm font-medium hover:underline underline-offset-4">
                 Servicios
+              </Link>
+              <Link href="/blog/es" className="text-sm font-medium hover:underline underline-offset-4">
+                Blog
               </Link>
               <Link href="#faq" className="text-sm font-medium hover:underline underline-offset-4">
                 Preguntas Frecuentes
@@ -169,6 +217,13 @@ export default function PuertoRicoLandingPage() {
                       onClick={() => setIsMenuOpen(false)}
                     >
                       SERVICIOS
+                    </Link>
+                    <Link
+                      href="/blog/es"
+                      className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      BLOG
                     </Link>
                     <Link
                       href="#faq"
@@ -321,41 +376,40 @@ export default function PuertoRicoLandingPage() {
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-center">
                 Últimos Artículos
               </h2>
-              {loading ? (
-                <p className="text-center">Cargando artículos...</p>
-              ) : error ? (
-                <p className="text-center text-red-500">Error: {error}</p>
-              ) : (
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {articles.map((article) => (
-                    <Parallax key={article.id} translateY={[10, -10]}>
-                      <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
-                        <div className="aspect-video relative">
-                          <Image
-                            src={article.cover?.url || "/placeholder.svg"}
-                            alt={article.cover?.alternativeText || article.title}
-                            layout="fill"
-                            objectFit="cover"
-                          />
-                        </div>
-                        <CardHeader>
-                          <CardTitle className="line-clamp-2">
-                            <Link href={`/blog/es/${article.slug}`} className="hover:underline">
-                              {article.title}
-                            </Link>
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="line-clamp-3 mb-4">{article.description}</p>
-                          <Button variant="outline" asChild>
-                            <Link href={`/blog/es/${article.slug}`}>Leer más</Link>
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    </Parallax>
-                  ))}
-                </div>
-              )}
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {staticArticles.map((article) => (
+                  <Parallax key={article.id} translateY={[10, -10]}>
+                    <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
+                      <div className="aspect-video relative">
+                        <Image
+                          src={article.cover.url || "/placeholder.svg"}
+                          alt={article.cover.alternativeText}
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="line-clamp-2">
+                          <Link href={`/blog/es/${article.slug}`} className="hover:underline">
+                            {article.title}
+                          </Link>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="line-clamp-3 mb-4">{article.description}</p>
+                        <Button variant="outline" asChild>
+                          <Link href={`/blog/es/${article.slug}`}>Leer más</Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Parallax>
+                ))}
+              </div>
+              <div className="text-center mt-8">
+                <Button variant="outline" size="lg" asChild>
+                  <Link href="/blog/es">Ver todos los artículos</Link>
+                </Button>
+              </div>
             </div>
           </section>
 
@@ -478,7 +532,7 @@ export default function PuertoRicoLandingPage() {
                       <CardHeader>
                         <div className="flex items-center space-x-4">
                           <Image
-                            src={testimonial.image}
+                            src={testimonial.image || "/placeholder.svg"}
                             alt={testimonial.name}
                             width={60}
                             height={60}

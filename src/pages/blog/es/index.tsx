@@ -1,111 +1,194 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/button"
-import { CalendarIcon } from "lucide-react"
-import { Skeleton } from "@/components/ui/skeleton"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { SiteHeader } from "@/components/site-header"
+import { BlogSidebar } from "@/components/blog-sidebar"
+import { Parallax, ParallaxProvider } from "react-scroll-parallax"
 
-interface Article {
-  id: number
-  documentId: string
-  title: string
-  description: string
-  slug: string | null
-  createdAt: string
-  publishedAt: string
-  updatedAt: string
+export const metadata: Metadata = {
+  title: "Blog de Cannabis Medicinal | CanaDoctors Puerto Rico",
+  description:
+    "Artículos informativos sobre cannabis medicinal en Puerto Rico. Guías, consejos y noticias actualizadas para pacientes y profesionales de la salud.",
+  keywords:
+    "blog cannabis medicinal, artículos cannabis puerto rico, información cannabis medicinal, guías cannabis PR",
+  openGraph: {
+    title: "Blog de Cannabis Medicinal | CanaDoctors Puerto Rico",
+    description:
+      "Artículos informativos sobre cannabis medicinal en Puerto Rico. Guías, consejos y noticias actualizadas.",
+    url: "https://canadoctors.com/blog/es",
+    siteName: "CanaDoctors",
+    images: [
+      {
+        url: "https://canadoctors.com/og-blog-cannabis-medicinal.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "es-PR",
+    type: "website",
+  },
 }
 
-export default function BlogPage() {
-  const [articles, setArticles] = useState<Article[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
+const blogArticles = [
+  {
+    id: 1,
+    title: "Cómo obtener tu licencia de cannabis medicinal en Puerto Rico: Guía paso a paso (2025)",
+    description:
+      "Guía completa actualizada para obtener tu licencia de cannabis medicinal en Puerto Rico de forma rápida y segura con CanaDoctors.",
+    slug: "como-obtener-licencia-cannabis-medicinal-puerto-rico-2025",
+    cover: {
+      url: "/images/blog/como-obtener-tu-licencia-canabis-medicinal-puerto-rico.png",
+      alternativeText: "Guía para obtener licencia de cannabis medicinal en Puerto Rico",
+    },
+    publishedAt: "2025-01-07",
+    category: "Guías",
+  },
+  {
+    id: 2,
+    title: "Diferencias entre genéticas Sativa, Índica e Híbrida: ¿Cuál es mejor para tu tratamiento?",
+    description:
+      "Descubre las diferencias entre las genéticas de cannabis medicinal y cuál es la más adecuada para tu condición de salud.",
+    slug: "diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal",
+    cover: {
+      url: "/images/blog/diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal.png",
+      alternativeText: "Diferencias entre genéticas de cannabis medicinal",
+    },
+    publishedAt: "2025-01-07",
+    category: "Educación",
+  },
+  {
+    id: 3,
+    title: "Cómo los dispensarios en Puerto Rico pueden mejorar la atención al paciente con tecnología",
+    description:
+      "Descubre cómo la tecnología y el seguimiento en tiempo real están revolucionando la atención en dispensarios de cannabis medicinal.",
+    slug: "como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia",
+    cover: {
+      url: "/images/blog/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia.png",
+      alternativeText: "Tecnología en dispensarios de cannabis medicinal",
+    },
+    publishedAt: "2025-01-07",
+    category: "Tecnología",
+  },
+]
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      setLoading(true)
-      setError(null)
-      try {
-        const response = await fetch("https://strapi-dqjm.onrender.com/api/articles", {
-          headers: {
-            Authorization: `Bearer 0f7bcb4965a447d2076e3576bda02197a9776e6a01828e692b0a0fcdd68208545f4a524fc39801617118041aafcd083503aed03b5743b0ab52796e3f7bd3c76322f706aaf495744a5e128d12b9be7a87473ce39cc2a0f805fe164689336d25f7b553bc0bac80bca3d64e7e0217287688f0f6cdd6900c2c26683b62f20f732d3f`,
-          },
-        })
+export default function BlogIndex() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("Todos")
 
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`)
-        }
+  const categories = ["Todos", "Guías", "Educación", "Tecnología"]
 
-        const data = await response.json()
-        setArticles(data.data)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Error desconocido")
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchArticles()
-  }, [])
-
-  if (error) {
-    return (
-      <div className="flex min-h-[400px] items-center justify-center">
-        <p className="text-destructive">Error: {error}</p>
-      </div>
-    )
-  }
+  const filteredArticles =
+    selectedCategory === "Todos"
+      ? blogArticles
+      : blogArticles.filter((article) => article.category === selectedCategory)
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-12 text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">Blog de Cannabis Medicinal</h1>
-        <p className="text-muted-foreground">Información actualizada sobre cannabis medicinal en Puerto Rico</p>
-      </div>
+    <ParallaxProvider>
+      <>
+        <SiteHeader />
+        <div className="container mx-auto px-4 py-8 lg:px-8">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_350px] xl:gap-8">
+            <div className="space-y-8">
+              {/* Header */}
+              <div className="text-center space-y-4">
+                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+                  Blog de Cannabis Medicinal
+                </h1>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Información actualizada, guías prácticas y consejos de expertos sobre cannabis medicinal en Puerto
+                  Rico
+                </p>
+              </div>
 
-      {loading ? (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <Card key={i} className="overflow-hidden">
-              <CardHeader className="space-y-4">
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-4 w-1/2" />
-              </CardHeader>
-              <CardContent>
-                <Skeleton className="h-24" />
-              </CardContent>
-            </Card>
-          ))}
+              {/* Category Filter */}
+              <div className="flex flex-wrap gap-2 justify-center">
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                    className="rounded-full"
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
+
+              {/* Articles Grid */}
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {filteredArticles.map((article, index) => (
+                  <Parallax key={article.id} translateY={[10, -10]}>
+                    <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden h-full">
+                      <div className="aspect-video relative">
+                        <Image
+                          src={article.cover.url || "/placeholder.svg"}
+                          alt={article.cover.alternativeText}
+                          layout="fill"
+                          objectFit="cover"
+                          className="transition-transform hover:scale-105 duration-500"
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
+                            {article.category}
+                          </span>
+                        </div>
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="line-clamp-2 text-lg">
+                          <Link href={`/blog/es/${article.slug}`} className="hover:underline">
+                            {article.title}
+                          </Link>
+                        </CardTitle>
+                        <p className="text-sm text-muted-foreground">
+                          Publicado el {new Date(article.publishedAt).toLocaleDateString("es-PR")}
+                        </p>
+                      </CardHeader>
+                      <CardContent className="flex-1 flex flex-col">
+                        <p className="line-clamp-3 mb-4 flex-1">{article.description}</p>
+                        <Button variant="outline" asChild className="w-full bg-transparent">
+                          <Link href={`/blog/es/${article.slug}`}>Leer artículo completo</Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </Parallax>
+                ))}
+              </div>
+
+              {/* CTA Section */}
+              <div className="bg-gradient-to-r from-primary to-primary/80 rounded-2xl p-8 text-center text-primary-foreground">
+                <h2 className="text-2xl font-bold mb-4">¿Necesitas ayuda con tu tratamiento?</h2>
+                <p className="mb-6 opacity-90">
+                  Nuestros médicos certificados están listos para ayudarte a obtener tu licencia de cannabis medicinal
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" variant="secondary" asChild>
+                    <Link href="https://app.canadoctors.com/signup/canadoctors">Solicitar Evaluación Médica</Link>
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="text-white border-white hover:bg-white/10 bg-transparent"
+                    asChild
+                  >
+                    <Link href="https://wa.me/17876062892?text=Hola%2C%20quisiera%20información%20sobre%20cannabis%20medicinal">
+                      Consultar por WhatsApp
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <aside className="lg:sticky lg:top-24 lg:self-start">
+              <BlogSidebar />
+            </aside>
+          </div>
         </div>
-      ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <Card key={article.id} className="overflow-hidden transition-shadow hover:shadow-lg">
-              <CardHeader>
-                <CardTitle className="line-clamp-2">{article.title}</CardTitle>
-                <CardDescription className="flex items-center gap-2">
-                  <CalendarIcon className="h-4 w-4" />
-                  {new Date(article.publishedAt).toLocaleDateString("es-PR", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="mb-4 line-clamp-3 text-muted-foreground">{article.description}</p>
-                <Button
-                  variant="outline"
-                  className="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white hover:from-teal-600 hover:to-green-600"
-                >
-                  Leer más
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      )}
-    </div>
+      </>
+    </ParallaxProvider>
   )
 }
