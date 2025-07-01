@@ -95,6 +95,7 @@ export default function PanamaLandingPage() {
           await setDoc(counterRef, { count: 0 })
           setSupportCount(0)
         }
+        
       } catch (error) {
         console.error("Error al obtener el contador:", error)
         // Si hay error al obtener, intentamos crear el documento
@@ -104,13 +105,18 @@ export default function PanamaLandingPage() {
           console.error("Error al crear el contador:", innerError)
         }
       }
+      
+      
     }
+    
 
     getInitialCount()
+    
 
     // Suscribirse a cambios en el contador
     const unsubscribe = onSnapshot(counterRef, (doc) => {
       if (doc.exists()) {
+        console.log("Contador actualizado en snapshot:", doc.data().count)
         setSupportCount(doc.data().count || 0)
       }
     })
