@@ -20,11 +20,11 @@ export default function DispensariosTecnologiaAtencionPaciente() {
   }, [])
 
   const title =
-    "Cómo los dispensarios en Puerto Rico pueden mejorar la atención al paciente con tecnología y seguimiento en tiempo real"
+    "Cómo los dispensarios en Puerto Rico mejoran la atención al paciente con CRM y tecnología de seguimiento | CanaDoctors 2025"
   const description =
-    "Descubre cómo los dispensarios de cannabis medicinal en Puerto Rico pueden revolucionar la atención al paciente usando CRM, trazabilidad y dashboards con CanaDoctors."
+    "Descubre cómo los dispensarios de cannabis medicinal en Puerto Rico revolucionan la atención al paciente con CRM especializado, trazabilidad POS, dashboards de gestión y onboarding digital. Mejora la retención de pacientes y cumplimiento regulatorio con CanaDoctors."
   const keywords =
-    "dispensarios Puerto Rico, cannabis medicinal, CRM dispensarios, trazabilidad cannabis, POS cannabis, CanaDoctors, budtender, atención paciente"
+    "dispensarios Puerto Rico, cannabis medicinal PR, CRM dispensarios cannabis, trazabilidad cannabis medicinal, POS cannabis Puerto Rico, budtender capacitación, CanaDoctors dispensarios, sistema gestión pacientes cannabis, dashboard dispensario, onboarding digital cannabis, retención pacientes dispensario, cumplimiento regulatorio cannabis PR, Junta Reglamentadora Cannabis Medicinal"
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -34,6 +34,7 @@ export default function DispensariosTecnologiaAtencionPaciente() {
     author: {
       "@type": "Organization",
       name: "CanaDoctors",
+      url: "https://canadoctors.com",
     },
     publisher: {
       "@type": "Organization",
@@ -52,9 +53,36 @@ export default function DispensariosTecnologiaAtencionPaciente() {
     image: {
       "@type": "ImageObject",
       url: "/images/blog/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia.png",
-      width: 800,
-      height: 400,
+      width: 1200,
+      height: 630,
     },
+    articleSection: "Cannabis Medicinal",
+    keywords: keywords,
+    inLanguage: "es-PR",
+    about: [
+      {
+        "@type": "Thing",
+        name: "Cannabis Medicinal Puerto Rico",
+      },
+      {
+        "@type": "Thing",
+        name: "Dispensarios Cannabis",
+      },
+      {
+        "@type": "Thing",
+        name: "CRM Médico",
+      },
+    ],
+    mentions: [
+      {
+        "@type": "Organization",
+        name: "Departamento de Salud de Puerto Rico",
+      },
+      {
+        "@type": "Organization",
+        name: "Junta Reglamentadora del Cannabis Medicinal",
+      },
+    ],
   }
 
   return (
@@ -90,6 +118,19 @@ export default function DispensariosTecnologiaAtencionPaciente() {
 
         {/* JSON-LD */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+        <meta property="og:locale" content="es_PR" />
+        <meta property="article:section" content="Cannabis Medicinal" />
+        <meta property="article:tag" content="Dispensarios" />
+        <meta property="article:tag" content="Puerto Rico" />
+        <meta property="article:tag" content="CRM Cannabis" />
+        <meta property="article:tag" content="Tecnología Médica" />
+
+        <meta name="geo.region" content="PR" />
+        <meta name="geo.placename" content="Puerto Rico" />
+        <meta name="DC.language" content="es" />
+        <meta name="DC.subject" content="Cannabis Medicinal, Dispensarios, Tecnología Médica" />
+        <meta name="DC.coverage" content="Puerto Rico" />
       </Head>
 
       <SiteHeader />
