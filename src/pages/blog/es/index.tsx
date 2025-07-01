@@ -184,7 +184,7 @@ export default function BlogIndex() {
 
             {/* Sidebar */}
             <aside className="lg:sticky lg:top-24 lg:self-start">
-              <BlogSidebar />
+              <BlogSidebar currentSlug="" />
             </aside>
           </div>
         </div>
