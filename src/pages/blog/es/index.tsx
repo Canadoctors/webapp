@@ -166,7 +166,7 @@ export default function BlogIndex() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild>
-                    <Link href="https://app.canadoctors.com/signup/canadoctors">Solicitar Evaluación Médica</Link>
+                    <Link href="https://form.canadoctors.com/">Solicitar Evaluación Médica</Link>
                   </Button>
                   <Button
                     size="lg"

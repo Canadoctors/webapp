@@ -371,7 +371,7 @@ export default function CannMedPage() {
                     </a>
                   </li>
                   <li>
-                    <a href="https://app.canadoctors.com/signup/canadoctors" className="hover:text-white">
+                    <a href="https://form.canadoctors.com/" className="hover:text-white">
                       Get Medical Id
                     </a>
                   </li>

@@ -3,113 +3,101 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 h-14">
-        <Link href="https://canadoctors.com/" className="flex items-center space-x-2">
-          <Image src="/images/logosCD/logopositivo.svg" alt="Logo de CanaDoctors" width={150} height={60} />
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-brand-primary/5">
+      <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
+        <Link href="https://canadoctors.com/" className="flex items-center">
+          <Image src="/images/logosCD/logopositivo.svg" alt="CanaDoctors" width={140} height={56} />
         </Link>
-        <nav className="hidden md:flex gap-4">
-          <Link
-            href="https://canadoctors.com/#beneficios"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Beneficios
-          </Link>
-          <Link
-            href="https://canadoctors.com/#proceso"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Proceso
-          </Link>
-          <Link
-            href="https://canadoctors.com/#servicios"
-            className="text-sm font-medium hover:underline underline-offset-4"
-          >
-            Servicios
-          </Link>
-          <Link href="https://canadoctors.com/#faq" className="text-sm font-medium hover:underline underline-offset-4">
-            Preguntas Frecuentes
-          </Link>
+
+        <nav className="hidden lg:flex items-center gap-10">
+          {[
+            { label: "Beneficios", href: "https://canadoctors.com/#beneficios" },
+            { label: "Proceso", href: "https://canadoctors.com/#proceso" },
+            { label: "Servicios", href: "https://canadoctors.com/#servicios" },
+            { label: "FAQ", href: "https://canadoctors.com/#faq" },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-brand-neutral/70 hover:text-brand-primary transition-colors duration-300 relative group"
+            >
+              {item.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-primary transition-all duration-300 group-hover:w-full" />
+            </Link>
+          ))}
         </nav>
-        <Button className="hidden md:inline-flex" asChild>
-          <Link href="https://app.canadoctors.com/signup/canadoctors">Reservar Consulta</Link>
+
+        <Button
+          className="hidden lg:inline-flex bg-brand-primary hover:bg-brand-primary/90 text-white rounded-full px-8 h-11 text-sm font-medium btn-magnetic"
+          asChild
+        >
+          <Link href="https://form.canadoctors.com/">
+            Reservar Consulta
+            <ArrowUpRight className="w-4 h-4 ml-2" />
+          </Link>
         </Button>
-        <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Alternar menú">
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+
+        <button
+          className="lg:hidden p-2 rounded-full hover:bg-brand-primary/5 transition-colors"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Alternar menú"
+        >
+          {isMenuOpen ? <X className="h-6 w-6 text-brand-neutral" /> : <Menu className="h-6 w-6 text-brand-neutral" />}
         </button>
       </div>
 
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
-          <div className="fixed inset-0 bg-gradient-to-r from-[rgb(0,160,153)] to-[rgb(140,187,147)]">
-            <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" aria-hidden="true" />
-            <div className="relative h-full flex flex-col">
-              <div className="flex justify-end p-4">
-                <button
-                  onClick={() => setIsMenuOpen(false)}
-                  className="rounded-full bg-white/20 p-2"
-                  aria-label="Cerrar menú"
-                >
-                  <X className="h-6 w-6 text-white" />
-                </button>
-              </div>
-              <div className="flex-1 flex flex-col items-center justify-center gap-8">
-                <Link
-                  href="#beneficios"
-                  className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  BENEFICIOS
-                </Link>
-                <Link
-                  href="#proceso"
-                  className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  PROCESO
-                </Link>
-                <Link
-                  href="#servicios"
-                  className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  SERVICIOS
-                </Link>
-                <Link
-                  href="#faq"
-                  className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  PREGUNTAS FRECUENTES
-                </Link>
-                <Link
-                  href="#contacto"
-                  className="text-2xl font-bold text-white hover:text-emerald-800 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  CONTACTO
-                </Link>
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="mt-4 bg-white/20 text-white hover:bg-white/30 border-2 border-white"
-                  asChild
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Link href="#reservar-consulta">RESERVAR CONSULTA</Link>
-                </Button>
-              </div>
+      {/* Mobile menu */}
+      <div
+        className={`fixed inset-0 z-50 lg:hidden transition-all duration-700 ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="absolute inset-0 bg-brand-primary">
+          <div className="relative h-full flex flex-col">
+            <div className="flex items-center justify-between p-6">
+              <Image src="/images/logosCD/logopositivo.svg" alt="CanaDoctors" width={120} height={48} className="brightness-0 invert" />
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-full bg-white/10 p-3 hover:bg-white/20 transition-colors"
+                aria-label="Cerrar menú"
+              >
+                <X className="h-5 w-5 text-white" />
+              </button>
             </div>
+
+            <div className="flex-1 flex flex-col items-start justify-center px-12 gap-6">
+              {["Beneficios", "Proceso", "Servicios", "FAQ", "Contacto"].map((item) => (
+                <Link
+                  key={item}
+                  href={`https://canadoctors.com/#${item.toLowerCase()}`}
+                  className="text-4xl font-light text-white/80 hover:text-white transition-all duration-300 hover:translate-x-4"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+              ))}
+
+              <Button
+                size="lg"
+                className="mt-8 bg-white text-brand-primary hover:bg-white/90 rounded-full px-10 h-14 text-base font-medium"
+                asChild
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Link href="https://form.canadoctors.com/">Reservar Consulta</Link>
+              </Button>
+            </div>
+
+            <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-brand-secondary/20" />
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

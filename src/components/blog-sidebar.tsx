@@ -20,7 +20,7 @@ export function BlogSidebar({ currentSlug }: BlogSidebarProps) {
         </CardHeader>
         <CardContent className="space-y-4">
           <Button variant="outline" className="w-full justify-start" asChild>
-            <Link href="https://app.canadoctors.com/signup/canadoctors">
+            <Link href="https://form.canadoctors.com/">
               <FileText className="mr-2 h-4 w-4" />
               Obtén tu licencia hoy
             </Link>

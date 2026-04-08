@@ -192,7 +192,7 @@ export default function LicenciaCannabisPage() {
                         <h3 className="font-semibold mb-2">Registrate y completá el formulario inicial</h3>
                         <p className="mb-3">Accedé a nuestro sistema e ingresá tus datos personales.</p>
                         <Button asChild className="bg-green-600 hover:bg-green-700">
-                          <Link href="https://app.canadoctors.com/signup/canadoctors">👉 Registrarme en CanaDoctors</Link>
+                          <Link href="https://form.canadoctors.com/">👉 Registrarme en CanaDoctors</Link>
                         </Button>
                       </div>
                     </div>
@@ -329,7 +329,7 @@ export default function LicenciaCannabisPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" className="bg-white text-green-700 hover:bg-gray-100">
-                      <Link href="https://app.canadoctors.com/signup/canadoctors">👉 Solicitá tu evaluación médica ahora</Link>
+                      <Link href="https://form.canadoctors.com/">👉 Solicitá tu evaluación médica ahora</Link>
                     </Button>
                     <Button
                       asChild

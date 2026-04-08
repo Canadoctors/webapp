@@ -1,106 +1,78 @@
 import Image from "next/image"
 import Link from "next/link"
 import footerLogo from "../../public/images/logosCD/logocanadoctorwhite.svg"
-import { FaInstagram } from "react-icons/fa"
-import { AiOutlineYoutube } from "react-icons/ai"
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-gradient-to-b from-[#8CBB93]/90 to-[#00A099]/90 bg-opacity-40 pt-8 pb-6">
-      <div className="container mx-auto px-4">
-        <hr className="my-4" />
-        <div className="flex flex-wrap text-center lg:text-left">
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="object-center">
-              <Link href="/">
-                <Image width={400} height={80} src={footerLogo} alt="Canadoctors Logo" />
+    <footer className="bg-brand-neutral border-t border-white/5">
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        {/* Top */}
+        <div className="py-16 grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="lg:col-span-2">
+            <Link href="/">
+              <Image width={160} height={64} src={footerLogo} alt="CanaDoctors" className="mb-6" />
+            </Link>
+            <p className="text-white/30 font-light leading-relaxed max-w-sm">
+              Plataforma líder en cannabis medicinal. Conectando médicos y pacientes para un bienestar natural.
+            </p>
+            <div className="flex items-center gap-3 mt-8">
+              <Link
+                href="https://www.instagram.com/canadoctors/"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 hover:text-white hover:bg-white/10 transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
               </Link>
-            </div>
-            <div className="mt-6 lg:mb-0 mb-6">
-              <Link href="https://www.instagram.com/canadoctors/">
-                <button
-                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <div className="w-full flex justify-center items-center">
-                    <FaInstagram className="text-2xl text-[#00A099]" />
-                  </div>
-                </button>
-              </Link>
-
-              <Link href="https://www.youtube.com/@canadoctors">
-                <button
-                  className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <div className="w-full flex justify-center items-center">
-                    <AiOutlineYoutube className="text-2xl text-[#00A099]" />
-                  </div>
-                </button>
+              <Link
+                href="https://www.youtube.com/@canadoctors"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/30 hover:text-white hover:bg-white/10 transition-all duration-300"
+                aria-label="YouTube"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </Link>
             </div>
           </div>
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="flex flex-wrap items-top mb-6">
-              <div className="w-full lg:w-4/12 px-4 ml-auto">
-                <span className="block uppercase text-slate-50 text-md font-semibold mb-2">Enlaces Utiles</span>
-                <ul className="list-unstyled">
-                  <li>
-                    <Link href="/" className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm">
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="#Contact"
-                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
-                    >
-                      Contacto
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://app.canadoctors.com/signup"
-                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
-                    >
-                      Regístrate
-                    </Link>
-                  </li>
-                </ul>
-              </div>
 
-              <div className="w-full lg:w-4/12 px-4">
-                <span className="block uppercase text-slate-50 text-md font-semibold mb-2">Otros Enlaces</span>
-                <ul className="list-unstyled">
-                  <li>
-                    <Link
-                      href="https://app.canadoctors.com/"
-                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
-                    >
-                      Ingresar
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/terms"
-                      className="text-slate-100 hover:text-opacity-75 font-semibold block pb-2 text-sm"
-                    >
-                      Términos y condiciones
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div>
+            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-[0.2em] mb-6">Enlaces</h4>
+            <ul className="space-y-3">
+              {[
+                { label: "Inicio", href: "/" },
+                { label: "Contacto", href: "#Contact" },
+                { label: "Regístrate", href: "https://form.canadoctors.com/" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-white/30 hover:text-white transition-colors duration-300">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold text-white/50 uppercase tracking-[0.2em] mb-6">Legal</h4>
+            <ul className="space-y-3">
+              {[
+                { label: "Ingresar", href: "https://app.canadoctors.com/" },
+                { label: "Términos y condiciones", href: "/terms" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-white/30 hover:text-white transition-colors duration-300">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <hr className="my-6" />
-        <div className="flex flex-wrap items-center md:justify-between justify-center">
-          <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div className="text-sm text-white font-semibold py-1">
-              Copyright © <span id="get-current-year">2023</span>
-              <span> Canadoctors</span>
-            </div>
-          </div>
+
+        <div className="h-[1px] bg-white/5" />
+
+        <div className="py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/20">
+            © {new Date().getFullYear()} CanaDoctors. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>

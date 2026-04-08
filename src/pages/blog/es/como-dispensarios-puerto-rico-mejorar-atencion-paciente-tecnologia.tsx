@@ -592,7 +592,7 @@ export default function DispensariosTecnologiaAtencionPaciente() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" variant="secondary">
-                      <Link href="https://app.canadoctors.com/signup/canadoctors">Obtener mi licencia ahora</Link>
+                      <Link href="https://form.canadoctors.com/">Obtener mi licencia ahora</Link>
                     </Button>
                     <Button
                       asChild

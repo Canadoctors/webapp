@@ -327,7 +327,7 @@ export default function DiferenciasGeneticasCannabis() {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
-                      <Link href="https://app.canadoctors.com/signup/canadoctors">Solicitá tu evaluación médica ahora</Link>
+                      <Link href="https://form.canadoctors.com/">Solicitá tu evaluación médica ahora</Link>
                     </Button>
                     <Button asChild variant="outline" size="lg">
                       <Link href="https://wa.me/17876062892?text=Hola%2C%20quisiera%20informaci%C3%B3n%20sobre%20las%20diferencias%20entre%20las%20gen%C3%A9ticas%20de%20cannabis%20medicinal">
@@ -362,7 +362,7 @@ export default function DiferenciasGeneticasCannabis() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" variant="secondary">
-                      <Link href="https://app.canadoctors.com/signup/canadoctors">Obtener mi licencia ahora</Link>
+                      <Link href="https://form.canadoctors.com/">Obtener mi licencia ahora</Link>
                     </Button>
                     <Button
                       asChild

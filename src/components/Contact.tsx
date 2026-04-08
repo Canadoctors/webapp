@@ -29,16 +29,17 @@ export const Contact = () => {
 
   return (
     <>
-      <div id="Contact" className="bg-gradient-to-b from-[#00A099]/90 to-[#8CBB93]/90 bg-opacity-40 w-auto px-4">
+      <div id="Contact" className="bg-gradient-to-b from-brand-primary/90 to-brand-tertiary/80 w-auto px-4 py-12">
         <div className="flex flex-wrap justify-center pt-8">
           <div className="w-full lg:w-7/12 px-4">
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-lg rounded-lg bg-white">
-              <div className="flex-auto p-5 lg:p-10">
-                <h4 className="text-2xl font-semibold">Contactese con nosotros</h4>
-                <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                  Complete éste formulario y nos pondremos en contacto con usted lo antes posible.
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 mt-6 shadow-2xl rounded-2xl bg-white overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-brand-primary/5 -translate-y-1/2 translate-x-1/2" />
+              <div className="flex-auto p-8 lg:p-12 relative z-10">
+                <h4 className="text-3xl font-bold text-brand-neutral">Contáctenos</h4>
+                <p className="leading-relaxed mt-2 mb-8 text-brand-neutral/50 font-light">
+                  Complete este formulario y nos pondremos en contacto con usted lo antes posible.
                 </p>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="relative w-full">
                     <FormField
                       id="firstName"
@@ -119,9 +120,9 @@ export const Contact = () => {
                     />
                   </div>
 
-                  <div className="text-center mt-6">
+                  <div className="text-center mt-8">
                     <button
-                      className="bg-[#32ADA2] text-white focus:outline-none font-medium rounded-full text-lg px-20 py-2.5 text-center mb-4 hover:opacity-90"
+                      className="bg-brand-primary text-white focus:outline-none font-medium rounded-full text-lg px-16 py-3 text-center hover:bg-brand-primary/90 transition-all duration-300 btn-magnetic"
                       type="submit"
                     >
                       Enviar
