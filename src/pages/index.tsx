@@ -667,16 +667,19 @@ export default function PuertoRicoLandingPage() {
               {[
                 {
                   name: "María G.",
+                  condition: "Paciente de dolor crónico",
                   quote: "CanaDoctors hizo que obtener mi tarjeta de cannabis medicinal fuera muy fácil. Sus médicos son conocedores y compasivos.",
                   image: "/images/reviews/sarha.png",
                 },
                 {
                   name: "Roberto S.",
+                  condition: "Paciente de ansiedad",
                   quote: "Al principio estaba dudoso, pero el equipo de CanaDoctors me guió en cada paso. Ahora tengo el alivio que necesitaba.",
                   image: "/images/reviews/michael.png",
                 },
                 {
                   name: "Carmen L.",
+                  condition: "Paciente de fibromialgia",
                   quote: "La consulta presencial fue minuciosa y profesional. ¡Altamente recomendado para cualquiera que lo necesite!",
                   image: "/images/reviews/emily.png",
                 },
@@ -701,7 +704,7 @@ export default function PuertoRicoLandingPage() {
                       />
                       <div>
                         <p className="font-semibold text-brand-neutral">{testimonial.name}</p>
-                        <p className="text-sm text-brand-neutral/40">Paciente verificado</p>
+                        <p className="text-sm text-brand-neutral/40">{testimonial.condition}</p>
                       </div>
                     </div>
                   </div>
