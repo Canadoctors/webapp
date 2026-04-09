@@ -62,19 +62,109 @@ export default function MejoresDispensariosPage() {
                   </ul>
                 </div>
 
-                <div className="mb-8 bg-green-50 p-6 rounded-lg border-2 border-green-500">
-                  <h2 className="text-2xl font-bold mb-4 text-green-700">Tetra — Dispensario Destacado</h2>
-                  <p className="text-lg leading-relaxed mb-4">Entre los dispensarios que más se han destacado en Puerto Rico por su enfoque en la <strong>experiencia del paciente</strong> y la <strong>calidad de sus productos</strong> se encuentra <strong>Tetra</strong>.</p>
-                  <h3 className="text-lg font-semibold mb-2 text-green-700">¿Por qué Tetra se destaca?</h3>
+                <div className="mb-8">
+                  <h2 className="text-xl font-semibold mb-4 text-green-700">Ranking: Los mejores dispensarios de cannabis medicinal en Puerto Rico</h2>
+                  <p className="text-lg leading-relaxed mb-6">Basándonos en variedad de productos, atención al paciente, calidad, ubicaciones y reputación en la comunidad, estos son los dispensarios más destacados en la isla:</p>
+                </div>
+
+                {/* #1 Tetra */}
+                <div className="mb-8 bg-green-50 p-6 rounded-lg border-2 border-green-500 relative">
+                  <div className="absolute -top-4 left-6 bg-green-600 text-white text-sm font-bold px-4 py-1 rounded-full">#1 Recomendado</div>
+                  <h3 className="text-2xl font-bold mb-3 text-green-700 mt-2">Tetra</h3>
+                  <p className="text-lg leading-relaxed mb-4">Tetra se ha posicionado como el dispensario líder en Puerto Rico por su enfoque integral en la <strong>experiencia del paciente</strong> y la <strong>calidad premium de sus productos</strong>.</p>
                   <ul className="list-disc pl-6 space-y-2 mb-4">
-                    <li><strong>Enfoque centrado en el paciente:</strong> Personal altamente capacitado que ofrece orientación personalizada según tu condición y necesidades</li>
-                    <li><strong>Variedad premium de productos:</strong> Amplia selección de flores, concentrados, aceites y comestibles de alta calidad</li>
-                    <li><strong>Control de calidad riguroso:</strong> Todos los productos pasan por análisis de laboratorio exhaustivos</li>
-                    <li><strong>Ambiente profesional:</strong> Instalaciones modernas y cómodas diseñadas para una experiencia positiva</li>
-                    <li><strong>Educación continua:</strong> Compromiso con educar a los pacientes sobre opciones de tratamiento y uso responsable</li>
-                    <li><strong>Integración tecnológica:</strong> Sistemas modernos para gestión de pacientes y pedidos</li>
+                    <li><strong>Enfoque centrado en el paciente:</strong> Personal altamente capacitado con orientación personalizada según condición y necesidades</li>
+                    <li><strong>Variedad premium:</strong> Amplia selección de flores, concentrados, aceites, comestibles y tópicos de alta calidad</li>
+                    <li><strong>Control de calidad riguroso:</strong> Todos los productos con análisis de laboratorio exhaustivos</li>
+                    <li><strong>Instalaciones modernas:</strong> Ambiente profesional y cómodo diseñado para una experiencia positiva</li>
+                    <li><strong>Educación al paciente:</strong> Compromiso con informar sobre opciones de tratamiento y uso responsable</li>
+                    <li><strong>Tecnología integrada:</strong> Sistemas modernos de gestión de pacientes y pedidos</li>
                   </ul>
-                  <p className="text-lg leading-relaxed">Tetra representa el estándar de lo que un dispensario de cannabis medicinal debe ser: profesional, educativo y centrado en el bienestar del paciente.</p>
+                  <p className="text-lg leading-relaxed font-medium text-green-700">Tetra representa el estándar de lo que un dispensario de cannabis medicinal debe ser.</p>
+                </div>
+
+                {/* #2 Natural Harvest */}
+                <div className="mb-6 bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-gray-100 text-gray-700 text-sm font-bold px-3 py-1 rounded-full">#2</span>
+                    <h3 className="text-xl font-bold text-gray-800">Natural Harvest</h3>
+                  </div>
+                  <p className="text-lg leading-relaxed mb-3">Cadena reconocida con múltiples ubicaciones a lo largo de la isla. Se destaca por su amplio inventario y precios competitivos.</p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                    <li>Múltiples sucursales en el área metro y municipios</li>
+                    <li>Buena variedad de flores y productos derivados</li>
+                    <li>Personal con experiencia en orientación al paciente</li>
+                  </ul>
+                </div>
+
+                {/* #3 Herbology */}
+                <div className="mb-6 bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-gray-100 text-gray-700 text-sm font-bold px-3 py-1 rounded-full">#3</span>
+                    <h3 className="text-xl font-bold text-gray-800">Herbology</h3>
+                  </div>
+                  <p className="text-lg leading-relaxed mb-3">Dispensario con enfoque educativo que ofrece consultas personalizadas y una selección curada de productos de calidad.</p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                    <li>Enfoque en educación y bienestar del paciente</li>
+                    <li>Selección curada de productos artesanales</li>
+                    <li>Ambiente acogedor y profesional</li>
+                  </ul>
+                </div>
+
+                {/* #4 Green Medical */}
+                <div className="mb-6 bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-gray-100 text-gray-700 text-sm font-bold px-3 py-1 rounded-full">#4</span>
+                    <h3 className="text-xl font-bold text-gray-800">Green Medical</h3>
+                  </div>
+                  <p className="text-lg leading-relaxed mb-3">Dispensario con presencia en varias regiones de PR, conocido por su servicio al cliente y programa de lealtad para pacientes frecuentes.</p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                    <li>Programa de fidelidad con descuentos para pacientes regulares</li>
+                    <li>Horarios extendidos en algunas ubicaciones</li>
+                    <li>Buena relación calidad-precio</li>
+                  </ul>
+                </div>
+
+                {/* #5 Isla Verde Cannabis */}
+                <div className="mb-6 bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-gray-100 text-gray-700 text-sm font-bold px-3 py-1 rounded-full">#5</span>
+                    <h3 className="text-xl font-bold text-gray-800">Isla Verde Cannabis</h3>
+                  </div>
+                  <p className="text-lg leading-relaxed mb-3">Ubicado en la zona de Isla Verde/Carolina, atrae tanto a residentes como a visitantes con tarjeta de cannabis medicinal de otras jurisdicciones.</p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                    <li>Ubicación conveniente cerca de zona turística</li>
+                    <li>Atiende pacientes no residentes con documentación válida</li>
+                    <li>Variedad de productos incluyendo comestibles y tópicos</li>
+                  </ul>
+                </div>
+
+                {/* #6 Pharma Verde */}
+                <div className="mb-6 bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-gray-100 text-gray-700 text-sm font-bold px-3 py-1 rounded-full">#6</span>
+                    <h3 className="text-xl font-bold text-gray-800">Pharma Verde</h3>
+                  </div>
+                  <p className="text-lg leading-relaxed mb-3">Dispensario con enfoque farmacéutico que prioriza la precisión en dosificación y el acompañamiento médico del paciente.</p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                    <li>Enfoque clínico y farmacéutico en la dispensación</li>
+                    <li>Asesoría sobre interacciones con otros medicamentos</li>
+                    <li>Productos con dosificación precisa (aceites, cápsulas)</li>
+                  </ul>
+                </div>
+
+                {/* #7 MJ Dispensary */}
+                <div className="mb-8 bg-white p-6 rounded-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="bg-gray-100 text-gray-700 text-sm font-bold px-3 py-1 rounded-full">#7</span>
+                    <h3 className="text-xl font-bold text-gray-800">MJ Dispensary</h3>
+                  </div>
+                  <p className="text-lg leading-relaxed mb-3">Con presencia en el área sur de la isla, MJ Dispensary ofrece accesibilidad a pacientes fuera del área metropolitana.</p>
+                  <ul className="list-disc pl-6 space-y-1 text-gray-600">
+                    <li>Cobertura en el área sur de Puerto Rico</li>
+                    <li>Precios accesibles y ofertas frecuentes</li>
+                    <li>Atención personalizada en comunidades fuera del metro</li>
+                  </ul>
                 </div>
 
                 <div className="mb-8">

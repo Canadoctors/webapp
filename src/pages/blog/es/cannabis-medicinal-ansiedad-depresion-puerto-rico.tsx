@@ -38,7 +38,7 @@ export default function AnsiedadDepresionPage() {
           <div className="space-y-6">
             <Card className="overflow-hidden">
               <div className="aspect-video relative lg:aspect-[2/1]">
-                <div className="w-full h-full bg-gradient-to-br from-purple-600 to-brand-primary flex items-center justify-center"><h2 className="text-white text-3xl font-bold text-center px-8">Cannabis Medicinal<br />Ansiedad y Depresión</h2></div>
+                <Image src="/images/blog/cannabis-ansiedad-depresion-pr.png" alt="Cannabis medicinal para ansiedad y depresión en Puerto Rico" fill className="object-cover" priority />
               </div>
               <CardHeader className="space-y-4">
                 <CardTitle className="text-2xl lg:text-3xl font-bold leading-tight">{articleTitle}</CardTitle>
