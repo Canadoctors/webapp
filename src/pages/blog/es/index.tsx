@@ -36,43 +36,43 @@ export const metadata: Metadata = {
 
 const blogArticles = [
   {
-    id: 1,
-    title: "Cómo obtener tu licencia de cannabis medicinal en Puerto Rico: Guía paso a paso (2025)",
+    id: 9,
+    title: "El Cannabis Medicinal en Puerto Rico: Un Programa en Encrucijada (2026)",
     description:
-      "Guía completa actualizada para obtener tu licencia de cannabis medicinal en Puerto Rico de forma rápida y segura con CanaDoctors.",
-    slug: "como-obtener-licencia-cannabis-medicinal-puerto-rico-2025",
+      "Análisis del estado del programa basado en el estudio de V2A Consulting para la JRCM. Datos de pacientes, médicos, precios y proyecciones.",
+    slug: "cannabis-medicinal-puerto-rico-programa-encrucijada-2026",
     cover: {
-      url: "/images/blog/como-obtener-tu-licencia-canabis-medicinal-puerto-rico.png",
-      alternativeText: "Guía para obtener licencia de cannabis medicinal en Puerto Rico",
+      url: "/images/blog/cannabis-medicinal-pr-encrucijada-2026.png",
+      alternativeText: "Estado del programa de cannabis medicinal PR 2026",
     },
-    publishedAt: "2025-01-07",
-    category: "Guías",
+    publishedAt: "2026-04-08",
+    category: "Industria",
   },
   {
-    id: 2,
-    title: "Diferencias entre genéticas Sativa, Índica e Híbrida: ¿Cuál es mejor para tu tratamiento?",
+    id: 11,
+    title: "Cannabis medicinal y la tercera edad: Beneficios, seguridad y consideraciones",
     description:
-      "Descubre las diferencias entre las genéticas de cannabis medicinal y cuál es la más adecuada para tu condición de salud.",
-    slug: "diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal",
+      "Guía sobre el uso de cannabis medicinal en adultos mayores. Evidencia científica, condiciones comunes y consideraciones especiales.",
+    slug: "cannabis-medicinal-tercera-edad-adultos-mayores",
     cover: {
-      url: "/images/blog/diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal.png",
-      alternativeText: "Diferencias entre genéticas de cannabis medicinal",
+      url: "/images/blog/cannabis-medicinal-tercera-edad.png",
+      alternativeText: "Cannabis medicinal para adultos mayores",
     },
-    publishedAt: "2025-01-07",
+    publishedAt: "2026-04-08",
     category: "Educación",
   },
   {
-    id: 3,
-    title: "Cómo los dispensarios en Puerto Rico pueden mejorar la atención al paciente con tecnología",
+    id: 10,
+    title: "Guía de los mejores dispensarios de cannabis medicinal en Puerto Rico",
     description:
-      "Descubre cómo la tecnología y el seguimiento en tiempo real están revolucionando la atención en dispensarios de cannabis medicinal.",
-    slug: "como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia",
+      "Conoce los dispensarios más destacados en Puerto Rico. Calidad, variedad de productos y atención al paciente.",
+    slug: "mejores-dispensarios-cannabis-medicinal-puerto-rico",
     cover: {
-      url: "/images/blog/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia.png",
-      alternativeText: "Tecnología en dispensarios de cannabis medicinal",
+      url: "/images/blog/mejores-dispensarios-cannabis-pr.png",
+      alternativeText: "Mejores dispensarios cannabis medicinal Puerto Rico",
     },
-    publishedAt: "2025-01-07",
-    category: "Tecnología",
+    publishedAt: "2026-04-08",
+    category: "Guías",
   },
   {
     id: 4,
@@ -140,43 +140,43 @@ const blogArticles = [
     category: "Educación",
   },
   {
-    id: 9,
-    title: "El Cannabis Medicinal en Puerto Rico: Un Programa en Encrucijada (2026)",
+    id: 1,
+    title: "Cómo obtener tu licencia de cannabis medicinal en Puerto Rico: Guía paso a paso (2025)",
     description:
-      "Análisis del estado del programa basado en el estudio de V2A Consulting para la JRCM. Datos de pacientes, médicos, precios y proyecciones.",
-    slug: "cannabis-medicinal-puerto-rico-programa-encrucijada-2026",
+      "Guía completa actualizada para obtener tu licencia de cannabis medicinal en Puerto Rico de forma rápida y segura con CanaDoctors.",
+    slug: "como-obtener-licencia-cannabis-medicinal-puerto-rico-2025",
     cover: {
-      url: "/images/blog/cannabis-medicinal-pr-encrucijada-2026.png",
-      alternativeText: "Estado del programa de cannabis medicinal PR 2026",
+      url: "/images/blog/como-obtener-tu-licencia-canabis-medicinal-puerto-rico.png",
+      alternativeText: "Guía para obtener licencia de cannabis medicinal en Puerto Rico",
     },
-    publishedAt: "2026-04-08",
-    category: "Industria",
-  },
-  {
-    id: 10,
-    title: "Guía de los mejores dispensarios de cannabis medicinal en Puerto Rico",
-    description:
-      "Conoce los dispensarios más destacados en Puerto Rico. Calidad, variedad de productos y atención al paciente.",
-    slug: "mejores-dispensarios-cannabis-medicinal-puerto-rico",
-    cover: {
-      url: "/images/blog/mejores-dispensarios-cannabis-pr.png",
-      alternativeText: "Mejores dispensarios cannabis medicinal Puerto Rico",
-    },
-    publishedAt: "2026-04-08",
+    publishedAt: "2025-01-07",
     category: "Guías",
   },
   {
-    id: 11,
-    title: "Cannabis medicinal y la tercera edad: Beneficios, seguridad y consideraciones",
+    id: 2,
+    title: "Diferencias entre genéticas Sativa, Índica e Híbrida: ¿Cuál es mejor para tu tratamiento?",
     description:
-      "Guía sobre el uso de cannabis medicinal en adultos mayores. Evidencia científica, condiciones comunes y consideraciones especiales.",
-    slug: "cannabis-medicinal-tercera-edad-adultos-mayores",
+      "Descubre las diferencias entre las genéticas de cannabis medicinal y cuál es la más adecuada para tu condición de salud.",
+    slug: "diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal",
     cover: {
-      url: "/images/blog/cannabis-medicinal-tercera-edad.png",
-      alternativeText: "Cannabis medicinal para adultos mayores",
+      url: "/images/blog/diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal.png",
+      alternativeText: "Diferencias entre genéticas de cannabis medicinal",
     },
-    publishedAt: "2026-04-08",
+    publishedAt: "2025-01-07",
     category: "Educación",
+  },
+  {
+    id: 3,
+    title: "Cómo los dispensarios en Puerto Rico pueden mejorar la atención al paciente con tecnología",
+    description:
+      "Descubre cómo la tecnología y el seguimiento en tiempo real están revolucionando la atención en dispensarios de cannabis medicinal.",
+    slug: "como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia",
+    cover: {
+      url: "/images/blog/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia.png",
+      alternativeText: "Tecnología en dispensarios de cannabis medicinal",
+    },
+    publishedAt: "2025-01-07",
+    category: "Tecnología",
   },
 ]
 
