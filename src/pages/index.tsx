@@ -155,40 +155,40 @@ function RevealSection({ children, className = "", delay = 0 }: { children: Reac
 
 const staticArticles = [
   {
-    id: 1,
-    title: "Cómo obtener tu licencia de cannabis medicinal en Puerto Rico",
+    id: 4,
+    title: "Condiciones que califican para cannabis medicinal en Puerto Rico",
     description:
-      "Guía completa actualizada para obtener tu licencia de cannabis medicinal en Puerto Rico de forma rápida y segura.",
-    slug: "como-obtener-licencia-cannabis-medicinal-puerto-rico-2025",
+      "Lista completa de las 25 condiciones debilitantes que califican según la Ley 42-2017 y el Reglamento 9038.",
+    slug: "condiciones-que-califican-cannabis-medicinal-puerto-rico",
     cover: {
-      url: "/images/blog/como-obtener-tu-licencia-canabis-medicinal-puerto-rico.png",
-      alternativeText: "Guía para obtener licencia de cannabis medicinal en Puerto Rico",
+      url: "/images/blog/condiciones-cannabis-medicinal-pr.png",
+      alternativeText: "Condiciones que califican para cannabis medicinal en Puerto Rico",
     },
-    publishedAt: "2025-01-07",
+    publishedAt: "2026-04-08",
   },
   {
-    id: 2,
-    title: "Diferencias entre genéticas Sativa, Índica e Híbrida",
+    id: 5,
+    title: "Beneficios del cannabis medicinal para el dolor crónico",
     description:
-      "Descubre las diferencias entre las genéticas de cannabis medicinal y cuál es la más adecuada para tu condición.",
-    slug: "diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal",
+      "Lo que dice la ciencia sobre el uso de cannabis medicinal para tratar el dolor crónico de forma segura.",
+    slug: "beneficios-cannabis-medicinal-dolor-cronico",
     cover: {
-      url: "/images/blog/diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal.png",
-      alternativeText: "Diferencias entre genéticas de cannabis medicinal",
+      url: "/images/blog/beneficios-cannabis-dolor-cronico.png",
+      alternativeText: "Beneficios del cannabis medicinal para el dolor crónico",
     },
-    publishedAt: "2025-01-07",
+    publishedAt: "2026-04-08",
   },
   {
-    id: 3,
-    title: "Cómo los dispensarios pueden mejorar la atención con tecnología",
+    id: 6,
+    title: "Cannabis medicinal para ansiedad y depresión en Puerto Rico",
     description:
-      "Descubre cómo la tecnología y el seguimiento en tiempo real revolucionan la atención en dispensarios.",
-    slug: "como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia",
+      "Guía sobre cómo el cannabis medicinal puede ayudar con la ansiedad y depresión bajo supervisión médica.",
+    slug: "cannabis-medicinal-ansiedad-depresion-puerto-rico",
     cover: {
-      url: "/images/blog/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia.png",
-      alternativeText: "Tecnología en dispensarios de cannabis medicinal",
+      url: "/images/blog/cannabis-ansiedad-depresion-pr.png",
+      alternativeText: "Cannabis medicinal para ansiedad y depresión",
     },
-    publishedAt: "2025-01-07",
+    publishedAt: "2026-04-08",
   },
 ]
 

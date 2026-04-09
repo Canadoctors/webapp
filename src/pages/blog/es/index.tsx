@@ -74,12 +74,116 @@ const blogArticles = [
     publishedAt: "2025-01-07",
     category: "Tecnología",
   },
+  {
+    id: 4,
+    title: "Condiciones que califican para cannabis medicinal en Puerto Rico: Lista completa",
+    description:
+      "Conoce todas las condiciones médicas que califican para obtener tu tarjeta de cannabis medicinal en Puerto Rico según la Ley 42-2017.",
+    slug: "condiciones-que-califican-cannabis-medicinal-puerto-rico",
+    cover: {
+      url: "/images/blog/condiciones-cannabis-medicinal-pr.png",
+      alternativeText: "Condiciones que califican para cannabis medicinal en Puerto Rico",
+    },
+    publishedAt: "2026-04-08",
+    category: "Guías",
+  },
+  {
+    id: 5,
+    title: "Beneficios del cannabis medicinal para el dolor crónico: Lo que dice la ciencia",
+    description:
+      "Descubre la evidencia científica detrás del uso del cannabis medicinal para tratar el dolor crónico de forma segura y efectiva.",
+    slug: "beneficios-cannabis-medicinal-dolor-cronico",
+    cover: {
+      url: "/images/blog/beneficios-cannabis-dolor-cronico.png",
+      alternativeText: "Beneficios del cannabis medicinal para el dolor crónico",
+    },
+    publishedAt: "2026-04-08",
+    category: "Educación",
+  },
+  {
+    id: 6,
+    title: "Cannabis medicinal para ansiedad y depresión en Puerto Rico: Guía completa",
+    description:
+      "Guía sobre cómo el cannabis medicinal puede ayudar a tratar la ansiedad y depresión bajo supervisión médica en Puerto Rico.",
+    slug: "cannabis-medicinal-ansiedad-depresion-puerto-rico",
+    cover: {
+      url: "/images/blog/cannabis-ansiedad-depresion-pr.png",
+      alternativeText: "Cannabis medicinal para ansiedad y depresión",
+    },
+    publishedAt: "2026-04-08",
+    category: "Educación",
+  },
+  {
+    id: 7,
+    title: "Cómo renovar tu tarjeta de cannabis medicinal en Puerto Rico (2026)",
+    description:
+      "Paso a paso para renovar tu tarjeta de cannabis medicinal en Puerto Rico. Requisitos, costos y proceso actualizado.",
+    slug: "renovar-tarjeta-cannabis-medicinal-puerto-rico",
+    cover: {
+      url: "/images/blog/renovar-tarjeta-cannabis-pr.png",
+      alternativeText: "Renovar tarjeta cannabis medicinal Puerto Rico",
+    },
+    publishedAt: "2026-04-08",
+    category: "Guías",
+  },
+  {
+    id: 8,
+    title: "Cannabis medicinal vs. recreativo: Diferencias clave que debes conocer",
+    description:
+      "Entiende las diferencias fundamentales entre el cannabis medicinal y recreativo, y el marco legal en Puerto Rico.",
+    slug: "cannabis-medicinal-vs-recreativo-diferencias",
+    cover: {
+      url: "/images/blog/cannabis-medicinal-vs-recreativo.png",
+      alternativeText: "Cannabis medicinal vs recreativo diferencias",
+    },
+    publishedAt: "2026-04-08",
+    category: "Educación",
+  },
+  {
+    id: 9,
+    title: "El Cannabis Medicinal en Puerto Rico: Un Programa en Encrucijada (2026)",
+    description:
+      "Análisis del estado del programa basado en el estudio de V2A Consulting para la JRCM. Datos de pacientes, médicos, precios y proyecciones.",
+    slug: "cannabis-medicinal-puerto-rico-programa-encrucijada-2026",
+    cover: {
+      url: "/images/blog/cannabis-medicinal-pr-encrucijada-2026.png",
+      alternativeText: "Estado del programa de cannabis medicinal PR 2026",
+    },
+    publishedAt: "2026-04-08",
+    category: "Industria",
+  },
+  {
+    id: 10,
+    title: "Guía de los mejores dispensarios de cannabis medicinal en Puerto Rico",
+    description:
+      "Conoce los dispensarios más destacados en Puerto Rico. Calidad, variedad de productos y atención al paciente.",
+    slug: "mejores-dispensarios-cannabis-medicinal-puerto-rico",
+    cover: {
+      url: "/images/blog/mejores-dispensarios-cannabis-pr.png",
+      alternativeText: "Mejores dispensarios cannabis medicinal Puerto Rico",
+    },
+    publishedAt: "2026-04-08",
+    category: "Guías",
+  },
+  {
+    id: 11,
+    title: "Cannabis medicinal y la tercera edad: Beneficios, seguridad y consideraciones",
+    description:
+      "Guía sobre el uso de cannabis medicinal en adultos mayores. Evidencia científica, condiciones comunes y consideraciones especiales.",
+    slug: "cannabis-medicinal-tercera-edad-adultos-mayores",
+    cover: {
+      url: "/images/blog/cannabis-medicinal-tercera-edad.png",
+      alternativeText: "Cannabis medicinal para adultos mayores",
+    },
+    publishedAt: "2026-04-08",
+    category: "Educación",
+  },
 ]
 
 export default function BlogIndex() {
   const [selectedCategory, setSelectedCategory] = useState<string>("Todos")
 
-  const categories = ["Todos", "Guías", "Educación", "Tecnología"]
+  const categories = ["Todos", "Guías", "Educación", "Tecnología", "Industria"]
 
   const filteredArticles =
     selectedCategory === "Todos"
