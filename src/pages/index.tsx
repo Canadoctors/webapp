@@ -614,8 +614,8 @@ export default function PuertoRicoLandingPage() {
             <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
               {[
                 {
-                  title: "Consultas Presenciales",
-                  description: "Citas completas con médicos licenciados en Puerto Rico especializados en cannabis medicinal.",
+                  title: "Consultas Virtuales",
+                  description: "Evaluaciones médicas en línea con médicos licenciados en Puerto Rico especializados en cannabis medicinal.",
                   icon: <Users className="w-8 h-8" />,
                 },
                 {
