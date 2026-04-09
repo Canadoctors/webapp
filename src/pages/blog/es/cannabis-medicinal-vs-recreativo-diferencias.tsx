@@ -148,7 +148,7 @@ export default function MedicinalVsRecreativoPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="cannabis-medicinal-vs-recreativo-diferencias" />
         </div>
       </div>
     </>

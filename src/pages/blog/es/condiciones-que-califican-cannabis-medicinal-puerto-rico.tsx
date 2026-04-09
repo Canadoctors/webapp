@@ -210,7 +210,7 @@ export default function CondicionesCalificanPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="condiciones-que-califican-cannabis-medicinal-puerto-rico" />
         </div>
       </div>
     </>

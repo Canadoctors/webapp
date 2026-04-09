@@ -122,7 +122,7 @@ export default function RenovarTarjetaPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="renovar-tarjeta-cannabis-medicinal-puerto-rico" />
         </div>
       </div>
     </>

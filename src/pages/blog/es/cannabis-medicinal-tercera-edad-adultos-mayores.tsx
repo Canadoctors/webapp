@@ -143,7 +143,7 @@ export default function TerceraEdadPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="cannabis-medicinal-tercera-edad-adultos-mayores" />
         </div>
       </div>
     </>

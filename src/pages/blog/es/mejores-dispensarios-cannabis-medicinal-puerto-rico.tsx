@@ -122,7 +122,7 @@ export default function MejoresDispensariosPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="mejores-dispensarios-cannabis-medicinal-puerto-rico" />
         </div>
       </div>
     </>

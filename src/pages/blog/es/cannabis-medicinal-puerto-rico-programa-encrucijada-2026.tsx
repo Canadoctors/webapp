@@ -172,7 +172,7 @@ export default function ProgramaEncrucijadaPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="cannabis-medicinal-puerto-rico-programa-encrucijada-2026" />
         </div>
       </div>
     </>

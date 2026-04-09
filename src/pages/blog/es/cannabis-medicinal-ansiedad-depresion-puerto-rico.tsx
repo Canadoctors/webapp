@@ -144,7 +144,7 @@ export default function AnsiedadDepresionPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="cannabis-medicinal-ansiedad-depresion-puerto-rico" />
         </div>
       </div>
     </>

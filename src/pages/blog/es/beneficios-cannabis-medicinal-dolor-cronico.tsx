@@ -177,7 +177,7 @@ export default function DolorCronicoPage() {
               </CardContent>
             </Card>
           </div>
-          <BlogSidebar />
+          <BlogSidebar currentSlug="beneficios-cannabis-medicinal-dolor-cronico" />
         </div>
       </div>
     </>
