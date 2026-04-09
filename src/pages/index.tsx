@@ -155,10 +155,22 @@ function RevealSection({ children, className = "", delay = 0 }: { children: Reac
 
 const staticArticles = [
   {
+    id: 9,
+    title: "El Cannabis Medicinal en Puerto Rico: Un Programa en Encrucijada",
+    description:
+      "Análisis del estudio V2A Consulting 2026: solo 84 médicos activos, 108K pacientes y el futuro del programa.",
+    slug: "cannabis-medicinal-puerto-rico-programa-encrucijada-2026",
+    cover: {
+      url: "/images/blog/cannabis-medicinal-pr-encrucijada-2026.png",
+      alternativeText: "Estado del programa de cannabis medicinal en Puerto Rico 2026",
+    },
+    publishedAt: "2026-04-08",
+  },
+  {
     id: 4,
     title: "Condiciones que califican para cannabis medicinal en Puerto Rico",
     description:
-      "Lista completa de las 25 condiciones debilitantes que califican según la Ley 42-2017 y el Reglamento 9038.",
+      "Lista completa de las 25 condiciones debilitantes según la Ley 42-2017 y el Reglamento 9038.",
     slug: "condiciones-que-califican-cannabis-medicinal-puerto-rico",
     cover: {
       url: "/images/blog/condiciones-cannabis-medicinal-pr.png",
@@ -167,26 +179,14 @@ const staticArticles = [
     publishedAt: "2026-04-08",
   },
   {
-    id: 5,
-    title: "Beneficios del cannabis medicinal para el dolor crónico",
+    id: 11,
+    title: "Cannabis medicinal y la tercera edad: Beneficios y seguridad",
     description:
-      "Lo que dice la ciencia sobre el uso de cannabis medicinal para tratar el dolor crónico de forma segura.",
-    slug: "beneficios-cannabis-medicinal-dolor-cronico",
+      "Evidencia científica sobre el uso de cannabis medicinal en adultos mayores. Consideraciones especiales.",
+    slug: "cannabis-medicinal-tercera-edad-adultos-mayores",
     cover: {
-      url: "/images/blog/beneficios-cannabis-dolor-cronico.png",
-      alternativeText: "Beneficios del cannabis medicinal para el dolor crónico",
-    },
-    publishedAt: "2026-04-08",
-  },
-  {
-    id: 6,
-    title: "Cannabis medicinal para ansiedad y depresión en Puerto Rico",
-    description:
-      "Guía sobre cómo el cannabis medicinal puede ayudar con la ansiedad y depresión bajo supervisión médica.",
-    slug: "cannabis-medicinal-ansiedad-depresion-puerto-rico",
-    cover: {
-      url: "/images/blog/cannabis-ansiedad-depresion-pr.png",
-      alternativeText: "Cannabis medicinal para ansiedad y depresión",
+      url: "/images/blog/cannabis-medicinal-tercera-edad.png",
+      alternativeText: "Cannabis medicinal para adultos mayores",
     },
     publishedAt: "2026-04-08",
   },
