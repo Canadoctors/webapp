@@ -561,7 +561,7 @@ export default function PuertoRicoLandingPage() {
                 { step: "01", title: "Reservar Consulta", description: "Programa tu cita con un médico certificado de CanaDoctors en minutos." },
                 { step: "02", title: "Evaluación Médica", description: "Discute tu historial médico y condiciones con nuestro médico experto." },
                 { step: "03", title: "Certificación", description: "Si se aprueba, recibe tu certificación médica para cannabis medicinal." },
-                { step: "04", title: "Registro Estatal", description: "Completa tu registro en el Programa de Cannabis Medicinal con nuestra guía." },
+                { step: "04", title: "Recibe tu Licencia", description: "Recibe tu licencia de cannabis medicinal por email o retírala en tu dispensario." },
               ].map((step, index) => (
                 <RevealSection key={index} delay={index * 150}>
                   <div className="group glass rounded-2xl p-6 sm:p-8 h-full hover-lift cursor-default">
