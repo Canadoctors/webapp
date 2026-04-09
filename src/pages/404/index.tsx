@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from "next/link"
 
 function NotFound() {
   return (
@@ -13,9 +14,9 @@ function NotFound() {
         <div className="bg-brand-secondary px-4 py-1 text-sm text-white rounded rotate-12 absolute">
           Página no encontrada
         </div>
-        <a href="/" className="mt-10 text-white/70 hover:text-white underline text-lg">
+        <Link href="/" className="mt-10 text-white/70 hover:text-white underline text-lg">
           Volver al inicio
-        </a>
+        </Link>
       </div>
     </>
   )
