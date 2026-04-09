@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import Head from "next/head"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
@@ -37,7 +38,7 @@ export default function MejoresDispensariosPage() {
           <div className="space-y-6">
             <Card className="overflow-hidden">
               <div className="aspect-video relative lg:aspect-[2/1]">
-                <div className="w-full h-full bg-gradient-to-br from-brand-tertiary to-brand-primary flex items-center justify-center"><h2 className="text-white text-3xl font-bold text-center px-8">Mejores Dispensarios<br />Cannabis Medicinal PR</h2></div>
+                <Image src="/images/blog/mejores-dispensarios-cannabis-pr.png" alt="Mejores dispensarios de cannabis medicinal en Puerto Rico" fill className="object-cover" priority />
               </div>
               <CardHeader className="space-y-4">
                 <CardTitle className="text-2xl lg:text-3xl font-bold leading-tight">{articleTitle}</CardTitle>
