@@ -85,7 +85,7 @@ export default function RenovarTarjetaPage() {
                     </div>
                     <div className="flex gap-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
                       <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
-                      <div><h3 className="font-semibold mb-1">Registro ante el Departamento de Salud</h3><p>Completa el proceso de renovación ante la JRCM con tu nueva recomendación.</p></div>
+                      <div><h3 className="font-semibold mb-1">Recibe tu licencia renovada</h3><p>Recibe tu nueva licencia de cannabis medicinal por email o retírala directamente en tu dispensario.</p></div>
                     </div>
                   </div>
                 </div>
