@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import Head from "next/head"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SiteHeader } from "@/components/site-header"
@@ -37,7 +38,7 @@ export default function RenovarTarjetaPage() {
           <div className="space-y-6">
             <Card className="overflow-hidden">
               <div className="aspect-video relative lg:aspect-[2/1]">
-                <div className="w-full h-full bg-gradient-to-br from-brand-secondary to-brand-primary flex items-center justify-center"><h2 className="text-white text-3xl font-bold text-center px-8">Renovar tu Tarjeta de<br />Cannabis Medicinal</h2></div>
+                <Image src="/images/blog/renovar-tarjeta-cannabis-pr.png" alt="Renovar tarjeta de cannabis medicinal en Puerto Rico" fill className="object-cover" priority />
               </div>
               <CardHeader className="space-y-4">
                 <CardTitle className="text-2xl lg:text-3xl font-bold leading-tight">{articleTitle}</CardTitle>
