@@ -10,8 +10,9 @@ class MyDocument extends Document {
   render() {
     const GTM_ID = "GTM-WGQVP68"
     return (
-      <Html>
+      <Html lang="es">
         <Head>
+          <meta charSet="utf-8" />
           {/* Google Tag Manager Script */}
           <Script
             id="gtm-script"
@@ -27,6 +28,11 @@ class MyDocument extends Document {
             }}
           />
           <link rel="icon" href="/favicon.ico" />
+          <link rel="canonical" href="https://canadoctors.com" />
+          {/* Preconnect for performance */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
         </Head>
         <body>
           {/* Google Tag Manager NoScript */}

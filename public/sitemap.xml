@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
+  <url>
+    <loc>https://canadoctors.com/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://canadoctors.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://canadoctors.com/US/FL/" />
+  </url>
+
+  <!-- US Florida -->
+  <url>
+    <loc>https://canadoctors.com/US/FL/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://canadoctors.com/US/FL/" />
+  </url>
+
+  <!-- US Illinois -->
+  <url>
+    <loc>https://canadoctors.com/US/IL/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://canadoctors.com/US/IL/" />
+  </url>
+
+  <!-- Panama -->
+  <url>
+    <loc>https://canadoctors.com/PTY/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://canadoctors.com/blog/es/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://canadoctors.com/blog/es/como-obtener-licencia-cannabis-medicinal-puerto-rico-2025</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://canadoctors.com/blog/es/diferencias-geneticas-sativa-indica-hibrida-cannabis-medicinal</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://canadoctors.com/blog/es/como-dispensarios-puerto-rico-mejorar-atencion-paciente-tecnologia</loc>
+    <lastmod>2025-01-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://canadoctors.com/faq/pr</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- CannMed -->
+  <url>
+    <loc>https://canadoctors.com/cannmed/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Terms -->
+  <url>
+    <loc>https://canadoctors.com/terms/</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

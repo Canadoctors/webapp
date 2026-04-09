@@ -1,15 +1,25 @@
 "use client"
 import { FaAngleUp } from "react-icons/fa"
 import { useRouter } from "next/router"
+import Head from "next/head"
 
 import faqAr from "../../data/faqAR.json"
 import faqPr from "../../data/faqPR.json"
 
 function CountryFaq() {
-  // Cambiamos el nombre para que comience con mayúscula
   const { query } = useRouter()
+  const country = query.country as string
+  const title = country === "pr" ? "Preguntas Frecuentes - Cannabis Medicinal Puerto Rico | CanaDoctors" : "Preguntas Frecuentes - Cannabis Medicinal Arkansas | CanaDoctors"
+  const description = country === "pr" ? "Respuestas a las preguntas más frecuentes sobre cannabis medicinal en Puerto Rico. Requisitos, proceso, costos y más." : "Respuestas a las preguntas más frecuentes sobre cannabis medicinal en Arkansas."
 
   return (
+    <>
+    <Head>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" href={`https://canadoctors.com/faq/${country || "pr"}`} />
+    </Head>
     <div className="max-w-screen-xl mx-auto px-5 bg-white min-h-screen">
       <div className="flex flex-col items-center">
         <h2 className="font-bold text-5xl mt-5 tracking-tight">Preguntas frecuentes</h2>
@@ -57,6 +67,7 @@ function CountryFaq() {
         )}
       </div>
     </div>
+    </>
   )
 }
 

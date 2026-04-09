@@ -3,31 +3,115 @@
 import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import type { Metadata } from "next"
+import Head from "next/head"
 import { Button } from "@/components/ui/button"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Phone, Mail, Video, Star, Heart, Menu, X, ArrowRight, ArrowUpRight, ChevronDown, Leaf, Shield, Clock, Users } from "lucide-react"
 
-export const metadata: Metadata = {
-  title: "Cannabis Medicinal en Puerto Rico | CanaDoctors",
-  description:
-    "Obtén tu tarjeta de Cannabis Medicinal en Puerto Rico con CanaDoctors. Orientación experta, aprobaciones rápidas y atención compasiva. Comienza tu camino hacia el bienestar hoy.",
-  openGraph: {
-    title: "Cannabis Medicinal en Puerto Rico | CanaDoctors",
-    description:
-      "Obtén tu tarjeta de Cannabis Medicinal en Puerto Rico con CanaDoctors. Orientación experta, aprobaciones rápidas y atención compasiva.",
-    url: "https://canadoctors.com/puerto-rico",
-    siteName: "CanaDoctors",
-    images: [
-      {
-        url: "https://canadoctors.com/og-image-puerto-rico.jpg",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "es-PR",
-    type: "website",
+// JSON-LD Structured Data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "CanaDoctors",
+  "description": "Plataforma líder en cannabis medicinal en Puerto Rico. Conectamos pacientes con médicos certificados para obtener la tarjeta de cannabis medicinal de forma rápida, segura y conforme a la regulación del Departamento de Salud de Puerto Rico.",
+  "url": "https://canadoctors.com",
+  "logo": "https://canadoctors.com/images/logosCD/logopositivo.svg",
+  "image": "https://canadoctors.com/thumb.jpg",
+  "telephone": "+1-787-000-0000",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "PR",
+    "addressRegion": "Puerto Rico"
   },
+  "areaServed": [
+    { "@type": "State", "name": "Puerto Rico" },
+    { "@type": "State", "name": "Florida" },
+    { "@type": "State", "name": "Illinois" },
+    { "@type": "State", "name": "Arkansas" }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/canadoctors/",
+    "https://www.youtube.com/@canadoctors"
+  ],
+  "medicalSpecialty": "Cannabis Medicinal",
+  "priceRange": "$$"
+}
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CanaDoctors",
+  "url": "https://canadoctors.com",
+  "description": "Plataforma líder en cannabis medicinal en Puerto Rico",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CanaDoctors",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://canadoctors.com/images/logosCD/logopositivo.svg"
+    }
+  }
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Quién califica para el cannabis medicinal en Puerto Rico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pacientes con condiciones cualificantes como: Alzheimer, Anorexia, Artritis, Cáncer, Desórdenes de Ansiedad, Esclerosis Múltiple, Epilepsia, Fibromialgia, Hepatitis C, Infección del VIH, Migraña, Parkinson, entre otras. La lista completa está disponible en el sitio web del Departamento de Salud de Puerto Rico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo toma el proceso de solicitud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El proceso generalmente toma de 2 a 3 semanas desde la consulta hasta recibir tu tarjeta de cannabis medicinal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se requieren consultas presenciales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, Puerto Rico requiere consultas presenciales para las certificaciones de cannabis medicinal, conforme a la regulación del Departamento de Salud."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta obtener una tarjeta de cannabis medicinal en Puerto Rico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El costo incluye la tarifa de solicitud estatal y la tarifa de consulta médica. Contáctanos para obtener información actualizada sobre los precios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo es válida la tarjeta de cannabis medicinal en Puerto Rico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Las tarjetas de cannabis medicinal en Puerto Rico son típicamente válidas por un año, pero pueden variar según la recomendación del médico tratante."
+      }
+    }
+  ]
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://canadoctors.com"
+    }
+  ]
 }
 
 // Hook for scroll-triggered animations
@@ -123,6 +207,27 @@ export default function PuertoRicoLandingPage() {
   const headerOpacity = Math.min(scrollY / 100, 1)
 
   return (
+    <>
+      <Head>
+        <title>Cannabis Medicinal en Puerto Rico | CanaDoctors - Médicos Certificados</title>
+        <meta
+          name="description"
+          content="Obtén tu tarjeta de cannabis medicinal en Puerto Rico con CanaDoctors. Médicos certificados, aprobaciones rápidas y atención conforme a la regulación del Departamento de Salud de PR."
+        />
+        <meta
+          name="keywords"
+          content="cannabis medicinal puerto rico, tarjeta cannabis medicinal, médicos certificados cannabis, licencia cannabis PR, CanaDoctors, marijuana medicinal puerto rico"
+        />
+        <link rel="canonical" href="https://canadoctors.com/" />
+        <meta property="og:title" content="Cannabis Medicinal en Puerto Rico | CanaDoctors" />
+        <meta property="og:description" content="Obtén tu tarjeta de cannabis medicinal en Puerto Rico con médicos certificados. Aprobaciones rápidas y atención profesional." />
+        <meta property="og:url" content="https://canadoctors.com/" />
+        <meta property="og:locale" content="es_PR" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      </Head>
     <div className="flex flex-col min-h-screen grain overflow-x-hidden">
       {/* ═══════════ HEADER ═══════════ */}
       <header
@@ -837,5 +942,6 @@ export default function PuertoRicoLandingPage() {
         </div>
       </footer>
     </div>
+    </>
   )
 }

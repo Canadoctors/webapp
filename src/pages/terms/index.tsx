@@ -1,9 +1,16 @@
 import Image from "next/image"
+import Head from "next/head"
 import Logo from "../../../public/images/logosCD/logopositivo.svg"
 
 function Terms() {
   return (
     <>
+      <Head>
+        <title>Términos y Condiciones | CanaDoctors</title>
+        <meta name="description" content="Términos y condiciones de uso de la plataforma CanaDoctors. Consentimiento de uso de la aplicación web y móvil para cannabis medicinal." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://canadoctors.com/terms/" />
+      </Head>
       <div className="w-full h-[100vh] bg-[#F3F4F6] overflow-hidden relative flex">
         <div className="absolute overflow-auto inset-0 bg-gradient-to-b">
           <div className="flex h-auto w-full items-center justify-center container mx-auto px-8">
